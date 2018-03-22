@@ -1,2 +1,3 @@
-# divisionx.io
-The computational code behind our platform and a insight regarding smart contract cross communication
+# Ðivision X website
+
+Can view publicly at http://divisionx.io/
