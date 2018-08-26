@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import firebase from 'firebase'
 
 // UX
 
@@ -42,13 +41,6 @@ import { faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/
 import WarningIcon from '@atlaskit/icon/glyph/warning';
 
 const airdrop = <FontAwesomeIcon icon={faParachuteBox} size='2x'/>
-const settings = { timestampsInSnapshots: true};
-firebase.initializeApp({
-  apiKey: "AAIzaSyBE0ESLCNynHDQWOIda7zBiBut4KfvTieA",
-  authDomain: "vldy-5bfae.firebaseapp.com",
-  projectId: "vldy-5bfae" });
-const db = firebase.firestore()
-db.settings(settings);
 
 class Home extends Component {
   constructor(props) {
