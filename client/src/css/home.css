@@ -1,0 +1,72 @@
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+}
+
+#root {
+  position: absolute;
+  width: device-width;
+  z-index: 100;
+  top: 100vh;
+}
+
+.homepageMenu {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  z-index: 1;
+  top: 0;
+}
+
+.landingPage {
+  position: relative;
+  width: 100vw;
+  top: -100vh;
+  z-index: 0;
+}
+
+.landingBranding {
+  position: absolute;
+  margin: 0 auto;
+  top: -22.5vh;
+  right: 12.5vw;
+}
+
+.landingLogo {
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 75vw;
+}
+
+ .landingTitle {
+  text-align: center;
+  position: relative;
+  font-family: raleigh;
+  display: block;
+  font-size: 5vw;
+  color: black;
+  top: -37.5vh;
+}
+
+.egem {
+  position: relative;
+  margin-right: 67.5vw;
+  width: 2vw;
+}
+
+.discord,  .telegram, .facebook, .twitter , .bct {
+  position: relative;
+  margin-left: .75vw;
+  width: 2.5vw;
+  border: solid;
+  border-color: white;
+  border-radius: 50%;
+
+}
+
+.landingButton {
+  position: relative;
+  margin-left: 5vw;
+  float: right;
+}

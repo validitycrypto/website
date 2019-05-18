@@ -1,5 +1,11 @@
-# Validity Official Website
+# Validity MVP 
+Created, designed and developed by @samgos (founder)
 
-Can view publicly at http://validity.ae/
+#### Technology stack
 
-With thanks to Samsy for his awesome three.js work, credit's for the dyanmic background go to him -> https://codepen.io/Samsy/pen/emWppX/
+* communalValidation (*smart contract*)
+* truffle-react-box (*react.js, node.js*)
+* vx-drag (*node.js, react.js*)
+* ERC20d (*smart contract*)
+* atlaskit (*react.js*)
+
