@@ -11,28 +11,31 @@ import { AtlaskitThemeProvider } from '@atlaskit/theme'
 import FieldText from '@atlaskit/field-text'
 import { AkCodeBlock } from '@atlaskit/code';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
-import 'semantic-ui-css/semantic.min.css';
 import Modal from '@atlaskit/modal-dialog'
 import Lorem from 'react-lorem-component';
 import Button from '@atlaskit/button'
 import Lozenge from '@atlaskit/lozenge'
 import 'styled-components'
-import '@atlaskit/css-reset'
 import './css/raleigh.css'
 import './css/home.css'
+
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { withStyles } from '@material-ui/core/styles';
 
 // Images
 
 import vldy from './images/vldy.png'
 import egem from './images/egem.png'
 import bct from './images/bct.png'
-import git from './images/github.png'
 import twitter from './images/twitter.png'
 import discord from './images/discord.png'
 import telegram from './images/telegram.png'
-import tiptg from './images/telegramtip.png'
-import redflag from './images/redflag.png'
-import tipdis from './images/discordtip.png'
 import facebook from './images/facebook.png'
 import air from './images/VLDY-AIRDROP2.png'
 import base1 from './images/base1.png'
@@ -42,7 +45,6 @@ import bcc from './images/bcc.png'
 import world from './images/world.png'
 import base3 from './images/base3.png'
 import lines2 from './images/lines2.png'
-import marcos from './images/marcos.png'
 import gozzy from './images/gozzy.png'
 import lukas from './images/lukas.png'
 import halmat from './images/halmat.png'
@@ -71,13 +73,6 @@ const dataMock = [
 
   ];
 
-firebase.initializeApp({
-  apiKey: "",
-  authDomain: "",
-  projectId: "" });
-const db = firebase.firestore()
-db.settings(settings);
-
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -93,13 +88,6 @@ class Home extends Component {
 componentWillMount() {
 
     this.open();
-
-    db.collection("fdfd").orderBy('index', 'desc').get().then((result) => {
-
-      console.log(result)
-
-
-    })
 
 
   }
@@ -142,13 +130,6 @@ componentWillMount() {
                        facebook: this.state.facebook,
                        wallet: this.state.wallet };
 
-                       db.collection(this.state.email).add(data).then(() => {
-
-                         this.submit();
-                         this.setState({isSubmitted: true});
-
-
-                       })
 
 
           }
@@ -177,32 +158,52 @@ addFlag = () => {
     const { isSubmitted } = this.state;
 
     return (
-      <div>
       <AtlaskitThemeProvider mode='light'>
-      <div className="landingPage">
-      <Page>
-      <br></br>
-      <Grid layout="fluid">
+          <div className="homepageMenu">
+            <AppBar style={{ backgroundColor: '#815aff' }} position="static">
+              <Toolbar>
+              <a href='https://egem.io'>
+                <img className='egem' src={egem}/>
+              </a>
+              <a href='https://discord.gg/s5rSvB2'>
+                <img className='discord' src={discord}/>
+              </a>
+              <a href='https://t.me/ValidityCrypto'>
+                <img className='telegram' src={telegram}/>
+              </a>
+              <a href='https://twitter.com/ValidityCrypto'>
+                <img className='twitter' src={twitter}/>
+              </a>
+              <a href='https://www.facebook.com/ValidityCrypto'>
+                <img className='facebook' src={facebook}/>
+              </a>
+              <a href='https://bitcointalk.org/index.php?topic=4900179'>
+                <img className='bct' src={bct}/>
+              </a>
+              <Button className="landingButton" onClick={this.scroll.bind(this, "page1-p1")} appearance="help">
+                Learn
+              </Button>
+              </Toolbar>
+              </AppBar>
+          </div>
+          <div className="landingPage">
+          <Page>
+          <Grid layout="fluid">
           <GridColumn medium={1}>
-            <a href='https://egem.io'>
-              <img className='egem' src={egem}/>
-            </a>
+
           </GridColumn>
           <GridColumn>
           </GridColumn>
           <GridColumn medium={3}>
-              <Button className="landingButton" onClick={this.scroll.bind(this, "page1-p1")} appearance="help">
-                Learn
-              </Button>
           </GridColumn>
       </Grid>
       <Grid layout="fluid">
       <GridColumn medium={2}>
       </GridColumn>
         <GridColumn>
-              <div className="landingLogo">
-              <img className='logo' src={vldy}/>
-              <div className="titlebox">Validity</div>
+              <div className="landingBranding">
+                <img className='landingLogo' src={vldy}/>
+                <p className="landingTitle">Validity</p>
               </div>
         </GridColumn>
         <GridColumn medium={2}>
@@ -210,55 +211,35 @@ addFlag = () => {
         </Grid>
         <Grid>
         <GridColumn>
+        </GridColumn>
+        <GridColumn medium={1}>
+        </GridColumn>
+        <GridColumn>
         <div className="socialLinks">
-            <a href='https://www.github.com/ValidityCrypto'>
-              <img className='github' src={git}/>
-            </a>
         </div>
         </GridColumn>
         <GridColumn medium={1}>
         </GridColumn>
         <GridColumn>
         <div className="socialLinks">
-          <a href='https://twitter.com/ValidityCrypto'>
-            <img className='twitter' src={twitter}/>
-          </a>
-        </div>
-        </GridColumn>
-        <GridColumn medium={1}>
-        </GridColumn>
-        <GridColumn>
-        <div className="socialLinks">
-          <a href='https://discord.gg/s5rSvB2'>
-            <img className='discord' src={discord}/>
-          </a>
           </div>
         </GridColumn>
         <GridColumn medium={1}>
         </GridColumn>
         <GridColumn>
         <div className="socialLinks">
-          <a href='https://t.me/ValidityCrypto'>
-            <img className='telegram' src={telegram}/>
-          </a>
           </div>
           </GridColumn>
           <GridColumn medium={1}>
           </GridColumn>
           <GridColumn>
           <div className="socialLinks">
-          <a href='https://www.facebook.com/ValidityCrypto'>
-            <img className='facebook' src={facebook}/>
-          </a>
           </div>
           </GridColumn>
           <GridColumn medium={1}>
           </GridColumn>
           <GridColumn>
           <div className="socialLinks">
-          <a href='https://bitcointalk.org/index.php?topic=4900179'>
-            <img className='bct' src={bct}/>
-          </a>
           </div>
           </GridColumn>
           <GridColumn medium={1}>
@@ -526,7 +507,6 @@ addFlag = () => {
         </div>
         </GridColumn>
         <GridColumn>
-        <img className="discordScreen" src={tipdis}/>
         </GridColumn>
           <GridColumn>
           </GridColumn>
@@ -535,7 +515,6 @@ addFlag = () => {
       <GridColumn>
       </GridColumn>
       <GridColumn>
-          <img className="telegramScreen" src={tiptg}/>
       </GridColumn>
       <GridColumn>
       </GridColumn>
@@ -581,7 +560,6 @@ addFlag = () => {
       </GridColumn>
       <GridColumn>
       <a href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
-      <img className='redflagsArticle' src={redflag}/>
       </a>
       <p className="titleRedflags"> <b> Blockchain and crypto-currency red flags </b> </p>
       </GridColumn>
@@ -703,7 +681,7 @@ addFlag = () => {
           <a className="pdis" href="https://t.me/xgozzy">
           <FontAwesomeIcon icon={faTelegramPlane} color='white' />
           </a>
-          <a className="pgit" href="https://github.com/samgos">
+          <a className="p" href="https://hub.com/samgos">
           <FontAwesomeIcon icon={faGithub} color='white'/>
           </a>
           </Card.Content>
@@ -782,7 +760,6 @@ addFlag = () => {
                   <GridColumn>
                   <div className="teamCards">
                     <Card className="marcos">
-                        <Image src={marcos}/>
                         <Card.Content>
                           <Card.Header>
                             <span className="blackt">
@@ -912,7 +889,6 @@ addFlag = () => {
         </Page>
         </div>
       </AtlaskitThemeProvider>
-      </div>
     );
   }
 }
