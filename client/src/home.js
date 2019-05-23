@@ -3,65 +3,87 @@ import firebase from 'firebase'
 
 // UX
 
+  // Misc
+import { faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PropTypes from 'prop-types';
+
+  // Atlaskit
 import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
 import SuccessIcon from '@atlaskit/icon/glyph/check-circle';
-import { colors } from '@atlaskit/theme';
-import { AtlaskitThemeProvider } from '@atlaskit/theme'
-import FieldText from '@atlaskit/field-text'
-import { AkCodeBlock } from '@atlaskit/code';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
+import WarningIcon from '@atlaskit/icon/glyph/warning';
+import { AtlaskitThemeProvider } from '@atlaskit/theme'
+import { AkCodeBlock } from '@atlaskit/code';
+import FieldText from '@atlaskit/field-text';
 import Modal from '@atlaskit/modal-dialog'
 import Lorem from 'react-lorem-component';
-import Button from '@atlaskit/button'
+import { colors } from '@atlaskit/theme';
 import Lozenge from '@atlaskit/lozenge'
+import Button from '@atlaskit/button'
+import Select from '@atlaskit/select'
+
+  // MatieralUI
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { createMuiTheme } from '@material-ui/core/styles';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import ListItem from '@material-ui/core/ListItem';
+import Toolbar from '@material-ui/core/Toolbar';
+import Divider from '@material-ui/core/Divider';
+import MailIcon from '@material-ui/icons/Mail';
+import PieChart from 'react-minimal-pie-chart';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
+
+// Images
+import messages1 from './images/messages1.png'
+import telegram from './images/telegram.png'
+import facebook from './images/facebook.png'
+import air from './images/VLDY-AIRDROP2.png'
+import cdreams from './images/cdreams.png'
+import twitter from './images/twitter.png'
+import discord from './images/discord.png'
+import lines1 from './images/lines1.png'
+import github from './images/github.png'
+import reddit from './images/reddit.png'
+import lines2 from './images/lines2.png'
+import halmat from './images/halmat.png'
+import base1 from './images/base1.png'
+import world from './images/world.png'
+import base3 from './images/base3.png'
+import gozzy from './images/gozzy.png'
+import lukas from './images/lukas.png'
+import clabs from './images/clabs.png'
+import cnews from './images/cnews.png'
+import vldy from './images/vldy.png'
+import egem from './images/egem.png'
+import bct from './images/bct.png'
+import bcc from './images/bcc.png'
+
+// CSS
 import 'styled-components'
 import './css/raleigh.css'
 import './css/home.css'
 
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import { withStyles } from '@material-ui/core/styles';
+// Constants
+const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
 
-// Images
 
-import vldy from './images/vldy.png'
-import egem from './images/egem.png'
-import bct from './images/bct.png'
-import twitter from './images/twitter.png'
-import discord from './images/discord.png'
-import telegram from './images/telegram.png'
-import facebook from './images/facebook.png'
-import air from './images/VLDY-AIRDROP2.png'
-import base1 from './images/base1.png'
-import lines1 from './images/lines1.png'
-import messages1 from './images/messages1.png'
-import bcc from './images/bcc.png'
-import world from './images/world.png'
-import base3 from './images/base3.png'
-import lines2 from './images/lines2.png'
-import gozzy from './images/gozzy.png'
-import lukas from './images/lukas.png'
-import halmat from './images/halmat.png'
-import clabs from './images/clabs.png'
-import cnews from './images/cnews.png'
-import cdreams from './images/cdreams.png'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDotCircle, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
-import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import WarningIcon from '@atlaskit/icon/glyph/warning';
-import PieChart from 'react-minimal-pie-chart';
-const airdrop = <FontAwesomeIcon icon={faParachuteBox} size='2x'/>
-const settings = { timestampsInSnapshots: true};
-const defn = ` const Communal Validation = Peer production is based on equipotential participation,
-  i.e. the a priori self-selection of participants, and the communal vetting of the
-  quality of their work in the process of production itself;`
+  const styles = createMuiTheme({
+     sideBar: {
+      background: '#815aff'
+    }
+  });
 
 const dataMock = [
     { title: 'Airdrop 1', value: 30, color: '#0cff6f' },
@@ -70,29 +92,25 @@ const dataMock = [
     { title: 'Team', value: 15, color: '#00bfff' },
     { title: 'Community fund', value: 20, color: '#ffa500' },
     { title: 'Validation supply', value: 5, color: '#ff0c9c' },
-
   ];
 
 class Home extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      flags: [],
-      segment: 0
-
-    }
-
+      this.state = {
+        sideBar: false,
+        segment: 0,
+        flags: [],
+      }
   }
 
-componentWillMount() {
-
-    this.open();
-
-
+  componentWillMount = () => {
+    this.open()
   }
 
-  scrollToBottom = () => this.bottomRef.scrollIntoView(true);
+  animateChart = () => {
+     this.setState({ segment: 100 })
+  }
 
   scroll = (event) => {
     var element = document.getElementsByClassName(event)[0];
@@ -102,379 +120,334 @@ componentWillMount() {
     }
   }
 
-  animateChart = () => {
-     this.setState({ segment: 100 })
-  }
-
-  open = () => this.setState({ isOpen: true });
-  close = () => this.setState({ isOpen: false });
-  reveal = () => this.setState({ isApply: true });
-  submit = () => this.setState({ isApply: false });
-  accept = () => this.setState({ isSubmitted: false });
   formEmail = (event) => this.setState({ email: event.target.value });
   formTelegram = (event) => this.setState({ telegram: event.target.value });
   formDiscord = (event) => this.setState({ discord: event.target.value });
   formFacebook = (event) => this.setState({ facebook: event.target.value });
   formTwitter = (event) => this.setState({ twitter: event.target.value });
   formWallet = (event) => this.setState({ wallet: event.target.value });
+  scrollToBottom = () => this.bottomRef.scrollIntoView(true);
+  accept = () => this.setState({ isSubmitted: false });
+  submit = () => this.setState({ isApply: false });
+  reveal = () => this.setState({ isApply: true });
+  close = () => this.setState({ isOpen: false });
+  open = () => this.setState({ isOpen: true });
 
   formData = () => {
-
-    if(this.state.email != undefined && this.state.telegram != undefined && this.state.discord != undefined
-        && this.state.twitter != undefined && this.state.facebook != undefined && this.state.wallet.length == 42)
-        {
-
-          var data = { telegram: this.state.telegram,
-                       discord: this.state.discord,
-                       twitter: this.state.twitter,
-                       facebook: this.state.facebook,
-                       wallet: this.state.wallet };
-
-
-
-          }
-
+    if(this.state.email != undefined
+       && this.state.telegram != undefined
+       && this.state.discord != undefined
+       && this.state.twitter != undefined
+       && this.state.facebook != undefined
+       && this.state.wallet.length == 42){
+          var data = {
+            telegram: this.state.telegram,
+            discord: this.state.discord,
+            twitter: this.state.twitter,
+            facebook: this.state.facebook,
+            wallet: this.state.wallet
+          };
+      }
 }
 
   handleDismiss = () => {
-  this.setState(prevState => ({
-    flags: prevState.flags.slice(1),
-  }));
-};
+    this.setState(prevState => ({
+      flags: prevState.flags.slice(1),
+    }));
+  };
 
-addFlag = () => {
-  const newFlagId = this.state.flags.length + 1;
-  const flags = this.state.flags.slice();
-  flags.splice(0, 0, newFlagId);
+  toggleSidebar = (_bool) => {
+    this.setState({ })
+  }
 
-  this.setState({ flags });
-};
-
+  addFlag = () => {
+    const newFlagId = this.state.flags.length + 1;
+    const flags = this.state.flags.slice();
+    flags.splice(0, 0, newFlagId);
+    this.setState({ flags });
+  }
 
   render() {
+    const { isSubmitted } = this.state;
+    const { isApply } = this.state;
+    const { classes } = this.props;
     const { active } = this.state;
     const { isOpen } = this.state;
-    const { isApply } = this.state;
-    const { isSubmitted } = this.state;
-
     return (
       <AtlaskitThemeProvider mode='light'>
-          <div className="homepageMenu">
-            <AppBar style={{ backgroundColor: '#815aff' }} position="static">
+        <div className="homepageMenu">
+          <div className="menuBar">
+            <AppBar fullWidth style={{ backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
               <Toolbar>
-              <a href='https://egem.io'>
-                <img className='egem' src={egem}/>
-              </a>
-              <a href='https://discord.gg/s5rSvB2'>
-                <img className='discord' src={discord}/>
-              </a>
-              <a href='https://t.me/ValidityCrypto'>
-                <img className='telegram' src={telegram}/>
-              </a>
-              <a href='https://twitter.com/ValidityCrypto'>
-                <img className='twitter' src={twitter}/>
-              </a>
-              <a href='https://www.facebook.com/ValidityCrypto'>
-                <img className='facebook' src={facebook}/>
-              </a>
-              <a href='https://bitcointalk.org/index.php?topic=4900179'>
-                <img className='bct' src={bct}/>
-              </a>
-              <Button className="landingButton" onClick={this.scroll.bind(this, "page1-p1")} appearance="help">
-                Learn
-              </Button>
+                <a href='https://egem.io'>
+                  <img className='egem' src={egem}/>
+                </a>
+                <div className="pageSelect">
+                  <Select
+                    options={[
+                      { label: 'What is Validity?', value: '1' },
+                      { label: 'Communal Validation', value: '1' },
+                      { label: 'How does it work?', value: '1' },
+                      { label: 'Tokenonomics', value: '1' },
+                      { label: 'Analytics', value: '1' },
+                      { label: 'The Team', value: '1' },
+                      { label: 'Resources', value: '1' },
+                      { label: 'Get involved', value: '1' },
+                    ]}
+                    placeholder="Navigation"/>
+                </div>
+                <div className="appbarSpacing"/>
+                <a href='https://discord.gg/s5rSvB2'>
+                  <img className='discord' src={discord}/>
+                </a>
+                <a href='https://t.me/ValidityCrypto'>
+                  <img className='telegram' src={telegram}/>
+                </a>
+                <a href='https://www.github.com/ValidityCrypto'>
+                  <img className='github' src={github}/>
+                </a>
+                <a href='https://twitter.com/ValidityCrypto'>
+                  <img className='twitter' src={twitter}/>
+                </a>
+                <a href='https://www.reddit.com/r/ValidityCrypto'>
+                  <img className='reddit' src={reddit}/>
+                </a>
+                <a href='https://www.facebook.com/ValidityCrypto'>
+                  <img className='facebook' src={facebook}/>
+                </a>
+                <a href='https://bitcointalk.org/index.php?topic=4900179'>
+                  <img className='bct' src={bct}/>
+                </a>
+                <div className="landingButton">
+                  <Button onClick={() => this.setState({ sideBar: !this.state.sideBar })} appearance="help">Menu</Button>
+                </div>
               </Toolbar>
-              </AppBar>
+            </AppBar>
           </div>
-          <div className="landingPage">
+          <div className="sideBar">
+            <Drawer
+              variant="persistent"
+              style={{ zIndex: -1}}
+              classes={{ paper: classes.sideBar }}
+              onClose={() => this.setState({ sideBar: false })}
+              onOpen={() => this.setState({ sideBar: true })}
+              open={this.state.sideBar}
+              anchor="right">
+                <Paper className="paperMenu" style={{ backgroundColor: fade('#ffffff', 0.275) }}>
+                  <Button transperant className="paperButton">
+                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faHome} size='lg'/>
+                    <span style={{ color: 'white'}}>
+                      Home
+                    </span>
+                  </Button>
+                  <Button transperant className="paperButton">
+                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faStarHalfAlt} size='lg'/>
+                    <span style={{ color: 'white'}}>
+                      MVP
+                    </span>
+                  </Button>
+                  <Button transperant className="paperButton">
+                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faParachuteBox} size='lg'/>
+                    <span style={{ color: 'white'}}>
+                      Airdrop
+                    </span>
+                  </Button>
+                  <Button transperant className="paperButton">
+                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faFileSignature} size='lg'/>
+                    <span style={{ color: 'white'}}>
+                      Survey
+                    </span>
+                  </Button>
+                  <Button transperant className="paperButton">
+                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faWallet} size='lg'/>
+                    <span style={{ color: 'white'}}>
+                      Wallet
+                    </span>
+                  </Button>
+                </Paper>
+            </Drawer>
+          </div>
+        </div>
+        <div className="landingPage">
           <Page>
-          <Grid layout="fluid">
-          <GridColumn medium={1}>
-
-          </GridColumn>
-          <GridColumn>
-          </GridColumn>
-          <GridColumn medium={3}>
-          </GridColumn>
-      </Grid>
-      <Grid layout="fluid">
-      <GridColumn medium={2}>
-      </GridColumn>
-        <GridColumn>
-              <div className="landingBranding">
-                <img className='landingLogo' src={vldy}/>
-                <p className="landingTitle">Validity</p>
-              </div>
-        </GridColumn>
-        <GridColumn medium={2}>
-        </GridColumn>
-        </Grid>
-        <Grid>
-        <GridColumn>
-        </GridColumn>
-        <GridColumn medium={1}>
-        </GridColumn>
-        <GridColumn>
-        <div className="socialLinks">
+            <Grid layout="fluid">
+              <GridColumn>
+                <div className="landingBranding">
+                  <img className='landingLogo' src={vldy}/>
+                  <p className="landingTitle">Validity</p>
+                </div>
+              </GridColumn>
+            </Grid>
+          </Page>
         </div>
-        </GridColumn>
-        <GridColumn medium={1}>
-        </GridColumn>
-        <GridColumn>
-        <div className="socialLinks">
-          </div>
-        </GridColumn>
-        <GridColumn medium={1}>
-        </GridColumn>
-        <GridColumn>
-        <div className="socialLinks">
-          </div>
-          </GridColumn>
-          <GridColumn medium={1}>
-          </GridColumn>
-          <GridColumn>
-          <div className="socialLinks">
-          </div>
-          </GridColumn>
-          <GridColumn medium={1}>
-          </GridColumn>
-          <GridColumn>
-          <div className="socialLinks">
-          </div>
-          </GridColumn>
-          <GridColumn medium={1}>
-          </GridColumn>
-        </Grid>
-        </Page>
-        </div>
-
         <FlagGroup>
-                 {this.state.flags.map(flagId => {
-                   return (
-                     <AutoDismissFlag
-                     actions={[
-                          { content: 'Apply', onClick: () => { this.handleDismiss()
-                                                               this.reveal() } },
-                          { content: 'Ignore', onClick: this.handleDismiss },
-                        ]}
-                       appearance='success'
-                       id={flagId}
-                       key={flagId}
-                       icon={airdrop}
-                       title='VLDY Airdrop'
-                       description='Register for second round of the Validity communal distribution scheme'
-                     />
-                   );
-                 })}
-      </FlagGroup>
-
-      {isSubmitted && (
+         {this.state.flags.map(flagId => {
+           return (
+            <AutoDismissFlag
+             actions={[
+               { content: 'Ignore', onClick: this.handleDismiss },
+               { content: 'Apply', onClick: () => {
+                 this.handleDismiss()
+                  this.reveal() }}]}
+            appearance='warning'
+            id={flagId}
+            key={flagId}
+            icon={airdrop}
+            title='Try out our MVP!'
+            description='Easily engaging in the alpha form of delegation by using a interactive user interface, vote with a click and some easy mouse movements.'
+            />)})}
+        </FlagGroup>
+        {isSubmitted && (
           <Modal
-          actions = {[
-            { text: 'Dismiss', onClick: this.accept }  ]}
-          onClose={this.accept}
-          appearance='warning'
-          heading='Submission Successful'
-          width='500px'>
-
-          You are now registered for the VLDY airdrop round two.
-          <br></br>
-          <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
-          <br></br>
-          Thank you for participating and have a nice day!
-
+           actions = {[{ text: 'Dismiss', onClick: this.accept }  ]}
+           onClose={this.accept}
+           appearance='warning'
+           heading='Submission Successful'
+           width='500px'>
+            You are now registered for the VLDY airdrop round two.
+            <br></br>
+            <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
+            <br></br>
+            Thank you for participating and have a nice day!
           </Modal> )}
-
-      {isOpen && (
+        {isOpen && (
           <Modal
           actions = {[
-            { text: 'Accept', onClick: () => this.close()  },
+            { text: 'Accept', onClick: async() => {
+              await this.close()
+              await this.addFlag()
+            } },
             { text: 'Refuse', onClick: this.close }, ]}
           onClose={this.close}
           appearance='warning'
           heading='GDPR'
           width='500px'>
-
           We use cookies and other tracking technologies to improve your browsing experience on our web site,
           to show you personalized content and targeted ads, to analyze our website traffic, and to understand
           where our visitors are coming from. By browsing our website, you consent to our use of cookies and
           other tracking technologies.
-
           </Modal> )}
-
-          {isApply && (
-              <Modal
-              actions = {[
-                { text: 'Submit', onClick: this.formData  },
-                { text: 'Refuse', onClick: this.submit },
-                { text: 'Scroll to bottom', onClick: this.scrollToBottom },]}
-              heading='VLDY Airdrop Application'
-              appearance='warning'
-              scrollBehaviour="outside"
-
-              >
-
+        {isApply && (
+          <Modal
+            heading='VLDY Airdrop Application'
+            appearance='warning'
+            scrollBehaviour="outside"
+            actions = {[
+              { text: 'Submit', onClick: this.addFlag  },
+              { text: 'Refuse', onClick: this.submit },
+              { text: 'Scroll to bottom', onClick: this.scrollToBottom }]}>
               <div className="sect">
-
-              <img className="mdl" src={air} />
-              <br></br>
-              <br></br>
-              <div className="inpt">
-                <b><i>
-                <p className="warn">Closing Date: 20th of November 2018</p>
-                <p className="warn">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE
-                AIRDROP DISTRIBUTION.</p>
-                <p className="warn">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP
-                AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p></i></b>
-                <br></br>
-                <b>Your e-mail address</b>
-                <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
-                <FontAwesomeIcon className="ia" icon={faEnvelope} size='2x'/>
-                <br></br>
-                <b>Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a></b>
-                <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
-                <FontAwesomeIcon className="ia" icon={faTelegramPlane} size='2x'/>
-                <br></br>
-                <b  ref={r => {
-                    this.bottomRef = r;
-                  }}>Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a></b>
-                <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
-                <FontAwesomeIcon className="ia" icon={faDiscord} size='2x'/>
-                <br></br>
-                <b>Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a></b>
-                <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
-                <FontAwesomeIcon className="ia" icon={faTwitter} size='2x'/>
-                <br></br>
-                <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
-                <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
-                <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
-                <br></br>
-                <b>Target <a href="https://www.myegemwallet.com">EtherGem wallet address</a> for the airdrop distribution</b>
-                <FieldText shouldFitContainer='true' label='EtherGem Address' required onChange={this.formWallet}/>
-                <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
-
+                  <img className="mdl" src={air} />
+                  <br></br>
+                  <br></br>
+                  <div className="inpt">
+                    <b><i>
+                      <p className="warn">Closing Date: 20th of November 2018</p>
+                      <p className="warn">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>
+                      <p className="warn">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p></i></b>
+                      <b>Your e-mail address</b>
+                      <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
+                      <FontAwesomeIcon className="ia" icon={faEnvelope} size='2x'/>
+                      <b>Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a></b>
+                      <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
+                      <FontAwesomeIcon className="ia" icon={faTelegramPlane} size='2x'/>
+                      <b ref={r => {this.bottomRef = r;}}>Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a></b>
+                      <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
+                      <FontAwesomeIcon className="ia" icon={faDiscord} size='2x'/>
+                      <b>Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a></b>
+                      <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
+                      <FontAwesomeIcon className="ia" icon={faTwitter} size='2x'/>
+                      <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
+                      <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
+                      <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
+                      <b>Target <a href="https://www.myegemwallet.com">EtherGem wallet address</a> for the airdrop distribution</b>
+                      <FieldText shouldFitContainer='true' label='EtherGem Address' required onChange={this.formWallet}/>
+                      <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
+                  </div>
+              </div>
+         </Modal>)}
+         <div className="page1">
+          <Page>
+            <Grid layout="fluid">
+              <GridColumn>
+                <div className="h1">
+                  <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
                 </div>
+              </GridColumn>
+              <GridColumn>
+              <div className="page1-p1">
+                <p className="pagePoint">With the beauty of decentrilisation comes many bonuses but with any advantage comes a disvantage. Blockchain and technologies alike are on the edge of adoption but cannot fully reach the pinnacle unless a system of evalution takes a stand.</p>
+                <p className="pagePoint">This would provide a go-to reference point to verify the integrity of an investment decision but currently investing for the average person isn't a viable task as there is many pitfalls of amoral activity that one can easily fall pray to.</p>
+                <p className="pagePoint">How can the people know what is safe to invest in and what is not?</p>
+                <p className="pagePoint">The answer to this question is Validity, a self governing decentrilised regulation infrastructure.</p>
+              </div>
+              </GridColumn>
+              <GridColumn>
+              <div className="validatingGraphic">
+                <img className="base1" src={base1}/>
+                <div className="lines1edit"><img className="lines1" src={lines1}/></div>
+                <div className="wrong"><FontAwesomeIcon icon={faTimes}/></div>
+                <div className="right"><FontAwesomeIcon icon={faCheck}/></div>
+                <div><img className="bcc" src={bcc}/></div>
+                <div className="messages1edit"><img className="messages1" src={messages1}/> </div>
 
               </div>
-
-              </Modal> )}
-      <div className="page1">
-      <Page>
-      <Grid layout="fluid">
-        <GridColumn>
-          <div className="h1">
-            <FontAwesomeIcon icon={faLayerGroup} color='#4d00bd' size='s'/>
-            &nbsp;&nbsp;&nbsp;What is Validity?
-          </div>
-        </GridColumn>
-        <GridColumn>
-        </GridColumn>
-        <GridColumn medium={1}>
-          <Button onClick={this.scroll.bind(this, "page2-p1")} appearance="help">
-            Next
-          </Button>
-        </GridColumn>
-      </Grid>
-
-      <Grid layout="compact">
-        <GridColumn>
-        <div className="page1-p1">
-        <p>With the beauty of decentrilisation comes many bonuses but with any advantage comes a disvantage.
-        Blockchain and technologies alike are on the edge of adoption but cannot fully reach the pinnacle unless a system of
-        evalution takes a stand.</p>
-        <p>This would provide a go-to reference point to verify the integrity of an investment decision but currently investing for the average person
-        isn't a viable task as there is many pitfalls of amoral activity that one can easily fall pray to.</p>
-        <p>How can the people know what is safe to invest in and what is not?</p>
-        <p>The answer to this question is Validity, a self governing decentrilised regulation infrastructure.</p>
+              </GridColumn>
+            </Grid>
+          </Page>
         </div>
-        </GridColumn>
-        <GridColumn>
-        <div className="validatingGraphic">
-          <img className="base1" src={base1}/>
-          <div className="lines1edit"><img className="lines1" src={lines1}/></div>
-          <div className="messages1"> <img className="messages1edit" src={messages1}/> </div>
-          <div className="wrong"><FontAwesomeIcon icon={faTimes}/></div>
-          <div className="right"><FontAwesomeIcon icon={faCheck}/></div>
-          <div><img className="bcc" src={bcc}/></div>
-        </div>
-        </GridColumn>
-      </Grid>
-      </Page>
+        <div className="page2">
+          <Page>
+            <Grid layout="fluid">
+              <GridColumn>
+                <div className="h2">
+                  <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
+                </div>
+              </GridColumn>
+              <GridColumn>
+                <div className="page2-p1">
+                  <div className="codecommunal">
+                  <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
+                  </div>
+                  <div className="traits">
+                    <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Immutable</div>
+                    <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Bias-free</div>
+                    <div className="traitPoint"><FontAwesomeIcon icon={faDove} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Pure</div>
+                  </div>
+                </div>
+              </GridColumn>
+              <GridColumn>
+                <img className="world" src={world}/>
+              </GridColumn>
+            </Grid>
+          </Page>
       </div>
-
-      <div className="page2">
-      <Page>
-      <Grid layout="fluid">
-        <GridColumn>
-          <div className="h2">
-            <FontAwesomeIcon icon={faStreetView} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation</div>
-        </GridColumn>
-        <GridColumn>
-        </GridColumn>
-        <GridColumn medium={1}>
-          <Button onClick={this.scroll.bind(this, "page3")} appearance="help">
-            Next
-          </Button>
-        </GridColumn>
-      </Grid>
-        <Grid layout="fluid">
-        <GridColumn>
-        <div className="page2-p1">
-          <div className="codecommunal">
-            <AkCodeBlock language="java" text={defn}/>
-          </div>
-          <div className="traits">
-            <p><FontAwesomeIcon icon={faLink} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Immutable</p>
-            <br></br>
-            <p><FontAwesomeIcon icon={faShieldAlt} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Bias-free</p>
-            <br></br>
-            <p><FontAwesomeIcon icon={faDove} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Pure</p>
-          </div>
-          </div>
-        </GridColumn>
-        <GridColumn>
-          <img className="world" src={world}/>
-        </GridColumn>
-      </Grid>
-      </Page>
-      </div>
-
       <div className="page3">
-      <Page>
-      <Grid layout="fluid">
-        <GridColumn>
-          <div className="h3">
-            <FontAwesomeIcon icon={faSitemap} color='#4d00bd' size='s'/>
-            &nbsp;&nbsp;&nbsp;How does it work?
-          </div>
-        </GridColumn>
-        <GridColumn>
-        </GridColumn>
-        <GridColumn medium={1}>
-          <Button onClick={this.scroll.bind(this, "page4")} appearance="help">
-            Next
-          </Button>
-       </GridColumn>
-       </Grid>
-       <Grid layout="fluid">
-         <GridColumn>
-
-        </GridColumn>
-        <GridColumn>
-          <div className="page3-p1">
-          So how does it all work, how does Validity quantify cryptocurrency investment risk?
-          </div>
-        </GridColumn>
-        </Grid>
-      </Page>
+        <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+              <div className="h3">
+                <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
+              </div>
+            </GridColumn>
+            <GridColumn>
+              <div className="page3-p1">
+              <p className="stageOne"><div className="stageNumber">1</div>A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process. </p>
+              <div className="stageNumber">2</div>
+              <div className="stageNumber">3</div>
+              <div className="stageNumber">4</div>
+              <div className="stageNumber">5</div>
+              </div>
+            </GridColumn>
+         </Grid>
+        </Page>
       </div>
-
       <div className="page4">
       <Page>
       <Grid layout="fluid">
       <GridColumn>
       <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Validity tipbot
+        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity tipbot
       </div>
       </GridColumn>
       <GridColumn>
@@ -536,7 +509,7 @@ addFlag = () => {
       <Grid layout="fluid">
       <GridColumn>
       <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Documentation
+        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Documentation
       </div>
       </GridColumn>
       <GridColumn>
@@ -574,7 +547,7 @@ addFlag = () => {
       <Grid layout="fluid">
       <GridColumn>
       <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
       </div>
       </GridColumn>
       <GridColumn>
@@ -638,7 +611,7 @@ addFlag = () => {
       <Grid layout="fluid">
         <GridColumn>
           <div className="h4">
-            <FontAwesomeIcon icon={faUsers} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;The team
+            <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;The team
           </div>
         </GridColumn>
         <GridColumn>
@@ -801,7 +774,7 @@ addFlag = () => {
         <Grid layout="fluid">
           <GridColumn>
             <div className="h3">
-              <FontAwesomeIcon icon={faShieldAlt} color='#4d00bd' size='s'/>
+              <FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>
               &nbsp;&nbsp;&nbsp;Get involved
             </div>
           </GridColumn>
@@ -818,9 +791,9 @@ addFlag = () => {
         <GridColumn>
       <div className="joinTeam">
         <p>
-        <FontAwesomeIcon icon={faFemale} color='#4d00bd' size='2x'/>
+        <FontAwesomeIcon icon={faFemale} color='#815aff' size='2x'/>
         &nbsp;&nbsp;&nbsp;
-        <FontAwesomeIcon icon={faMale} color='#4d00bd' size='2x'/>
+        <FontAwesomeIcon icon={faMale} color='#815aff' size='2x'/>
         &nbsp;&nbsp;&nbsp;
         Do you think you have what it takes to join our team? We are looking
         for innovational and committed people to help make Validity a reality.
@@ -836,7 +809,7 @@ addFlag = () => {
       <GridColumn>
       <div className="bountyTitle">
       <p>
-        <FontAwesomeIcon icon={faStar} color='#4d00bd' size='2x'/>
+        <FontAwesomeIcon icon={faStar} color='#815aff' size='2x'/>
         &nbsp;&nbsp;&nbsp; <b> Bounties </b>
       </p>
       </div>
@@ -844,7 +817,7 @@ addFlag = () => {
       <GridColumn>
       <div className="websiteBounties">
       <p>
-        <FontAwesomeIcon icon={faFileSignature} color='#4d00bd' size='2x'/>
+        <FontAwesomeIcon icon={faFileSignature} color='#815aff' size='2x'/>
         &nbsp;&nbsp;&nbsp; <b> Validity survey </b>
       </p>
       <p>🇯🇵 Japanese&nbsp;&nbsp;&nbsp;🇪🇸 Spanish&nbsp;&nbsp;&nbsp;🇷🇺 Russian&nbsp;&nbsp;&nbsp;
@@ -862,7 +835,7 @@ addFlag = () => {
         <Grid layout="fluid">
           <GridColumn>
           <div className="h4">
-          <FontAwesomeIcon icon={faStar} color='#4d00bd' size='s'/>&nbsp;&nbsp;&nbsp;Featured by</div>
+          <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Featured by</div>
           </GridColumn>
           </Grid>
 
@@ -893,4 +866,4 @@ addFlag = () => {
   }
 }
 
-export default Home
+export default withStyles(styles)(Home);
