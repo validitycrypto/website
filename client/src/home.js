@@ -66,7 +66,10 @@ import lukas from './images/lukas.png'
 import clabs from './images/clabs.png'
 import cnews from './images/cnews.png'
 import vldy from './images/vldy.png'
-import egem from './images/egem.png'
+import egem from './images/ethereum.png'
+import linkedin from './images/linkedin.png'
+import angellist from './images/angellist.png'
+
 import bct from './images/bct.png'
 import bcc from './images/bcc.png'
 
@@ -206,6 +209,12 @@ class Home extends Component {
                 </a>
                 <a href='https://www.github.com/ValidityCrypto'>
                   <img className='github' src={github}/>
+                </a>
+                <a href='https://www.linkedin.com/company/validitycrypto'>
+                  <img className='linkedin' src={angellist}/>
+                </a>
+                <a href='https://www.linkedin.com/company/validitycrypto'>
+                  <img className='linkedin' src={linkedin}/>
                 </a>
                 <a href='https://twitter.com/ValidityCrypto'>
                   <img className='twitter' src={twitter}/>
