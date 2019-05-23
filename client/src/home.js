@@ -4,7 +4,7 @@ import firebase from 'firebase'
 // UX
 
   // Misc
-import { faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -58,6 +58,7 @@ import github from './images/github.png'
 import reddit from './images/reddit.png'
 import lines2 from './images/lines2.png'
 import halmat from './images/halmat.png'
+import dao from './images/dao.png'
 import base1 from './images/base1.png'
 import world from './images/world.png'
 import base3 from './images/base3.png'
@@ -182,7 +183,7 @@ class Home extends Component {
           <div className="menuBar">
             <AppBar fullWidth style={{ backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
               <Toolbar>
-                <a href='https://egem.io'>
+                <a href='https://www.ethereum.org/'>
                   <img className='egem' src={egem}/>
                 </a>
                 <div className="pageSelect">
@@ -385,7 +386,7 @@ class Home extends Component {
                 </div>
               </GridColumn>
               <GridColumn>
-              <div className="page1-p1">
+              <div className="page1-body">
                 <p className="pagePoint">With the beauty of decentrilisation comes many bonuses but with any advantage comes a disvantage. Blockchain and technologies alike are on the edge of adoption but cannot fully reach the pinnacle unless a system of evalution takes a stand.</p>
                 <p className="pagePoint">This would provide a go-to reference point to verify the integrity of an investment decision but currently investing for the average person isn't a viable task as there is many pitfalls of amoral activity that one can easily fall pray to.</p>
                 <p className="pagePoint">How can the people know what is safe to invest in and what is not?</p>
@@ -415,13 +416,13 @@ class Home extends Component {
                 </div>
               </GridColumn>
               <GridColumn>
-                <div className="page2-p1">
+                <div className="page2-body">
                   <div className="codecommunal">
                   <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
                   </div>
                   <div className="traits">
-                    <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Immutable</div>
-                    <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Bias-free</div>
+                    <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Self-governing</div>
+                    <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Sybil-proof</div>
                     <div className="traitPoint"><FontAwesomeIcon icon={faDove} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Pure</div>
                   </div>
                 </div>
@@ -441,7 +442,7 @@ class Home extends Component {
               </div>
             </GridColumn>
             <GridColumn>
-              <div className="page3-p1">
+              <div className="page3-body">
               <p className="stageOne">
                 <div className="stageNumber">1</div>
                 <div className="stageText">
@@ -486,6 +487,46 @@ class Home extends Component {
         </div>
         </GridColumn>
         <GridColumn>
+        <div className="page5-body">
+        <img className="daoGraphic" src={dao}/>
+        <p className="traitOne">
+        <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
+          <div className="stageAlpha">
+            vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
+          </div>
+        </p>
+        <p className="traitTwo">
+          <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
+          <div className="stageAlpha">
+            The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
+          </div>
+        </p>
+        <p className="traitThree">
+        <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
+        <div className="stageAlt" >
+          Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
+        </div>
+        </p>
+        <p className="traitFour">
+          <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
+          <div className="stageAlt" >
+          Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
+          </div>
+         </p>
+         <p className="traitFive">
+           <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
+           <div className="stageAlt" >
+             The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
+           </div>
+         </p>
+        <p className="traitSix">
+          <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
+          <div className="stageAlpha" >
+            Validity is self-governing <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
+          </div>
+        </p>
+        </div>
+
         </GridColumn>
         </Grid>
       </Page>

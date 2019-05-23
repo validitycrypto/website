@@ -146,7 +146,7 @@
   margin-left: 2.5vw;
 }
 
-.page1-p1 {
+.page1-body {
   position: relative;
   font-size: 1.75vw;
   margin-left: 2.5vw;
@@ -229,7 +229,7 @@
   z-index: 0;
 }
 
-.page2-p1 {
+.page2-body {
   position: relative;
   font-size: 1.75vw;
   left: 5vw;
@@ -256,7 +256,7 @@
   top: 15vh;
 }
 
-.page3, .page4 {
+.page3, .page4, .page5 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -265,7 +265,7 @@
   z-index: 0;
 }
 
-.page3-p1 {
+.page3-body, .page5-body {
   position: relative;
   font-size: 1.75vw;
   left: 2.5vw;
@@ -314,6 +314,20 @@
   left: 5vw;
 }
 
+.stageAlt {
+  position: relative;
+  width: 22.5vw;
+  left: 5vw;
+}
+
+.stageAlpha {
+  position: relative;
+  width: 27.5vw;
+  left: 5vw;
+}
+
+
+
 .stageNumber {
   position: absolute;
   color: #815aff;
@@ -328,9 +342,74 @@
 
 }
 
+.stageIcon {
+  position: absolute;
+  color: #815aff;
+  border: solid;
+  border-color: #815aff;
+  font-size: 2vw;
+  width: 3.5vw;
+  height: 3.5vw;
+  text-align: center;
+  border-radius: 50%;
+  padding-top: .5vh;
+
+}
+
 .abstractLine {
   position: absolute;
   width: 32.5vw;
   top: 35vh;
   right: 0;
+}
+
+.daoGraphic {
+  float: right;
+  position: relative;
+  top: 10vh;
+  right: 23.75vw;
+  width: 32.5vw;
+}
+
+.traitOne{
+  position: absolute;
+  text-align: left;
+  top: -.5vh;
+  left: 2.5vw;
+}
+
+.traitTwo {
+  position: absolute;
+  text-align: left;
+  right: -1.5vw;
+  top: -.5vh;
+
+}
+
+.traitThree {
+  position: absolute;
+  text-align: left;
+  top: 11.25vw;
+}
+
+.traitFour {
+  position: absolute;
+  text-align: left;
+  float: right;
+  top: 11.25vw;
+  right: -1.5vw;
+}
+
+.traitFive {
+  position: absolute;
+  text-align: left;
+  top: 25vw;
+  left: 2.5vw;
+}
+
+.traitSix {
+  position: absolute;
+  text-align: left;
+  top: 25vw;
+  right: -1.5vw;
 }
