@@ -3,6 +3,12 @@
   zoom: 1.0 ;
 }
 
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 #root {
   position: absolute;
   width: device-width;
@@ -128,7 +134,6 @@
 
 .page1 {
   position: relative;
-  border: solid;
   height: 91.125vh;
   width: 100vw;
   padding-top: 5vw;
@@ -217,7 +222,6 @@
 
 .page2 {
   position: relative;
-  border: solid;
   height: 91.125vh;
   width: 100vw;
   padding-top: 5vw;
@@ -228,41 +232,32 @@
 .page2-p1 {
   position: relative;
   font-size: 1.75vw;
-  left: 2.5vw;
+  left: 5vw;
   width: 82.5vw;
   top: 5vh;
 }
-
-.page3-p1 {
-  position: relative;
-  font-size: 1.75vw;
-  left: 2.5vw;
-  width: 82.5vw;
-  top: 5vh;
-}
-
 
 .world {
   position: absolute;
-  width: 45vw;
+  animation: pulse 1s infinite;
+  width: 50vw;
   top: 25vh;
-  right: 10vw;
+  right: 12.5vw;
 }
 
-.h2, .h3 {
+.h2, .h3, .h4 {
   font-size: 3.75vw;
   margin-left: 2.5vw;
 }
 
 .traits {
   position: relative;
-  font-size: 3.5vw;
+  font-size: 3vw;
   top: 15vh;
 }
 
-.page3 {
+.page3, .page4 {
   position: relative;
-  border: solid;
   height: 91.125vh;
   width: 100vw;
   padding-top: 5vw;
@@ -270,14 +265,57 @@
   z-index: 0;
 }
 
-.stageOne{
+.page3-p1 {
   position: relative;
+  font-size: 1.75vw;
+  left: 2.5vw;
+  width: 82.5vw;
+  top: 7.5vh;
+}
+
+.stageOne{
+  position: absolute;
   text-align: left;
-  width: 42.5vw;
+}
+
+.stageTwo {
+  position: absolute;
+  text-align: left;
+  left: 5vw;
+  top: 7.5vw;
+}
+
+.stageThree {
+  position: absolute;
+  text-align: left;
+  left: 10vw;
+  top: 15vw;
+}
+
+
+.stageFour {
+  position: absolute;
+  text-align: left;
+  left: 15vw;
+  top: 22.5vw;
+}
+
+.stageFive {
+  position: absolute;
+  text-align: left;
+  left: 20vw;
+  top: 30vw;
+}
+
+
+.stageText {
+  position: relative;
+  width: 65vw;
   left: 5vw;
 }
 
 .stageNumber {
+  position: absolute;
   color: #815aff;
   border: solid;
   border-color: #815aff;
@@ -288,5 +326,11 @@
   border-radius: 50%;
   padding-top: 1vh;
 
+}
 
+.abstractLine {
+  position: absolute;
+  width: 32.5vw;
+  top: 35vh;
+  right: 0;
 }

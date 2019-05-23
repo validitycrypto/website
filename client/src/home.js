@@ -188,6 +188,7 @@ class Home extends Component {
                       { label: 'What is Validity?', value: '1' },
                       { label: 'Communal Validation', value: '1' },
                       { label: 'How does it work?', value: '1' },
+                      { label: 'Why use Validity?', value: '1' },
                       { label: 'Tokenonomics', value: '1' },
                       { label: 'Analytics', value: '1' },
                       { label: 'The Team', value: '1' },
@@ -432,11 +433,36 @@ class Home extends Component {
             </GridColumn>
             <GridColumn>
               <div className="page3-p1">
-              <p className="stageOne"><div className="stageNumber">1</div>A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process. </p>
-              <div className="stageNumber">2</div>
-              <div className="stageNumber">3</div>
-              <div className="stageNumber">4</div>
-              <div className="stageNumber">5</div>
+              <p className="stageOne">
+                <div className="stageNumber">1</div>
+                <div className="stageText">
+                  A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process.
+                </div>
+              </p>
+              <p className="stageTwo">
+                <div className="stageNumber">2</div>
+                <div className="stageText">
+                  An intrinsic analysis and due-dillegence is executed upon the entities employee's, product and ultimately it's integrity.
+                </div>
+              </p>
+              <p className="stageThree">
+                <div className="stageNumber">3</div>
+                <div className="stageText">
+                  The investigation is then distributely proposed to validitors, in order to create a non-bias form of verification via communal validation.
+                </div>
+              </p>
+              <p className="stageFour">
+                <div className="stageNumber">4</div>
+                <div className="stageText">
+                 Validators engage in a interactive voting process using Validity's unique UX, to express their outlook on the project via three options; positive, neutral or negative
+                </div>
+              </p>
+              <p className="stageFive">
+                <div className="stageNumber">5</div>
+                <div className="stageText">
+                  The concluding results are combined and are quantified out of a rating of 10, the self-governing analysis then acts as a source of evaluation for future onlooking investors.
+                </div>
+              </p>
               </div>
             </GridColumn>
          </Grid>
@@ -444,58 +470,10 @@ class Home extends Component {
       </div>
       <div className="page4">
       <Page>
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity tipbot
-      </div>
-      </GridColumn>
-      <GridColumn>
-      </GridColumn>
-      <GridColumn medium={1}>
-        <Button onClick={this.scroll.bind(this, "page5")} appearance="help">
-          Next
-        </Button>
-      </GridColumn>
-      </Grid>
-
-      <Grid layout="fluid">
-        <GridColumn>
-        <div className="tipbotInformation">
-        <p> A new addition to the Validity community, that allows users on <b>Discord</b> and <b>Telegram</b> to tip others
-        EGEM and VLDY seamlessly, including a leaderboard to keep an eye on the top contributors, a rain
-        function to distribute a select amount to multiple users in one execution and afew other goodies.</p>
-        <p> To register an account simply call <b>/generate</b> in direct message to the bot or a channel that it
-        is present in. Commands can be viewed by calling <b>/commands</b> and to find more about command format
-        call the <b>/help</b> command.</p>
-        </div>
-        </GridColumn>
-        </Grid>
         <Grid layout="fluid">
         <GridColumn>
-        <div className="tipbotTelegram">
-        <a href='https://t.me/ValidityBot'>
-          <img className="tipbotLogos" src={telegram}/>
-        </a>
-        </div>
-        </GridColumn>
-        <GridColumn>
-        </GridColumn>
-          <GridColumn>
-          </GridColumn>
-      </Grid>
-      <Grid layout="fluid">
-      <GridColumn>
-      </GridColumn>
-      <GridColumn>
-      </GridColumn>
-      <GridColumn>
-      </GridColumn>
-      <GridColumn>
-      <div className="tipbotDiscord">
-        <a href='https://discordapp.com/users/541220071448772608'>
-          <img className="tipbotLogos" src={discord}/>
-        </a>
+        <div className="h4">
+          <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
         </div>
         </GridColumn>
         <GridColumn>
@@ -503,12 +481,11 @@ class Home extends Component {
         </Grid>
       </Page>
       </div>
-
       <div className="page5">
       <Page>
       <Grid layout="fluid">
       <GridColumn>
-      <div className="h4">
+      <div className="h5">
         <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Documentation
       </div>
       </GridColumn>
