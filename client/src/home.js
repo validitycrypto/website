@@ -15,6 +15,7 @@ import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
 import SuccessIcon from '@atlaskit/icon/glyph/check-circle';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import WarningIcon from '@atlaskit/icon/glyph/warning';
+import SectionMessage from '@atlaskit/section-message';
 import { AtlaskitThemeProvider } from '@atlaskit/theme'
 import { AkCodeBlock } from '@atlaskit/code';
 import FieldText from '@atlaskit/field-text';
@@ -96,7 +97,7 @@ const dataMock = [
     { title: 'Airdrop 2', value: 20, color: '#0c23ff' },
     { title: 'Airdrop 3', value: 10, color: '#ff0c23' },
     { title: 'Team', value: 15, color: '#00bfff' },
-    { title: 'Community fund', value: 20, color: '#ffa500' },
+    { title: 'Community fund', value: 20, color: '#815aff' },
     { title: 'Validation supply', value: 5, color: '#ff0c9c' },
   ];
 
@@ -104,9 +105,11 @@ class Home extends Component {
   constructor(props) {
     super(props)
       this.state = {
+        chartComponent: <div/>,
         sideBar: false,
+        stageModal: 0,
         segment: 0,
-        flags: [],
+        flags: []
       }
   }
 
@@ -119,7 +122,7 @@ class Home extends Component {
   }
 
   scroll = (event) => {
-    var element = document.getElementsByClassName(event)[0];
+    var element = document.getElementsByClassName(event)[0]
     element.scrollIntoView({behavior: "smooth"});
     if(event === "page6"){
       this.animateChart()
@@ -171,6 +174,19 @@ class Home extends Component {
     const flags = this.state.flags.slice();
     flags.splice(0, 0, newFlagId);
     this.setState({ flags });
+  }
+
+  renderChart = () => {
+    return(
+      <PieChart
+        animationDuration={1000}
+        paddingAngle={5}
+        data={dataMock}
+        lineWidth={15}
+        radius={20}
+        animate
+      />
+    );
   }
 
   render() {
@@ -543,36 +559,95 @@ class Home extends Component {
             </GridColumn>
             <GridColumn>
               <div className="page5-body">
-                <div className="roadmapOne">
+                <div className="roadmapOne"
+                  onMouseOver={() => this.setState({ stageModal: 1})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={greenCircle} />
                   <img className="logoOne" src={egem} />
                 </div>
-                <div className="roadmapTwo">
+                {this.state.stageModal == 1 && (
+                  <div className="modalOne">
+                    <SectionMessage appearance="confirmation">
+                      Ethereum & MVP launch
+                    </SectionMessage>
+                  </div>
+                )}
+                <div className="lineOne"/>
+                <div className="roadmapTwo"
+                  onMouseOver={() => this.setState({ stageModal: 2})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={redCircle} />
                   <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
                 </div>
-                <div className="roadmapThree">
+                {this.state.stageModal == 2 && (
+                  <div className="modalTwo">
+                    <SectionMessage appearance="error">
+                      Validity Whitepaper
+                    </SectionMessage>
+                  </div>
+                )}
+                <div className="lineTwo"/>
+                <div className="roadmapThree"
+                  onMouseOver={() => this.setState({ stageModal: 3})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={redCircle} />
                   <img className="logoTwo" src={gitcoin} />
                 </div>
-                <div className="roadmapFour">
+                {this.state.stageModal == 3 && (
+                  <div className="modalThree">
+                    <SectionMessage appearance="error">
+                      Gitcoin grants & funding
+                    </SectionMessage>
+                  </div>
+                )}
+                <div className="lineThree"/>
+                <div className="roadmapFour"
+                onMouseOver={() => this.setState({ stageModal: 4})}
+                onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={redCircle} />
                   <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
                 </div>
-                <div className="roadmapFive">
+                {this.state.stageModal == 4 && (
+                  <div className="modalFour">
+                    <SectionMessage appearance="error">
+                      Find talent and partnerships
+                    </SectionMessage>
+                  </div>
+                )}
+                <div className="lineFour"/>
+                <div className="roadmapFive"
+                onMouseOver={() => this.setState({ stageModal: 5})}
+                onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={redCircle} />
                   <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
                 </div>
-                <div className="roadmapSix">
+                {this.state.stageModal == 5 && (
+                  <div className="modalFive">
+                    <SectionMessage appearance="error">
+                      Beta product
+                    </SectionMessage>
+                  </div>
+                )}
+                <div className="lineFive"/>
+                <div className="roadmapSix"
+                  onMouseOver={() => this.setState({ stageModal: 6})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
                   <img className="circleRoadmap" src={redCircle} />
                   <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
                 </div>
+                {this.state.stageModal == 6 && (
+                  <div className="modalSix">
+                    <SectionMessage appearance="error">
+                      Product launch
+                    </SectionMessage>
+                  </div>
+                )}
               </div>
             </GridColumn>
           </Grid>
         </Page>
       </div>
-      <div className="page6">
+      <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
       <Page>
       <Grid layout="fluid">
       <GridColumn>
@@ -581,33 +656,10 @@ class Home extends Component {
       </div>
       </GridColumn>
       <GridColumn>
-      </GridColumn>
-      <GridColumn medium={1}>
-        <Button onClick={this.scroll.bind(this, "page7")} appearance="help">
-          Next
-        </Button>
-      </GridColumn>
-      </Grid>
-
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="tokenEconomics">
-      <PieChart
-        data={dataMock}
-        lineWidth={15}
-        rounded
-        radius={20}
-        animate={true}
-        label={true}
-        animationDuration={2250}
-        reveal={this.state.segment}
-      />
-      </div>
-      </GridColumn>
-      </Grid>
-
-      <Grid layout="fluid">
-      <GridColumn>
+      <div className="page6-body">
+          <div className="tokenChart">
+          {this.state.chartComponent}
+          </div>
       <div className="tokenMetrics">
       <p>Decimals: <b>18</b></p>
       <p>Asset type: <b>ERC20d</b> </p>
@@ -616,13 +668,9 @@ class Home extends Component {
       <p>Initial supply: <b>48,070,000,000 VLDY</b></p>
       <p>Max supply: <b>50,600,000,000 VLDY</b> </p>
       </div>
-      </GridColumn>
-      <GridColumn>
       <div className="tokenWallet">
       <p>Address: <b>0xb0702df32de0371f39a98cc911a2dd69c3a13e6f</b></p>
       </div>
-      </GridColumn>
-      <GridColumn>
       <div className="tokenLegend">
       <p><FontAwesomeIcon icon={faDotCircle} color='#ff0c9c' size='s'/>&nbsp;&nbsp;&nbsp;Validation supply</p>
       <p><FontAwesomeIcon icon={faUsers} color='#ffa500' size='s'/>&nbsp;&nbsp;&nbsp;Community fund</p>
@@ -631,11 +679,11 @@ class Home extends Component {
       <p><FontAwesomeIcon icon={faParachuteBox} color='#0cff6f' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop one </p>
       <p><FontAwesomeIcon icon={faWallet} color='#00bfff' size='s'/>&nbsp;&nbsp;&nbsp;Team funds</p>
       </div>
+      </div>
       </GridColumn>
       </Grid>
       </Page>
       </div>
-
       <div className="page7">
       <Page>
       <Grid layout="fluid">
