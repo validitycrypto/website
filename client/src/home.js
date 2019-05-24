@@ -4,7 +4,7 @@ import firebase from 'firebase'
 // UX
 
   // Misc
-import { faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -46,19 +46,23 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 
 // Images
+import greenCircle from './images/green-circle.png'
+import redCircle from './images/red-circle.png'
+import angellist from './images/angellist.png'
 import messages1 from './images/messages1.png'
 import telegram from './images/telegram.png'
 import facebook from './images/facebook.png'
 import air from './images/VLDY-AIRDROP2.png'
+import linkedin from './images/linkedin.png'
 import cdreams from './images/cdreams.png'
 import twitter from './images/twitter.png'
 import discord from './images/discord.png'
 import lines1 from './images/lines1.png'
 import github from './images/github.png'
+import gitcoin from './images/gitcoin.png'
 import reddit from './images/reddit.png'
 import lines2 from './images/lines2.png'
 import halmat from './images/halmat.png'
-import dao from './images/dao.png'
 import base1 from './images/base1.png'
 import world from './images/world.png'
 import base3 from './images/base3.png'
@@ -68,9 +72,7 @@ import clabs from './images/clabs.png'
 import cnews from './images/cnews.png'
 import vldy from './images/vldy.png'
 import egem from './images/ethereum.png'
-import linkedin from './images/linkedin.png'
-import angellist from './images/angellist.png'
-
+import dao from './images/dao.png'
 import bct from './images/bct.png'
 import bcc from './images/bcc.png'
 
@@ -532,43 +534,44 @@ class Home extends Component {
       </Page>
       </div>
       <div className="page5">
-      <Page>
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="h5">
-        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Documentation
+        <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+              <div className="h5">
+                <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+              </div>
+            </GridColumn>
+            <GridColumn>
+              <div className="page5-body">
+                <div className="roadmapOne">
+                  <img className="circleRoadmap" src={greenCircle} />
+                  <img className="logoOne" src={egem} />
+                </div>
+                <div className="roadmapTwo">
+                  <img className="circleRoadmap" src={redCircle} />
+                  <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
+                </div>
+                <div className="roadmapThree">
+                  <img className="circleRoadmap" src={redCircle} />
+                  <img className="logoTwo" src={gitcoin} />
+                </div>
+                <div className="roadmapFour">
+                  <img className="circleRoadmap" src={redCircle} />
+                  <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
+                </div>
+                <div className="roadmapFive">
+                  <img className="circleRoadmap" src={redCircle} />
+                  <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
+                </div>
+                <div className="roadmapSix">
+                  <img className="circleRoadmap" src={redCircle} />
+                  <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
+                </div>
+              </div>
+            </GridColumn>
+          </Grid>
+        </Page>
       </div>
-      </GridColumn>
-      <GridColumn>
-      </GridColumn>
-      <GridColumn medium={1}>
-        <Button onClick={this.scroll.bind(this, "page6")} appearance="help">
-          Next
-        </Button>
-      </GridColumn>
-      </Grid>
-      <Grid layout="fluid">
-      <GridColumn>
-      </GridColumn>
-      <GridColumn>
-        <a href='https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133'>
-        <img className='validityArticle' src={vldy}/>
-        </a>
-        <p className="titleCommunal"> <b> What is communal validation and why does it matter? </b> </p>
-      </GridColumn>
-      <GridColumn medium={1}>
-      </GridColumn>
-      <GridColumn>
-      <a href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
-      </a>
-      <p className="titleRedflags"> <b> Blockchain and crypto-currency red flags </b> </p>
-      </GridColumn>
-      <GridColumn>
-      </GridColumn>
-      </Grid>
-      </Page>
-      </div>
-
       <div className="page6">
       <Page>
       <Grid layout="fluid">

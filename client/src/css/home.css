@@ -9,6 +9,13 @@
   100% { opacity: 0; }
 }
 
+@keyframes hover {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 15px); }
+  to   { transform: translate(0, -0px); }
+}
+
+
 #root {
   position: absolute;
   width: device-width;
@@ -187,6 +194,7 @@
 }
 
 .bcc {
+  animation: hover 2.5s ease-in-out infinite;
   position: absolute;
   z-index: 2;
   width: 10vw;
@@ -195,6 +203,7 @@
 }
 
 .messages1 {
+  animation: hover 2.5s ease-in-out infinite;
   width: 32.5vw;
 }
 
@@ -205,19 +214,23 @@
 }
 
 .wrong {
+  animation: hover 2.5s ease-in-out infinite;
   position: absolute;
   color: red;
   font-size: 5vw;
   left: 31.25vw;
   top: 10vh;
+  z-index: 10;
 }
 
 .right {
+  animation: hover 2.5s ease-in-out infinite;
   position: absolute;
   color: #2affaa;
   font-size: 5vw;
   left: 8.75vw;
   top: 10vh;
+  z-index: 10;
 }
 
 .page2 {
@@ -245,7 +258,7 @@
   right: 12.5vw;
 }
 
-.h2, .h3, .h4 {
+.h2, .h3, .h4, .h5 {
   font-size: 3.75vw;
   margin-left: 2.5vw;
 }
@@ -256,7 +269,7 @@
   top: 15vh;
 }
 
-.page3, .page4, .page5 {
+.page3, .page4, .page5, .page6 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -265,7 +278,7 @@
   z-index: 0;
 }
 
-.page3-body, .page5-body {
+.page3-body, .page5-body, .page6-body {
   position: relative;
   font-size: 1.75vw;
   left: 2.5vw;
@@ -356,13 +369,6 @@
 
 }
 
-.abstractLine {
-  position: absolute;
-  width: 32.5vw;
-  top: 35vh;
-  right: 0;
-}
-
 .daoGraphic {
   float: right;
   position: relative;
@@ -412,4 +418,74 @@
   text-align: left;
   top: 25vw;
   right: -1.5vw;
+}
+
+.roadmapOne {
+  position: absolute;
+  left: 5vw;
+}
+
+.roadmapTwo {
+  position: absolute;
+  left: 37.5vw;
+}
+
+
+.roadmapThree {
+  position: absolute;
+  left: 70vw;
+}
+
+.roadmapFour {
+  position: absolute;
+  left: 5vw;
+  top: 37.5vh;
+}
+
+.roadmapFive {
+  position: absolute;
+  left: 37.5vw;
+  top: 37.5vh;
+}
+
+
+.roadmapSix {
+  position: absolute;
+  left: 70vw;
+  top: 37.5vh;
+}
+
+
+.logoOne {
+  animation: hover 2.5s ease-in-out infinite;
+  position: absolute;
+  width: 3.75vw;
+  left: 2.5vw;
+
+}
+
+.logoTwo {
+  animation: hover 2.5s ease-in-out infinite;
+  position: absolute;
+  width: 5vw;
+  left: 2.5vw;
+}
+
+.logoThree {
+  animation: hover 2.5s ease-in-out infinite;
+  position: absolute;
+  width: 3.75vw;
+  left: 2.5vw;
+}
+
+.logoFour {
+  animation: hover 2.5s ease-in-out infinite;
+  position: absolute;
+  width: 5vw;
+  left: 2.5vw;
+}
+
+.circleRoadmap {
+  position: absolute;
+  top: 7.5vh;
 }
