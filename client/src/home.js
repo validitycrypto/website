@@ -9,9 +9,9 @@ import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter,
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';
-import posed, { PoseGroup } from 'react-pose';
+import BarChart from './bar'
 
-  // Atlaskit
+// Atlaskit
 import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
 import SuccessIcon from '@atlaskit/icon/glyph/check-circle';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
@@ -98,8 +98,6 @@ const dataPropType = PropTypes.arrayOf(
   })
 );
 
-const BarComponent = posed.li()
-
 // Constants
 const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
 
@@ -146,11 +144,8 @@ class Home extends Component {
   }
 
   scroll = (event) => {
-    var element = document.getElementsByClassName(event)[0]
+    var element = document.getElementsByClassName(event.value)[0]
     element.scrollIntoView({behavior: "smooth"});
-    if(event === "page6"){
-      this.animateChart()
-    }
   }
 
   formEmail = (event) => this.setState({ email: event.target.value });
@@ -209,7 +204,7 @@ class Home extends Component {
         onMouseOut={this.onMouseOut}
         data={this.state.data}
         paddingAngle={5}
-        lineWidth={15}
+        lineWidth={25}
         radius={20}
         animate
       />
@@ -258,16 +253,17 @@ class Home extends Component {
                 </a>
                 <div className="pageSelect">
                   <Select
+                    onChange={this.scroll}
                     options={[
-                      { label: 'What is Validity?', value: '1' },
-                      { label: 'Communal Validation', value: '1' },
-                      { label: 'How does it work?', value: '1' },
-                      { label: 'Why use Validity?', value: '1' },
-                      { label: 'Tokenonomics', value: '1' },
-                      { label: 'Analytics', value: '1' },
-                      { label: 'The Team', value: '1' },
-                      { label: 'Resources', value: '1' },
-                      { label: 'Get involved', value: '1' },
+                      { label: 'What is Validity?', value: 'page1' },
+                      { label: 'Communal Validation', value: 'page2' },
+                      { label: 'How does it work?', value: 'page3' },
+                      { label: 'Why use Validity?', value: 'page4' },
+                      { label: 'Tokenonomics', value: 'page5' },
+                      { label: 'Analytics', value: 'page6' },
+                      { label: 'The Team', value: 'page7' },
+                      { label: 'Resources', value: 'page8' },
+                      { label: 'Get involved', value: 'page9' },
                     ]}
                     placeholder="Navigation"/>
                 </div>
@@ -451,12 +447,10 @@ class Home extends Component {
           <Page>
             <Grid layout="fluid">
               <GridColumn>
+              <div className="page1-body">
                 <div className="h1">
                   <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
                 </div>
-              </GridColumn>
-              <GridColumn>
-              <div className="page1-body">
                 <p className="pagePoint">With the beauty of decentrilisation comes many bonuses but with any advantage comes a disvantage. Blockchain and technologies alike are on the edge of adoption but cannot fully reach the pinnacle unless a system of evalution takes a stand.</p>
                 <p className="pagePoint">This would provide a go-to reference point to verify the integrity of an investment decision but currently investing for the average person isn't a viable task as there is many pitfalls of amoral activity that one can easily fall pray to.</p>
                 <p className="pagePoint">How can the people know what is safe to invest in and what is not?</p>
@@ -481,12 +475,10 @@ class Home extends Component {
           <Page>
             <Grid layout="fluid">
               <GridColumn>
-                <div className="h2">
-                  <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
-                </div>
-              </GridColumn>
-              <GridColumn>
                 <div className="page2-body">
+                  <div className="h2">
+                    <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
+                  </div>
                   <div className="codecommunal">
                   <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
                   </div>
@@ -507,12 +499,10 @@ class Home extends Component {
         <Page>
           <Grid layout="fluid">
             <GridColumn>
+              <div className="page3-body">
               <div className="h3">
                 <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
               </div>
-            </GridColumn>
-            <GridColumn>
-              <div className="page3-body">
               <p className="stageOne">
                 <div className="stageNumber">1</div>
                 <div className="stageText">
@@ -540,7 +530,7 @@ class Home extends Component {
               <p className="stageFive">
                 <div className="stageNumber">5</div>
                 <div className="stageText">
-                  The concluding results are combined and are quantified out of a rating of 10, the self-governing analysis then acts as a source of evaluation for future onlooking investors.
+                  The concluding results are combined and are quantified out of a rating of 10, the distributed analysis then acts as a source of evaluation for future onlooking investors.
                 </div>
               </p>
               </div>
@@ -549,116 +539,109 @@ class Home extends Component {
         </Page>
       </div>
       <div className="page4">
-      <Page>
-        <Grid layout="fluid">
-        <GridColumn>
-        <div className="h4">
-          <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
-        </div>
-        </GridColumn>
-        <GridColumn>
-        <div className="page5-body">
-        <img className="daoGraphic" src={dao}/>
-        <p className="traitOne">
-        <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
-          <div className="stageAlpha">
-            vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
-          </div>
-        </p>
-        <p className="traitTwo">
-          <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
-          <div className="stageAlpha">
-            The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
-          </div>
-        </p>
-        <p className="traitThree">
-        <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
-        <div className="stageAlt" >
-          Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
-        </div>
-        </p>
-        <p className="traitFour">
-          <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
-          <div className="stageAlt" >
-          Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
-          </div>
-         </p>
-         <p className="traitFive">
-           <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
-           <div className="stageAlt" >
-             The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
-           </div>
-         </p>
-        <p className="traitSix">
-          <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
-          <div className="stageAlpha" >
-            Validity is self-governing <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
-          </div>
-        </p>
-        </div>
-
-        </GridColumn>
-        </Grid>
-      </Page>
+        <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+              <div className="page5-body">
+                <div className="h4">
+                  <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
+                </div>
+                <img className="daoGraphic" src={dao}/>
+                <p className="traitOne">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
+                  <div className="stageAlpha">
+                    vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
+                  </div>
+                </p>
+                <p className="traitTwo">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
+                  <div className="stageAlpha">
+                    The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
+                  </div>
+                </p>
+                <p className="traitThree">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
+                  <div className="stageAlt" >
+                    Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
+                  </div>
+                </p>
+                <p className="traitFour">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
+                  <div className="stageAlt" >
+                    Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
+                  </div>
+                </p>
+                <p className="traitFive">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
+                  <div className="stageAlt" >
+                    The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
+                  </div>
+                </p>
+                <p className="traitSix">
+                  <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
+                  <div className="stageAlpha" >
+                    Validity is <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
+                  </div>
+                </p>
+              </div>
+            </GridColumn>
+          </Grid>
+        </Page>
       </div>
       <div className="page5" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
-      <Page>
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
-      </div>
-      </GridColumn>
-      <GridColumn>
-      <div className="page5-body">
-          <div className="tokenChart">
-          {this.state.chartComponent}
-          </div>
-      {this.state.metaData != null && (
-        <div className="modalToken">
-          <SectionMessage appearance="change">
-            <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
-          </SectionMessage>
-        </div>
-      )}
-      <p className="tokenOne">
-        <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
-         <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
-      </p>
-      <PoseGroup>
-        {this.state.items.map(item => <BarComponent key={item.key} />)}
-      </PoseGroup>
-      <p className="tokenTwo">
-        <i>Supply: <b>50,600,000,000</b></i>
-        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
-      </p>
-      <p className="tokenThree">
-        <i>Network: <b>Ethereum</b></i>
-        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
-      </p>
-      <p className="tokenFour">
-        <i>Token: <b>ERC20d</b></i>
-        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
-      </p>
-      <p className="tokenFive">
-        <i>Ticker: <b>VLDY</b></i>
-        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
-      </p>
-      </div>
-      </GridColumn>
-      </Grid>
-      </Page>
+        <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+            <div className="page5-body">
+              <div className="h4">
+                <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+              </div>
+              <div className="tokenChart">
+                {this.state.chartComponent}
+                </div>
+                {this.state.metaData != null && (
+                  <div className="modalToken">
+                    <SectionMessage appearance="change">
+                      <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
+                    </SectionMessage>
+                  </div>
+                )}
+                <p className="tokenOne">
+                  <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
+                  <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
+                </p>
+                <p className="tokenTwo">
+                  <i>Supply: <b>50,600,000,000</b></i>
+                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
+                </p>
+                <p className="tokenThree">
+                  <i>Network: <b>Ethereum</b></i>
+                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
+                </p>
+                <p className="tokenFour">
+                  <i>Token: <b>ERC20d</b></i>
+                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
+                </p>
+                <p className="tokenFive">
+                  <i>Ticker: <b>VLDY</b></i>
+                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
+                </p>
+                <div className="tokenData">
+                  <BarChart/>
+                </div>
+              </div>
+            </GridColumn>
+          </Grid>
+        </Page>
       </div>
       <div className="page6">
         <Page>
           <Grid layout="fluid">
             <GridColumn>
-              <div className="h5">
-                <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
-              </div>
-            </GridColumn>
-            <GridColumn>
               <div className="page5-body">
+                <div className="h5">
+                  <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+                </div>
                 <div className="roadmapOne"
                   onMouseOver={() => this.setState({ stageModal: 1})}
                   onMouseOut={() => this.setState({ stageModal: 0})}>

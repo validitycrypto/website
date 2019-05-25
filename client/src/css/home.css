@@ -142,22 +142,20 @@
   position: relative;
   height: 91.125vh;
   width: 100vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  z-index: 0;
 }
 
 .h1 {
   font-size: 3.75vw;
-  margin-left: 2.5vw;
+  padding-bottom: 3.75vw;
+  margin-left: -2.5vw;
 }
 
 .page1-body {
   position: relative;
   font-size: 1.75vw;
-  margin-left: 2.5vw;
-  width: 42.5vw;
-  top: 15vh;
+  left: 5vw;
+  width: 37.5vw;
+  top: 7.5vh;
 }
 
 .pagePoint {
@@ -172,8 +170,8 @@
 .validatingGraphic {
   position: relative;
   display: inline-block;
-  top: -45vh;
-  left: -.25vw;
+  top: 15vh;
+  right: 5vw;
 }
 
 .base1 {
@@ -232,34 +230,19 @@
   z-index: 10;
 }
 
-.page2 {
-  position: relative;
-  height: 91.125vh;
-  width: 100vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  z-index: 0;
-}
-
-.page2-body {
-  position: relative;
-  font-size: 1.75vw;
-  left: 5vw;
-  width: 82.5vw;
-  top: 5vh;
-}
-
 .world {
   position: absolute;
   animation: pulse 1s infinite;
   width: 50vw;
-  top: 25vh;
+  top: 37.5vh;
   right: 12.5vw;
 }
 
-.h2, .h3, .h4, .h5 {
+ .h2, .h3, .h4, .h5, .h6 {
+  position: relative;
   font-size: 3.75vw;
-  margin-left: 2.5vw;
+  padding-bottom: 3.75vw;
+  margin-left: -2.5vw;
 }
 
 .traits {
@@ -268,57 +251,56 @@
   top: 15vh;
 }
 
-.page3, .page4, .page5, .page6 , .page7 {
+.page1, .page2, .page3, .page4, .page5, .page6 , .page7 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
   padding-top: 5vw;
-  padding-bottom: 5vw;
+  margin-bottom: 5vw;
   z-index: 0;
 }
 
-.page3-body, .page5-body, .page6-body {
+.page2-body, .page3-body, .page5-body, .page6-body {
   position: relative;
   font-size: 1.75vw;
   left: 5vw;
-  width: 82.5vw;
+  width: 80vw;
   top: 7.5vh;
 }
 
 .stageOne{
   position: absolute;
   text-align: left;
+  top: 7.5vw;
 }
 
 .stageTwo {
   position: absolute;
   text-align: left;
-  top: 7.5vw;
+  top: 15vw;
 }
 
 .stageThree {
   position: absolute;
   text-align: left;
-  top: 15vw;
+  top: 22.5vw;
 }
 
 
 .stageFour {
   position: absolute;
   text-align: left;
-  top: 22.5vw;
+  top: 30vw;
 }
 
 .stageFive {
   position: absolute;
   text-align: left;
-  top: 30vw;
+  top: 37.5vw;
 }
-
 
 .stageText {
   position: relative;
-  width: 65vw;
   left: 5vw;
 }
 
@@ -368,15 +350,15 @@
 .daoGraphic {
   float: right;
   position: relative;
-  top: 10vh;
-  right: 23.75vw;
+  top: 13.75vh;
+  right: 22.5vw;
   width: 32.5vw;
 }
 
 .traitOne{
   position: absolute;
   text-align: left;
-  top: -.5vh;
+  top: 15vh;
   left: 2.5vw;
 }
 
@@ -384,35 +366,35 @@
   position: absolute;
   text-align: left;
   right: -1.5vw;
-  top: -.5vh;
+  top: 15vh;
 
 }
 
 .traitThree {
   position: absolute;
   text-align: left;
-  top: 11.25vw;
+  top: 37.5vh;
 }
 
 .traitFour {
   position: absolute;
   text-align: left;
   float: right;
-  top: 11.25vw;
+  top: 37.5vh;
   right: -1.5vw;
 }
 
 .traitFive {
   position: absolute;
   text-align: left;
-  top: 25vw;
+  top: 65vh;
   left: 2.5vw;
 }
 
 .traitSix {
   position: absolute;
   text-align: left;
-  top: 25vw;
+  top: 65vh;
   right: -1.5vw;
 }
 
@@ -435,20 +417,20 @@
 .roadmapFour {
   position: absolute;
   left: 5vw;
-  top: 37.5vh;
+  top: 50vh;
 }
 
 .roadmapFive {
   position: absolute;
   left: 37.5vw;
-  top: 37.5vh;
+  top: 50vh;
 }
 
 
 .roadmapSix {
   position: absolute;
   left: 70vw;
-  top: 37.5vh;
+  top: 50vh;
 }
 
 
@@ -487,7 +469,7 @@
   border-top: 5px dotted #815aff;
   left: 12.5vw;
   width: 27.5vw;
-  top: 13.75vh;
+  top: 27.5vh;
   z-index: -1;
 }
 
@@ -496,7 +478,7 @@
   border-top: 5px dotted #815aff;
   left: 45vw;
   width: 27.5vw;
-  top: 13.75vh;
+  top: 27.5vh;
   z-index: -1;
 }
 
@@ -505,7 +487,7 @@
   border-top: 5px dotted #815aff;
   left: 12.5vw;
   width: 65vw;
-  top: 32.5vh;
+  top: 45vh;
   z-index: -1;
   transform: rotate(-15deg);
 }
@@ -515,7 +497,7 @@
   border-top: 5px dotted #815aff;
   left: 12.5vw;
   width: 27.5vw;
-  top: 51.75vh;
+  top: 65vh;
   z-index: -1;
 }
 
@@ -525,7 +507,7 @@
   border-top: 5px dotted #815aff;
   left: 45vw;
   width: 27.5vw;
-  top: 51.75vh;
+  top: 65vh;
   z-index: -1;
 }
 
@@ -538,7 +520,7 @@
 .modalOne {
   position: absolute;
   width: 20vw;
-  top: 20vh;
+  top: 35vh;
   left: .5vw;
 }
 
@@ -546,20 +528,20 @@
   position: absolute;
   width: 20vw;
   left: 31.75vw;
-  top: -15vh;
+  top: .5vh;
 }
 
 .modalThree {
   position: absolute;
   width: 20vw;
   left: 65vw;
-  top: -15vh;
+  top: .5vh;
 }
 
 .modalFour {
   position: absolute;
   width: 20vw;
-  top: 25vh;
+  top: 37.5vh;
   left: .5vw;
 }
 
@@ -567,14 +549,14 @@
   position: absolute;
   width: 20vw;
   left: 31.75vw;
-  top: 57.5vh;
+  top: 71.5vh;
 }
 
 .modalSix {
   position: absolute;
   width: 20vw;
   left: 65vw;
-  top: 57.5vh;
+  top: 71.5vh;
 }
 
 
@@ -583,13 +565,13 @@
   width: 65vw;
   left: 12.5vw;
   right: 0;
-  top: -27.5vh;
+  top: -10vh;
 }
 
 .modalToken {
   position: absolute;
   width: 25vw;
-  top: -2.5vh;
+  top: 9.5vh;
   left: 55vw;
 }
 
@@ -601,33 +583,33 @@
 .tokenTwo {
   position: absolute;
   text-align: right;
-  top: 10vw;
-  right: .5vw;
+  top: 30vh;
+  right: -5vw;
 }
 
 .tokenThree {
   position: absolute;
   text-align: right;
-  top: 15vw;
-  right: .5vw;
+  top: 40vh;
+  right: -5vw;
 }
 
 
 .tokenFour {
   position: absolute;
   text-align: right;
-  top: 20vw;
-  right: .5vw;
+  top: 50vh;
+  right: -5vw;
 }
 
 .tokenFive {
   position: absolute;
   text-align: right;
-  top: 25vw;
-  right: .5vw;
+  top: 60vh;
+  right: -5vw;
 }
 
-.tokenAnimation {
+.tokenData {
   position: absolute;
-  top: 50vh;
+  top: 40vh;
 }
