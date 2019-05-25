@@ -101,6 +101,47 @@ const dataPropType = PropTypes.arrayOf(
 // Constants
 const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
 
+const TeamCard = ({ data }) => {
+  return(
+  <Card className="teamCard" inverted>
+    <Image className="teamPhoto" src={data.image}/>
+    <Card.Content>
+      <Card.Header><span className="blackt">{data.name}</span></Card.Header>
+        <Card.Meta>
+          <span className="blackt">{data.position}</span>
+        </Card.Meta>
+      </Card.Content>
+      <Card.Content>
+        <span className="blackt">{data.nationality}</span>
+      </Card.Content>
+      <Card.Content>
+        <span className="blackt">
+          {data.bio}
+        </span>
+      </Card.Content>
+      <Card.Content extra>
+      <a className="plink" href={data.linkedin}>
+        <FontAwesomeIcon icon={faLinkedin} color='white' />
+      </a>
+      <a className="ptweet" href={data.twitter}>
+        <FontAwesomeIcon icon={faTwitter} color='white' />
+      </a>
+      <a className="ptele" href={data.discord}>
+        <FontAwesomeIcon icon={faDiscord} color='white' />
+      </a>
+      <a className="pdis" href={data.telegram}>
+        <FontAwesomeIcon icon={faTelegramPlane} color='white' />
+      </a>
+      {data.github != false && (
+        <a className="p" href={data.github}>
+          <FontAwesomeIcon icon={faGithub} color='white'/>
+        </a>
+      )}
+    </Card.Content>
+  </Card>
+  );
+}
+
 
   const styles = createMuiTheme({
      sideBar: {
@@ -215,9 +256,9 @@ class Home extends Component {
     this.setState({
       metaData: null,
       data:
-      [{ title: 'Airdrop Tier 1', value: 30, color: '#0cff6f' },
-        { title: 'Airdrop Tier 2', value: 20, color: '#0c23ff' },
-        { title: 'Airdrop Tier 3', value: 10, color: '#ff0c23' },
+      [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
+        { title: 'Airdrop rier 2', value: 20, color: '#0c23ff' },
+        { title: 'Airdrop tier 3', value: 10, color: '#ff0c23' },
         { title: 'Team', value: 15, color: '#00bfff' },
         { title: 'Community fund', value: 20, color: '#815aff' },
         { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
@@ -475,7 +516,7 @@ class Home extends Component {
           <Page>
             <Grid layout="fluid">
               <GridColumn>
-                <div className="page2-body">
+                <div className="pageBody">
                   <div className="h2">
                     <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
                   </div>
@@ -499,7 +540,7 @@ class Home extends Component {
         <Page>
           <Grid layout="fluid">
             <GridColumn>
-              <div className="page3-body">
+              <div className="pageBody">
               <div className="h3">
                 <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
               </div>
@@ -542,7 +583,7 @@ class Home extends Component {
         <Page>
           <Grid layout="fluid">
             <GridColumn>
-              <div className="page5-body">
+              <div className="pageBody">
                 <div className="h4">
                   <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
                 </div>
@@ -592,7 +633,7 @@ class Home extends Component {
         <Page>
           <Grid layout="fluid">
             <GridColumn>
-            <div className="page5-body">
+            <div className="pageBody">
               <div className="h4">
                 <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
               </div>
@@ -638,7 +679,7 @@ class Home extends Component {
         <Page>
           <Grid layout="fluid">
             <GridColumn>
-              <div className="page5-body">
+              <div className="pageBody">
                 <div className="h5">
                   <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
                 </div>
@@ -734,150 +775,46 @@ class Home extends Component {
       <Page>
       <Grid layout="fluid">
         <GridColumn>
-          <div className="h4">
-            <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
-          </div>
-        </GridColumn>
-        <GridColumn>
-        <div className="teamCards">
-          <Card inverted className="gozzy">
-            <Image src={gozzy}/>
-            <Card.Content>
-              <Card.Header><span className="blackt">Samuel JJ Gosling</span></Card.Header>
-              <Card.Meta>
-                <span className="blackt">Founder</span>
-            </Card.Meta>
-          </Card.Content>
-          <Card.Content>
-          <span className="blackt">Ireland 🇮🇪</span>
-          </Card.Content>
-          <Card.Content>
-          <span className="blackt">Betterknown as <b>Gozzy</b>, Samuel is a rookie developer
-          with a strong sense of integrity and the ability to ignite ideas via coding to
-          make them a reality.</span>
-          </Card.Content>
-          <Card.Content extra>
-          <a className="plink" href="https://www.linkedin.com/in/samuel-jj-gosling/">
-          <FontAwesomeIcon icon={faLinkedin} color='white' />
-          </a>
-          <a className="ptweet" href="https://twitter.com/gozzy_g">
-          <FontAwesomeIcon icon={faTwitter} color='white' />
-          </a>
-          <a className="ptele" href="https://discordapp.com/users/359835946491052037/">
-          <FontAwesomeIcon icon={faDiscord} color='white' />
-          </a>
-          <a className="pdis" href="https://t.me/xgozzy">
-          <FontAwesomeIcon icon={faTelegramPlane} color='white' />
-          </a>
-          <a className="p" href="https://hub.com/samgos">
-          <FontAwesomeIcon icon={faGithub} color='white'/>
-          </a>
-          </Card.Content>
-        </Card>
-        </div>
-        </GridColumn>
-        <GridColumn>
-        <div className="teamCards">
-        <Card className="lukas">
-            <Image src={lukas}/>
-            <Card.Content>
-              <Card.Header><span className="blackt">Lukas Fischereder</span></Card.Header>
-              <Card.Meta>
-              <span className="blackt">Analyst</span>
-              </Card.Meta>
-            </Card.Content>
-            <Card.Content>
-            <span className="blackt">Austria 🇦🇹</span>
-            </Card.Content>
-            <Card.Content>
-            <span className="blackt">Lukas is an out-going individual who has a determination to learn
-            and unravel the unknown. His attention to detail allows nothing to go unoticed.</span>
-            </Card.Content>
-            <Card.Content extra>
-            <a className="plink" href="https://www.linkedin.com/in/lukas-fischereder-bb5758145/">
-            <FontAwesomeIcon icon={faLinkedin} color='white' />
-            </a>
-            <a className="ptweet" href="https://twitter.com/LukiFischereder">
-            <FontAwesomeIcon icon={faTwitter} color='white' />
-            </a>
-            <a className="ptele" href="https://discordapp.com/users/406776100299997185/">
-            <FontAwesomeIcon icon={faDiscord} color='white' />
-            </a>
-            <a className="pdis" href="https://t.me/lufisch">
-            <FontAwesomeIcon icon={faTelegramPlane} color='white' />
-            </a>
-            </Card.Content>
-          </Card>
-          </div>
-          </GridColumn>
-          <GridColumn>
-          <div className="teamCards">
-                  <Card className="halmat">
-                      <Image src={halmat}/>
-                      <Card.Content>
-                        <Card.Header><span className="blackt">Halmat Sarzali</span></Card.Header>
-                        <Card.Meta>
-                        <span className="blackt">Strategist</span>
-                        </Card.Meta>
-                      </Card.Content>
-                      <Card.Content>
-                      <span className="blackt">Norway	🇳🇴</span>
-                      </Card.Content>
-                      <Card.Content>
-                      <span className="blackt">Halmat is a man of words but that doesn't inhibit his reach, utilsing his gramatical
-                      and negotating skills allows an unyielding range of potential opportunities to arise.
-                       </span>
-                      </Card.Content>
-                      <Card.Content extra>
-                      <a className="plink" href="https://www.linkedin.com/in/halmat-sarzali-575330b7/">
-                      <FontAwesomeIcon icon={faLinkedin} color='white' />
-                      </a>
-                      <a className="ptweet" href="https://twitter.com/RealCrypto420">
-                      <FontAwesomeIcon icon={faTwitter} color='white' />
-                      </a>
-                      <a className="ptele" href="https://discordapp.com/users/379338535104413734/">
-                      <FontAwesomeIcon icon={faDiscord} color='white' />
-                      </a>
-                      <a className="pdis" href="https://t.me/Hali420">
-                      <FontAwesomeIcon icon={faTelegramPlane} color='white' />
-                      </a>
-                      </Card.Content>
-                    </Card>
-                    </div>
-                  </GridColumn>
-                  <GridColumn>
-                  <div className="teamCards">
-                    <Card className="marcos">
-                        <Card.Content>
-                          <Card.Header>
-                            <span className="blackt">
-                              Marcos Benítez Rubianes
-                            </span>
-                          </Card.Header>
-                          <Card.Meta>
-                          <span className="blackt">Strategist</span>
-                          </Card.Meta>
-                        </Card.Content>
-                        <Card.Content>
-                        <span className="blackt">Switzerland🇨🇭</span>
-                        </Card.Content>
-                        <Card.Content>
-                        <span className="blackt">Having worked with <b>PwC</b> in financial crimes and
-                        now currently with <b>Gazprombank</b> bank, Marcos has the network and the wisdom.
-                         </span>
-                        </Card.Content>
-                        <Card.Content extra>
-                        <a className="plink" href="https://www.linkedin.com/in/marcos-benítez-rubianes-9b19b864/">
-                        <FontAwesomeIcon icon={faLinkedin} color='white' />
-                        </a>
-                        <a className="ptweet" href="https://twitter.com/Foxxrex">
-                        <FontAwesomeIcon icon={faTwitter} color='white' />
-                        </a>
-                        <a className="pdis" href="https://t.me/CryptoProphet33">
-                        <FontAwesomeIcon icon={faTelegramPlane} color='white' />
-                        </a>
-                        </Card.Content>
-                      </Card>
+          <div className="teamBody">
+            <div className="h4">
+              <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
+            </div>
+            <TeamCard data={{
+                  name: "Samuel JJ Gosling",
+                  image: gozzy,
+                  position: "Founder",
+                  nationality: "Ireland",
+                  bio: "test",
+                  twitter: "a",
+                  telegram: "a",
+                  linkedin: "a",
+                  discord: "a",
+                  github: false
+              }}/>
+              <TeamCard data={{
+                  name: "Lukas Fischereder",
+                  image: lukas,
+                  position: "Analyst",
+                  nationality: "Austria",
+                  bio: "Lukas is an out-going individual who has a determination to learn and unravel the unknown. His attention to detail allows nothing to go unoticed.",
+                  twitter: "https://twitter.com/LukiFischereder",
+                  telegram: "https://t.me/lufisch",
+                  linkedin: "https://www.linkedin.com/in/lukas-fischereder-bb5758145",
+                  discord: "https://discordapp.com/users/406776100299997185/",
+                  github: false
+              }}/>
+              <TeamCard data={{
+                  name: "Marcos Benítez Rubianes",
+                  image: lukas,
+                  position: "Strategist",
+                  nationality: "Switzerland",
+                  bio: "Having worked with <b>PwC</b> in financial crimes and now currently with Gazprombank bank, Marcos has the network and the wisdom.",
+                  twitter: "https://twitter.com/Foxxrex",
+                  telegram: "https://t.me/CryptoProphet33",
+                  linkedin: "https://www.linkedin.com/in/marcos-benítez-rubianes-9b19b864/",
+                  discord: "",
+                  github: false
+              }}/>
             </div>
             </GridColumn>
             </Grid>

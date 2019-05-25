@@ -4,6 +4,12 @@
 }
 
 
+.ui.card,
+.ui.cards>.card {
+  background-color: #815aff;;
+  width: 17.5vw;
+}
+
 @keyframes pulse {
   0% { opacity: 1; }
   100% { opacity: 0; }
@@ -251,7 +257,7 @@
   top: 15vh;
 }
 
-.page1, .page2, .page3, .page4, .page5, .page6 , .page7 {
+.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -260,13 +266,22 @@
   z-index: 0;
 }
 
-.page2-body, .page3-body, .page5-body, .page6-body {
+.pageBody {
   position: relative;
   font-size: 1.75vw;
   left: 5vw;
   width: 80vw;
   top: 7.5vh;
 }
+
+.teamBody {
+  position: relative;
+  font-size: 1.25vw;
+  left: 5vw;
+  width: 80vw;
+  top: 7.5vh;
+}
+
 
 .stageOne{
   position: absolute;
@@ -612,4 +627,9 @@
 .tokenData {
   position: absolute;
   top: 40vh;
+}
+
+.teamCard {
+  position: relative;
+  display: block;
 }
