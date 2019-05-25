@@ -6,7 +6,8 @@
 
 .ui.card,
 .ui.cards>.card {
-  background-color: #815aff;;
+  background-color: #815aff;
+  color: white;
   width: 17.5vw;
 }
 
@@ -96,7 +97,7 @@
   float: right;
 }
 
-.egem {
+.eth {
   position: relative;
   float: left;
   width: 1.75vw;
@@ -257,7 +258,7 @@
   top: 15vh;
 }
 
-.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8 {
+.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -629,7 +630,51 @@
   top: 40vh;
 }
 
-.teamCard {
-  position: relative;
+.cardOne {
+  position: absolute;
   display: block;
+  left: 5vw;
+}
+
+.cardTwo {
+  position: absolute;
+  display: block;
+  left: 35vw;
+  top: -58vh;
+}
+
+.cardThree {
+  position: absolute;
+  display: block;
+  left: 65vw;
+  top: -117.5vh;
+}
+
+.ethereumLogo {
+  display: inline-block;
+  position: absolute;
+  width: 17.5vw;
+  left: 33.75vw;
+}
+
+.teamOnboarding {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+  position: absolute;
+  font-size: 1.75vw;
+  width: 30vw;
+  padding: 1.5vw;
+  top: 20vh;
+}
+
+.desiredTraits {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+  position: absolute;
+  right: -5vw;
+  width: 30vw;
+  padding: 1.5vw;
+  top: 20vh;
 }

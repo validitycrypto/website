@@ -4,8 +4,8 @@ import firebase from 'firebase'
 // UX
 
   // Misc
-import { faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
-import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faReact, faPython, faEthereum,faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';
@@ -64,16 +64,17 @@ import github from './images/github.png'
 import gitcoin from './images/gitcoin.png'
 import reddit from './images/reddit.png'
 import lines2 from './images/lines2.png'
-import halmat from './images/halmat.png'
 import base1 from './images/base1.png'
 import world from './images/world.png'
 import base3 from './images/base3.png'
 import gozzy from './images/gozzy.png'
 import lukas from './images/lukas.png'
+import marcos from './images/marcos.png'
 import clabs from './images/clabs.png'
 import cnews from './images/cnews.png'
 import vldy from './images/vldy.png'
-import egem from './images/ethereum.png'
+import outlineEth from './images/ethoutline.png'
+import eth from './images/ethereum.png'
 import dao from './images/dao.png'
 import bct from './images/bct.png'
 import bcc from './images/bcc.png'
@@ -103,7 +104,7 @@ const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
 
 const TeamCard = ({ data }) => {
   return(
-  <Card className="teamCard" inverted>
+  <Card className={data.class} inverted>
     <Image className="teamPhoto" src={data.image}/>
     <Card.Content>
       <Card.Header><span className="blackt">{data.name}</span></Card.Header>
@@ -114,26 +115,21 @@ const TeamCard = ({ data }) => {
       <Card.Content>
         <span className="blackt">{data.nationality}</span>
       </Card.Content>
-      <Card.Content>
-        <span className="blackt">
-          {data.bio}
-        </span>
-      </Card.Content>
       <Card.Content extra>
-      <a className="plink" href={data.linkedin}>
+      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.linkedin}>
         <FontAwesomeIcon icon={faLinkedin} color='white' />
       </a>
-      <a className="ptweet" href={data.twitter}>
+      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.twitter}>
         <FontAwesomeIcon icon={faTwitter} color='white' />
       </a>
-      <a className="ptele" href={data.discord}>
+      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.discord}>
         <FontAwesomeIcon icon={faDiscord} color='white' />
       </a>
-      <a className="pdis" href={data.telegram}>
+      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.telegram}>
         <FontAwesomeIcon icon={faTelegramPlane} color='white' />
       </a>
       {data.github != false && (
-        <a className="p" href={data.github}>
+        <a style={{ "font-size": "1.5vw"}} href={data.github}>
           <FontAwesomeIcon icon={faGithub} color='white'/>
         </a>
       )}
@@ -290,7 +286,7 @@ class Home extends Component {
             <AppBar fullWidth style={{ backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
               <Toolbar>
                 <a href='https://www.ethereum.org/'>
-                  <img className='egem' src={egem}/>
+                  <img className='eth' src={eth}/>
                 </a>
                 <div className="pageSelect">
                   <Select
@@ -301,8 +297,8 @@ class Home extends Component {
                       { label: 'How does it work?', value: 'page3' },
                       { label: 'Why use Validity?', value: 'page4' },
                       { label: 'Tokenonomics', value: 'page5' },
-                      { label: 'Analytics', value: 'page6' },
-                      { label: 'The Team', value: 'page7' },
+                      { label: 'Validity core', value: 'page6' },
+                      { label: 'Roadmap', value: 'page7' },
                       { label: 'Resources', value: 'page8' },
                       { label: 'Get involved', value: 'page9' },
                     ]}
@@ -478,7 +474,7 @@ class Home extends Component {
                       <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
                       <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
                       <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
-                      <b>Target <a href="https://www.myegemwallet.com">EtherGem wallet address</a> for the airdrop distribution</b>
+                      <b>Target <a href="https://www.myethwallet.com">EtherGem wallet address</a> for the airdrop distribution</b>
                       <FieldText shouldFitContainer='true' label='EtherGem Address' required onChange={this.formWallet}/>
                       <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
                   </div>
@@ -677,241 +673,188 @@ class Home extends Component {
       </div>
       <div className="page6">
         <Page>
-          <Grid layout="fluid">
+          <Grid layout="compact">
             <GridColumn>
-              <div className="pageBody">
-                <div className="h5">
-                  <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+              <div className="teamBody">
+                <div className="h4">
+                  <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
                 </div>
-                <div className="roadmapOne"
-                  onMouseOver={() => this.setState({ stageModal: 1})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={greenCircle} />
-                  <img className="logoOne" src={egem} />
-                </div>
-                {this.state.stageModal == 1 && (
-                  <div className="modalOne">
-                    <SectionMessage appearance="confirmation">
-                      Ethereum & MVP launch
-                    </SectionMessage>
-                  </div>
-                )}
-                <div className="lineOne"/>
-                <div className="roadmapTwo"
-                  onMouseOver={() => this.setState({ stageModal: 2})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={redCircle} />
-                  <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
-                </div>
-                {this.state.stageModal == 2 && (
-                  <div className="modalTwo">
-                    <SectionMessage appearance="error">
-                      Validity Whitepaper
-                    </SectionMessage>
-                  </div>
-                )}
-                <div className="lineTwo"/>
-                <div className="roadmapThree"
-                  onMouseOver={() => this.setState({ stageModal: 3})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={redCircle} />
-                  <img className="logoTwo" src={gitcoin} />
-                </div>
-                {this.state.stageModal == 3 && (
-                  <div className="modalThree">
-                    <SectionMessage appearance="error">
-                      Gitcoin grants & funding
-                    </SectionMessage>
-                  </div>
-                )}
-                <div className="lineThree"/>
-                <div className="roadmapFour"
-                onMouseOver={() => this.setState({ stageModal: 4})}
-                onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={redCircle} />
-                  <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
-                </div>
-                {this.state.stageModal == 4 && (
-                  <div className="modalFour">
-                    <SectionMessage appearance="error">
-                      Find talent and partnerships
-                    </SectionMessage>
-                  </div>
-                )}
-                <div className="lineFour"/>
-                <div className="roadmapFive"
-                onMouseOver={() => this.setState({ stageModal: 5})}
-                onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={redCircle} />
-                  <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
-                </div>
-                {this.state.stageModal == 5 && (
-                  <div className="modalFive">
-                    <SectionMessage appearance="error">
-                      Beta product
-                    </SectionMessage>
-                  </div>
-                )}
-                <div className="lineFive"/>
-                <div className="roadmapSix"
-                  onMouseOver={() => this.setState({ stageModal: 6})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                  <img className="circleRoadmap" src={redCircle} />
-                  <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
-                </div>
-                {this.state.stageModal == 6 && (
-                  <div className="modalSix">
-                    <SectionMessage appearance="error">
-                      Product launch
-                    </SectionMessage>
-                  </div>
-                )}
-              </div>
-            </GridColumn>
-          </Grid>
-        </Page>
-      </div>
-      <div className="page7">
-      <Page>
-      <Grid layout="fluid">
-        <GridColumn>
-          <div className="teamBody">
-            <div className="h4">
-              <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
-            </div>
-            <TeamCard data={{
+                <TeamCard data={{
+                  class: "cardOne",
                   name: "Samuel JJ Gosling",
                   image: gozzy,
                   position: "Founder",
-                  nationality: "Ireland",
+                  nationality: "Ireland 🇮🇪",
                   bio: "test",
                   twitter: "a",
                   telegram: "a",
                   linkedin: "a",
                   discord: "a",
                   github: false
-              }}/>
-              <TeamCard data={{
-                  name: "Lukas Fischereder",
-                  image: lukas,
-                  position: "Analyst",
-                  nationality: "Austria",
-                  bio: "Lukas is an out-going individual who has a determination to learn and unravel the unknown. His attention to detail allows nothing to go unoticed.",
-                  twitter: "https://twitter.com/LukiFischereder",
-                  telegram: "https://t.me/lufisch",
-                  linkedin: "https://www.linkedin.com/in/lukas-fischereder-bb5758145",
-                  discord: "https://discordapp.com/users/406776100299997185/",
-                  github: false
-              }}/>
-              <TeamCard data={{
-                  name: "Marcos Benítez Rubianes",
-                  image: lukas,
+                }}/>
+                <TeamCard data={{
+                  class: "cardTwo",
+                  name: "Marcos B Rubianes",
+                  image: marcos,
                   position: "Strategist",
-                  nationality: "Switzerland",
-                  bio: "Having worked with <b>PwC</b> in financial crimes and now currently with Gazprombank bank, Marcos has the network and the wisdom.",
+                  nationality: "Switzerland 🇨🇭",
+                  bio: "test",
                   twitter: "https://twitter.com/Foxxrex",
                   telegram: "https://t.me/CryptoProphet33",
                   linkedin: "https://www.linkedin.com/in/marcos-benítez-rubianes-9b19b864/",
                   discord: "",
                   github: false
-              }}/>
-            </div>
+                }}/>
+                <TeamCard data={{
+                  class: "cardThree",
+                  name: "Lukas Fischereder",
+                  image: lukas,
+                  position: "Analyst",
+                  nationality: "Austria 🇦🇹",
+                  bio: "test",
+                  twitter: "https://twitter.com/LukiFischereder",
+                  telegram: "https://t.me/lufisch",
+                  linkedin: "https://www.linkedin.com/in/lukas-fischereder-bb5758145",
+                  discord: "https://discordapp.com/users/406776100299997185/",
+                  github: false
+                }}/>
+              </div>
             </GridColumn>
-            </Grid>
-            </Page>
-        </div>
-
-
-        <div className="page8">
-        <Grid layout="fluid">
-          <GridColumn>
-            <div className="h3">
-              <FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>
-              &nbsp;&nbsp;&nbsp;Get involved
-            </div>
-          </GridColumn>
-          <GridColumn>
-          </GridColumn>
-          <GridColumn medium={1}>
-            <Button onClick={this.scroll.bind(this, "page9")} appearance="help">
-              Next
-            </Button>
-         </GridColumn>
-         </Grid>
-
-        <Grid layout="fluid">
-        <GridColumn>
-      <div className="joinTeam">
-        <p>
-        <FontAwesomeIcon icon={faFemale} color='#815aff' size='2x'/>
-        &nbsp;&nbsp;&nbsp;
-        <FontAwesomeIcon icon={faMale} color='#815aff' size='2x'/>
-        &nbsp;&nbsp;&nbsp;
-        Do you think you have what it takes to join our team? We are looking
-        for innovational and committed people to help make Validity a reality.
-        The onboarding process for one to become appicable requires a face to
-        face interview with our founder. If you are interested please send your
-        resume and a short bio to: <b>team@validity.ae</b>
-        </p>
-      </div>
-      </GridColumn>
-      </Grid>
-
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="bountyTitle">
-      <p>
-        <FontAwesomeIcon icon={faStar} color='#815aff' size='2x'/>
-        &nbsp;&nbsp;&nbsp; <b> Bounties </b>
-      </p>
-      </div>
-      </GridColumn>
-      <GridColumn>
-      <div className="websiteBounties">
-      <p>
-        <FontAwesomeIcon icon={faFileSignature} color='#815aff' size='2x'/>
-        &nbsp;&nbsp;&nbsp; <b> Validity survey </b>
-      </p>
-      <p>🇯🇵 Japanese&nbsp;&nbsp;&nbsp;🇪🇸 Spanish&nbsp;&nbsp;&nbsp;🇷🇺 Russian&nbsp;&nbsp;&nbsp;
-      🇨🇳 Chinese&nbsp;&nbsp;&nbsp;🇮🇹 Italian&nbsp;&nbsp;&nbsp;🇫🇷 French&nbsp;&nbsp;&nbsp;🇰🇷 Korean
-      &nbsp;&nbsp;&nbsp;🇳🇱 Dutch&nbsp;&nbsp;&nbsp;🇮🇳 Hindi&nbsp;&nbsp;&nbsp;🇹🇭 Siamese</p>
-      </div>
-    </GridColumn>
-    </Grid>
-
-        </div>
-
-
-        <div className="page9">
-        <Page>
-        <Grid layout="fluid">
-          <GridColumn>
-          <div className="h4">
-          <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Featured by</div>
-          </GridColumn>
           </Grid>
-
-          <Grid layout="fluid">
-          <GridColumn medium={2}>
-          </GridColumn>
-          <GridColumn>
-          <div className="featuredPartners">
-          <a href="https://chainlabs.ai/"><img className="clabs" src={clabs}/></a>
-          </div>
-          </GridColumn>
-          <GridColumn>
-          <div className="featuredPartners">
-          <a href="https://telegram.me/coinnewschannel"><img className="cnews" src={cnews}/></a>
-          </div>
-          </GridColumn>
-          <GridColumn>
-          <div className="featuredPartners">
-          <a href="https://coindreams.io/"><img className="cdreams" src={cdreams}/></a>
-          </div>
-          </GridColumn>
-          </Grid>
-
         </Page>
+      </div>
+      <div className="page7">
+          <Page>
+            <Grid layout="fluid">
+              <GridColumn>
+                <div className="pageBody">
+                  <div className="h5">
+                    <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+                  </div>
+                  <div className="roadmapOne"
+                    onMouseOver={() => this.setState({ stageModal: 1})}
+                    onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={greenCircle} />
+                    <img className="logoOne" src={eth} />
+                  </div>
+                  {this.state.stageModal == 1 && (
+                    <div className="modalOne">
+                      <SectionMessage appearance="confirmation">
+                        Ethereum & MVP launch
+                      </SectionMessage>
+                    </div>
+                  )}
+                  <div className="lineOne"/>
+                  <div className="roadmapTwo"
+                    onMouseOver={() => this.setState({ stageModal: 2})}
+                    onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={redCircle} />
+                    <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
+                  </div>
+                  {this.state.stageModal == 2 && (
+                    <div className="modalTwo">
+                      <SectionMessage appearance="error">
+                        Validity Whitepaper
+                      </SectionMessage>
+                    </div>
+                  )}
+                  <div className="lineTwo"/>
+                  <div className="roadmapThree"
+                    onMouseOver={() => this.setState({ stageModal: 3})}
+                    onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={redCircle} />
+                    <img className="logoTwo" src={gitcoin} />
+                  </div>
+                  {this.state.stageModal == 3 && (
+                    <div className="modalThree">
+                      <SectionMessage appearance="error">
+                        Gitcoin grants & funding
+                      </SectionMessage>
+                    </div>
+                  )}
+                  <div className="lineThree"/>
+                  <div className="roadmapFour"
+                  onMouseOver={() => this.setState({ stageModal: 4})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={redCircle} />
+                    <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
+                  </div>
+                  {this.state.stageModal == 4 && (
+                    <div className="modalFour">
+                      <SectionMessage appearance="error">
+                        Find talent and partnerships
+                      </SectionMessage>
+                    </div>
+                  )}
+                  <div className="lineFour"/>
+                  <div className="roadmapFive"
+                  onMouseOver={() => this.setState({ stageModal: 5})}
+                  onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={redCircle} />
+                    <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
+                  </div>
+                  {this.state.stageModal == 5 && (
+                    <div className="modalFive">
+                      <SectionMessage appearance="error">
+                        Beta product
+                      </SectionMessage>
+                    </div>
+                  )}
+                  <div className="lineFive"/>
+                  <div className="roadmapSix"
+                    onMouseOver={() => this.setState({ stageModal: 6})}
+                    onMouseOut={() => this.setState({ stageModal: 0})}>
+                    <img className="circleRoadmap" src={redCircle} />
+                    <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
+                  </div>
+                  {this.state.stageModal == 6 && (
+                    <div className="modalSix">
+                      <SectionMessage appearance="error">
+                        Product launch
+                      </SectionMessage>
+                    </div>
+                  )}
+                </div>
+              </GridColumn>
+            </Grid>
+          </Page>
+        </div>
+        <div className="page8">
+          <Page>
+            <Grid layout="fluid">
+              <GridColumn>
+                <div className="pageBody">
+                  <div className="h3">
+                    <FontAwesomeIcon icon={faFemale} color='#815aff' size='xs'/>&nbsp;
+                    <FontAwesomeIcon icon={faMale} color='#815aff' size='xs'/>&nbsp;&nbsp;&nbsp;Get involved
+                  </div>
+                  <img className="ethereumLogo" src={outlineEth}/>
+                  <Paper className="teamOnboarding">
+                    <p>Do you think you have what it takes to join our team? We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. If you are interested please send your resume and a short bio to:</p>
+                    <br></br><p><b><i>team@validity.ae</i></b></p>
+                  </Paper>
+                  <Paper className="desiredTraits">
+                   <p><b><i>We are looking for...</i></b></p>
+                   <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='xs'/>&nbsp;Solidity developers (WASM)</p>
+                   <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='xs'/>&nbsp;Python developers (ML)</p>
+                   <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='xs'/>&nbsp;React.js developers </p>
+                   <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='xs'/>&nbsp; UX/UI designer </p>
+                   <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='xs'/>&nbsp;Growth hackers </p>
+                  </Paper>
+                </div>
+              </GridColumn>
+            </Grid>
+          </Page>
+        </div>
+        <div className="page9">
+          <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+              <div className="pageBody">
+              </div>
+            </GridColumn>
+           </Grid>
+          </Page>
         </div>
       </AtlaskitThemeProvider>
     );
