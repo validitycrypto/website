@@ -15,7 +15,6 @@
   to   { transform: translate(0, -0px); }
 }
 
-
 #root {
   position: absolute;
   width: device-width;
@@ -294,14 +293,12 @@
 .stageTwo {
   position: absolute;
   text-align: left;
-  left: 5vw;
   top: 7.5vw;
 }
 
 .stageThree {
   position: absolute;
   text-align: left;
-  left: 10vw;
   top: 15vw;
 }
 
@@ -309,14 +306,12 @@
 .stageFour {
   position: absolute;
   text-align: left;
-  left: 15vw;
   top: 22.5vw;
 }
 
 .stageFive {
   position: absolute;
   text-align: left;
-  left: 20vw;
   top: 30vw;
 }
 
@@ -368,6 +363,7 @@
   padding-top: .5vh;
 
 }
+
 
 .daoGraphic {
   float: right;
@@ -585,7 +581,53 @@
 .tokenChart {
   position: absolute;
   width: 65vw;
-  left: 15vw;
+  left: 12.5vw;
   right: 0;
-  top: -30vh;
+  top: -27.5vh;
+}
+
+.modalToken {
+  position: absolute;
+  width: 25vw;
+  top: -2.5vh;
+  left: 55vw;
+}
+
+.tokenOne{
+  position: absolute;
+  text-align: left;
+}
+
+.tokenTwo {
+  position: absolute;
+  text-align: right;
+  top: 10vw;
+  right: .5vw;
+}
+
+.tokenThree {
+  position: absolute;
+  text-align: right;
+  top: 15vw;
+  right: .5vw;
+}
+
+
+.tokenFour {
+  position: absolute;
+  text-align: right;
+  top: 20vw;
+  right: .5vw;
+}
+
+.tokenFive {
+  position: absolute;
+  text-align: right;
+  top: 25vw;
+  right: .5vw;
+}
+
+.tokenAnimation {
+  position: absolute;
+  top: 50vh;
 }

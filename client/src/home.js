@@ -4,11 +4,12 @@ import firebase from 'firebase'
 // UX
 
   // Misc
-import { faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';
+import posed, { PoseGroup } from 'react-pose';
 
   // Atlaskit
 import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
@@ -82,6 +83,12 @@ import 'styled-components'
 import './css/raleigh.css'
 import './css/home.css'
 
+const defaultLabelStyle = {
+  fontSize: '5px',
+  fontFamily: 'sans-serif',
+  fill: '#121212',
+};
+
 const dataPropType = PropTypes.arrayOf(
   PropTypes.shape({
     title: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -90,6 +97,8 @@ const dataPropType = PropTypes.arrayOf(
     color: PropTypes.string,
   })
 );
+
+const BarComponent = posed.li()
 
 // Constants
 const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
@@ -102,9 +111,9 @@ const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
   });
 
 const dataMock = [
-    { title: 'Airdrop 1', value: 30, color: '#0cff6f' },
-    { title: 'Airdrop 2', value: 20, color: '#0c23ff' },
-    { title: 'Airdrop 3', value: 10, color: '#ff0c23' },
+    { title: 'Airdrop Tier 1', value: 30, color: '#0cff6f' },
+    { title: 'Airdrop Tier 2', value: 20, color: '#0c23ff' },
+    { title: 'Airdrop Tier 3', value: 10, color: '#ff0c23' },
     { title: 'Team', value: 15, color: '#00bfff' },
     { title: 'Community fund', value: 20, color: '#815aff' },
     { title: 'Validation supply', value: 5, color: '#ff0c9c' },
@@ -115,12 +124,14 @@ class Home extends Component {
   constructor(props) {
     super(props)
       this.state = {
+        items: [{key:0, key:1, key:2, key:3 }],
         chartComponent: <div/>,
         sideBar: false,
         stageModal: 0,
         segment: 0,
         flags: [],
-        data: dataMock
+        data: dataMock,
+        metaData: null
       }
       this.onMouseOut = this.onMouseOut.bind(this);
       this.onMouseOver = this.onMouseOver.bind(this);
@@ -207,10 +218,11 @@ class Home extends Component {
 
   onMouseOut(e, d, i) {
     this.setState({
+      metaData: null,
       data:
-      [{ title: 'Airdrop 1', value: 30, color: '#0cff6f' },
-        { title: 'Airdrop 2', value: 20, color: '#0c23ff' },
-        { title: 'Airdrop 3', value: 10, color: '#ff0c23' },
+      [{ title: 'Airdrop Tier 1', value: 30, color: '#0cff6f' },
+        { title: 'Airdrop Tier 2', value: 20, color: '#0c23ff' },
+        { title: 'Airdrop Tier 3', value: 10, color: '#ff0c23' },
         { title: 'Team', value: 15, color: '#00bfff' },
         { title: 'Community fund', value: 20, color: '#815aff' },
         { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
@@ -218,10 +230,13 @@ class Home extends Component {
   }
 
   onMouseOver(e, d, i) {
+    var focusedData;
     const data = d.map((entry, index) => {
+      if(index === i) focusedData = entry;
       return index === i ? entry.color = 'grey' : dataMock[index];
     });
     this.setState({
+      metaData: focusedData,
       data: data,
     });
   }
@@ -599,14 +614,36 @@ class Home extends Component {
           <div className="tokenChart">
           {this.state.chartComponent}
           </div>
-      <div className="tokenLegend">
-      <p><FontAwesomeIcon icon={faDotCircle} color='#ff0c9c' size='s'/>&nbsp;&nbsp;&nbsp;Validation supply</p>
-      <p><FontAwesomeIcon icon={faUsers} color='#ffa500' size='s'/>&nbsp;&nbsp;&nbsp;Community fund</p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#ff0c23' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop three</p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#0c23ff' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop two </p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#0cff6f' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop one </p>
-      <p><FontAwesomeIcon icon={faWallet} color='#00bfff' size='s'/>&nbsp;&nbsp;&nbsp;Team funds</p>
-      </div>
+      {this.state.metaData != null && (
+        <div className="modalToken">
+          <SectionMessage appearance="change">
+            <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
+          </SectionMessage>
+        </div>
+      )}
+      <p className="tokenOne">
+        <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
+         <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
+      </p>
+      <PoseGroup>
+        {this.state.items.map(item => <BarComponent key={item.key} />)}
+      </PoseGroup>
+      <p className="tokenTwo">
+        <i>Supply: <b>50,600,000,000</b></i>
+        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
+      </p>
+      <p className="tokenThree">
+        <i>Network: <b>Ethereum</b></i>
+        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
+      </p>
+      <p className="tokenFour">
+        <i>Token: <b>ERC20d</b></i>
+        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
+      </p>
+      <p className="tokenFive">
+        <i>Ticker: <b>VLDY</b></i>
+        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
+      </p>
       </div>
       </GridColumn>
       </Grid>
@@ -715,18 +752,9 @@ class Home extends Component {
       <Grid layout="fluid">
         <GridColumn>
           <div className="h4">
-            <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;The team
+            <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
           </div>
         </GridColumn>
-        <GridColumn>
-        </GridColumn>
-        <GridColumn medium={1}>
-          <Button onClick={this.scroll.bind(this, "page8")} appearance="help">
-          Next
-          </Button>
-        </GridColumn>
-        </Grid>
-        <Grid layout="compact">
         <GridColumn>
         <div className="teamCards">
           <Card inverted className="gozzy">
