@@ -82,6 +82,15 @@ import 'styled-components'
 import './css/raleigh.css'
 import './css/home.css'
 
+const dataPropType = PropTypes.arrayOf(
+  PropTypes.shape({
+    title: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    value: PropTypes.number.isRequired,
+    key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    color: PropTypes.string,
+  })
+);
+
 // Constants
 const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
 
@@ -101,6 +110,7 @@ const dataMock = [
     { title: 'Validation supply', value: 5, color: '#ff0c9c' },
   ];
 
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -109,8 +119,11 @@ class Home extends Component {
         sideBar: false,
         stageModal: 0,
         segment: 0,
-        flags: []
+        flags: [],
+        data: dataMock
       }
+      this.onMouseOut = this.onMouseOut.bind(this);
+      this.onMouseOver = this.onMouseOver.bind(this);
   }
 
   componentWillMount = () => {
@@ -180,13 +193,37 @@ class Home extends Component {
     return(
       <PieChart
         animationDuration={1000}
+        segmentsStyle={{ transition: 'stroke .3s' }}
+        onMouseOver={this.onMouseOver}
+        onMouseOut={this.onMouseOut}
+        data={this.state.data}
         paddingAngle={5}
-        data={dataMock}
         lineWidth={15}
         radius={20}
         animate
       />
     );
+  }
+
+  onMouseOut(e, d, i) {
+    this.setState({
+      data:
+      [{ title: 'Airdrop 1', value: 30, color: '#0cff6f' },
+        { title: 'Airdrop 2', value: 20, color: '#0c23ff' },
+        { title: 'Airdrop 3', value: 10, color: '#ff0c23' },
+        { title: 'Team', value: 15, color: '#00bfff' },
+        { title: 'Community fund', value: 20, color: '#815aff' },
+        { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
+    });
+  }
+
+  onMouseOver(e, d, i) {
+    const data = d.map((entry, index) => {
+      return index === i ? entry.color = 'grey' : dataMock[index];
+    });
+    this.setState({
+      data: data,
+    });
   }
 
   render() {
@@ -549,7 +586,33 @@ class Home extends Component {
         </Grid>
       </Page>
       </div>
-      <div className="page5">
+      <div className="page5" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
+      <Page>
+      <Grid layout="fluid">
+      <GridColumn>
+      <div className="h4">
+        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+      </div>
+      </GridColumn>
+      <GridColumn>
+      <div className="page5-body">
+          <div className="tokenChart">
+          {this.state.chartComponent}
+          </div>
+      <div className="tokenLegend">
+      <p><FontAwesomeIcon icon={faDotCircle} color='#ff0c9c' size='s'/>&nbsp;&nbsp;&nbsp;Validation supply</p>
+      <p><FontAwesomeIcon icon={faUsers} color='#ffa500' size='s'/>&nbsp;&nbsp;&nbsp;Community fund</p>
+      <p><FontAwesomeIcon icon={faParachuteBox} color='#ff0c23' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop three</p>
+      <p><FontAwesomeIcon icon={faParachuteBox} color='#0c23ff' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop two </p>
+      <p><FontAwesomeIcon icon={faParachuteBox} color='#0cff6f' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop one </p>
+      <p><FontAwesomeIcon icon={faWallet} color='#00bfff' size='s'/>&nbsp;&nbsp;&nbsp;Team funds</p>
+      </div>
+      </div>
+      </GridColumn>
+      </Grid>
+      </Page>
+      </div>
+      <div className="page6">
         <Page>
           <Grid layout="fluid">
             <GridColumn>
@@ -646,43 +709,6 @@ class Home extends Component {
             </GridColumn>
           </Grid>
         </Page>
-      </div>
-      <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
-      <Page>
-      <Grid layout="fluid">
-      <GridColumn>
-      <div className="h4">
-        <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
-      </div>
-      </GridColumn>
-      <GridColumn>
-      <div className="page6-body">
-          <div className="tokenChart">
-          {this.state.chartComponent}
-          </div>
-      <div className="tokenMetrics">
-      <p>Decimals: <b>18</b></p>
-      <p>Asset type: <b>ERC20d</b> </p>
-      <p>Asset ticker: <b>VLDY</b> </p>
-      <p>Network: <b>EtherGem (EGEM)</b> </p>
-      <p>Initial supply: <b>48,070,000,000 VLDY</b></p>
-      <p>Max supply: <b>50,600,000,000 VLDY</b> </p>
-      </div>
-      <div className="tokenWallet">
-      <p>Address: <b>0xb0702df32de0371f39a98cc911a2dd69c3a13e6f</b></p>
-      </div>
-      <div className="tokenLegend">
-      <p><FontAwesomeIcon icon={faDotCircle} color='#ff0c9c' size='s'/>&nbsp;&nbsp;&nbsp;Validation supply</p>
-      <p><FontAwesomeIcon icon={faUsers} color='#ffa500' size='s'/>&nbsp;&nbsp;&nbsp;Community fund</p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#ff0c23' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop three</p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#0c23ff' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop two </p>
-      <p><FontAwesomeIcon icon={faParachuteBox} color='#0cff6f' size='s'/>&nbsp;&nbsp;&nbsp;Airdrop one </p>
-      <p><FontAwesomeIcon icon={faWallet} color='#00bfff' size='s'/>&nbsp;&nbsp;&nbsp;Team funds</p>
-      </div>
-      </div>
-      </GridColumn>
-      </Grid>
-      </Page>
       </div>
       <div className="page7">
       <Page>
@@ -943,5 +969,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  data: dataPropType,
+};
 
 export default withStyles(styles)(Home);
