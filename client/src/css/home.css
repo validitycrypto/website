@@ -258,7 +258,7 @@
   top: 15vh;
 }
 
-.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9 {
+.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9, .page10 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -627,7 +627,7 @@
 
 .tokenData {
   position: absolute;
-  top: 40vh;
+  top: 35vh;
 }
 
 .cardOne {
@@ -677,4 +677,19 @@
   width: 30vw;
   padding: 1.5vw;
   top: 20vh;
+}
+
+.desktopProduct {
+
+  position: absolute;
+  width: 50vw;
+  left: 17.5vw;
+  top: 22.5vh;
+
+}
+
+.productTagline {
+  position: absolute;
+  font-size: 2.25vw;
+  left: 20vw;
 }

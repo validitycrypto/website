@@ -4,7 +4,7 @@ import firebase from 'firebase'
 // UX
 
   // Misc
-import { faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { faReact, faPython, faEthereum,faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -74,6 +74,7 @@ import clabs from './images/clabs.png'
 import cnews from './images/cnews.png'
 import vldy from './images/vldy.png'
 import outlineEth from './images/ethoutline.png'
+import productPreview from './images/product.png'
 import eth from './images/ethereum.png'
 import dao from './images/dao.png'
 import bct from './images/bct.png'
@@ -296,11 +297,12 @@ class Home extends Component {
                       { label: 'Communal Validation', value: 'page2' },
                       { label: 'How does it work?', value: 'page3' },
                       { label: 'Why use Validity?', value: 'page4' },
-                      { label: 'Tokenonomics', value: 'page5' },
-                      { label: 'Validity core', value: 'page6' },
-                      { label: 'Roadmap', value: 'page7' },
-                      { label: 'Resources', value: 'page8' },
-                      { label: 'Get involved', value: 'page9' },
+                      { label: 'Product', value: 'page5' },
+                      { label: 'Tokenonomics', value: 'page6' },
+                      { label: 'Resources', value: 'page7' },
+                      { label: 'Validity core', value: 'page8' },
+                      { label: 'Roadmap', value: 'page9' },
+                      { label: 'Get involved', value: 'page10' },
                     ]}
                     placeholder="Navigation"/>
                 </div>
@@ -625,7 +627,22 @@ class Home extends Component {
           </Grid>
         </Page>
       </div>
-      <div className="page5" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
+      <div className="page5">
+        <Page>
+        <Grid layout="fluid">
+          <GridColumn>
+            <div className="pageBody">
+              <div className="h5">
+                <FontAwesomeIcon icon={faCode} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Product
+              </div>
+              <img className="desktopProduct" src={productPreview}/>
+              <i className="productTagline">A portfolio tracker you can trust...</i>
+            </div>
+          </GridColumn>
+         </Grid>
+        </Page>
+      </div>
+      <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
         <Page>
           <Grid layout="fluid">
             <GridColumn>
@@ -671,7 +688,20 @@ class Home extends Component {
           </Grid>
         </Page>
       </div>
-      <div className="page6">
+      <div className="page7">
+        <Page>
+        <Grid layout="fluid">
+          <GridColumn>
+            <div className="pageBody">
+              <div className="h5">
+                <FontAwesomeIcon icon={faBook} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Resources
+              </div>
+            </div>
+          </GridColumn>
+         </Grid>
+        </Page>
+      </div>
+      <div className="page8">
         <Page>
           <Grid layout="compact">
             <GridColumn>
@@ -723,7 +753,7 @@ class Home extends Component {
           </Grid>
         </Page>
       </div>
-      <div className="page7">
+      <div className="page9">
           <Page>
             <Grid layout="fluid">
               <GridColumn>
@@ -819,7 +849,7 @@ class Home extends Component {
             </Grid>
           </Page>
         </div>
-        <div className="page8">
+        <div className="page10">
           <Page>
             <Grid layout="fluid">
               <GridColumn>
@@ -844,16 +874,6 @@ class Home extends Component {
                 </div>
               </GridColumn>
             </Grid>
-          </Page>
-        </div>
-        <div className="page9">
-          <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-              <div className="pageBody">
-              </div>
-            </GridColumn>
-           </Grid>
           </Page>
         </div>
       </AtlaskitThemeProvider>
