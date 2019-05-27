@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
+import ReactGA from 'react-ga';
 
 // UX
 
   // Misc
-import { faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faMugHot, faUserSecret, faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { faReact, faPython, faEthereum,faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -174,6 +175,8 @@ class Home extends Component {
   }
 
   componentWillMount = () => {
+    ReactGA.initialize('');
+    ReactGA.pageview('/homepage');
     this.open()
   }
 
@@ -254,7 +257,7 @@ class Home extends Component {
       metaData: null,
       data:
       [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
-        { title: 'Airdrop rier 2', value: 20, color: '#0c23ff' },
+        { title: 'Airdrop tier 2', value: 20, color: '#0c23ff' },
         { title: 'Airdrop tier 3', value: 10, color: '#ff0c23' },
         { title: 'Team', value: 15, color: '#00bfff' },
         { title: 'Community fund', value: 20, color: '#815aff' },
@@ -490,10 +493,10 @@ class Home extends Component {
                 <div className="h1">
                   <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
                 </div>
-                <p className="pagePoint">With the beauty of decentrilisation comes many bonuses but with any advantage comes a disvantage. Blockchain and technologies alike are on the edge of adoption but cannot fully reach the pinnacle unless a system of evalution takes a stand.</p>
-                <p className="pagePoint">This would provide a go-to reference point to verify the integrity of an investment decision but currently investing for the average person isn't a viable task as there is many pitfalls of amoral activity that one can easily fall pray to.</p>
-                <p className="pagePoint">How can the people know what is safe to invest in and what is not?</p>
-                <p className="pagePoint">The answer to this question is Validity, a self governing decentrilised regulation infrastructure.</p>
+                <p className="pagePoint">Cryptocurriencies are blockchain technology have been depicted in many different frames of light, with this, there is a huge lack of underlying acknowledgement of the technology within. </p>
+                <p className="pagePoint">The general sentiment of the capabilities of profit-making in this field distort the true integrity of these permissionless currencies and projects but more importantly the peoples aim behind them. </p>
+                <p className="pagePoint">In 2017, 81% of all ICO's resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
+                <p className="pagePoint">Validity is a communally verifiable platform for investors to contribute their general perspectives regarding currencies, tokens and projects alike.  </p>
               </div>
               </GridColumn>
               <GridColumn>
@@ -696,6 +699,24 @@ class Home extends Component {
               <div className="h5">
                 <FontAwesomeIcon icon={faBook} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Resources
               </div>
+              <a className="resourceOne" href='https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133'>
+                <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color='#815aff' size='s'/></div>
+                <div className="resourceText" >
+                What is Communal Validation & why does it matter?
+                </div>
+              </a>
+              <a className="resourceTwo" href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
+                <div className="resourceIcon" href=''><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='s'/></div>
+                <div className="resourceText" >
+                Cryptocurrency & Blockchain red flags
+                </div>
+              </a>
+              <a className="resourceThree" href='https://github.com/validitycrypto/validity-hybrid-tipbot'>
+                <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color='#815aff' size='s'/></div>
+                <div className="resourceText" href=''>
+                  Validity tipbot Readme
+                </div>
+              </a>
             </div>
           </GridColumn>
          </Grid>
@@ -703,7 +724,7 @@ class Home extends Component {
       </div>
       <div className="page8">
         <Page>
-          <Grid layout="compact">
+          <Grid layout="fluid">
             <GridColumn>
               <div className="teamBody">
                 <div className="h4">
@@ -865,11 +886,11 @@ class Home extends Component {
                   </Paper>
                   <Paper className="desiredTraits">
                    <p><b><i>We are looking for...</i></b></p>
-                   <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='xs'/>&nbsp;Solidity developers (WASM)</p>
-                   <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='xs'/>&nbsp;Python developers (ML)</p>
-                   <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='xs'/>&nbsp;React.js developers </p>
-                   <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='xs'/>&nbsp; UX/UI designer </p>
-                   <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='xs'/>&nbsp;Growth hackers </p>
+                   <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='s'/>&nbsp;Solidity developers (WASM)</p>
+                   <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='s'/>&nbsp;Python developers (ML)</p>
+                   <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='s'/>&nbsp;React.js developers </p>
+                   <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='s'/>&nbsp; UX/UI designer </p>
+                   <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='s'/>&nbsp;Growth hackers </p>
                   </Paper>
                 </div>
               </GridColumn>
