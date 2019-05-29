@@ -83,7 +83,7 @@
 
 .pageSelect {
   position: relative;
-  width: 25vw;
+  width: 17.5vw;
   margin-left: 2.5vw;
   color: black;
 }
@@ -132,7 +132,7 @@
   display: inline-block;
   margin-right: auto;
   margin-left: auto;
-  width: 75vw
+  width: 75vw;
 }
 
  .landingTitle {
@@ -333,7 +333,6 @@
 
 .stageAlt {
   position: relative;
-  width: 22.5vw;
   left: 5vw;
 }
 

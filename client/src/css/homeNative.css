@@ -1,0 +1,305 @@
+/* General Conifg */
+
+@media only screen and (max-width: 600px) {
+
+  .menuBar {
+    font-size: 3.75vw;
+  }
+
+  .eth {
+    width: 5vw;
+    left: -2.25vw;
+  }
+
+  .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+    margin-left: 2vw;
+    border-width: .75vw;
+    width: 8.5vw;
+    top: 7.5vh;
+    right: 60vw;
+  }
+
+  .appbarSpacing {
+  }
+
+  .pageSelect {
+    width: 45vw;
+    margin-left: 5vw;
+    border: .75vw white solid;
+  }
+
+  .landingButton {
+    right: 77.5vw;
+  }
+
+  .landingPage {
+    top: -50vh;
+  }
+
+  .landingBranding {
+    left: -50vw;
+    top: -55vh;
+  }
+
+  .landingLogo {
+    width: 200vw;
+  }
+
+  .landingTitle {
+    left: 32.5vw;
+    font-size: 11vw;
+    top: -32.5vh;
+  }
+
+  .page1 {
+    height: 137.5vh;
+  }
+
+  .h1 {
+    font-size: 7.5vw;
+    padding-bottom: 7.5vw;
+
+  }
+
+  .page1-body {
+    position: relative;
+    font-size: 5vw;
+    left: 5vw;
+    width: 82.5vw;
+    top: 7.5vh;
+  }
+
+  .validatingGraphic{
+    left: 2.5vw;
+    top: 7.5vh;
+  }
+
+  .base1 {
+    width: 72.5vw;
+  }
+
+  .lines1 {
+    width: 42.5vw;
+    left: 20vw;
+    top: 20vh;
+
+  }
+
+  .pagePoint {
+    padding-bottom: 2vh;
+  }
+
+
+  .bcc {
+    width: 22.5vw;
+    right: 0;
+    left: 35vw;
+  }
+
+  .messages1 {
+    width: 90vw;
+  }
+
+  .messages1edit {
+    top: 20vh;
+    left: -.5vw;
+  }
+
+  .wrong {
+    font-size: 15vw;
+    top: 2.675vh;
+    left: 65vw;
+  }
+
+  .right {
+    font-size: 15vw;
+    top: 3.75vh;
+  }
+
+  .page2, .page3, .page6 , .page7, .page8, .page9, .page10 {
+    height: 117.5vh;
+  }
+
+  .page4 {
+    height: 150vh;
+  }
+
+  .page5 {
+    height: 87.5vh;
+  }
+
+  .page6 {
+    height: 137.5vh;
+  }
+
+   .h2, .h3, .h4, .h5, .h6 {
+     font-size: 7.5vw;
+     padding-bottom: 7.5vw;
+  }
+
+
+  .pageBody {
+    font-size: 5vw;
+  }
+
+  .world  {
+    width:85vw;
+    left: 7.5vw;
+    top: 42.5vh;
+  }
+
+  .traits {
+    font-size: 9.25vw;
+    top: 40vh;
+  }
+
+  .traitPoint {
+  padding-bottom: 7.5vh;
+  }
+
+  .stageOne{
+    position: absolute;
+    text-align: left;
+    width: 67.5vw;
+    top: 10vh;
+  }
+
+  .stageTwo {
+    position: absolute;
+    text-align: left;
+    width: 67.5vw;
+    top: 30vh;
+  }
+
+  .stageThree {
+    width: 67.5vw;
+    top: 47.5vh;
+  }
+
+
+  .stageFour {
+    width: 67.5vw;
+    top: 65vh;
+  }
+
+  .stageFive {
+    width: 67.5vw;
+    top: 86.75vh;
+  }
+
+  .stageText {
+    left: 17.5vw;
+  }
+
+
+  .stageNumber {
+    font-size: 7.5vw;
+    width: 12.5vw;
+    height: 12.5vw;
+  }
+
+  .stageIcon {
+    font-size: 7.5vw;
+    width: 12.5vw;
+    height: 12.5vw;
+  }
+
+  .stageAlpha {
+    width: 62.5vw;
+    left: 17.5vw;
+  }
+
+  .stageAlt {
+    width: 62.5vw;
+    left: 17.5vw;
+  }
+
+  .traitOne {
+    left: 0;
+    top: 10vh;
+  }
+
+  .traitTwo {
+    top: 25vh;
+    left:0;
+  }
+
+  .traitThree {
+    top: 42.5vh;
+    left: 0;
+  }
+
+  .traitFour {
+    top: 90vh;
+    left: 0;
+  }
+
+  .traitFive {
+    top: 105vh;
+    left: 0;
+  }
+
+  .traitSix {
+    top: 120vh;
+    left: 0;
+  }
+
+  .daoGraphic {
+    width: 75vw;
+    left: 2.5vw;
+    top: 50vh;
+  }
+
+  .desktopProduct {
+    width: 87.5vw;
+    left: -2.5vw;
+  }
+
+  .productTagline {
+    font-size: 5vw;
+    width: 75vw;
+    left:5vw;
+  }
+
+  .tokenChart {
+    width: 150vw;
+    top: 8.75vh;
+    left: -30vw;
+  }
+
+  .tokenOne {
+    width: 75vw;
+    font-size: 4.5vw;
+  }
+
+  .tokenTwo{
+    top: 75vh;
+
+  }
+
+  .tokenThree{
+    top: 82.5vh;
+
+  }
+
+  .tokenFour{
+    top: 90vh;
+
+  }
+
+  .tokenFive {
+    top: 97.5vh;
+  }
+
+  .tokenData{
+    top: 100vh;
+  }
+
+  .modalToken {
+    width: 67.5vw;
+    top: 22.5vh;
+    left: 10vw;
+  }
+
+
+}

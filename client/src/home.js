@@ -83,8 +83,9 @@ import bcc from './images/bcc.png'
 
 // CSS
 import 'styled-components'
+import './css/homeDesktop.css'
+import './css/homeNative.css'
 import './css/raleigh.css'
-import './css/home.css'
 
 const defaultLabelStyle = {
   fontSize: '5px',
@@ -174,7 +175,18 @@ class Home extends Component {
       this.onMouseOver = this.onMouseOver.bind(this);
   }
 
-  componentWillMount = () => {
+  componentWillMount = async() => {
+    if(window.screen.width < 600){
+      await this.setState({
+        menuPadding: '3.75vw',
+        menuHeight: "17.5vh"
+      })
+    } else {
+      await this.setState({
+        menuPadding: '0',
+        menuHeight: "8.75vh"
+      })
+    }
     ReactGA.initialize('');
     ReactGA.pageview('/homepage');
     this.open()
@@ -287,13 +299,14 @@ class Home extends Component {
       <AtlaskitThemeProvider mode='light'>
         <div className="homepageMenu">
           <div className="menuBar">
-            <AppBar fullWidth style={{ backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
+            <AppBar fullWidth style={{ padding: this.state.menuPadding, height: this.state.menuHeight, backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
               <Toolbar>
                 <a href='https://www.ethereum.org/'>
                   <img className='eth' src={eth}/>
                 </a>
-                <div className="pageSelect">
+                <div>
                   <Select
+                    className="pageSelect"
                     onChange={this.scroll}
                     options={[
                       { label: 'What is Validity?', value: 'page1' },
