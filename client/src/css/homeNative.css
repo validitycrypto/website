@@ -129,7 +129,19 @@
   }
 
   .page6 {
-    height: 137.5vh;
+    height: 162.5vh;
+  }
+
+  .page7 {
+    height: 162.5vh;
+  }
+
+  .page8 {
+    height: 275vh;
+  }
+
+  .page9 {
+    height: 325vh;
   }
 
    .h2, .h3, .h4, .h5, .h6 {
@@ -300,6 +312,254 @@
     top: 22.5vh;
     left: 10vw;
   }
+
+  .resourceIcon {
+    font-size: 30vw;
+    width:  50vw;
+    height: 50vw;
+    border-width: 2.5vw;
+    padding-top: 3.75vh;
+  }
+
+  .resourceText {
+    width: 50vw;
+    font-size: 5vw;
+    top: 30vh;
+    right: 0;
+  }
+
+  .resourceOne{
+    top: 15vh;
+  }
+
+  .resourceTwo {
+    top: 60vh;
+    left: 17.5vw;
+  }
+
+  .resourceThree {
+    top: 105vh;
+    left: 17.5vw;
+  }
+
+  .ui.card,
+  .ui.cards>.card {
+    width: 75vw;
+  }
+
+  .teamBody {
+    font-size: 5vw;
+  }
+
+  .cardOne {
+    top: 7.5vh;
+    left: 5vw;
+    right: 0;
+
+  }
+
+  .cardTwo {
+    top: 15vh;
+    left: 5vw;
+    right: 0;
+
+  }
+
+  .cardThree {
+    top: 22.5vh;
+    left: 5vw;
+    right: 0;
+
+  }
+
+  .teamPhoto {
+    width: 75vw;
+  }
+
+  .socialLink {
+   font-size: 10vw;
+   padding-right: 5vw;
+  }
+
+  .circleRoadmap {
+    width: 42.5vw;
+  }
+
+
+  .roadmapOne {
+    position: absolute;
+    left: 17.5vw;
+    top: 25vh;
+  }
+
+  .roadmapTwo {
+    position: absolute;
+    left: 17.5vw;
+    top: 75vh;
+  }
+
+
+  .roadmapThree {
+    position: absolute;
+    left: 17.5vw;
+    top: 125vh;
+  }
+
+  .roadmapFour {
+    position: absolute;
+    left: 17.5vw;
+    top: 175vh;
+  }
+
+  .roadmapFive {
+    position: absolute;
+    left: 17.5vw;
+    top: 225vh;
+  }
+
+  .roadmapSix {
+    position: absolute;
+    left: 17.5vw;
+    top: 275vh;
+  }
+
+  .logoOne {
+    width: 25vw;
+    left: 11.75vw;
+    top: -12.5vh;
+  }
+
+    .logoTwo {
+      width: 25vw;
+      left: 11.75vw;
+      top: -2.5vh;
+    }
+
+    .logoTwo {
+      width: 25vw;
+      left: 11.75vw;
+      top: -2.5vh;
+    }
+
+    .logoThree {
+      font-size: 25vw;
+      left: 10vw;
+      top: -2.5vh;
+    }
+
+    .logoFour {
+      font-size: 25vw;
+      left: 11.75vw;
+      top: -5vh;
+    }
+
+    .logoFive {
+      font-size: 25vw;
+      left: 11.75vw;
+      top: -5vh;
+    }
+
+    .modalOne {
+      width: 70vw;
+      left: 7.5vw;
+      top: 58vh;
+    }
+
+    .modalTwo {
+      width: 70vw;
+      left: 7.5vw;
+      top: 107.5vh;
+    }
+
+    .modalThree {
+      width: 70vw;
+      left: 7.5vw;
+      top: 157.5vh;
+    }
+
+    .modalFour {
+      width: 75vw;
+      left: 5vw;
+      top: 207.5vh;
+    }
+
+    .modalFive {
+      width: 50vw;
+      left: 17.5vw;
+      top: 257.5vh;
+
+    }
+
+    .modalSix {
+      width: 50vw;
+      left: 17.5vw;
+      top: 305vh;
+    }
+
+    .lineOne {
+        top: 55vh;
+        width: 50vw;
+        left: 16.75vw;
+        transform: rotate(90deg);
+        border-width: 3.75vw;
+    }
+
+    .lineTwo {
+        top: 105vh;
+        width: 50vw;
+        left: 16.75vw;
+        transform: rotate(90deg);
+        border-width: 3.75vw;
+    }
+
+
+    .lineThree {
+        top: 155vh;
+        width: 50vw;
+        left: 16.75vw;
+        transform: rotate(90deg);
+        border-width: 3.75vw;
+    }
+
+
+    .lineFour {
+        top: 205vh;
+        width: 50vw;
+        left: 16.75vw;
+        transform: rotate(90deg);
+        border-width: 3.75vw;
+    }
+
+    .lineFive {
+        top: 255vh;
+        width: 50vw;
+        left: 16.75vw;
+        transform: rotate(90deg);
+        border-width: 3.75vw;
+    }
+
+    .teamOnboarding {
+      font-size: 5.5vw;
+      width: 82.5vw;
+      padding: 5vw;
+      top: 10vh;
+      left: 1.75vw;
+    }
+
+    .desiredTraits {
+      font-size: 5.5vw;
+      width: 82.5vw;
+      padding: 5vw;
+      top: 150vh;
+      left: 1.75vw;
+      margin-bottom: 5vh;
+    }
+
+    .ethereumLogo  {
+      width: 67.5vw;
+      left: 10vw;
+      top: 75vh;
+      }
 
 
 }

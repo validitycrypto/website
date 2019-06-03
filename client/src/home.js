@@ -119,20 +119,20 @@ const TeamCard = ({ data }) => {
         <span className="blackt">{data.nationality}</span>
       </Card.Content>
       <Card.Content extra>
-      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.linkedin}>
+      <a className="socialLink" href={data.linkedin}>
         <FontAwesomeIcon icon={faLinkedin} color='white' />
       </a>
-      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.twitter}>
+      <a className="socialLink" href={data.twitter}>
         <FontAwesomeIcon icon={faTwitter} color='white' />
       </a>
-      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.discord}>
+      <a className="socialLink" href={data.discord}>
         <FontAwesomeIcon icon={faDiscord} color='white' />
       </a>
-      <a style={{ "font-size": "1.5vw", "padding-right": ".5vw" }} href={data.telegram}>
+      <a className="socialLink" href={data.telegram}>
         <FontAwesomeIcon icon={faTelegramPlane} color='white' />
       </a>
       {data.github != false && (
-        <a style={{ "font-size": "1.5vw"}} href={data.github}>
+        <a className="socialLink" href={data.github}>
           <FontAwesomeIcon icon={faGithub} color='white'/>
         </a>
       )}
@@ -169,7 +169,10 @@ class Home extends Component {
         segment: 0,
         flags: [],
         data: dataMock,
-        metaData: null
+        metaData: {
+        title: "Pick a chart value",
+        value: " "
+        }
       }
       this.onMouseOut = this.onMouseOut.bind(this);
       this.onMouseOver = this.onMouseOver.bind(this);
@@ -178,6 +181,7 @@ class Home extends Component {
   componentWillMount = async() => {
     if(window.screen.width < 600){
       await this.setState({
+        chartComponent: this.renderChart(),
         menuPadding: '3.75vw',
         menuHeight: "17.5vh"
       })
@@ -187,7 +191,7 @@ class Home extends Component {
         menuHeight: "8.75vh"
       })
     }
-    ReactGA.initialize('');
+    ReactGA.initialize('UA-140909568-1');
     ReactGA.pageview('/homepage');
     this.open()
   }
@@ -266,7 +270,10 @@ class Home extends Component {
 
   onMouseOut(e, d, i) {
     this.setState({
-      metaData: null,
+      metaData: {
+        title: "Pick a chart value",
+        value: " "
+      },
       data:
       [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
         { title: 'Airdrop tier 2', value: 20, color: '#0c23ff' },
@@ -669,7 +676,7 @@ class Home extends Component {
               <div className="tokenChart">
                 {this.state.chartComponent}
                 </div>
-                {this.state.metaData != null && (
+                {(this.state.metaData.title != "Pick a chart value" || window.screen.width < 600) && (
                   <div className="modalToken">
                     <SectionMessage appearance="change">
                       <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
@@ -801,7 +808,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={greenCircle} />
                     <img className="logoOne" src={eth} />
                   </div>
-                  {this.state.stageModal == 1 && (
+                  {(this.state.stageModal == 1 || window.screen.width < 600) && (
                     <div className="modalOne">
                       <SectionMessage appearance="confirmation">
                         Ethereum & MVP launch
@@ -815,7 +822,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
                   </div>
-                  {this.state.stageModal == 2 && (
+                  {(this.state.stageModal == 2 || window.screen.width < 600) && (
                     <div className="modalTwo">
                       <SectionMessage appearance="error">
                         Validity Whitepaper
@@ -829,7 +836,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <img className="logoTwo" src={gitcoin} />
                   </div>
-                  {this.state.stageModal == 3 && (
+                  {(this.state.stageModal == 3 || window.screen.width < 600) && (
                     <div className="modalThree">
                       <SectionMessage appearance="error">
                         Gitcoin grants & funding
@@ -843,7 +850,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
                   </div>
-                  {this.state.stageModal == 4 && (
+                  {(this.state.stageModal == 4 || window.screen.width < 600) && (
                     <div className="modalFour">
                       <SectionMessage appearance="error">
                         Find talent and partnerships
@@ -857,7 +864,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
                   </div>
-                  {this.state.stageModal == 5 && (
+                  {(this.state.stageModal == 5 || window.screen.width < 600) && (
                     <div className="modalFive">
                       <SectionMessage appearance="error">
                         Beta product
@@ -871,7 +878,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
                   </div>
-                  {this.state.stageModal == 6 && (
+                  {(this.state.stageModal == 6 || window.screen.width < 600) && (
                     <div className="modalSix">
                       <SectionMessage appearance="error">
                         Product launch

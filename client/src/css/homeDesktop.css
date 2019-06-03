@@ -83,7 +83,7 @@
 
 .pageSelect {
   position: relative;
-  width: 17.5vw;
+  width: 20vw;
   margin-left: 2.5vw;
   color: black;
 }
@@ -132,7 +132,7 @@
   display: inline-block;
   margin-right: auto;
   margin-left: auto;
-  width: 75vw;
+  width: 75vw
 }
 
  .landingTitle {
@@ -333,6 +333,7 @@
 
 .stageAlt {
   position: relative;
+  width: 22.5vw;
   left: 5vw;
 }
 
@@ -465,7 +466,6 @@
   left: 37.5vw;
   top: 50vh;
 }
-
 
 .roadmapSix {
   position: absolute;
@@ -732,4 +732,9 @@
   position: absolute;
   top: 50vh;
   left: 40vw;
+}
+
+.socialLink {
+ font-size: 1.5vw;
+ padding-right: 5vw;
 }
