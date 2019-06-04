@@ -179,6 +179,14 @@ class Home extends Component {
   }
 
   componentWillMount = async() => {
+    window.addEventListener("resize", this.resizeEvent);
+    ReactGA.initialize('UA-140909568-1');
+    ReactGA.pageview('/homepage');
+    await this.resizeEvent();
+    await this.open()
+  }
+
+  resizeEvent = async() => {
     if(window.screen.width < 600){
       await this.setState({
         chartComponent: this.renderChart(),
@@ -191,9 +199,6 @@ class Home extends Component {
         menuHeight: "8.75vh"
       })
     }
-    ReactGA.initialize('UA-140909568-1');
-    ReactGA.pageview('/homepage');
-    this.open()
   }
 
   animateChart = () => {
@@ -899,7 +904,7 @@ class Home extends Component {
                     <FontAwesomeIcon icon={faFemale} color='#815aff' size='xs'/>&nbsp;
                     <FontAwesomeIcon icon={faMale} color='#815aff' size='xs'/>&nbsp;&nbsp;&nbsp;Get involved
                   </div>
-                  <img className="ethereumLogo" src={outlineEth}/>
+                  <div className="ethereumWrapper"><img className="ethereumLogo" src={outlineEth}/></div>
                   <Paper className="teamOnboarding">
                     <p>Do you think you have what it takes to join our team? We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. If you are interested please send your resume and a short bio to:</p>
                     <br></br><p><b><i>team@validity.ae</i></b></p>

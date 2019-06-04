@@ -22,6 +22,21 @@
   .appbarSpacing {
   }
 
+
+  .paperMenu {
+    position: relative;
+    width: 45vw;
+    height: 75vh;
+    top: 18.75vh;
+    margin: 5vw;
+    font-size: 5vw;
+  }
+
+  .paperButton {
+    border-width: .75vw;
+  }
+
+
   .pageSelect {
     width: 45vw;
     margin-left: 5vw;
@@ -478,8 +493,8 @@
     }
 
     .modalFour {
-      width: 75vw;
-      left: 5vw;
+      width: 80vw;
+      left: 2.5vw;
       top: 207.5vh;
     }
 
@@ -558,8 +573,29 @@
     .ethereumLogo  {
       width: 67.5vw;
       left: 10vw;
-      top: 75vh;
       }
 
+      .ethereumWrapper {
+        top: 75vh;
+      }
+
+}
+
+/* iPhone X */
+
+@media only screen and (min-height: 812px) {
+
+    .landingBranding {
+      top: -42.5vh;
+    }
+
+    .landingTitle {
+      top: -26.75vh;
+    }
+
+    .tokenChart{
+      top: 15vh;
+
+    }
 
 }

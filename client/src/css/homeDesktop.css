@@ -8,7 +8,7 @@
 .ui.cards>.card {
   background-color: #815aff;
   color: white;
-  width: 17.5vw;
+  width: 20vw;
 }
 
 @keyframes pulse {
@@ -664,14 +664,14 @@
   position: absolute;
   display: block;
   left: 35vw;
-  top: -58vh;
+  top: -62vh;
 }
 
 .cardThree {
   position: absolute;
   display: block;
   left: 65vw;
-  top: -117.5vh;
+  top: -124vh;
 }
 
 .ethereumLogo {
@@ -735,6 +735,76 @@
 }
 
 .socialLink {
- font-size: 1.5vw;
- padding-right: 5vw;
+ font-size: 2.5vw;
+ padding-right: 1vw;
+}
+
+.ethereumWrapper {
+  position: absolute;
+  top: 15vh;
+}
+
+
+/* Fullscreen */
+
+@media only screen and (min-width: 1000px) and (min-height: 750px) {
+
+
+  .landingBranding {
+    top: -12.5vh;
+  }
+
+  .landingTitle {
+    top: -35vh;
+    left: .75vw;
+  }
+
+  .page1-body {
+    position: relative;
+    font-size: 1.875vw;
+  }
+
+  .validatingGraphic {
+    top: 17.5vh;
+  }
+
+  .desktopProduct {
+    width: 60vw;
+    left: 15vw;
+  }
+
+  .ui.card,
+  .ui.cards>.card {
+    background-color: #815aff;
+    color: white;
+    width: 22.5vw;
+  }
+
+  .cardOne {
+    left: 2.5vw;
+  }
+
+  .cardTwo {
+    top: -60vh;
+    left: 32.5vw;
+  }
+
+  .cardThree {
+    top: -120vh;
+    left: 62.5vw;
+  }
+
+  .teamPhoto {
+    width: 22.5vw;
+  }
+
+  .ethereumWrapper {
+    position: absolute;
+    top: 15vh;
+  }
+
+  .tokenChart {
+    top: -5vh;
+  }
+
 }
