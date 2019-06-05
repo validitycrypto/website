@@ -25,6 +25,7 @@ import Modal from '@atlaskit/modal-dialog'
 import Lorem from 'react-lorem-component';
 import { colors } from '@atlaskit/theme';
 import Lozenge from '@atlaskit/lozenge'
+import Blanket from '@atlaskit/blanket'
 import Button from '@atlaskit/button'
 import Select from '@atlaskit/select'
 
@@ -163,6 +164,7 @@ class Home extends Component {
     super(props)
       this.state = {
         items: [{key:0, key:1, key:2, key:3 }],
+        blanketComponent: false,
         chartComponent: <div/>,
         sideBar: false,
         stageModal: 0,
@@ -187,14 +189,17 @@ class Home extends Component {
   }
 
   resizeEvent = async() => {
-    if(window.screen.width < 600){
+    if(window.screen.height == 1024 && window.screen.width == 768
+       || window.screen.width < 600 ){
       await this.setState({
+        socialRender: this.renderMobile(),
         chartComponent: this.renderChart(),
-        menuPadding: '3.75vw',
-        menuHeight: "17.5vh"
+        menuPadding: '2.5vw',
+        menuHeight: "10vh"
       })
     } else {
       await this.setState({
+        socialRender: this.renderDesktop(),
         menuPadding: '0',
         menuHeight: "8.75vh"
       })
@@ -257,6 +262,58 @@ class Home extends Component {
     this.setState({ flags });
   }
 
+  renderDesktop = () => {
+    return(
+    <div>
+      <a href='https://discord.gg/s5rSvB2'>
+        <img className='discord' src={discord}/>
+      </a>
+      <a href='https://t.me/ValidityCrypto'>
+        <img className='telegram' src={telegram}/>
+      </a>
+      <a href='https://www.github.com/ValidityCrypto'>
+        <img className='github' src={github}/>
+      </a>
+      <a href='https://www.linkedin.com/company/validitycrypto'>
+        <img className='linkedin' src={angellist}/>
+      </a>
+      <a href='https://www.linkedin.com/company/validitycrypto'>
+        <img className='linkedin' src={linkedin}/>
+      </a>
+      <a href='https://twitter.com/ValidityCrypto'>
+        <img className='twitter' src={twitter}/>
+      </a>
+      <a href='https://www.reddit.com/r/ValidityCrypto'>
+        <img className='reddit' src={reddit}/>
+      </a>
+      <a href='https://www.facebook.com/ValidityCrypto'>
+        <img className='facebook' src={facebook}/>
+      </a>
+      <a href='https://bitcointalk.org/index.php?topic=4900179'>
+        <img className='bct' src={bct}/>
+      </a>
+    </div>
+    )
+  }
+
+  revealBlanket = async() => {
+    if(!this.state.blanketComponent) document.body.style.overflow = "hidden"
+    else if(this.state.blanketComponent) document.body.style.overflow = "scroll"
+    this.setState({
+      blanketComponent: !this.state.blanketComponent
+    });
+  }
+
+  renderMobile = () => {
+    return(
+      <div className="socialButton">
+        <Button appearance="help" onClick={this.revealBlanket}>
+          Social
+        </Button>
+      </div>
+    )
+  }
+
   renderChart = () => {
     return(
       <PieChart
@@ -316,7 +373,6 @@ class Home extends Component {
                 <a href='https://www.ethereum.org/'>
                   <img className='eth' src={eth}/>
                 </a>
-                <div>
                   <Select
                     className="pageSelect"
                     onChange={this.scroll}
@@ -333,35 +389,7 @@ class Home extends Component {
                       { label: 'Get involved', value: 'page10' },
                     ]}
                     placeholder="Navigation"/>
-                </div>
-                <div className="appbarSpacing"/>
-                <a href='https://discord.gg/s5rSvB2'>
-                  <img className='discord' src={discord}/>
-                </a>
-                <a href='https://t.me/ValidityCrypto'>
-                  <img className='telegram' src={telegram}/>
-                </a>
-                <a href='https://www.github.com/ValidityCrypto'>
-                  <img className='github' src={github}/>
-                </a>
-                <a href='https://www.linkedin.com/company/validitycrypto'>
-                  <img className='linkedin' src={angellist}/>
-                </a>
-                <a href='https://www.linkedin.com/company/validitycrypto'>
-                  <img className='linkedin' src={linkedin}/>
-                </a>
-                <a href='https://twitter.com/ValidityCrypto'>
-                  <img className='twitter' src={twitter}/>
-                </a>
-                <a href='https://www.reddit.com/r/ValidityCrypto'>
-                  <img className='reddit' src={reddit}/>
-                </a>
-                <a href='https://www.facebook.com/ValidityCrypto'>
-                  <img className='facebook' src={facebook}/>
-                </a>
-                <a href='https://bitcointalk.org/index.php?topic=4900179'>
-                  <img className='bct' src={bct}/>
-                </a>
+                {this.state.socialRender}
                 <div className="landingButton">
                   <Button onClick={() => this.setState({ sideBar: !this.state.sideBar })} appearance="help">Menu</Button>
                 </div>
@@ -510,6 +538,34 @@ class Home extends Component {
                   </div>
               </div>
          </Modal>)}
+         {this.state.blanketComponent && (
+          <div className="socialModal" onClick={this.revealBlanket}>
+          <a href='https://discord.gg/s5rSvB2'>
+            <img className='discord' src={discord}/>
+          </a>
+          <a href='https://t.me/ValidityCrypto'>
+            <img className='telegram' src={telegram}/>
+          </a>
+          <a href='https://www.github.com/ValidityCrypto'>
+            <img className='github' src={github}/>
+          </a>
+          <a href='https://www.linkedin.com/company/validitycrypto'>
+            <img className='linkedin' src={angellist}/>
+          </a>
+          <a href='https://www.linkedin.com/company/validitycrypto'>
+            <img className='linkedin' src={linkedin}/>
+          </a>
+          <a href='https://twitter.com/ValidityCrypto'>
+            <img className='twitter' src={twitter}/>
+          </a>
+          <a href='https://www.facebook.com/ValidityCrypto'>
+            <img className='facebook' src={facebook}/>
+          </a>
+          <a href='https://bitcointalk.org/index.php?topic=4900179'>
+            <img className='bct' src={bct}/>
+          </a>
+         </div>
+         )}
          <div className="page1">
           <Page>
             <Grid layout="fluid">

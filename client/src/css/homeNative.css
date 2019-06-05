@@ -2,34 +2,48 @@
 
 @media only screen and (max-width: 600px) {
 
+  .socialModal {
+    background-color: rgb(0, 0, 0, 0.75);
+    z-index: 10000;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    position: fixed;
+    font-size: 10vw;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
   .menuBar {
     font-size: 3.75vw;
   }
 
   .eth {
     width: 5vw;
-    left: -2.25vw;
+    left: -.5vw;
   }
 
   .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
-    margin-left: 2vw;
-    border-width: .75vw;
-    width: 8.5vw;
-    top: 7.5vh;
-    right: 60vw;
+    margin-left: 12.5vw;
+    border-width: 2vw;
+    margin-bottom: 12.5vw;
+    width: 30vw;
+    top: 5vh;
   }
 
-  .appbarSpacing {
+  .socialButton {
+    margin-left: 2.5vw;
+    border: .75vw white solid;
   }
-
 
   .paperMenu {
     position: relative;
     width: 45vw;
     height: 75vh;
-    top: 18.75vh;
+    top: 12.5vh;
     margin: 5vw;
-    font-size: 5vw;
+    font-size: 4.5vw;
   }
 
   .paperButton {
@@ -41,10 +55,12 @@
     width: 45vw;
     margin-left: 5vw;
     border: .75vw white solid;
+    margin-right: 5vw;
   }
 
   .landingButton {
-    right: 77.5vw;
+    margin-left: 2.5vw;
+    float: right;
   }
 
   .landingPage {
@@ -400,6 +416,11 @@
     width: 42.5vw;
   }
 
+  .blanketComponent{
+
+    z-index: 1;
+  }
+
 
   .roadmapOne {
     position: absolute;
@@ -527,7 +548,6 @@
         border-width: 3.75vw;
     }
 
-
     .lineThree {
         top: 155vh;
         width: 50vw;
@@ -535,7 +555,6 @@
         transform: rotate(90deg);
         border-width: 3.75vw;
     }
-
 
     .lineFour {
         top: 205vh;
@@ -583,7 +602,7 @@
 
 /* iPhone X */
 
-@media only screen and (min-height: 812px) {
+@media only screen and (device-height: 812px) and (device-width: 375px) {
 
     .landingBranding {
       top: -42.5vh;
@@ -596,6 +615,154 @@
     .tokenChart{
       top: 15vh;
 
+    }
+
+    .ethereumWrapper {
+      top: 60vh;
+    }
+
+    .desiredTraits {
+      top: 120vh;
+    }
+
+}
+
+/* iPad */
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+
+    .menuBar {
+      font-size: 3vw;
+    }
+
+    .socialButton {
+      margin-left: 2.5vw;
+      border: .75vw white solid;
+    }
+
+    .socialModal {
+      background-color: rgb(0, 0, 0, 0.75);
+      z-index: 10000;
+      height: 100vh;
+      width: 100vw;
+      color: white;
+      position: fixed;
+      font-size: 10vw;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+
+    .eth {
+      width: 5vw;
+      left: -.5vw;
+    }
+
+    .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+      margin-left: 17.5vw;
+      border-width: 2vw;
+      margin-bottom: 5vw;
+      width: 25vw;
+      top: 5vh;
+    }
+
+    .pageSelect {
+      position: relative;
+      width: 50vw;
+      border: .75vw white solid;
+      margin-left: 5vw;
+      margin-right: 15vw;
+      font-size: 3.5vw;
+      color: black;
+    }
+
+    .landingButton {
+      border: .75vw white solid;
+      margin-left: 2.5vw;
+      float: right;
+    }
+
+    .landingBranding {
+      top: -22.5vh;
+      left: -37.5vw;
+    }
+
+    .landingLogo {
+      width: 175vw;
+    }
+
+    .landingTitle {
+      left: 27.5vw;
+      right: 0;
+      font-size: 10vw;
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-size: 7.5vw;
+    }
+
+    .h1 {
+      width: 75vw;
+    }
+
+    .page1 {
+      position: relative;
+      height: 137.5vh;
+      width: 100vw;
+    }
+
+    .page1-body {
+      font-size: 3.75vw;
+      left: 5vw;
+      width: 80vw;
+      top: 7.5vh;
+    }
+
+    .validatingGraphic {
+      top: 10vh;
+      left: 5vw;
+    }
+
+    .base1 {
+      width: 70vw;
+    }
+
+    .lines1 {
+      width: 40vw;
+      left: 20vw;
+      top: 22.5vh;
+
+    }
+
+    .pagePoint {
+      padding-bottom: 2vh;
+    }
+
+
+    .bcc {
+      width: 20vw;
+      right: 0;
+      left: 35vw;
+    }
+
+    .messages1 {
+      width: 87.5vw;
+    }
+
+    .messages1edit {
+      top: 20vh;
+      left: -.5vw;
+    }
+
+    .wrong {
+      font-size: 15vw;
+      top: 2.675vh;
+      left: 61.75vw;
+    }
+
+    .right {
+      font-size: 15vw;
+      top: 3.75vh;
     }
 
 }

@@ -3,6 +3,10 @@
   zoom: 1.0 ;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 
 .ui.card,
 .ui.cards>.card {
@@ -70,7 +74,6 @@
 
 .paperIcon {
   margin-left: .5vw;
-
   margin-right: 1.5vw;
 }
 
@@ -85,6 +88,7 @@
   position: relative;
   width: 20vw;
   margin-left: 2.5vw;
+  margin-right: 32.25vw;
   color: black;
 }
 
@@ -101,11 +105,6 @@
   position: relative;
   float: left;
   width: 1.75vw;
-}
-
-.appbarSpacing {
-  position: relative;
-  width: 67.5vw;
 }
 
 .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
