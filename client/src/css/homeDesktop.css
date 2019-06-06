@@ -48,6 +48,7 @@ body {
 }
 
 .sideBar {
+  visibility: hidden;
   position: fixed;
   z-index: 75;
 }
@@ -89,17 +90,18 @@ body {
   position: relative;
   width: 20vw;
   margin-left: 2.5vw;
-  margin-right: 30vw;
+  margin-right: 27.5vw;
   color: black;
 }
 
 .landingButton {
-  position: relative;
+  position: absolute;
   border: solid;
   border-color: white;
   border-radius: .5vw;
-  margin-left: 2.5vw;
+  margin-left: 5vw;
   float: right;
+  right: 2.5%;
 }
 
 .eth {

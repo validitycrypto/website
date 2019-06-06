@@ -56,7 +56,6 @@ import angellist from './images/angellist.png'
 import messages1 from './images/messages1.png'
 import telegram from './images/telegram.png'
 import facebook from './images/facebook.png'
-import air from './images/VLDY-AIRDROP2.png'
 import linkedin from './images/linkedin.png'
 import cdreams from './images/cdreams.png'
 import twitter from './images/twitter.png'
@@ -308,6 +307,15 @@ class Home extends Component {
     });
   }
 
+  renderSidebar = async() => {
+    var targetElement = document.getElementsByClassName("sideBar")[0]
+    if(!this.state.sideBar) targetElement.style.visibility = "visible"
+    else if(this.state.sideBar) targetElement.style.visibility = "hidden"
+    await this.setState({
+      sideBar: !this.state.sideBar
+    })
+  }
+
   renderMobile = () => {
     return(
       <div className="socialButton">
@@ -395,7 +403,7 @@ class Home extends Component {
                     placeholder="Navigation"/>
                 {this.state.socialRender}
                 <div className="landingButton">
-                  <Button onClick={() => this.setState({ sideBar: !this.state.sideBar })} appearance="help">Menu</Button>
+                  <Button onClick={this.renderSidebar} appearance="help">Menu</Button>
                 </div>
               </Toolbar>
             </AppBar>
@@ -422,7 +430,7 @@ class Home extends Component {
                       MVP
                     </span>
                   </Button>
-                  <Button transperant className="paperButton">
+                  <Button onClick={this.reveal} transperant className="paperButton">
                     <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faParachuteBox} size='lg'/>
                     <span style={{ color: 'white'}}>
                       Airdrop
@@ -457,65 +465,49 @@ class Home extends Component {
           </Page>
         </div>
         <FlagGroup>
-         {this.state.flags.map(flagId => {
+         {this.state.flags
+           .map(flagId => {
            return (
-            <AutoDismissFlag
+            <AutoDismissFlag appearance='warning' id={flagId} key={flagId} icon={airdrop} title='Try out our MVP!' description='Easily engaging in the alpha form of delegation by using a interactive user interface, vote with a click and some easy mouse movements.'
              actions={[
                { content: 'Ignore', onClick: this.handleDismiss },
                { content: 'Apply', onClick: () => {
                  this.handleDismiss()
-                  this.reveal() }}]}
-            appearance='warning'
-            id={flagId}
-            key={flagId}
-            icon={airdrop}
-            title='Try out our MVP!'
-            description='Easily engaging in the alpha form of delegation by using a interactive user interface, vote with a click and some easy mouse movements.'
-            />)})}
+                  this.reveal() }}
+              ]}
+            />)}
+          )}
         </FlagGroup>
         {isSubmitted && (
-          <Modal
-           actions = {[{ text: 'Dismiss', onClick: this.accept }  ]}
-           onClose={this.accept}
-           appearance='warning'
-           heading='Submission Successful'
-           width='500px'>
-            You are now registered for the VLDY airdrop round two.
-            <br></br>
+          <Modal actions = {[{ text: 'Dismiss', onClick: this.accept }  ]} onClose={this.accept} appearance='warning' heading='Submission Successful' width='500px'>
+            You are now registered for the VLDY airdrop.
             <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
-            <br></br>
             Thank you for participating and have a nice day!
-          </Modal> )}
+          </Modal>
+        )}
         {isOpen && (
-          <Modal
+          <Modal onClose={this.close} appearance='warning' heading='GDPR' width='500px'
           actions = {[
             { text: 'Accept', onClick: async() => {
               await this.close()
-              await this.addFlag()
-            } },
-            { text: 'Refuse', onClick: this.close }, ]}
-          onClose={this.close}
-          appearance='warning'
-          heading='GDPR'
-          width='500px'>
+              await this.addFlag() }
+            },
+            { text: 'Refuse', onClick: this.close }
+          ]}>
           We use cookies and other tracking technologies to improve your browsing experience on our web site,
           to show you personalized content and targeted ads, to analyze our website traffic, and to understand
           where our visitors are coming from. By browsing our website, you consent to our use of cookies and
           other tracking technologies.
-          </Modal> )}
+          </Modal>
+        )}
         {isApply && (
-          <Modal
-            heading='VLDY Airdrop Application'
-            appearance='warning'
-            scrollBehaviour="outside"
+          <Modal heading='VLDY Airdrop Application' appearance='warning' scrollBehaviour="outside"
             actions = {[
               { text: 'Submit', onClick: this.addFlag  },
               { text: 'Refuse', onClick: this.submit },
-              { text: 'Scroll to bottom', onClick: this.scrollToBottom }]}>
+              { text: 'Scroll to bottom', onClick: this.scrollToBottom }
+            ]}>
               <div className="sect">
-                  <img className="mdl" src={air} />
-                  <br></br>
-                  <br></br>
                   <div className="inpt">
                     <b><i>
                       <p className="warn">Closing Date: 20th of November 2018</p>
@@ -536,13 +528,14 @@ class Home extends Component {
                       <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
                       <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
                       <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
-                      <b>Target <a href="https://www.myethwallet.com">EtherGem wallet address</a> for the airdrop distribution</b>
-                      <FieldText shouldFitContainer='true' label='EtherGem Address' required onChange={this.formWallet}/>
+                      <b>Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution</b>
+                      <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
                       <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
                   </div>
               </div>
-         </Modal>)}
-         {this.state.blanketComponent && (
+         </Modal>
+        )}
+        {this.state.blanketComponent && (
           <div className="socialModal" onClick={this.revealBlanket}>
           <a href='https://discord.gg/s5rSvB2'>
             <img className='discord' src={discord}/>
@@ -569,7 +562,7 @@ class Home extends Component {
             <img className='bct' src={bct}/>
           </a>
          </div>
-         )}
+        )}
          <div className="page1">
           <Page>
             <Grid layout="fluid">
@@ -768,9 +761,6 @@ class Home extends Component {
                   <i>Ticker: <b>VLDY</b></i>
                   &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
                 </p>
-                <div className="tokenData">
-                  <BarChart/>
-                </div>
               </div>
             </GridColumn>
           </Grid>

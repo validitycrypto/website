@@ -60,8 +60,11 @@
   }
 
   .landingButton {
+    position: relative;
+    border: .75vw white solid;
     margin-left: 2.5vw;
     float: right;
+    right: 0;
   }
 
   .landingPage {
@@ -700,9 +703,11 @@
     }
 
     .landingButton {
+      position: relative;
       border: .75vw white solid;
       margin-left: 2.5vw;
       float: right;
+      right: 0;
     }
 
     .landingBranding {
@@ -1049,7 +1054,7 @@
     }
 
     .socialLink {
-     font-size: 10vw;
+     font-size: 7.5vw;
      padding-right: 5vw;
     }
 
@@ -1304,9 +1309,11 @@
     }
 
     .landingButton {
+      position: relative;
       border: .75vw white solid;
       margin-left: 2.5vw;
       float: right;
+      right: 0;
     }
 
     .landingBranding {
@@ -1653,7 +1660,7 @@
     }
 
     .socialLink {
-     font-size: 10vw;
+     font-size: 7.5vw;
      padding-right: 5vw;
     }
 
