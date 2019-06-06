@@ -34,8 +34,9 @@ body {
 }
 
 .homepageMenu {
+  position: fixed;
   z-index: 999;
-
+  width: 100vw;
 }
 
 .menuBar {
@@ -88,7 +89,7 @@ body {
   position: relative;
   width: 20vw;
   margin-left: 2.5vw;
-  margin-right: 32.25vw;
+  margin-right: 30vw;
   color: black;
 }
 

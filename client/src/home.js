@@ -173,7 +173,7 @@ class Home extends Component {
         data: dataMock,
         metaData: {
         title: "Pick a chart value",
-        value: " "
+        value: false
         }
       }
       this.onMouseOut = this.onMouseOut.bind(this);
@@ -189,19 +189,23 @@ class Home extends Component {
   }
 
   resizeEvent = async() => {
-    if(window.screen.height == 1024 && window.screen.width == 768
+    if(window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024
        || window.screen.width < 600 ){
       await this.setState({
+        metaData: {
+          title: "Pick a chart value",
+          value: true
+        },
         socialRender: this.renderMobile(),
         chartComponent: this.renderChart(),
         menuPadding: '2.5vw',
-        menuHeight: "10vh"
+        menuHeight: "10%"
       })
     } else {
       await this.setState({
         socialRender: this.renderDesktop(),
         menuPadding: '0',
-        menuHeight: "8.75vh"
+        menuHeight: "10%"
       })
     }
   }
@@ -737,7 +741,7 @@ class Home extends Component {
               <div className="tokenChart">
                 {this.state.chartComponent}
                 </div>
-                {(this.state.metaData.title != "Pick a chart value" || window.screen.width < 600) && (
+                {this.state.metaData.value != false && (
                   <div className="modalToken">
                     <SectionMessage appearance="change">
                       <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
@@ -869,7 +873,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={greenCircle} />
                     <img className="logoOne" src={eth} />
                   </div>
-                  {(this.state.stageModal == 1 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 1 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
                     <div className="modalOne">
                       <SectionMessage appearance="confirmation">
                         Ethereum & MVP launch
@@ -883,7 +887,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
                   </div>
-                  {(this.state.stageModal == 2 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 2 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
                     <div className="modalTwo">
                       <SectionMessage appearance="error">
                         Validity Whitepaper
@@ -897,7 +901,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <img className="logoTwo" src={gitcoin} />
                   </div>
-                  {(this.state.stageModal == 3 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 3 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024  ) && (
                     <div className="modalThree">
                       <SectionMessage appearance="error">
                         Gitcoin grants & funding
@@ -911,7 +915,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
                   </div>
-                  {(this.state.stageModal == 4 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 4 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
                     <div className="modalFour">
                       <SectionMessage appearance="error">
                         Find talent and partnerships
@@ -925,7 +929,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
                   </div>
-                  {(this.state.stageModal == 5 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 5 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
                     <div className="modalFive">
                       <SectionMessage appearance="error">
                         Beta product
@@ -939,7 +943,7 @@ class Home extends Component {
                     <img className="circleRoadmap" src={redCircle} />
                     <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
                   </div>
-                  {(this.state.stageModal == 6 || window.screen.width < 600) && (
+                  {(this.state.stageModal == 6 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
                     <div className="modalSix">
                       <SectionMessage appearance="error">
                         Product launch
