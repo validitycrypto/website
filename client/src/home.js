@@ -500,30 +500,82 @@ class Home extends Component {
                 <p className="formHighlight">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p>
               </div>
               <div className="formBody">
-                <b>Your e-mail address</b>
-                <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
-                <FontAwesomeIcon className="ia" icon={faEnvelope} size='2x'/>
-                <b>Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a></b>
-                <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
-                <FontAwesomeIcon className="ia" icon={faTelegramPlane} size='2x'/>
-                <b ref={r => {this.bottomRef = r;}}>Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a></b>
-                <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
-                <FontAwesomeIcon className="ia" icon={faDiscord} size='2x'/>
-                <b>Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a></b>
-                <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
-                <FontAwesomeIcon className="ia" icon={faTwitter} size='2x'/>
-                <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
-                <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
-                <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
-                <b>Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution</b>
-                <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
-                <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
+                  <div className="formLabel">
+                    <FontAwesomeIcon className="ia" icon={faEnvelope} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your e-mail address
+                  </div>
+                </div>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
+                  <div className="formLabel">
+                    <FontAwesomeIcon className="ia" icon={faTelegramPlane} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a>
+                  </div>
+                </div>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
+                  <div className="formLabel" ref={r => {this.bottomRef = r;}}>
+                    <FontAwesomeIcon className="ia" icon={faDiscord} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a>
+                  </div>
+                </div>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
+                  <div className="formLabel">
+                    <FontAwesomeIcon className="ia" icon={faTwitter} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a>
+                  </div>
+                </div>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
+                  <div className="formLabel">
+                    <FontAwesomeIcon className="ia" icon={faFacebook} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a>
+                  </div>
+                </div>
+                <div className="formInput">
+                  <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
+                  <div className="formLabel">
+                    <FontAwesomeIcon className="ia" icon={faWallet} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution
+                  </div>
               </div>
+            </div>
          </Modal>
         )}
         {isParticipant && (
           <Modal actions = {[{ text: 'Dismiss', onClick: () => this.setState({ isParticipant: false })}]} appearance='danger' heading='Validity Fraudelent Survey'>
-          <i><b> Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</b></i>
+          <div className="formHead">
+            <p className="formHighlight">Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</p>
+          </div>
+          <div className="formBody">
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+            <div className="formInput">
+              <FieldText shouldFitContainer='true'required/>
+              <div className="formLabel">
+              </div>
+            </div>
+          </div>
           </Modal>
         )}
         {this.state.blanketComponent && (

@@ -288,6 +288,22 @@ body {
 .formHead {
   margin: 2.5vw;
   font-size: 1.375vw;
+  margin-bottom: 3vw;
+
+}
+
+.formBody {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.formInput {
+  margin-bottom: 2vw;
+}
+
+.formLabel {
+  position: relative;
+  top: -12.5vh;
 }
 
 .formHighlight {
