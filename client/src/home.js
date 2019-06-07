@@ -162,18 +162,15 @@ class Home extends Component {
   constructor(props) {
     super(props)
       this.state = {
+        metaData: { title: "Pick a chart value", value: false },
         items: [{key:0, key:1, key:2, key:3 }],
         blanketComponent: false,
         chartComponent: <div/>,
         sideBar: false,
+        data: dataMock,
         stageModal: 0,
         segment: 0,
         flags: [],
-        data: dataMock,
-        metaData: {
-        title: "Pick a chart value",
-        value: false
-        }
       }
       this.onMouseOut = this.onMouseOut.bind(this);
       this.onMouseOver = this.onMouseOver.bind(this);
@@ -183,39 +180,10 @@ class Home extends Component {
     window.addEventListener("resize", this.resizeEvent);
     ReactGA.initialize('UA-140909568-1');
     ReactGA.pageview('/homepage');
-    await this.resizeEvent();
-    await this.open()
-  }
-
-  resizeEvent = async() => {
-    if(window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024
-       || window.screen.width < 600 ){
-      await this.setState({
-        metaData: {
-          title: "Pick a chart value",
-          value: true
-        },
-        socialRender: this.renderMobile(),
-        chartComponent: this.renderChart(),
-        menuPadding: '2.5vw',
-        menuHeight: "10%"
-      })
-    } else {
-      await this.setState({
-        socialRender: this.renderDesktop(),
-        menuPadding: '0',
-        menuHeight: "10%"
-      })
-    }
-  }
-
-  animateChart = () => {
-     this.setState({ segment: 100 })
-  }
-
-  scroll = (event) => {
-    var element = document.getElementsByClassName(event.value)[0]
-    element.scrollIntoView({behavior: "smooth"});
+    await this.resizeEvent()
+      .then(() => this.setState({
+        isOpen: true
+      }));
   }
 
   formEmail = (event) => this.setState({ email: event.target.value });
@@ -224,12 +192,8 @@ class Home extends Component {
   formFacebook = (event) => this.setState({ facebook: event.target.value });
   formTwitter = (event) => this.setState({ twitter: event.target.value });
   formWallet = (event) => this.setState({ wallet: event.target.value });
+  revealApplication = () => this.setState({ isApply: true });
   scrollToBottom = () => this.bottomRef.scrollIntoView(true);
-  accept = () => this.setState({ isSubmitted: false });
-  submit = () => this.setState({ isApply: false });
-  reveal = () => this.setState({ isApply: true });
-  close = () => this.setState({ isOpen: false });
-  open = () => this.setState({ isOpen: true });
 
   formData = () => {
     if(this.state.email != undefined
@@ -246,16 +210,43 @@ class Home extends Component {
             wallet: this.state.wallet
           };
       }
-}
+  }
 
-  handleDismiss = () => {
-    this.setState(prevState => ({
+  resizeEvent = async() => {
+    if(window.screen.height == 1024 && window.screen.width == 768
+       || window.screen.height == 1366 && window.screen.width == 1024
+       || window.screen.width < 600 ){
+      await this.setState({
+        metaData: { title: "Pick a chart value", value: true },
+        socialRender: this.renderMobile(),
+        chartComponent: this.renderChart(),
+        menuPadding: '2.5vw',
+        menuHeight: "10%"
+      })
+    } else {
+      await this.setState({
+        socialRender: this.renderDesktop(),
+        menuPadding: '0',
+        menuHeight: "10%"
+      })
+    }
+  }
+
+  scroll = (event) => {
+    var element = document.getElementsByClassName(event.value)[0]
+    element.scrollIntoView({behavior: "smooth"});
+  }
+
+  handleDismiss = async() => {
+    await this.setState(prevState => ({
       flags: prevState.flags.slice(1),
     }));
   };
 
-  toggleSidebar = (_bool) => {
-    this.setState({ })
+  triggerSurvey = () => {
+    this.setState({
+      isParticipant: true
+    })
   }
 
   addFlag = () => {
@@ -376,6 +367,7 @@ class Home extends Component {
     const { classes } = this.props;
     const { active } = this.state;
     const { isOpen } = this.state;
+    const { isParticipant } = this.state;
     return (
       <AtlaskitThemeProvider mode='light'>
         <div className="homepageMenu">
@@ -430,13 +422,13 @@ class Home extends Component {
                       MVP
                     </span>
                   </Button>
-                  <Button onClick={this.reveal} transperant className="paperButton">
+                  <Button onClick={this.revealApplication} transperant className="paperButton">
                     <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faParachuteBox} size='lg'/>
                     <span style={{ color: 'white'}}>
                       Airdrop
                     </span>
                   </Button>
-                  <Button transperant className="paperButton">
+                  <Button onClick={this.triggerSurvey} transperant className="paperButton">
                     <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faFileSignature} size='lg'/>
                     <span style={{ color: 'white'}}>
                       Survey
@@ -470,29 +462,24 @@ class Home extends Component {
            return (
             <AutoDismissFlag appearance='warning' id={flagId} key={flagId} icon={airdrop} title='Try out our MVP!' description='Easily engaging in the alpha form of delegation by using a interactive user interface, vote with a click and some easy mouse movements.'
              actions={[
-               { content: 'Ignore', onClick: this.handleDismiss },
-               { content: 'Apply', onClick: () => {
-                 this.handleDismiss()
-                  this.reveal() }}
+               { content: 'Apply', onClick: () => this.handleDismiss().then(this.setState({ isApply: true })) },
+               { content: 'Ignore', onClick: this.handleDismiss }
               ]}
             />)}
           )}
         </FlagGroup>
         {isSubmitted && (
-          <Modal actions = {[{ text: 'Dismiss', onClick: this.accept }  ]} onClose={this.accept} appearance='warning' heading='Submission Successful' width='500px'>
+          <Modal actions = {[{ text: 'Dismiss', onClick: () => this.setState({ isSubmitted: false }) }]} appearance='warning' heading='Submission Successful' width='500px'>
             You are now registered for the VLDY airdrop.
             <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
             Thank you for participating and have a nice day!
           </Modal>
         )}
         {isOpen && (
-          <Modal onClose={this.close} appearance='warning' heading='GDPR' width='500px'
+          <Modal appearance='warning' heading='GDPR' width='500px'
           actions = {[
-            { text: 'Accept', onClick: async() => {
-              await this.close()
-              await this.addFlag() }
-            },
-            { text: 'Refuse', onClick: this.close }
+            { text: 'Accept', onClick: () => this.setState({ isOpen: false}, this.addFlag) },
+            { text: 'Refuse', onClick: () => this.setState({ isOpen: false }) }
           ]}>
           We use cookies and other tracking technologies to improve your browsing experience on our web site,
           to show you personalized content and targeted ads, to analyze our website traffic, and to understand
@@ -501,39 +488,43 @@ class Home extends Component {
           </Modal>
         )}
         {isApply && (
-          <Modal heading='VLDY Airdrop Application' appearance='warning' scrollBehaviour="outside"
+          <Modal className="modalForm" heading='VLDY Airdrop Application' appearance='warning' scrollBehaviour="outside"
             actions = {[
-              { text: 'Submit', onClick: this.addFlag  },
-              { text: 'Refuse', onClick: this.submit },
-              { text: 'Scroll to bottom', onClick: this.scrollToBottom }
+              { text: 'Submit', onClick: () => this.setState({ isApply: false, isSubmitted: true }) },
+              { text: 'Refuse', onClick: () => this.setState({ isApply: false }) },
+              { text: 'Scroll to bottom', onClick: this.scrollToBottom },
             ]}>
-              <div className="sect">
-                  <div className="inpt">
-                    <b><i>
-                      <p className="warn">Closing Date: 20th of November 2018</p>
-                      <p className="warn">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>
-                      <p className="warn">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p></i></b>
-                      <b>Your e-mail address</b>
-                      <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
-                      <FontAwesomeIcon className="ia" icon={faEnvelope} size='2x'/>
-                      <b>Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a></b>
-                      <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
-                      <FontAwesomeIcon className="ia" icon={faTelegramPlane} size='2x'/>
-                      <b ref={r => {this.bottomRef = r;}}>Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a></b>
-                      <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
-                      <FontAwesomeIcon className="ia" icon={faDiscord} size='2x'/>
-                      <b>Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a></b>
-                      <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
-                      <FontAwesomeIcon className="ia" icon={faTwitter} size='2x'/>
-                      <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
-                      <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
-                      <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
-                      <b>Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution</b>
-                      <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
-                      <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
-                  </div>
+              <div className="formHead">
+                <p className="formHighlight">AIRDROP TIER: 1; AIRDROP ROUND: 3</p>
+                <p className="formHighlight">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>
+                <p className="formHighlight">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p>
+              </div>
+              <div className="formBody">
+                <b>Your e-mail address</b>
+                <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
+                <FontAwesomeIcon className="ia" icon={faEnvelope} size='2x'/>
+                <b>Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a></b>
+                <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
+                <FontAwesomeIcon className="ia" icon={faTelegramPlane} size='2x'/>
+                <b ref={r => {this.bottomRef = r;}}>Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a></b>
+                <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
+                <FontAwesomeIcon className="ia" icon={faDiscord} size='2x'/>
+                <b>Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a></b>
+                <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
+                <FontAwesomeIcon className="ia" icon={faTwitter} size='2x'/>
+                <b>Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a></b>
+                <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
+                <FontAwesomeIcon className="ia" icon={faFacebook} size='2x'/>
+                <b>Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution</b>
+                <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
+                <FontAwesomeIcon className="ia" icon={faWallet} size='2x'/>
               </div>
          </Modal>
+        )}
+        {isParticipant && (
+          <Modal actions = {[{ text: 'Dismiss', onClick: () => this.setState({ isParticipant: false })}]} appearance='danger' heading='Validity Fraudelent Survey'>
+          <i><b> Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</b></i>
+          </Modal>
         )}
         {this.state.blanketComponent && (
           <div className="socialModal" onClick={this.revealBlanket}>

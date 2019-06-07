@@ -285,6 +285,16 @@ body {
   top: 7.5vh;
 }
 
+.formHead {
+  margin: 2.5vw;
+  font-size: 1.375vw;
+}
+
+.formHighlight {
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 1vw;
+}
 
 .stageOne{
   position: absolute;
@@ -344,8 +354,6 @@ body {
   width: 27.5vw;
   left: 5vw;
 }
-
-
 
 .stageNumber {
   position: absolute;
