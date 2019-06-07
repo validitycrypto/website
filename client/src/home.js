@@ -10,7 +10,6 @@ import { faReact, faPython, faEthereum,faBitcoin, faGithub, faLinkedin, faTelegr
 import { Icon , Segment , Card, Image } from 'semantic-ui-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';
-import BarChart from './bar'
 
 // Atlaskit
 import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
@@ -93,18 +92,6 @@ const defaultLabelStyle = {
   fill: '#121212',
 };
 
-const dataPropType = PropTypes.arrayOf(
-  PropTypes.shape({
-    title: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    value: PropTypes.number.isRequired,
-    key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    color: PropTypes.string,
-  })
-);
-
-// Constants
-const airdrop = <FontAwesomeIcon icon={faLayerGroup} size='lg'/>
-
 const TeamCard = ({ data }) => {
   return(
   <Card className={data.class} inverted>
@@ -141,13 +128,6 @@ const TeamCard = ({ data }) => {
   );
 }
 
-
-  const styles = createMuiTheme({
-     sideBar: {
-      background: '#815aff'
-    }
-  });
-
 const dataMock = [
     { title: 'Airdrop Tier 1', value: 30, color: '#0cff6f' },
     { title: 'Airdrop Tier 2', value: 20, color: '#0c23ff' },
@@ -179,978 +159,506 @@ class Home extends Component {
       }
       this.onMouseOut = this.onMouseOut.bind(this);
       this.onMouseOver = this.onMouseOver.bind(this);
-  }
-
-  componentWillMount = async() => {
-    window.addEventListener("resize", this.resizeEvent);
-    ReactGA.initialize('UA-140909568-1');
-    ReactGA.pageview('/homepage');
-    await this.resizeEvent()
-      .then(() => this.setState({
-        isOpen: true
-      }));
-  }
-
-  formEmail = (event) => this.setState({ email: event.target.value });
-  formTelegram = (event) => this.setState({ telegram: event.target.value });
-  formDiscord = (event) => this.setState({ discord: event.target.value });
-  formFacebook = (event) => this.setState({ facebook: event.target.value });
-  formTwitter = (event) => this.setState({ twitter: event.target.value });
-  formWallet = (event) => this.setState({ wallet: event.target.value });
-  revealApplication = () => this.setState({ isApply: true });
-  scrollToBottom = () => this.bottomRef.scrollIntoView(true);
-
-  formData = () => {
-    if(this.state.email != undefined
-       && this.state.telegram != undefined
-       && this.state.discord != undefined
-       && this.state.twitter != undefined
-       && this.state.facebook != undefined
-       && this.state.wallet.length == 42){
-          var data = {
-            telegram: this.state.telegram,
-            discord: this.state.discord,
-            twitter: this.state.twitter,
-            facebook: this.state.facebook,
-            wallet: this.state.wallet
-          };
       }
-  }
 
-  resizeEvent = async() => {
-    if(window.screen.height == 1024 && window.screen.width == 768
-       || window.screen.height == 1366 && window.screen.width == 1024
-       || window.screen.width < 600 ){
-      await this.setState({
-        metaData: { title: "Pick a chart value", value: true },
-        socialRender: this.renderMobile(),
-        chartComponent: this.renderChart(),
-        menuPadding: '2.5vw',
-        menuHeight: "10%"
-      })
-    } else {
-      await this.setState({
-        socialRender: this.renderDesktop(),
-        menuPadding: '0',
-        menuHeight: "10%"
-      })
-    }
-  }
+      formEmail = (event) => this.setState({ email: event.target.value });
+      formTelegram = (event) => this.setState({ telegram: event.target.value });
+      formDiscord = (event) => this.setState({ discord: event.target.value });
+      formFacebook = (event) => this.setState({ facebook: event.target.value });
+      formTwitter = (event) => this.setState({ twitter: event.target.value });
+      formWallet = (event) => this.setState({ wallet: event.target.value });
+      revealApplication = () => this.setState({ isApply: true });
+      scrollToBottom = () => this.bottomRef.scrollIntoView(true);
 
-  scroll = (event) => {
-    var element = document.getElementsByClassName(event.value)[0]
-    element.scrollIntoView({behavior: "smooth"});
-  }
+      formData = () => {
+        if(this.state.email != undefined
+           && this.state.telegram != undefined
+           && this.state.discord != undefined
+           && this.state.twitter != undefined
+           && this.state.facebook != undefined
+           && this.state.wallet.length == 42){
+              var data = {
+                telegram: this.state.telegram,
+                discord: this.state.discord,
+                twitter: this.state.twitter,
+                facebook: this.state.facebook,
+                wallet: this.state.wallet
+              };
+          }
+      }
 
-  handleDismiss = async() => {
-    await this.setState(prevState => ({
-      flags: prevState.flags.slice(1),
-    }));
-  };
+      renderChart = () => {
+        return(
+          <PieChart
+            animationDuration={1000}
+            segmentsStyle={{ transition: 'stroke .3s' }}
+            onMouseOver={this.onMouseOver}
+            onMouseOut={this.onMouseOut}
+            data={this.state.data}
+            paddingAngle={5}
+            lineWidth={25}
+            radius={20}
+            animate
+          />
+        );
+      }
 
-  triggerSurvey = () => {
-    this.setState({
-      isParticipant: true
-    })
-  }
+      onMouseOut(e, d, i) {
+        this.setState({
+          metaData: {
+            title: "Pick a chart value",
+            value: " "
+          },
+          data:
+          [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
+            { title: 'Airdrop tier 2', value: 20, color: '#0c23ff' },
+            { title: 'Airdrop tier 3', value: 10, color: '#ff0c23' },
+            { title: 'Team', value: 15, color: '#00bfff' },
+            { title: 'Community fund', value: 20, color: '#815aff' },
+            { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
+        });
+      }
 
-  addFlag = () => {
-    const newFlagId = this.state.flags.length + 1;
-    const flags = this.state.flags.slice();
-    flags.splice(0, 0, newFlagId);
-    this.setState({ flags });
-  }
+      onMouseOver(e, d, i) {
+        var focusedData;
+        const data = d.map((entry, index) => {
+          if(index === i) focusedData = entry;
+          return index === i ? entry.color = 'grey' : dataMock[index];
+        });
+        this.setState({
+          metaData: focusedData,
+          data: data,
+        });
+      }
 
-  renderDesktop = () => {
-    return(
+
+ render() {
+  return (
     <div>
-      <a href='https://discord.gg/s5rSvB2'>
-        <img className='discord' src={discord}/>
-      </a>
-      <a href='https://t.me/ValidityCrypto'>
-        <img className='telegram' src={telegram}/>
-      </a>
-      <a href='https://www.github.com/ValidityCrypto'>
-        <img className='github' src={github}/>
-      </a>
-      <a href='https://www.linkedin.com/company/validitycrypto'>
-        <img className='linkedin' src={angellist}/>
-      </a>
-      <a href='https://www.linkedin.com/company/validitycrypto'>
-        <img className='linkedin' src={linkedin}/>
-      </a>
-      <a href='https://twitter.com/ValidityCrypto'>
-        <img className='twitter' src={twitter}/>
-      </a>
-      <a href='https://www.reddit.com/r/ValidityCrypto'>
-        <img className='reddit' src={reddit}/>
-      </a>
-      <a href='https://www.facebook.com/ValidityCrypto'>
-        <img className='facebook' src={facebook}/>
-      </a>
-      <a href='https://bitcointalk.org/index.php?topic=4900179'>
-        <img className='bct' src={bct}/>
-      </a>
-    </div>
-    )
-  }
-
-  revealBlanket = async() => {
-    if(!this.state.blanketComponent) document.body.style.overflow = "hidden"
-    else if(this.state.blanketComponent) document.body.style.overflow = "scroll"
-    this.setState({
-      blanketComponent: !this.state.blanketComponent
-    });
-  }
-
-  renderSidebar = async() => {
-    var targetElement = document.getElementsByClassName("sideBar")[0]
-    if(!this.state.sideBar) targetElement.style.visibility = "visible"
-    else if(this.state.sideBar) targetElement.style.visibility = "hidden"
-    await this.setState({
-      sideBar: !this.state.sideBar
-    })
-  }
-
-  renderMobile = () => {
-    return(
-      <div className="socialButton">
-        <Button appearance="help" onClick={this.revealBlanket}>
-          Social
-        </Button>
+      <div className="landingPage">
+        <Page>
+          <Grid layout="fluid">
+            <GridColumn>
+              <div className="landingBranding">
+                <img className='landingLogo' src={vldy}/>
+                <p className="landingTitle">Validity</p>
+              </div>
+            </GridColumn>
+          </Grid>
+        </Page>
       </div>
-    )
-  }
+      <div className="page1">
+       <Page>
+         <Grid layout="fluid">
+           <GridColumn>
+           <div className="page1-body">
+             <div className="h1">
+               <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
+             </div>
+             <p className="pagePoint">Cryptocurriencies are blockchain technology have been depicted in many different frames of light, with this, there is a huge lack of underlying acknowledgement of the technology within. </p>
+             <p className="pagePoint">The general sentiment of the capabilities of profit-making in this field distort the true integrity of these permissionless currencies and projects but more importantly the peoples aim behind them. </p>
+             <p className="pagePoint">In 2017, 81% of all ICO's resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
+             <p className="pagePoint">Validity is a communally verifiable platform for investors to contribute their general perspectives regarding currencies, tokens and projects alike.  </p>
+           </div>
+           </GridColumn>
+           <GridColumn>
+           <div className="validatingGraphic">
+             <img className="base1" src={base1}/>
+             <div className="lines1edit"><img className="lines1" src={lines1}/></div>
+             <div className="wrong"><FontAwesomeIcon icon={faTimes}/></div>
+             <div className="right"><FontAwesomeIcon icon={faCheck}/></div>
+             <div><img className="bcc" src={bcc}/></div>
+             <div className="messages1edit"><img className="messages1" src={messages1}/> </div>
 
-  renderChart = () => {
-    return(
-      <PieChart
-        animationDuration={1000}
-        segmentsStyle={{ transition: 'stroke .3s' }}
-        onMouseOver={this.onMouseOver}
-        onMouseOut={this.onMouseOut}
-        data={this.state.data}
-        paddingAngle={5}
-        lineWidth={25}
-        radius={20}
-        animate
-      />
-    );
-  }
-
-  onMouseOut(e, d, i) {
-    this.setState({
-      metaData: {
-        title: "Pick a chart value",
-        value: " "
-      },
-      data:
-      [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
-        { title: 'Airdrop tier 2', value: 20, color: '#0c23ff' },
-        { title: 'Airdrop tier 3', value: 10, color: '#ff0c23' },
-        { title: 'Team', value: 15, color: '#00bfff' },
-        { title: 'Community fund', value: 20, color: '#815aff' },
-        { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
-    });
-  }
-
-  onMouseOver(e, d, i) {
-    var focusedData;
-    const data = d.map((entry, index) => {
-      if(index === i) focusedData = entry;
-      return index === i ? entry.color = 'grey' : dataMock[index];
-    });
-    this.setState({
-      metaData: focusedData,
-      data: data,
-    });
-  }
-
-  render() {
-    const { isSubmitted } = this.state;
-    const { isApply } = this.state;
-    const { classes } = this.props;
-    const { active } = this.state;
-    const { isOpen } = this.state;
-    const { isParticipant } = this.state;
-    return (
-      <AtlaskitThemeProvider mode='light'>
-        <div className="homepageMenu">
-          <div className="menuBar">
-            <AppBar fullWidth style={{ padding: this.state.menuPadding, height: this.state.menuHeight, backgroundColor: '#815aff', display: 'flex', zIndex: 1 }} position="static">
-              <Toolbar>
-                <a href='https://www.ethereum.org/'>
-                  <img className='eth' src={eth}/>
-                </a>
-                  <Select
-                    className="pageSelect"
-                    onChange={this.scroll}
-                    options={[
-                      { label: 'What is Validity?', value: 'page1' },
-                      { label: 'Communal Validation', value: 'page2' },
-                      { label: 'How does it work?', value: 'page3' },
-                      { label: 'Why use Validity?', value: 'page4' },
-                      { label: 'Product', value: 'page5' },
-                      { label: 'Tokenonomics', value: 'page6' },
-                      { label: 'Resources', value: 'page7' },
-                      { label: 'Validity core', value: 'page8' },
-                      { label: 'Roadmap', value: 'page9' },
-                      { label: 'Get involved', value: 'page10' },
-                    ]}
-                    placeholder="Navigation"/>
-                {this.state.socialRender}
-                <div className="landingButton">
-                  <Button onClick={this.renderSidebar} appearance="help">Menu</Button>
-                </div>
-              </Toolbar>
-            </AppBar>
-          </div>
-          <div className="sideBar">
-            <Drawer
-              variant="persistent"
-              style={{ zIndex: -1}}
-              classes={{ paper: classes.sideBar }}
-              onClose={() => this.setState({ sideBar: false })}
-              onOpen={() => this.setState({ sideBar: true })}
-              open={this.state.sideBar}
-              anchor="right">
-                <Paper className="paperMenu" style={{ backgroundColor: fade('#ffffff', 0.275) }}>
-                  <Button transperant className="paperButton">
-                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faHome} size='lg'/>
-                    <span style={{ color: 'white'}}>
-                      Home
-                    </span>
-                  </Button>
-                  <Button transperant className="paperButton">
-                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faStarHalfAlt} size='lg'/>
-                    <span style={{ color: 'white'}}>
-                      MVP
-                    </span>
-                  </Button>
-                  <Button onClick={this.revealApplication} transperant className="paperButton">
-                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faParachuteBox} size='lg'/>
-                    <span style={{ color: 'white'}}>
-                      Airdrop
-                    </span>
-                  </Button>
-                  <Button onClick={this.triggerSurvey} transperant className="paperButton">
-                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faFileSignature} size='lg'/>
-                    <span style={{ color: 'white'}}>
-                      Survey
-                    </span>
-                  </Button>
-                  <Button transperant className="paperButton">
-                    <FontAwesomeIcon className="paperIcon" color="#ffffff" icon={faWallet} size='lg'/>
-                    <span style={{ color: 'white'}}>
-                      Wallet
-                    </span>
-                  </Button>
-                </Paper>
-            </Drawer>
-          </div>
-        </div>
-        <div className="landingPage">
-          <Page>
-            <Grid layout="fluid">
-              <GridColumn>
-                <div className="landingBranding">
-                  <img className='landingLogo' src={vldy}/>
-                  <p className="landingTitle">Validity</p>
-                </div>
-              </GridColumn>
-            </Grid>
-          </Page>
-        </div>
-        <FlagGroup>
-         {this.state.flags
-           .map(flagId => {
-           return (
-            <AutoDismissFlag appearance='warning' id={flagId} key={flagId} icon={airdrop} title='Try out our MVP!' description='Easily engaging in the alpha form of delegation by using a interactive user interface, vote with a click and some easy mouse movements.'
-             actions={[
-               { content: 'Apply', onClick: () => this.handleDismiss().then(this.setState({ isApply: true })) },
-               { content: 'Ignore', onClick: this.handleDismiss }
-              ]}
-            />)}
-          )}
-        </FlagGroup>
-        {isSubmitted && (
-          <Modal actions = {[{ text: 'Dismiss', onClick: () => this.setState({ isSubmitted: false }) }]} appearance='warning' heading='Submission Successful' width='500px'>
-            You are now registered for the VLDY airdrop.
-            <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
-            Thank you for participating and have a nice day!
-          </Modal>
-        )}
-        {isOpen && (
-          <Modal appearance='warning' heading='GDPR' width='500px'
-          actions = {[
-            { text: 'Accept', onClick: () => this.setState({ isOpen: false}, this.addFlag) },
-            { text: 'Refuse', onClick: () => this.setState({ isOpen: false }) }
-          ]}>
-          We use cookies and other tracking technologies to improve your browsing experience on our web site,
-          to show you personalized content and targeted ads, to analyze our website traffic, and to understand
-          where our visitors are coming from. By browsing our website, you consent to our use of cookies and
-          other tracking technologies.
-          </Modal>
-        )}
-        {isApply && (
-          <Modal className="modalForm" heading='VLDY Airdrop Application' appearance='warning' scrollBehaviour="outside"
-            actions = {[
-              { text: 'Submit', onClick: () => this.setState({ isApply: false, isSubmitted: true }) },
-              { text: 'Refuse', onClick: () => this.setState({ isApply: false }) },
-              { text: 'Scroll to bottom', onClick: this.scrollToBottom },
-            ]}>
-              <div className="formHead">
-                <p className="formHighlight">AIRDROP TIER: 1; AIRDROP ROUND: 3</p>
-                <p className="formHighlight">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>
-                <p className="formHighlight">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p>
-              </div>
-              <div className="formBody">
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='E-Mail' required onChange={this.formEmail}/>
-                  <div className="formLabel">
-                    <FontAwesomeIcon  icon={faEnvelope} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your e-mail address
-                  </div>
-                </div>
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='Telegram Username' required onChange={this.formTelegram}/>
-                  <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTelegramPlane} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a>
-                  </div>
-                </div>
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='Discord Username' required onChange={this.formDiscord}/>
-                  <div className="formLabel" ref={r => {this.bottomRef = r;}}>
-                    <FontAwesomeIcon  icon={faDiscord} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a>
-                  </div>
-                </div>
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='Twitter Username' required onChange={this.formTwitter}/>
-                  <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTwitter} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a>
-                  </div>
-                </div>
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='Facebook Username' required onChange={this.formFacebook}/>
-                  <div className="formLabel">
-                    <FontAwesomeIcon  icon={faFacebook} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity's facebook</a>
-                  </div>
-                </div>
-                <div className="formInput">
-                  <FieldText shouldFitContainer='true' label='Ethereum Address' required onChange={this.formWallet}/>
-                  <div className="formLabel">
-                    <FontAwesomeIcon  icon={faWallet} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution
-                  </div>
-              </div>
-            </div>
-         </Modal>
-        )}
-        {isParticipant && (
-          <Modal actions = {[{ text: 'Dismiss', onClick: () => this.setState({ isParticipant: false })}]} appearance='danger' heading='Validity Fraudelent Survey'>
-          <div className="formHead">
-            <p className="formHighlight">TO BE COMPLIANT FOR COMPENSATION, ONE MUST ANSWER ALL QUESTIONS.</p>
-            <p className="formHighlight">Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</p>
-          </div>
-          <div className="formBody">
-            <div className="formInput">
-              <FieldText label="What is your gender?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="What age are you?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="Have you ever invested before entering crypto?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="How did you first hear about Bitcoin or other cryptocurrencies?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="How do you execute due diligence upon following on up on an new investment?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="What characteristics in your opinion determine if a project is good?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText label="What characteristics in your opinion determine if a project is bad?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-            <FieldText isInvalid={this.state.revealOne} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ optionOne: value.target.value, revealOne: true }) : this.setState({ revealOne: false }); }} label="Have you been scammed by any cryptocurrency or blockchain related projects? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            {this.state.optionOne === "Yes" && (
-              <div>
-              <div className="formInput">
-                <FieldText label="How much monetary/fiat value did you lose on your investment?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="What was the name of the project?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="What stage was the project at the time of your investment? (Pre-sale, ICO, IEO, Market listing)" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="In what currency was your investment?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="What date approximately was your investment and if possible please provide a transaction hash of your transfer." shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              </div>
-            )}
-            {this.state.optionOne === "No" && (
-              <div className="formInput">
-                <FieldText label="Have you have heard of a friend or family member being scammed within the crypto-currency space?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-            )}
-            <div className="formInput">
-              <FieldText isInvalid={this.state.revealTwo} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ optionTwo: value.target.value, revealTwo: false }) : this.setState({ revealTwo: true }); }} label="Have you ever invested in any ICO’s (Initial Coin Offerings)? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            {this.state.optionTwo === "Yes" && (
-              <div>
-              <div className="formInput">
-                <FieldText label="Did you profit from your investment?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="What was the name of the project?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              <div className="formInput">
-                <FieldText label="Was there a lot of hype around the project?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-              </div>
-            )}
-            {this.state.optionTwo === "No" && (
-              <div className="formInput">
-                <FieldText label="Do you know any friends or family members who have invested in ICO’s (Initial Coin Offerings)?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-            )}
-            <div className="formInput">
-              <FieldText label="What is the most well-known cryptocurrency scam that has occured as to date in your own opinion?" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText isInvalid={this.state.revealThree} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ optionThree: value.target.value, revealThree: false }) : this.setState({ revealThree: true }); }} label="Are there any active projects that you suspect of having fraudulent ethics? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            {this.state.optionThree === "Yes" && (
-              <div className="formInput">
-                <FieldText label="What is the name of the project?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-            )}
-            {this.state.optionThree === "No" && (
-              <div className="formInput">
-                <FieldText label="Are you an active investor in the search for new investments? (Yes/No)" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-            )}
-            <div className="formInput">
-              <FieldText isInvalid={this.state.revealFour} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ revealFour: false }) : this.setState({ revealFour: true }); }} label="Do you think there is enough research conducted on the majority of cryptocurrency assets in the market today? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText isInvalid={this.state.revealFive} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ revealFive: false }) : this.setState({ revealFive: true }); }} label="Would you think an evaluation platform for cryptocurrency assets would be beneficial for the average consumer? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            <div className="formInput">
-              <FieldText isInvalid={this.state.revealSix} onChange={(value) => { value.target.value === "Yes" || value.target.value === "No" ? this.setState({ optionSix: value.target.value, revealSix: false }) : this.setState({ revealSix: true }); }} label="Would actively you use it? (Yes/No)" shouldFitContainer='true'/>
-              <div className="formLabel">
-              </div>
-            </div>
-            {this.state.optionSix === "No" && (
-              <div className="formInput">
-                <FieldText label="Why not?" shouldFitContainer='true'/>
-                <div className="formLabel">
-                </div>
-              </div>
-            )}
-          </div>
-          </Modal>
-        )}
-        {this.state.blanketComponent && (
-          <div className="socialModal" onClick={this.revealBlanket}>
-          <a href='https://discord.gg/s5rSvB2'>
-            <img className='discord' src={discord}/>
-          </a>
-          <a href='https://t.me/ValidityCrypto'>
-            <img className='telegram' src={telegram}/>
-          </a>
-          <a href='https://www.github.com/ValidityCrypto'>
-            <img className='github' src={github}/>
-          </a>
-          <a href='https://www.linkedin.com/company/validitycrypto'>
-            <img className='linkedin' src={angellist}/>
-          </a>
-          <a href='https://www.linkedin.com/company/validitycrypto'>
-            <img className='linkedin' src={linkedin}/>
-          </a>
-          <a href='https://twitter.com/ValidityCrypto'>
-            <img className='twitter' src={twitter}/>
-          </a>
-          <a href='https://www.facebook.com/ValidityCrypto'>
-            <img className='facebook' src={facebook}/>
-          </a>
-          <a href='https://bitcointalk.org/index.php?topic=4900179'>
-            <img className='bct' src={bct}/>
-          </a>
+           </div>
+           </GridColumn>
+         </Grid>
+       </Page>
+     </div>
+     <div className="page2">
+       <Page>
+         <Grid layout="fluid">
+           <GridColumn>
+             <div className="pageBody">
+               <div className="h2">
+                 <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
+               </div>
+               <div className="codecommunal">
+               <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
+               </div>
+               <div className="traits">
+                 <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Self-governing</div>
+                 <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Sybil-proof</div>
+                 <div className="traitPoint"><FontAwesomeIcon icon={faDove} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Pure</div>
+               </div>
+             </div>
+           </GridColumn>
+           <GridColumn>
+             <img className="world" src={world}/>
+           </GridColumn>
+         </Grid>
+       </Page>
+   </div>
+   <div className="page3">
+     <Page>
+       <Grid layout="fluid">
+         <GridColumn>
+           <div className="pageBody">
+           <div className="h3">
+             <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
+           </div>
+           <p className="stageOne">
+             <div className="stageNumber">1</div>
+             <div className="stageText">
+               A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process.
+             </div>
+           </p>
+           <p className="stageTwo">
+             <div className="stageNumber">2</div>
+             <div className="stageText">
+               An intrinsic analysis and due-dillegence is executed upon the entities employee's, product and ultimately it's integrity.
+             </div>
+           </p>
+           <p className="stageThree">
+             <div className="stageNumber">3</div>
+             <div className="stageText">
+               The investigation is then distributely proposed to validitors, in order to create a non-bias form of verification via communal validation.
+             </div>
+           </p>
+           <p className="stageFour">
+             <div className="stageNumber">4</div>
+             <div className="stageText">
+              Validators engage in a interactive voting process using Validity's unique UX, to express their outlook on the project via three options; positive, neutral or negative
+             </div>
+           </p>
+           <p className="stageFive">
+             <div className="stageNumber">5</div>
+             <div className="stageText">
+               The concluding results are combined and are quantified out of a rating of 10, the distributed analysis then acts as a source of evaluation for future onlooking investors.
+             </div>
+           </p>
+           </div>
+         </GridColumn>
+      </Grid>
+     </Page>
+   </div>
+   <div className="page4">
+     <Page>
+       <Grid layout="fluid">
+         <GridColumn>
+           <div className="pageBody">
+             <div className="h4">
+               <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
+             </div>
+             <img className="daoGraphic" src={dao}/>
+             <p className="traitOne">
+               <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
+               <div className="stageAlpha">
+                 vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
+               </div>
+             </p>
+             <p className="traitTwo">
+               <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
+               <div className="stageAlpha">
+                 The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
+               </div>
+             </p>
+             <p className="traitThree">
+               <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
+               <div className="stageAlt" >
+                 Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
+               </div>
+             </p>
+             <p className="traitFour">
+               <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
+               <div className="stageAlt" >
+                 Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
+               </div>
+             </p>
+             <p className="traitFive">
+               <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
+               <div className="stageAlt" >
+                 The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
+               </div>
+             </p>
+             <p className="traitSix">
+               <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
+               <div className="stageAlpha" >
+                 Validity is <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
+               </div>
+             </p>
+           </div>
+         </GridColumn>
+       </Grid>
+     </Page>
+   </div>
+   <div className="page5">
+     <Page>
+     <Grid layout="fluid">
+       <GridColumn>
+         <div className="pageBody">
+           <div className="h5">
+             <FontAwesomeIcon icon={faCode} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Product
+           </div>
+           <img className="desktopProduct" src={productPreview}/>
+           <i className="productTagline">A portfolio tracker you can trust...</i>
          </div>
-        )}
-         <div className="page1">
-          <Page>
-            <Grid layout="fluid">
-              <GridColumn>
-              <div className="page1-body">
-                <div className="h1">
-                  <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
-                </div>
-                <p className="pagePoint">Cryptocurriencies are blockchain technology have been depicted in many different frames of light, with this, there is a huge lack of underlying acknowledgement of the technology within. </p>
-                <p className="pagePoint">The general sentiment of the capabilities of profit-making in this field distort the true integrity of these permissionless currencies and projects but more importantly the peoples aim behind them. </p>
-                <p className="pagePoint">In 2017, 81% of all ICO's resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
-                <p className="pagePoint">Validity is a communally verifiable platform for investors to contribute their general perspectives regarding currencies, tokens and projects alike.  </p>
-              </div>
-              </GridColumn>
-              <GridColumn>
-              <div className="validatingGraphic">
-                <img className="base1" src={base1}/>
-                <div className="lines1edit"><img className="lines1" src={lines1}/></div>
-                <div className="wrong"><FontAwesomeIcon icon={faTimes}/></div>
-                <div className="right"><FontAwesomeIcon icon={faCheck}/></div>
-                <div><img className="bcc" src={bcc}/></div>
-                <div className="messages1edit"><img className="messages1" src={messages1}/> </div>
-
-              </div>
-              </GridColumn>
-            </Grid>
-          </Page>
-        </div>
-        <div className="page2">
-          <Page>
-            <Grid layout="fluid">
-              <GridColumn>
-                <div className="pageBody">
-                  <div className="h2">
-                    <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
-                  </div>
-                  <div className="codecommunal">
-                  <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
-                  </div>
-                  <div className="traits">
-                    <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Self-governing</div>
-                    <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Sybil-proof</div>
-                    <div className="traitPoint"><FontAwesomeIcon icon={faDove} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Pure</div>
-                  </div>
-                </div>
-              </GridColumn>
-              <GridColumn>
-                <img className="world" src={world}/>
-              </GridColumn>
-            </Grid>
-          </Page>
-      </div>
-      <div className="page3">
-        <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-              <div className="pageBody">
-              <div className="h3">
-                <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
-              </div>
-              <p className="stageOne">
-                <div className="stageNumber">1</div>
-                <div className="stageText">
-                  A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process.
-                </div>
-              </p>
-              <p className="stageTwo">
-                <div className="stageNumber">2</div>
-                <div className="stageText">
-                  An intrinsic analysis and due-dillegence is executed upon the entities employee's, product and ultimately it's integrity.
-                </div>
-              </p>
-              <p className="stageThree">
-                <div className="stageNumber">3</div>
-                <div className="stageText">
-                  The investigation is then distributely proposed to validitors, in order to create a non-bias form of verification via communal validation.
-                </div>
-              </p>
-              <p className="stageFour">
-                <div className="stageNumber">4</div>
-                <div className="stageText">
-                 Validators engage in a interactive voting process using Validity's unique UX, to express their outlook on the project via three options; positive, neutral or negative
-                </div>
-              </p>
-              <p className="stageFive">
-                <div className="stageNumber">5</div>
-                <div className="stageText">
-                  The concluding results are combined and are quantified out of a rating of 10, the distributed analysis then acts as a source of evaluation for future onlooking investors.
-                </div>
-              </p>
-              </div>
-            </GridColumn>
+       </GridColumn>
+      </Grid>
+     </Page>
+   </div>
+   <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
+     <Page>
+       <Grid layout="fluid">
+         <GridColumn>
+         <div className="pageBody">
+           <div className="h4">
+             <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+           </div>
+           <div className="tokenChart">
+             {this.state.chartComponent}
+             </div>
+             {this.state.metaData.value != false && (
+               <div className="modalToken">
+                 <SectionMessage appearance="change">
+                   <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
+                 </SectionMessage>
+               </div>
+             )}
+             <p className="tokenOne">
+               <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
+               <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
+             </p>
+             <p className="tokenTwo">
+               <i>Supply: <b>50,600,000,000</b></i>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
+             </p>
+             <p className="tokenThree">
+               <i>Network: <b>Ethereum</b></i>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
+             </p>
+             <p className="tokenFour">
+               <i>Token: <b>ERC20d</b></i>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
+             </p>
+             <p className="tokenFive">
+               <i>Ticker: <b>VLDY</b></i>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
+             </p>
+           </div>
+         </GridColumn>
+       </Grid>
+     </Page>
+   </div>
+   <div className="page7">
+     <Page>
+     <Grid layout="fluid">
+       <GridColumn>
+         <div className="pageBody">
+           <div className="h5">
+             <FontAwesomeIcon icon={faBook} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Resources
+           </div>
+           <a className="resourceOne" href='https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133'>
+             <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color='#815aff' size='s'/></div>
+             <div className="resourceText" >
+             What is Communal Validation & why does it matter?
+             </div>
+           </a>
+           <a className="resourceTwo" href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
+             <div className="resourceIcon" href=''><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='s'/></div>
+             <div className="resourceText" >
+             Cryptocurrency & Blockchain red flags
+             </div>
+           </a>
+           <a className="resourceThree" href='https://github.com/validitycrypto/validity-hybrid-tipbot'>
+             <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color='#815aff' size='s'/></div>
+             <div className="resourceText" href=''>
+               Validity tipbot Readme
+             </div>
+           </a>
+         </div>
+       </GridColumn>
+      </Grid>
+     </Page>
+   </div>
+   <div className="page8">
+     <Page>
+       <Grid layout="fluid">
+         <GridColumn>
+           <div className="teamBody">
+             <div className="h4">
+               <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
+             </div>
+             <TeamCard data={{
+               class: "cardOne",
+               name: "Samuel JJ Gosling",
+               image: gozzy,
+               position: "Founder",
+               nationality: "Ireland 🇮🇪",
+               bio: "test",
+               twitter: "a",
+               telegram: "a",
+               linkedin: "a",
+               discord: "a",
+               github: false
+             }}/>
+             <TeamCard data={{
+               class: "cardTwo",
+               name: "Marcos B Rubianes",
+               image: marcos,
+               position: "Strategist",
+               nationality: "Switzerland 🇨🇭",
+               bio: "test",
+               twitter: "https://twitter.com/Foxxrex",
+               telegram: "https://t.me/CryptoProphet33",
+               linkedin: "https://www.linkedin.com/in/marcos-benítez-rubianes-9b19b864/",
+               discord: "",
+               github: false
+             }}/>
+             <TeamCard data={{
+               class: "cardThree",
+               name: "Lukas Fischereder",
+               image: lukas,
+               position: "Analyst",
+               nationality: "Austria 🇦🇹",
+               bio: "test",
+               twitter: "https://twitter.com/LukiFischereder",
+               telegram: "https://t.me/lufisch",
+               linkedin: "https://www.linkedin.com/in/lukas-fischereder-bb5758145",
+               discord: "https://discordapp.com/users/406776100299997185/",
+               github: false
+             }}/>
+           </div>
+         </GridColumn>
+       </Grid>
+     </Page>
+   </div>
+   <div className="page9">
+       <Page>
+         <Grid layout="fluid">
+           <GridColumn>
+             <div className="pageBody">
+               <div className="h5">
+                 <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+               </div>
+               <div className="roadmapOne"
+                 onMouseOver={() => this.setState({ stageModal: 1})}
+                 onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={greenCircle} />
+                 <img className="logoOne" src={eth} />
+               </div>
+               {(this.state.stageModal == 1 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+                 <div className="modalOne">
+                   <SectionMessage appearance="confirmation">
+                     Ethereum & MVP launch
+                   </SectionMessage>
+                 </div>
+               )}
+               <div className="lineOne"/>
+               <div className="roadmapTwo"
+                 onMouseOver={() => this.setState({ stageModal: 2})}
+                 onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
+               </div>
+               {(this.state.stageModal == 2 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+                 <div className="modalTwo">
+                   <SectionMessage appearance="error">
+                     Validity Whitepaper
+                   </SectionMessage>
+                 </div>
+               )}
+               <div className="lineTwo"/>
+               <div className="roadmapThree"
+                 onMouseOver={() => this.setState({ stageModal: 3})}
+                 onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={redCircle} />
+                 <img className="logoTwo" src={gitcoin} />
+               </div>
+               {(this.state.stageModal == 3 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024  ) && (
+                 <div className="modalThree">
+                   <SectionMessage appearance="error">
+                     Gitcoin grants & funding
+                   </SectionMessage>
+                 </div>
+               )}
+               <div className="lineThree"/>
+               <div className="roadmapFour"
+               onMouseOver={() => this.setState({ stageModal: 4})}
+               onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
+               </div>
+               {(this.state.stageModal == 4 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+                 <div className="modalFour">
+                   <SectionMessage appearance="error">
+                     Find talent and partnerships
+                   </SectionMessage>
+                 </div>
+               )}
+               <div className="lineFour"/>
+               <div className="roadmapFive"
+               onMouseOver={() => this.setState({ stageModal: 5})}
+               onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
+               </div>
+               {(this.state.stageModal == 5 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+                 <div className="modalFive">
+                   <SectionMessage appearance="error">
+                     Beta product
+                   </SectionMessage>
+                 </div>
+               )}
+               <div className="lineFive"/>
+               <div className="roadmapSix"
+                 onMouseOver={() => this.setState({ stageModal: 6})}
+                 onMouseOut={() => this.setState({ stageModal: 0})}>
+                 <img className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
+               </div>
+               {(this.state.stageModal == 6 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+                 <div className="modalSix">
+                   <SectionMessage appearance="error">
+                     Product launch
+                   </SectionMessage>
+                 </div>
+               )}
+             </div>
+           </GridColumn>
          </Grid>
-        </Page>
-      </div>
-      <div className="page4">
-        <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-              <div className="pageBody">
-                <div className="h4">
-                  <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
-                </div>
-                <img className="daoGraphic" src={dao}/>
-                <p className="traitOne">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
-                  <div className="stageAlpha">
-                    vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
-                  </div>
-                </p>
-                <p className="traitTwo">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
-                  <div className="stageAlpha">
-                    The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
-                  </div>
-                </p>
-                <p className="traitThree">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
-                  <div className="stageAlt" >
-                    Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
-                  </div>
-                </p>
-                <p className="traitFour">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
-                  <div className="stageAlt" >
-                    Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
-                  </div>
-                </p>
-                <p className="traitFive">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
-                  <div className="stageAlt" >
-                    The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
-                  </div>
-                </p>
-                <p className="traitSix">
-                  <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
-                  <div className="stageAlpha" >
-                    Validity is <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
-                  </div>
-                </p>
-              </div>
-            </GridColumn>
-          </Grid>
-        </Page>
-      </div>
-      <div className="page5">
-        <Page>
-        <Grid layout="fluid">
-          <GridColumn>
-            <div className="pageBody">
-              <div className="h5">
-                <FontAwesomeIcon icon={faCode} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Product
-              </div>
-              <img className="desktopProduct" src={productPreview}/>
-              <i className="productTagline">A portfolio tracker you can trust...</i>
-            </div>
-          </GridColumn>
+       </Page>
+     </div>
+     <div className="page10">
+       <Page>
+         <Grid layout="fluid">
+           <GridColumn>
+             <div className="pageBody">
+               <div className="h3">
+                 <FontAwesomeIcon icon={faFemale} color='#815aff' size='xs'/>&nbsp;
+                 <FontAwesomeIcon icon={faMale} color='#815aff' size='xs'/>&nbsp;&nbsp;&nbsp;Get involved
+               </div>
+               <div className="ethereumWrapper"><img className="ethereumLogo" src={outlineEth}/></div>
+               <Paper className="teamOnboarding">
+                 <p>Do you think you have what it takes to join our team? We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. If you are interested please send your resume and a short bio to:</p>
+                 <br></br><p><b><i>team@validity.ae</i></b></p>
+               </Paper>
+               <Paper className="desiredTraits">
+                <p><b><i>We are looking for...</i></b></p>
+                <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='s'/>&nbsp;Solidity developers (WASM)</p>
+                <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='s'/>&nbsp;Python developers (ML)</p>
+                <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='s'/>&nbsp;React.js developers </p>
+                <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='s'/>&nbsp; UX/UI designer </p>
+                <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='s'/>&nbsp;Growth hackers </p>
+               </Paper>
+             </div>
+           </GridColumn>
          </Grid>
-        </Page>
-      </div>
-      <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
-        <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-            <div className="pageBody">
-              <div className="h4">
-                <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
-              </div>
-              <div className="tokenChart">
-                {this.state.chartComponent}
-                </div>
-                {this.state.metaData.value != false && (
-                  <div className="modalToken">
-                    <SectionMessage appearance="change">
-                      <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
-                    </SectionMessage>
-                  </div>
-                )}
-                <p className="tokenOne">
-                  <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
-                  <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
-                </p>
-                <p className="tokenTwo">
-                  <i>Supply: <b>50,600,000,000</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
-                </p>
-                <p className="tokenThree">
-                  <i>Network: <b>Ethereum</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
-                </p>
-                <p className="tokenFour">
-                  <i>Token: <b>ERC20d</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
-                </p>
-                <p className="tokenFive">
-                  <i>Ticker: <b>VLDY</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
-                </p>
-              </div>
-            </GridColumn>
-          </Grid>
-        </Page>
-      </div>
-      <div className="page7">
-        <Page>
-        <Grid layout="fluid">
-          <GridColumn>
-            <div className="pageBody">
-              <div className="h5">
-                <FontAwesomeIcon icon={faBook} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Resources
-              </div>
-              <a className="resourceOne" href='https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133'>
-                <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color='#815aff' size='s'/></div>
-                <div className="resourceText" >
-                What is Communal Validation & why does it matter?
-                </div>
-              </a>
-              <a className="resourceTwo" href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
-                <div className="resourceIcon" href=''><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='s'/></div>
-                <div className="resourceText" >
-                Cryptocurrency & Blockchain red flags
-                </div>
-              </a>
-              <a className="resourceThree" href='https://github.com/validitycrypto/validity-hybrid-tipbot'>
-                <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color='#815aff' size='s'/></div>
-                <div className="resourceText" href=''>
-                  Validity tipbot Readme
-                </div>
-              </a>
-            </div>
-          </GridColumn>
-         </Grid>
-        </Page>
-      </div>
-      <div className="page8">
-        <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-              <div className="teamBody">
-                <div className="h4">
-                  <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
-                </div>
-                <TeamCard data={{
-                  class: "cardOne",
-                  name: "Samuel JJ Gosling",
-                  image: gozzy,
-                  position: "Founder",
-                  nationality: "Ireland 🇮🇪",
-                  bio: "test",
-                  twitter: "a",
-                  telegram: "a",
-                  linkedin: "a",
-                  discord: "a",
-                  github: false
-                }}/>
-                <TeamCard data={{
-                  class: "cardTwo",
-                  name: "Marcos B Rubianes",
-                  image: marcos,
-                  position: "Strategist",
-                  nationality: "Switzerland 🇨🇭",
-                  bio: "test",
-                  twitter: "https://twitter.com/Foxxrex",
-                  telegram: "https://t.me/CryptoProphet33",
-                  linkedin: "https://www.linkedin.com/in/marcos-benítez-rubianes-9b19b864/",
-                  discord: "",
-                  github: false
-                }}/>
-                <TeamCard data={{
-                  class: "cardThree",
-                  name: "Lukas Fischereder",
-                  image: lukas,
-                  position: "Analyst",
-                  nationality: "Austria 🇦🇹",
-                  bio: "test",
-                  twitter: "https://twitter.com/LukiFischereder",
-                  telegram: "https://t.me/lufisch",
-                  linkedin: "https://www.linkedin.com/in/lukas-fischereder-bb5758145",
-                  discord: "https://discordapp.com/users/406776100299997185/",
-                  github: false
-                }}/>
-              </div>
-            </GridColumn>
-          </Grid>
-        </Page>
-      </div>
-      <div className="page9">
-          <Page>
-            <Grid layout="fluid">
-              <GridColumn>
-                <div className="pageBody">
-                  <div className="h5">
-                    <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
-                  </div>
-                  <div className="roadmapOne"
-                    onMouseOver={() => this.setState({ stageModal: 1})}
-                    onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={greenCircle} />
-                    <img className="logoOne" src={eth} />
-                  </div>
-                  {(this.state.stageModal == 1 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
-                    <div className="modalOne">
-                      <SectionMessage appearance="confirmation">
-                        Ethereum & MVP launch
-                      </SectionMessage>
-                    </div>
-                  )}
-                  <div className="lineOne"/>
-                  <div className="roadmapTwo"
-                    onMouseOver={() => this.setState({ stageModal: 2})}
-                    onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={redCircle} />
-                    <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
-                  </div>
-                  {(this.state.stageModal == 2 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
-                    <div className="modalTwo">
-                      <SectionMessage appearance="error">
-                        Validity Whitepaper
-                      </SectionMessage>
-                    </div>
-                  )}
-                  <div className="lineTwo"/>
-                  <div className="roadmapThree"
-                    onMouseOver={() => this.setState({ stageModal: 3})}
-                    onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={redCircle} />
-                    <img className="logoTwo" src={gitcoin} />
-                  </div>
-                  {(this.state.stageModal == 3 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024  ) && (
-                    <div className="modalThree">
-                      <SectionMessage appearance="error">
-                        Gitcoin grants & funding
-                      </SectionMessage>
-                    </div>
-                  )}
-                  <div className="lineThree"/>
-                  <div className="roadmapFour"
-                  onMouseOver={() => this.setState({ stageModal: 4})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={redCircle} />
-                    <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
-                  </div>
-                  {(this.state.stageModal == 4 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
-                    <div className="modalFour">
-                      <SectionMessage appearance="error">
-                        Find talent and partnerships
-                      </SectionMessage>
-                    </div>
-                  )}
-                  <div className="lineFour"/>
-                  <div className="roadmapFive"
-                  onMouseOver={() => this.setState({ stageModal: 5})}
-                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={redCircle} />
-                    <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
-                  </div>
-                  {(this.state.stageModal == 5 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
-                    <div className="modalFive">
-                      <SectionMessage appearance="error">
-                        Beta product
-                      </SectionMessage>
-                    </div>
-                  )}
-                  <div className="lineFive"/>
-                  <div className="roadmapSix"
-                    onMouseOver={() => this.setState({ stageModal: 6})}
-                    onMouseOut={() => this.setState({ stageModal: 0})}>
-                    <img className="circleRoadmap" src={redCircle} />
-                    <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
-                  </div>
-                  {(this.state.stageModal == 6 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
-                    <div className="modalSix">
-                      <SectionMessage appearance="error">
-                        Product launch
-                      </SectionMessage>
-                    </div>
-                  )}
-                </div>
-              </GridColumn>
-            </Grid>
-          </Page>
-        </div>
-        <div className="page10">
-          <Page>
-            <Grid layout="fluid">
-              <GridColumn>
-                <div className="pageBody">
-                  <div className="h3">
-                    <FontAwesomeIcon icon={faFemale} color='#815aff' size='xs'/>&nbsp;
-                    <FontAwesomeIcon icon={faMale} color='#815aff' size='xs'/>&nbsp;&nbsp;&nbsp;Get involved
-                  </div>
-                  <div className="ethereumWrapper"><img className="ethereumLogo" src={outlineEth}/></div>
-                  <Paper className="teamOnboarding">
-                    <p>Do you think you have what it takes to join our team? We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. If you are interested please send your resume and a short bio to:</p>
-                    <br></br><p><b><i>team@validity.ae</i></b></p>
-                  </Paper>
-                  <Paper className="desiredTraits">
-                   <p><b><i>We are looking for...</i></b></p>
-                   <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='s'/>&nbsp;Solidity developers (WASM)</p>
-                   <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='s'/>&nbsp;Python developers (ML)</p>
-                   <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='s'/>&nbsp;React.js developers </p>
-                   <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='s'/>&nbsp; UX/UI designer </p>
-                   <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='s'/>&nbsp;Growth hackers </p>
-                  </Paper>
-                </div>
-              </GridColumn>
-            </Grid>
-          </Page>
-        </div>
-      </AtlaskitThemeProvider>
-    );
+       </Page>
+     </div>
+     </div>
+    )
   }
 }
 
-Home.propTypes = {
-  data: dataPropType,
-};
-
-export default withStyles(styles)(Home);
+export default Home;
