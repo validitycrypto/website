@@ -170,6 +170,21 @@ class Home extends Component {
       revealApplication = () => this.setState({ isApply: true });
       scrollToBottom = () => this.bottomRef.scrollIntoView(true);
 
+      componentWillMount = async() => {
+        await this.mobileOptimisation();
+      }
+
+      mobileOptimisation = async() => {
+        if(window.screen.height == 1024 && window.screen.width == 768
+           || window.screen.height == 1366 && window.screen.width == 1024
+           || window.screen.width < 600 ){
+          await this.setState({
+            metaData: { title: "Pick a chart value", value: true },
+            chartComponent: this.renderChart(),
+          })
+        }
+      }
+
       formData = () => {
         if(this.state.email != undefined
            && this.state.telegram != undefined
