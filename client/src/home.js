@@ -1,100 +1,43 @@
-import React, { Component } from 'react'
-import firebase from 'firebase'
-import ReactGA from 'react-ga';
+import React, { Component } from "react"
+import ReactGA from "react-ga";
 
 // UX
 
   // Misc
-import { faMugHot, faUserSecret, faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faFileMedicalAlt, faCodeBranch, faCoffee, faHandshake, faGem, faFingerprint, faInfinity, faStarHalfAlt, faLightbulb, faDotCircle, faHome, faPercentage, faFileSignature, faGlobe, faFemale, faMale, faUsers, faShareAlt, faUserTag, faSearch, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup, faParachuteBox, faEnvelope, faWallet } from '@fortawesome/free-solid-svg-icons'
-import { faReact, faPython, faEthereum,faBitcoin, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { Icon , Segment , Card, Image } from 'semantic-ui-react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PropTypes from 'prop-types';
+import { faMugHot, faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faCodeBranch, faCoffee, faFingerprint, faInfinity, faStarHalfAlt, faFemale, faMale, faUsers, faShareAlt, faFileMedicalAlt, faGem, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup } from "@fortawesome/free-solid-svg-icons"
+import { faReact, faEthereum, faPython, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Card, Image } from "semantic-ui-react"
 
 // Atlaskit
-import { InlineDialog, Flag, AutoDismissFlag, FlagGroup } from '@atlaskit/flag'
-import SuccessIcon from '@atlaskit/icon/glyph/check-circle';
-import Page, { Grid, GridColumn } from '@atlaskit/page';
-import WarningIcon from '@atlaskit/icon/glyph/warning';
-import SectionMessage from '@atlaskit/section-message';
-import { AtlaskitThemeProvider } from '@atlaskit/theme'
-import { AkCodeBlock } from '@atlaskit/code';
-import FieldText from '@atlaskit/field-text';
-import Modal from '@atlaskit/modal-dialog'
-import Lorem from 'react-lorem-component';
-import { colors } from '@atlaskit/theme';
-import Lozenge from '@atlaskit/lozenge'
-import Blanket from '@atlaskit/blanket'
-import Button from '@atlaskit/button'
-import Select from '@atlaskit/select'
+import Page, { Grid, GridColumn } from "@atlaskit/page";
+import SectionMessage from "@atlaskit/section-message";
 
   // MatieralUI
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import { createMuiTheme } from '@material-ui/core/styles';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import ListItem from '@material-ui/core/ListItem';
-import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
-import MailIcon from '@material-ui/icons/Mail';
-import PieChart from 'react-minimal-pie-chart';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
+import PieChart from "react-minimal-pie-chart";
+import Paper from "@material-ui/core/Paper";
 
 // Images
-import greenCircle from './images/green-circle.png'
-import redCircle from './images/red-circle.png'
-import angellist from './images/angellist.png'
-import messages1 from './images/messages1.png'
-import telegram from './images/telegram.png'
-import facebook from './images/facebook.png'
-import linkedin from './images/linkedin.png'
-import cdreams from './images/cdreams.png'
-import twitter from './images/twitter.png'
-import discord from './images/discord.png'
-import lines1 from './images/lines1.png'
-import github from './images/github.png'
-import gitcoin from './images/gitcoin.png'
-import reddit from './images/reddit.png'
-import lines2 from './images/lines2.png'
-import base1 from './images/base1.png'
-import world from './images/world.png'
-import base3 from './images/base3.png'
-import gozzy from './images/gozzy.png'
-import lukas from './images/lukas.png'
-import marcos from './images/marcos.png'
-import clabs from './images/clabs.png'
-import cnews from './images/cnews.png'
-import vldy from './images/vldy.png'
-import outlineEth from './images/ethoutline.png'
-import productPreview from './images/product.png'
-import eth from './images/ethereum.png'
-import dao from './images/dao.png'
-import bct from './images/bct.png'
-import bcc from './images/bcc.png'
-
-// CSS
-import 'styled-components'
-import './css/homeDesktop.css'
-import './css/homeNative.css'
-import './css/raleigh.css'
-
-const defaultLabelStyle = {
-  fontSize: '5px',
-  fontFamily: 'sans-serif',
-  fill: '#121212',
-};
+import greenCircle from "./images/green-circle.png"
+import redCircle from "./images/red-circle.png"
+import outlineEth from "./images/ethoutline.png"
+import productPreview from "./images/product.png"
+import messages1 from "./images/messages1.png"
+import lines1 from "./images/lines1.png"
+import gitcoin from "./images/gitcoin.png"
+import base1 from "./images/base1.png"
+import world from "./images/world.png"
+import gozzy from "./images/gozzy.png"
+import lukas from "./images/lukas.png"
+import marcos from "./images/marcos.png"
+import vldy from "./images/vldy.png"
+import eth from "./images/ethereum.png"
+import dao from "./images/dao.png"
+import bcc from "./images/bcc.png"
 
 const TeamCard = ({ data }) => {
   return(
-  <Card className={data.class} inverted>
+  <Card className={data.class} inverted="true">
     <Image className="teamPhoto" src={data.image}/>
     <Card.Content>
       <Card.Header><span className="blackt">{data.name}</span></Card.Header>
@@ -107,20 +50,20 @@ const TeamCard = ({ data }) => {
       </Card.Content>
       <Card.Content extra>
       <a className="socialLink" href={data.linkedin}>
-        <FontAwesomeIcon icon={faLinkedin} color='white' />
+        <FontAwesomeIcon icon={faLinkedin} color="white" />
       </a>
       <a className="socialLink" href={data.twitter}>
-        <FontAwesomeIcon icon={faTwitter} color='white' />
+        <FontAwesomeIcon icon={faTwitter} color="white" />
       </a>
       <a className="socialLink" href={data.discord}>
-        <FontAwesomeIcon icon={faDiscord} color='white' />
+        <FontAwesomeIcon icon={faDiscord} color="white" />
       </a>
       <a className="socialLink" href={data.telegram}>
-        <FontAwesomeIcon icon={faTelegramPlane} color='white' />
+        <FontAwesomeIcon icon={faTelegramPlane} color="white" />
       </a>
-      {data.github != false && (
+      {data.github !== false && (
         <a className="socialLink" href={data.github}>
-          <FontAwesomeIcon icon={faGithub} color='white'/>
+          <FontAwesomeIcon icon={faGithub} color="white"/>
         </a>
       )}
     </Card.Content>
@@ -129,12 +72,12 @@ const TeamCard = ({ data }) => {
 }
 
 const dataMock = [
-    { title: 'Airdrop Tier 1', value: 30, color: '#0cff6f' },
-    { title: 'Airdrop Tier 2', value: 20, color: '#0c23ff' },
-    { title: 'Airdrop Tier 3', value: 10, color: '#ff0c23' },
-    { title: 'Team', value: 15, color: '#00bfff' },
-    { title: 'Community fund', value: 20, color: '#815aff' },
-    { title: 'Validation supply', value: 5, color: '#ff0c9c' },
+    { title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
+    { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
+    { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
+    { title: "Team", value: 15, color: "#00bfff" },
+    { title: "Community fund", value: 20, color: "#815aff" },
+    { title: "Validation supply", value: 5, color: "#ff0c9c" },
   ];
 
 
@@ -143,7 +86,7 @@ class Home extends Component {
     super(props)
       this.state = {
         metaData: { title: "Pick a chart value", value: false },
-        items: [{key:0, key:1, key:2, key:3 }],
+        items: [{ key: [0, 1, 2, 3]}],
         blanketComponent: false,
         chartComponent: <div/>,
         sideBar: false,
@@ -175,9 +118,9 @@ class Home extends Component {
       }
 
       mobileOptimisation = async() => {
-        if(window.screen.height == 1024 && window.screen.width == 768
-           || window.screen.height == 1366 && window.screen.width == 1024
-           || window.screen.width < 600 ){
+        if((window.screen.height === 1024 && window.screen.width === 768)
+           || (window.screen.height === 1366 && window.screen.width === 1024)
+           || (window.screen.width < 600 )){
           await this.setState({
             metaData: { title: "Pick a chart value", value: true },
             chartComponent: this.renderChart(),
@@ -186,12 +129,12 @@ class Home extends Component {
       }
 
       formData = () => {
-        if(this.state.email != undefined
-           && this.state.telegram != undefined
-           && this.state.discord != undefined
-           && this.state.twitter != undefined
-           && this.state.facebook != undefined
-           && this.state.wallet.length == 42){
+        if(this.state.email !== undefined
+           && this.state.telegram !== undefined
+           && this.state.discord !== undefined
+           && this.state.twitter !== undefined
+           && this.state.facebook !== undefined
+           && this.state.wallet.length === 42){
               var data = {
                 telegram: this.state.telegram,
                 discord: this.state.discord,
@@ -206,7 +149,7 @@ class Home extends Component {
         return(
           <PieChart
             animationDuration={1000}
-            segmentsStyle={{ transition: 'stroke .3s' }}
+            segmentsStyle={{ transition: "stroke .3s" }}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}
             data={this.state.data}
@@ -225,12 +168,12 @@ class Home extends Component {
             value: " "
           },
           data:
-          [{ title: 'Airdrop tier 1', value: 30, color: '#0cff6f' },
-            { title: 'Airdrop tier 2', value: 20, color: '#0c23ff' },
-            { title: 'Airdrop tier 3', value: 10, color: '#ff0c23' },
-            { title: 'Team', value: 15, color: '#00bfff' },
-            { title: 'Community fund', value: 20, color: '#815aff' },
-            { title: 'Validation supply', value: 5, color: '#ff0c9c' }]
+          [{ title: "Airdrop tier 1", value: 30, color: "#0cff6f" },
+            { title: "Airdrop tier 2", value: 20, color: "#0c23ff" },
+            { title: "Airdrop tier 3", value: 10, color: "#ff0c23" },
+            { title: "Team", value: 15, color: "#00bfff" },
+            { title: "Community fund", value: 20, color: "#815aff" },
+            { title: "Validation supply", value: 5, color: "#ff0c9c" }]
         });
       }
 
@@ -238,7 +181,7 @@ class Home extends Component {
         var focusedData;
         const data = d.map((entry, index) => {
           if(index === i) focusedData = entry;
-          return index === i ? entry.color = 'grey' : dataMock[index];
+          return index === i ? entry.color = "grey" : dataMock[index];
         });
         this.setState({
           metaData: focusedData,
@@ -255,7 +198,7 @@ class Home extends Component {
           <Grid layout="fluid">
             <GridColumn>
               <div className="landingBranding">
-                <img className='landingLogo' src={vldy}/>
+                <img alt="landingLogo" className="landingLogo" src={vldy}/>
                 <p className="landingTitle">Validity</p>
               </div>
             </GridColumn>
@@ -268,23 +211,22 @@ class Home extends Component {
            <GridColumn>
            <div className="page1-body">
              <div className="h1">
-               <FontAwesomeIcon icon={faLayerGroup} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;What is Validity?
+               <FontAwesomeIcon icon={faLayerGroup} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;What is Validity?
              </div>
              <p className="pagePoint">Cryptocurriencies are blockchain technology have been depicted in many different frames of light, with this, there is a huge lack of underlying acknowledgement of the technology within. </p>
              <p className="pagePoint">The general sentiment of the capabilities of profit-making in this field distort the true integrity of these permissionless currencies and projects but more importantly the peoples aim behind them. </p>
-             <p className="pagePoint">In 2017, 81% of all ICO's resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
+             <p className="pagePoint">In 2017, 81% of all ICO"s resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
              <p className="pagePoint">Validity is a communally verifiable platform for investors to contribute their general perspectives regarding currencies, tokens and projects alike.  </p>
            </div>
            </GridColumn>
            <GridColumn>
            <div className="validatingGraphic">
-             <img className="base1" src={base1}/>
-             <div className="lines1edit"><img className="lines1" src={lines1}/></div>
+             <img alt="base1" className="base1" src={base1}/>
+             <div className="lines1edit"><img alt="lines1" className="lines1" src={lines1}/></div>
              <div className="wrong"><FontAwesomeIcon icon={faTimes}/></div>
              <div className="right"><FontAwesomeIcon icon={faCheck}/></div>
-             <div><img className="bcc" src={bcc}/></div>
-             <div className="messages1edit"><img className="messages1" src={messages1}/> </div>
-
+             <div><img alt="bcc" className="bcc" src={bcc}/></div>
+             <div className="messages1edit"><img alt="messages1" className="messages1" src={messages1}/> </div>
            </div>
            </GridColumn>
          </Grid>
@@ -296,20 +238,20 @@ class Home extends Component {
            <GridColumn>
              <div className="pageBody">
                <div className="h2">
-                 <FontAwesomeIcon icon={faStreetView} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Communal Validation
+                 <FontAwesomeIcon icon={faStreetView} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Communal Validation
                </div>
                <div className="codecommunal">
                <b>Communal Validation;</b> <i>Peer production is based on equipotential participation, i.e. the a priori self-selection of participants, and the communal vetting of the quality of their work in the process of production itself;</i>
                </div>
                <div className="traits">
-                 <div className="traitPoint"><FontAwesomeIcon icon={faLink} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Self-governing</div>
-                 <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Sybil-proof</div>
-                 <div className="traitPoint"><FontAwesomeIcon icon={faDove} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Pure</div>
+                 <div className="traitPoint"><FontAwesomeIcon icon={faLink} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Self-governing</div>
+                 <div className="traitPoint"><FontAwesomeIcon icon={faShieldAlt} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Sybil-proof</div>
+                 <div className="traitPoint"><FontAwesomeIcon icon={faDove} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Pure</div>
                </div>
              </div>
            </GridColumn>
            <GridColumn>
-             <img className="world" src={world}/>
+             <img alt="world" className="world" src={world}/>
            </GridColumn>
          </Grid>
        </Page>
@@ -320,38 +262,38 @@ class Home extends Component {
          <GridColumn>
            <div className="pageBody">
            <div className="h3">
-             <FontAwesomeIcon icon={faSitemap} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;How does it work?
+             <FontAwesomeIcon icon={faSitemap} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;How does it work?
            </div>
-           <p className="stageOne">
+           <div className="stageOne">
              <div className="stageNumber">1</div>
              <div className="stageText">
                A poll is created for delegating a subject of 5 projects by demand and request, the winning entity is then confirmed for the validation process.
              </div>
-           </p>
-           <p className="stageTwo">
+           </div>
+           <div className="stageTwo">
              <div className="stageNumber">2</div>
              <div className="stageText">
-               An intrinsic analysis and due-dillegence is executed upon the entities employee's, product and ultimately it's integrity.
+               An intrinsic analysis and due-dillegence is executed upon the entities employee"s, product and ultimately it"s integrity.
              </div>
-           </p>
-           <p className="stageThree">
+           </div>
+           <div className="stageThree">
              <div className="stageNumber">3</div>
              <div className="stageText">
                The investigation is then distributely proposed to validitors, in order to create a non-bias form of verification via communal validation.
              </div>
-           </p>
-           <p className="stageFour">
+           </div>
+           <div className="stageFour">
              <div className="stageNumber">4</div>
              <div className="stageText">
-              Validators engage in a interactive voting process using Validity's unique UX, to express their outlook on the project via three options; positive, neutral or negative
+              Validators engage in a interactive voting process using Validity"s unique UX, to express their outlook on the project via three options; positive, neutral or negative
              </div>
-           </p>
-           <p className="stageFive">
+           </div>
+           <div className="stageFive">
              <div className="stageNumber">5</div>
              <div className="stageText">
                The concluding results are combined and are quantified out of a rating of 10, the distributed analysis then acts as a source of evaluation for future onlooking investors.
              </div>
-           </p>
+           </div>
            </div>
          </GridColumn>
       </Grid>
@@ -363,45 +305,45 @@ class Home extends Component {
          <GridColumn>
            <div className="pageBody">
              <div className="h4">
-               <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Why use Validity?
+               <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Why use Validity?
              </div>
-             <img className="daoGraphic" src={dao}/>
-             <p className="traitOne">
-               <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color='#815aff' size='xs'/></div>
+             <img alt="daoGraphic" className="daoGraphic" src={dao}/>
+             <div className="traitOne">
+               <div className="stageIcon"><FontAwesomeIcon icon={faFingerprint} color="#815aff" size="xs"/></div>
                <div className="stageAlpha">
-                 vID's <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
+                 vID"s <i>(Validation Indentifiers)</i> are a form of <b><i>self-sovereign</i></b> identities and are unique to each voter.
                </div>
-             </p>
-             <p className="traitTwo">
-               <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color='#815aff' size='xs'/></div>
+             </div>
+             <div className="traitTwo">
+               <div className="stageIcon"><FontAwesomeIcon icon={faShieldAlt} color="#815aff" size="xs"/></div>
                <div className="stageAlpha">
                  The <b><i>ERC20d</i></b> token staking allocates sybil attack immunity to validations, allowing pure results to blossom.
                </div>
-             </p>
-             <p className="traitThree">
-               <div className="stageIcon"><FontAwesomeIcon icon={faStar} color='#815aff' size='xs'/></div>
+             </div>
+             <div className="traitThree">
+               <div className="stageIcon"><FontAwesomeIcon icon={faStar} color="#815aff" size="xs"/></div>
                <div className="stageAlt" >
                  Validators are rewarded in VLDY tokens for participating, creating an incentive to vote.
                </div>
-             </p>
-             <p className="traitFour">
-               <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='xs'/></div>
+             </div>
+             <div className="traitFour">
+               <div className="stageIcon"><FontAwesomeIcon icon={faCrosshairs} color="#815aff" size="xs"/></div>
                <div className="stageAlt" >
                  Make the crypto-sphere a safer place for everyone, by helping filter out the bad projects from the good.
                </div>
-             </p>
-             <p className="traitFive">
-               <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color='#815aff' size='xs'/></div>
+             </div>
+             <div className="traitFive">
+               <div className="stageIcon"><FontAwesomeIcon icon={faInfinity} color="#815aff" size="xs"/></div>
                <div className="stageAlt" >
                  The validation data is utilised to create a public ledger of qualitative crypto-currency <b><i>ratings</i></b>.
                </div>
-             </p>
-             <p className="traitSix">
-               <div className="stageIcon"><FontAwesomeIcon icon={faGem} color='#815aff' size='xs'/></div>
+             </div>
+             <div className="traitSix">
+               <div className="stageIcon"><FontAwesomeIcon icon={faGem} color="#815aff" size="xs"/></div>
                <div className="stageAlpha" >
                  Validity is <b><i>decentrilised autonomous organisation</i></b>, meaning power to the people.
                </div>
-             </p>
+             </div>
            </div>
          </GridColumn>
        </Grid>
@@ -413,9 +355,9 @@ class Home extends Component {
        <GridColumn>
          <div className="pageBody">
            <div className="h5">
-             <FontAwesomeIcon icon={faCode} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Product
+             <FontAwesomeIcon icon={faCode} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Product
            </div>
-           <img className="desktopProduct" src={productPreview}/>
+           <img alt="dekstopProduct" className="desktopProduct" src={productPreview}/>
            <i className="productTagline">A portfolio tracker you can trust...</i>
          </div>
        </GridColumn>
@@ -428,12 +370,12 @@ class Home extends Component {
          <GridColumn>
          <div className="pageBody">
            <div className="h4">
-             <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+             <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
            </div>
            <div className="tokenChart">
              {this.state.chartComponent}
              </div>
-             {this.state.metaData.value != false && (
+             {this.state.metaData.value !== false && (
                <div className="modalToken">
                  <SectionMessage appearance="change">
                    <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
@@ -441,25 +383,31 @@ class Home extends Component {
                </div>
              )}
              <p className="tokenOne">
-               <FontAwesomeIcon icon={faShareAlt} color='#815aff' size='lg'/>&nbsp;&nbsp;&nbsp;
+               <FontAwesomeIcon icon={faShareAlt} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
                <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
              </p>
              <p className="tokenTwo">
                <i>Supply: <b>50,600,000,000</b></i>
-               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color='#815aff' size='lg'/>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color="#815aff" size="lg"/>
              </p>
              <p className="tokenThree">
                <i>Network: <b>Ethereum</b></i>
-               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color='#815aff' size='lg'/>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color="#815aff" size="lg"/>
              </p>
              <p className="tokenFour">
                <i>Token: <b>ERC20d</b></i>
-               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color='#815aff' size='lg'/>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color="#815aff" size="lg"/>
              </p>
              <p className="tokenFive">
                <i>Ticker: <b>VLDY</b></i>
-               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color='#815aff' size='lg'/>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color="#815aff" size="lg"/>
              </p>
+           </div>
+           <div className="tokenData">
+           <p><i>Transactional volume (Weekly): <b>{this.props.weeklyVolume} VLDY</b></i></p>
+           <p><i>Transactional velocity (Weekly): <b>{this.props.tokenVelocity}</b></i></p>
+           <p><i>Total transactions (All-time): <b>{this.props.totalTransactions}</b></i></p>
+           <p><i>Volume Index: <b>{this.props.weeklyIndex}</b></i></p>
            </div>
          </GridColumn>
        </Grid>
@@ -471,23 +419,23 @@ class Home extends Component {
        <GridColumn>
          <div className="pageBody">
            <div className="h5">
-             <FontAwesomeIcon icon={faBook} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Resources
+             <FontAwesomeIcon icon={faBook} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Resources
            </div>
-           <a className="resourceOne" href='https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133'>
-             <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color='#815aff' size='s'/></div>
+           <a className="resourceOne" href="https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133">
+             <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color="#815aff" size="sm"/></div>
              <div className="resourceText" >
              What is Communal Validation & why does it matter?
              </div>
            </a>
-           <a className="resourceTwo" href='https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136'>
-             <div className="resourceIcon" href=''><FontAwesomeIcon icon={faCrosshairs} color='#815aff' size='s'/></div>
+           <a className="resourceTwo" href="https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136">
+             <div className="resourceIcon" href=""><FontAwesomeIcon icon={faCrosshairs} color="#815aff" size="sm"/></div>
              <div className="resourceText" >
              Cryptocurrency & Blockchain red flags
              </div>
            </a>
-           <a className="resourceThree" href='https://github.com/validitycrypto/validity-hybrid-tipbot'>
-             <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color='#815aff' size='s'/></div>
-             <div className="resourceText" href=''>
+           <a className="resourceThree" href="https://github.com/validitycrypto/validity-hybrid-tipbot">
+             <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color="#815aff" size="sm"/></div>
+             <div className="resourceText" href="">
                Validity tipbot Readme
              </div>
            </a>
@@ -502,7 +450,7 @@ class Home extends Component {
          <GridColumn>
            <div className="teamBody">
              <div className="h4">
-               <FontAwesomeIcon icon={faUsers} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Validity core
+               <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Validity core
              </div>
              <TeamCard data={{
                class: "cardOne",
@@ -554,15 +502,15 @@ class Home extends Component {
            <GridColumn>
              <div className="pageBody">
                <div className="h5">
-                 <FontAwesomeIcon icon={faStar} color='#815aff' size='s'/>&nbsp;&nbsp;&nbsp;Roadmap
+                 <FontAwesomeIcon icon={faStar} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Roadmap
                </div>
                <div className="roadmapOne"
                  onMouseOver={() => this.setState({ stageModal: 1})}
                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={greenCircle} />
-                 <img className="logoOne" src={eth} />
+                 <img alt="circleRoadmap" className="circleRoadmap" src={greenCircle} />
+                 <img alt="logoOne" className="logoOne" src={eth} />
                </div>
-               {(this.state.stageModal == 1 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+               {((this.state.stageModal === 1) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalOne">
                    <SectionMessage appearance="confirmation">
                      Ethereum & MVP launch
@@ -573,10 +521,10 @@ class Home extends Component {
                <div className="roadmapTwo"
                  onMouseOver={() => this.setState({ stageModal: 2})}
                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={redCircle} />
-                 <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color='#815aff' size='2x'/>
+                 <img alt="circleRoadmap" className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faFileMedicalAlt} color="#815aff" size="2x"/>
                </div>
-               {(this.state.stageModal == 2 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+               {((this.state.stageModal === 2) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalTwo">
                    <SectionMessage appearance="error">
                      Validity Whitepaper
@@ -587,10 +535,10 @@ class Home extends Component {
                <div className="roadmapThree"
                  onMouseOver={() => this.setState({ stageModal: 3})}
                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={redCircle} />
-                 <img className="logoTwo" src={gitcoin} />
+                 <img alt="circleRoadmap" className="circleRoadmap" src={redCircle} />
+                 <img alt="logoTwo" className="logoTwo" src={gitcoin} />
                </div>
-               {(this.state.stageModal == 3 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024  ) && (
+               {((this.state.stageModal === 3) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalThree">
                    <SectionMessage appearance="error">
                      Gitcoin grants & funding
@@ -601,10 +549,10 @@ class Home extends Component {
                <div className="roadmapFour"
                onMouseOver={() => this.setState({ stageModal: 4})}
                onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={redCircle} />
-                 <FontAwesomeIcon className="logoThree" icon={faCoffee} color='#815aff' size='2x'/>
+                 <img alt="circleRoadmap" className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faCoffee} color="#815aff" size="2x"/>
                </div>
-               {(this.state.stageModal == 4 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+               {((this.state.stageModal === 4) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalFour">
                    <SectionMessage appearance="error">
                      Find talent and partnerships
@@ -615,10 +563,10 @@ class Home extends Component {
                <div className="roadmapFive"
                onMouseOver={() => this.setState({ stageModal: 5})}
                onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={redCircle} />
-                 <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color='#815aff' size='2x'/>
+                 <img alt="circleRoadmap" className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faCodeBranch} color="#815aff" size="2x"/>
                </div>
-               {(this.state.stageModal == 5 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+               {((this.state.stageModal === 5) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalFive">
                    <SectionMessage appearance="error">
                      Beta product
@@ -629,10 +577,10 @@ class Home extends Component {
                <div className="roadmapSix"
                  onMouseOver={() => this.setState({ stageModal: 6})}
                  onMouseOut={() => this.setState({ stageModal: 0})}>
-                 <img className="circleRoadmap" src={redCircle} />
-                 <FontAwesomeIcon className="logoThree" icon={faRocket} color='#815aff' size='2x'/>
+                 <img alt="circleRoadmap" className="circleRoadmap" src={redCircle} />
+                 <FontAwesomeIcon className="logoThree" icon={faRocket} color="#815aff" size="2x"/>
                </div>
-               {(this.state.stageModal == 6 || window.screen.width < 600 || window.screen.height == 1024 && window.screen.width == 768 || window.screen.height == 1366 && window.screen.width == 1024 ) && (
+               {((this.state.stageModal === 6) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                  <div className="modalSix">
                    <SectionMessage appearance="error">
                      Product launch
@@ -650,21 +598,21 @@ class Home extends Component {
            <GridColumn>
              <div className="pageBody">
                <div className="h3">
-                 <FontAwesomeIcon icon={faFemale} color='#815aff' size='xs'/>&nbsp;
-                 <FontAwesomeIcon icon={faMale} color='#815aff' size='xs'/>&nbsp;&nbsp;&nbsp;Get involved
+                 <FontAwesomeIcon icon={faFemale} color="#815aff" size="xs"/>&nbsp;
+                 <FontAwesomeIcon icon={faMale} color="#815aff" size="xs"/>&nbsp;&nbsp;&nbsp;Get involved
                </div>
-               <div className="ethereumWrapper"><img className="ethereumLogo" src={outlineEth}/></div>
+               <div className="ethereumWrapper"><img alt="ethereumLogo" className="ethereumLogo" src={outlineEth}/></div>
                <Paper className="teamOnboarding">
                  <p>Do you think you have what it takes to join our team? We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. If you are interested please send your resume and a short bio to:</p>
                  <br></br><p><b><i>team@validity.ae</i></b></p>
                </Paper>
                <Paper className="desiredTraits">
                 <p><b><i>We are looking for...</i></b></p>
-                <br></br><p><FontAwesomeIcon icon={faEthereum} color='#815aff' size='s'/>&nbsp;Solidity developers (WASM)</p>
-                <br></br><p><FontAwesomeIcon icon={faPython} color='#815aff' size='s'/>&nbsp;Python developers (ML)</p>
-                <br></br><p><FontAwesomeIcon icon={faReact} color='#815aff' size='s'/>&nbsp;React.js developers </p>
-                <br></br><p><FontAwesomeIcon icon={faPaintBrush} color='#815aff' size='s'/>&nbsp; UX/UI designer </p>
-                <br></br><p><FontAwesomeIcon icon={faFire} color='#815aff' size='s'/>&nbsp;Growth hackers </p>
+                <br></br><p><FontAwesomeIcon icon={faEthereum} color="#815aff" size="sm"/>&nbsp;Solidity developers (WASM)</p>
+                <br></br><p><FontAwesomeIcon icon={faPython} color="#815aff" size="sm"/>&nbsp;Python developers (ML)</p>
+                <br></br><p><FontAwesomeIcon icon={faReact} color="#815aff" size="sm"/>&nbsp;React.js developers </p>
+                <br></br><p><FontAwesomeIcon icon={faPaintBrush} color="#815aff" size="sm"/>&nbsp; UX/UI designer </p>
+                <br></br><p><FontAwesomeIcon icon={faFire} color="#815aff" size="sm"/>&nbsp;Growth hackers </p>
                </Paper>
              </div>
            </GridColumn>
