@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MVP from './mvp'
-import HOME from './home'
+import Home from './home'
 
-ReactDOM.render( <HOME />, document.getElementById('root'));
+ReactDOM.render( <Home />, document.getElementById('root'));

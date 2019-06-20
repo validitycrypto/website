@@ -20,6 +20,10 @@
 
 @media only screen and (max-width: 600px){
 
+  .tokenData {
+    top: 117.5vh;
+    font-size: 3.25vw;
+  }
 
   .menuBar {
     font-size: 3.75vw;
@@ -340,10 +344,6 @@
 
   .tokenFive {
     top: 97.5vh;
-  }
-
-  .tokenData{
-    top: 100vh;
   }
 
   .modalToken {

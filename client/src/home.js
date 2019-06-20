@@ -4,93 +4,45 @@ import ReactGA from "react-ga";
 // UX
 
   // Misc
-import { faMugHot, faBook, faCode, faPaintBrush, faFire, faMedal, faTag, faRocket, faCodeBranch, faCoffee, faFingerprint, faInfinity, faStarHalfAlt, faFemale, faMale, faUsers, faShareAlt, faFileMedicalAlt, faGem, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup } from "@fortawesome/free-solid-svg-icons"
+import { faChartArea, faChartLine, faBalanceScale, faCalendar, faFileCode, faFlask, faMugHot, faBook, faCode, faPaintBrush, faFire, faComment, faTag, faRocket, faCodeBranch, faCoffee, faFingerprint, faInfinity, faStarHalfAlt, faFemale, faMale, faUsers, faShareAlt, faFileMedicalAlt, faGem, faStar, faCrosshairs, faSitemap, faShieldAlt, faDove, faLink, faStreetView, faCheck, faTimes, faLayerGroup } from "@fortawesome/free-solid-svg-icons"
 import { faReact, faEthereum, faPython, faGithub, faLinkedin, faTelegramPlane, faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Card, Image } from "semantic-ui-react"
 
 // Atlaskit
 import Page, { Grid, GridColumn } from "@atlaskit/page";
 import SectionMessage from "@atlaskit/section-message";
 
   // MatieralUI
-import PieChart from "react-minimal-pie-chart";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@material-ui/core/Paper"
+
+import TokenChart from "./components/tokenchart"
+import TeamCard from "/components/teamcard"
+import Landing from "./pages/landing"
 
 // Images
-import greenCircle from "./images/green-circle.png"
-import redCircle from "./images/red-circle.png"
-import outlineEth from "./images/ethoutline.png"
-import productPreview from "./images/product.png"
-import messages1 from "./images/messages1.png"
-import lines1 from "./images/lines1.png"
-import gitcoin from "./images/gitcoin.png"
-import base1 from "./images/base1.png"
-import world from "./images/world.png"
-import gozzy from "./images/gozzy.png"
-import lukas from "./images/lukas.png"
-import marcos from "./images/marcos.png"
-import vldy from "./images/vldy.png"
-import eth from "./images/ethereum.png"
-import dao from "./images/dao.png"
-import bcc from "./images/bcc.png"
-
-const TeamCard = ({ data }) => {
-  return(
-  <Card className={data.class} inverted="true">
-    <Image className="teamPhoto" src={data.image}/>
-    <Card.Content>
-      <Card.Header><span className="blackt">{data.name}</span></Card.Header>
-        <Card.Meta>
-          <span className="blackt">{data.position}</span>
-        </Card.Meta>
-      </Card.Content>
-      <Card.Content>
-        <span className="blackt">{data.nationality}</span>
-      </Card.Content>
-      <Card.Content extra>
-      <a className="socialLink" href={data.linkedin}>
-        <FontAwesomeIcon icon={faLinkedin} color="white" />
-      </a>
-      <a className="socialLink" href={data.twitter}>
-        <FontAwesomeIcon icon={faTwitter} color="white" />
-      </a>
-      <a className="socialLink" href={data.discord}>
-        <FontAwesomeIcon icon={faDiscord} color="white" />
-      </a>
-      <a className="socialLink" href={data.telegram}>
-        <FontAwesomeIcon icon={faTelegramPlane} color="white" />
-      </a>
-      {data.github !== false && (
-        <a className="socialLink" href={data.github}>
-          <FontAwesomeIcon icon={faGithub} color="white"/>
-        </a>
-      )}
-    </Card.Content>
-  </Card>
-  );
-}
-
-const dataMock = [
-    { title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
-    { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
-    { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
-    { title: "Team", value: 15, color: "#00bfff" },
-    { title: "Community fund", value: 20, color: "#815aff" },
-    { title: "Validation supply", value: 5, color: "#ff0c9c" },
-  ];
+import greenCircle from "./assets/images/green-circle.png"
+import redCircle from "./assets/images/red-circle.png"
+import outlineEth from "./assets/images/ethoutline.png"
+import productPreview from "./assets/images/product.png"
+import messages1 from "./assets/images/messages1.png"
+import lines1 from "./assets/images/lines1.png"
+import gitcoin from "./assets/images/gitcoin.png"
+import base1 from "./assets/images/base1.png"
+import world from "./assets/images/world.png"
+import gozzy from "./assets/images/gozzy.png"
+import lukas from "./assets/images/lukas.png"
+import marcos from "./assets/images/marcos.png"
+import eth from "./assets/images/ethereum.png"
+import dao from "./assets/images/dao.png"
+import bcc from "./assets/images/bcc.png"
 
 
 class Home extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        metaData: { title: "Pick a chart value", value: false },
-        items: [{ key: [0, 1, 2, 3]}],
         blanketComponent: false,
-        chartComponent: <div/>,
         sideBar: false,
-        data: dataMock,
         stageModal: 0,
         optionOne: null,
         optionTwo: null,
@@ -100,9 +52,7 @@ class Home extends Component {
         segment: 0,
         flags: [],
       }
-      this.onMouseOut = this.onMouseOut.bind(this);
-      this.onMouseOver = this.onMouseOver.bind(this);
-      }
+    }
 
       formEmail = (event) => this.setState({ email: event.target.value });
       formTelegram = (event) => this.setState({ telegram: event.target.value });
@@ -112,21 +62,6 @@ class Home extends Component {
       formWallet = (event) => this.setState({ wallet: event.target.value });
       revealApplication = () => this.setState({ isApply: true });
       scrollToBottom = () => this.bottomRef.scrollIntoView(true);
-
-      componentWillMount = async() => {
-        await this.mobileOptimisation();
-      }
-
-      mobileOptimisation = async() => {
-        if((window.screen.height === 1024 && window.screen.width === 768)
-           || (window.screen.height === 1366 && window.screen.width === 1024)
-           || (window.screen.width < 600 )){
-          await this.setState({
-            metaData: { title: "Pick a chart value", value: true },
-            chartComponent: this.renderChart(),
-          })
-        }
-      }
 
       formData = () => {
         if(this.state.email !== undefined
@@ -145,69 +80,31 @@ class Home extends Component {
           }
       }
 
+      mobileOptimisation = async() => {
+        if((window.screen.height === 1024 && window.screen.width === 768)
+           || (window.screen.height === 1366 && window.screen.width === 1024)
+           || (window.screen.width < 600 )){
+          await this.setState({
+            metaData: { title: "Pick a chart value", value: true },
+            chartComponent: this.renderChart(),
+          })
+        }
+      }
+
       renderChart = () => {
         return(
-          <PieChart
-            animationDuration={1000}
-            segmentsStyle={{ transition: "stroke .3s" }}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}
-            data={this.state.data}
-            paddingAngle={5}
-            lineWidth={25}
-            radius={20}
-            animate
-          />
+          <TokenChart/>
         );
-      }
-
-      onMouseOut(e, d, i) {
-        this.setState({
-          metaData: {
-            title: "Pick a chart value",
-            value: " "
-          },
-          data:
-          [{ title: "Airdrop tier 1", value: 30, color: "#0cff6f" },
-            { title: "Airdrop tier 2", value: 20, color: "#0c23ff" },
-            { title: "Airdrop tier 3", value: 10, color: "#ff0c23" },
-            { title: "Team", value: 15, color: "#00bfff" },
-            { title: "Community fund", value: 20, color: "#815aff" },
-            { title: "Validation supply", value: 5, color: "#ff0c9c" }]
-        });
-      }
-
-      onMouseOver(e, d, i) {
-        var focusedData;
-        const data = d.map((entry, index) => {
-          if(index === i) focusedData = entry;
-          return index === i ? entry.color = "grey" : dataMock[index];
-        });
-        this.setState({
-          metaData: focusedData,
-          data: data,
-        });
       }
 
 
  render() {
   return (
     <div>
-      <div className="landingPage">
-        <Page>
-          <Grid layout="fluid">
-            <GridColumn>
-              <div className="landingBranding">
-                <img alt="landingLogo" className="landingLogo" src={vldy}/>
-                <p className="landingTitle">Validity</p>
-              </div>
-            </GridColumn>
-          </Grid>
-        </Page>
-      </div>
+      <Landing/>
       <div className="page1">
        <Page>
-         <Grid layout="fluid">
+         <Grid layout="compact">
            <GridColumn>
            <div className="page1-body">
              <div className="h1">
@@ -234,7 +131,7 @@ class Home extends Component {
      </div>
      <div className="page2">
        <Page>
-         <Grid layout="fluid">
+         <Grid layout="compact">
            <GridColumn>
              <div className="pageBody">
                <div className="h2">
@@ -258,7 +155,7 @@ class Home extends Component {
    </div>
    <div className="page3">
      <Page>
-       <Grid layout="fluid">
+       <Grid layout="compact">
          <GridColumn>
            <div className="pageBody">
            <div className="h3">
@@ -301,7 +198,7 @@ class Home extends Component {
    </div>
    <div className="page4">
      <Page>
-       <Grid layout="fluid">
+       <Grid layout="compact">
          <GridColumn>
            <div className="pageBody">
              <div className="h4">
@@ -351,14 +248,14 @@ class Home extends Component {
    </div>
    <div className="page5">
      <Page>
-     <Grid layout="fluid">
+     <Grid layout="compact">
        <GridColumn>
          <div className="pageBody">
            <div className="h5">
              <FontAwesomeIcon icon={faCode} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Product
            </div>
            <img alt="dekstopProduct" className="desktopProduct" src={productPreview}/>
-           <i className="productTagline">A portfolio tracker you can trust...</i>
+           <i className="productTagline">A portfolio tracker you can trust..</i>
          </div>
        </GridColumn>
       </Grid>
@@ -366,25 +263,16 @@ class Home extends Component {
    </div>
    <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
      <Page>
-       <Grid layout="fluid">
+       <Grid layout="compact">
          <GridColumn>
          <div className="pageBody">
            <div className="h4">
-             <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+             <FontAwesomeIcon icon={faFlask} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
            </div>
-           <div className="tokenChart">
              {this.state.chartComponent}
-             </div>
-             {this.state.metaData.value !== false && (
-               <div className="modalToken">
-                 <SectionMessage appearance="change">
-                   <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
-                 </SectionMessage>
-               </div>
-             )}
              <p className="tokenOne">
-               <FontAwesomeIcon icon={faShareAlt} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
-               <i>Address: <b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></i>
+               <FontAwesomeIcon icon={faFileCode} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
+               <i>Address: <a href=""><b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></a></i>
              </p>
              <p className="tokenTwo">
                <i>Supply: <b>50,600,000,000</b></i>
@@ -400,14 +288,18 @@ class Home extends Component {
              </p>
              <p className="tokenFive">
                <i>Ticker: <b>VLDY</b></i>
-               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faMedal} color="#815aff" size="lg"/>
+               &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faShareAlt} color="#815aff" size="lg"/>
              </p>
            </div>
            <div className="tokenData">
-           <p><i>Transactional volume (Weekly): <b>{this.props.weeklyVolume} VLDY</b></i></p>
-           <p><i>Transactional velocity (Weekly): <b>{this.props.tokenVelocity}</b></i></p>
-           <p><i>Total transactions (All-time): <b>{this.props.totalTransactions}</b></i></p>
-           <p><i>Volume Index: <b>{this.props.weeklyIndex}</b></i></p>
+           <p className="pagePoint"><i><FontAwesomeIcon icon={faChartArea} color="#815aff" size="lg"/>
+           &nbsp;&nbsp;&nbsp;Transactional volume (Weekly): <b>{this.props.weeklyVolume} VLDY</b></i></p>
+           <p className="pagePoint"><i><FontAwesomeIcon icon={faChartLine} color="#815aff" size="lg"/>
+           &nbsp;&nbsp;&nbsp;Transactional velocity (Weekly): <b>{this.props.tokenVelocity}</b></i></p>
+           <p className="pagePoint"><i><FontAwesomeIcon icon={faBalanceScale} color="#815aff" size="lg"/>
+           &nbsp;&nbsp;&nbsp;Total transactions (All-time): <b>{this.props.totalTransactions}</b></i></p>
+           <p className="pagePoint"><i><FontAwesomeIcon icon={faCalendar} color="#815aff" size="lg"/>
+          &nbsp;&nbsp;&nbsp; Volume Index: <b>{this.props.weeklyIndex}</b></i></p>
            </div>
          </GridColumn>
        </Grid>
@@ -415,7 +307,7 @@ class Home extends Component {
    </div>
    <div className="page7">
      <Page>
-     <Grid layout="fluid">
+     <Grid layout="compact">
        <GridColumn>
          <div className="pageBody">
            <div className="h5">
@@ -446,7 +338,7 @@ class Home extends Component {
    </div>
    <div className="page8">
      <Page>
-       <Grid layout="fluid">
+       <Grid layout="compact">
          <GridColumn>
            <div className="teamBody">
              <div className="h4">
@@ -498,7 +390,7 @@ class Home extends Component {
    </div>
    <div className="page9">
        <Page>
-         <Grid layout="fluid">
+         <Grid layout="compact">
            <GridColumn>
              <div className="pageBody">
                <div className="h5">
@@ -594,7 +486,7 @@ class Home extends Component {
      </div>
      <div className="page10">
        <Page>
-         <Grid layout="fluid">
+         <Grid layout="compact">
            <GridColumn>
              <div className="pageBody">
                <div className="h3">
@@ -607,12 +499,12 @@ class Home extends Component {
                  <br></br><p><b><i>team@validity.ae</i></b></p>
                </Paper>
                <Paper className="desiredTraits">
-                <p><b><i>We are looking for...</i></b></p>
-                <br></br><p><FontAwesomeIcon icon={faEthereum} color="#815aff" size="sm"/>&nbsp;Solidity developers (WASM)</p>
-                <br></br><p><FontAwesomeIcon icon={faPython} color="#815aff" size="sm"/>&nbsp;Python developers (ML)</p>
-                <br></br><p><FontAwesomeIcon icon={faReact} color="#815aff" size="sm"/>&nbsp;React.js developers </p>
-                <br></br><p><FontAwesomeIcon icon={faPaintBrush} color="#815aff" size="sm"/>&nbsp; UX/UI designer </p>
-                <br></br><p><FontAwesomeIcon icon={faFire} color="#815aff" size="sm"/>&nbsp;Growth hackers </p>
+                <p><b><i>We are looking for skilled in..</i></b></p>
+                <br></br><p><FontAwesomeIcon icon={faEthereum} color="#815aff" size="sm"/>&nbsp;Solidity (Assembly)</p>
+                <br></br><p><FontAwesomeIcon icon={faPython} color="#815aff" size="sm"/>&nbsp;Python (Machine Learning)</p>
+                <br></br><p><FontAwesomeIcon icon={faReact} color="#815aff" size="sm"/>&nbsp;React.js </p>
+                <br></br><p><FontAwesomeIcon icon={faPaintBrush} color="#815aff" size="sm"/>&nbsp; UX/UI design </p>
+                <br></br><p><FontAwesomeIcon icon={faFire} color="#815aff" size="sm"/>&nbsp;Growth hacking </p>
                </Paper>
              </div>
            </GridColumn>
