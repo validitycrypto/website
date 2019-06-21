@@ -38,7 +38,6 @@ class PageSix extends Component {
      }
    }
 
-
      renderChart = () => {
        return(
          <PieChart
