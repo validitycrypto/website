@@ -1,0 +1,87 @@
+ul {
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+}
+
+
+li {
+  list-style-type: none;
+  padding-top: 1vh;
+  margin-left: .5vw;
+  width: 95%;
+}
+
+li::before {
+  content: "• ";
+  color: #815aff;
+  font-size: 1.75vw;
+  margin-right: .1vw;
+}
+
+.newsHeader {
+  position: relative;
+  font-size: 2.5vw;
+  float: right;
+  right: 10vw;
+  font-weight: bold;
+}
+
+.newsModal {
+  position: absolute;
+  padding: 5vw;
+  width: 87.5vw;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  height: 300vh;
+  font-size: 1.325vw;
+  margin-bottom: 5vh;
+}
+
+.newsCategory {
+  position: relative;
+  top: -1vh;
+  left: 10vw;
+}
+
+.newsAuthor {
+  position: relative;
+  margin-bottom: 2.5vh;
+  font-size: 1.35vw;
+  font-style: italic;
+  color: #815aff;
+  top: 7.5vh;
+  left: 2.5vw;
+  white-space: nowrap;
+}
+
+.newsIntro{
+  position: relative;
+  text-align: left;
+  left: 2.5vw;
+  top: 7.5vh;
+  width: 75vw;
+}
+
+.newsBase {
+  position: relative;
+  width: 76.75vw;
+  float: left;
+  right: 2.5vw;
+  top: -4.5vh;
+}
+
+.newsSubject {
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  font-size: 1.75vw;
+  font-weight: bold;
+}
+
+.ethBranding {
+  width: 30vw;
+  display: inline-block;
+  border: .5vw #815aff solid;
+  background-color: #815aff;
+  border-radius: .5vw;
+  float: left;
+}

@@ -152,6 +152,30 @@ body,html {
   top: -37.5vh;
 }
 
+.navigationPage {
+  position: relative;
+  top: -75vh;
+  margin: 0 auto;
+
+}
+
+.pageHeader {
+  position: relative;
+  font-family: raleigh;
+  color: black;
+  font-size: 5vw;
+  right: 0;
+  left:0 ;
+  top: -10vh;
+  text-align: center;
+}
+
+
+.headerText {
+  position: relative;
+  top: 5vh;
+}
+
 .page1 {
   position: relative;
   height: 91.125vh;

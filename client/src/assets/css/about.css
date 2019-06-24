@@ -1,93 +1,34 @@
-ul {
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
-}
 
 
-li {
-  list-style-type: none;
-  padding-top: 1vh;
-  margin-left: .5vw;
-  width: 95%;
-}
-
-li::before {
-  content: "• ";
-  color: #815aff;
-  font-size: 1.75vw;
-  margin-right: .1vw;
-}
-
-.newsNavigation {
-  position: relative;
-  top: -90vh;
-  margin: 0 auto;
-
-}
-
-.newsHeader {
-  position: relative;
-  font-size: 2.5vw;
-  float: right;
-  right: 12.5vw;
-  font-weight: bold;
-}
-
-.newsModal {
+.aboutModal {
   position: absolute;
-  padding: 2.5vw;
+  padding: 5vw;
   width: 87.5vw;
   margin-top: 5vh;
   margin-left: 5vw;
   height: 300vh;
-  font-size: 1.3vw;
+  font-size: 1.325vw;
   margin-bottom: 5vh;
 }
 
-.newsCategory {
+.aboutOne {
   position: relative;
-  top: -1vh;
-  left: 10vw;
+  width: 100%;
 }
 
-.newsAuthor {
+.aboutTwo {
   position: relative;
-  margin-bottom: 2.5vh;
-  font-size: 1.35vw;
-  font-style: italic;
-  color: #815aff;
-  top: 7.5vh;
-  left: 5vw;
+  width: 100%;
 }
 
-.newsIntro{
+.aboutThree {
   position: relative;
-  text-align: left;
-  left: 5vw;
-  top: 7.5vh;
-  width: 75vw;
+  width: 100%;
 }
 
-.newsBase {
-  position: relative;
-  width: 80vw;
-  float: left;
-  right: 5vw;
-  top: -4.5vh;
-}
-
-.newsSubject {
+.aboutHeader {
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
   font-size: 1.75vw;
   font-weight: bold;
-}
-
-.ethBranding {
-  width: 30vw;
-  display: inline-block;
-  border: .5vw #815aff solid;
-  background-color: #815aff;
-  border-radius: .5vw;
-  float: left;
 }
