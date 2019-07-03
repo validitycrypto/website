@@ -3,6 +3,44 @@
   zoom: 1.0 ;
 }
 
+.css-1s6vx3l-control {
+  border-color: #ff8300 !important;
+  border-width: .25vw !important;
+}
+
+.css-1s6vx3l-control:hover {
+  border-color: #22ffa0 !important;
+
+}
+
+.sc-dnqmqq.kgEfEJ {
+  background-color: #815aff !important;
+}
+
+.sc-iwsKbI.lkyGMR {
+  background-color: #815aff !important;
+  color: white !important;
+}
+
+.Button__StyledButton-sc-1o41kgk-0.eOYALB {
+    color: white !important;
+    border-color: orange !important;
+}
+
+.Button__StyledButton-sc-1o41kgk-0.ccKvAG {
+  color: white !important;
+  background-color: red;
+}
+
+.styledFlag__Description-qhniyv-7.eTzQRK, .styledFlag__Title-qhniyv-3.eLTXeZ {
+  color: white !important;
+}
+
+.Label__LabelInner-sc-17towfw-1.dKDRgr {
+  color: white;
+}
+
+
 body,html {
   font-family: apple-sf;
   overflow-x: hidden;
@@ -70,13 +108,17 @@ body,html {
   position: absolute;
   border: solid;
   border-width: .25vw;
-  border-color: #ffffff;
+  border-color: #ff8300;
   height: 6.75vh;
   width: 100%;
   text-align: center;
   position: relative;
   color: white;
   font-weight: bold;
+}
+
+.paperButton:hover {
+  border-color: #22ffa0;
 }
 
 .paperIcon {
@@ -95,6 +137,7 @@ body,html {
   position: relative;
   width: 20vw;
   margin-left: 2.5vw;
+  border-color: #22ffa0;
   margin-right: 27.5vw;
   color: black;
 }
@@ -102,11 +145,15 @@ body,html {
 .landingButton {
   position: absolute;
   border: solid;
-  border-color: white;
+  border-color: #ff8300;
   border-radius: .5vw;
   margin-left: 5vw;
   float: right;
   right: 2.5%;
+}
+
+.landingButton:hover {
+  border-color: #22ffa0;
 }
 
 .eth {
@@ -115,16 +162,20 @@ body,html {
   width: 1.75vw;
 }
 
+.linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover {
+  border-color: #22ffa0;
+}
+
 .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
   position: relative;
   margin-left: .875vw;
   width: 2.675vw;
   border: solid;
-  border-color: white;
+  border-color: #ff8300;
   display: inline-block;
+  border-collapse: collapse;
   border-radius: 50%;
   background-color: white;
-
 }
 
 .landingBranding {
@@ -328,6 +379,7 @@ body,html {
 
 .formInput {
   margin-bottom: 2vw;
+  color: white;
 }
 
 .formLabel {
