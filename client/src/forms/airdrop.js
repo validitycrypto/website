@@ -31,37 +31,37 @@ class Airdrop extends Component {
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="E-Mail" required onChange={this.formEmail}/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faEnvelope} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Your e-mail address
+                    <FontAwesomeIcon  icon={faEnvelope} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your e-mail address
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Telegram Username" required onChange={this.formTelegram}/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTelegramPlane} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a>
+                    <FontAwesomeIcon  icon={faTelegramPlane} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Discord Username" required onChange={this.formDiscord}/>
                   <div className="formLabel" ref={r => {this.bottomRef = r;}}>
-                    <FontAwesomeIcon  icon={faDiscord} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Your account present in the <a href="https://discord.gg/s5rSvB2">Validity Discord</a>
+                    <FontAwesomeIcon  icon={faDiscord} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your account present in the Validity <a href="https://discord.gg/s5rSvB2">Discord</a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Twitter Username" required onChange={this.formTwitter}/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTwitter} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a>
+                    <FontAwesomeIcon  icon={faTwitter} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Facebook Username" required onChange={this.formFacebook}/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faFacebook} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked <a href="https://www.facebook.com/ValidityCrypto/">Validity"s facebook</a>
+                    <FontAwesomeIcon  icon={faFacebook} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked Validity's <a href="https://www.facebook.com/ValidityCrypto/">Facebook</a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Ethereum Address" required onChange={this.formWallet}/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faWallet} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;Target <a href="https://www.myetherwallet.com">Ethereum wallet address</a> for the airdrop distribution
+                    <FontAwesomeIcon  icon={faWallet} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Ethereum <a href="https://www.myetherwallet.com">wallet</a> address for the recieving the airdrop allocation
                   </div>
               </div>
             </div>
