@@ -11,9 +11,9 @@ const tokenData = [
     { title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
     { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
     { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
-    { title: "Team", value: 15, color: "#00bfff" },
-    { title: "Community fund", value: 20, color: "#815aff" },
-    { title: "Validation supply", value: 5, color: "#ff0c9c" },
+    { title: "Team", value: 17.5, color: "#00bfff" },
+    { title: "Community fund", value: 15, color: "#815aff" },
+    { title: "Validation supply", value: 7.5, color: "#ff0c9c" },
   ];
 
 class PageSix extends Component {
@@ -61,12 +61,12 @@ class PageSix extends Component {
            value: " "
          },
          data:
-         [{ title: "Airdrop tier 1", value: 30, color: "#0cff6f" },
-           { title: "Airdrop tier 2", value: 20, color: "#0c23ff" },
-           { title: "Airdrop tier 3", value: 10, color: "#ff0c23" },
-           { title: "Team", value: 15, color: "#00bfff" },
-           { title: "Community fund", value: 20, color: "#815aff" },
-           { title: "Validation supply", value: 5, color: "#ff0c9c" }]
+         [{ title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
+         { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
+         { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
+         { title: "Team", value: 17.5, color: "#00bfff" },
+         { title: "Community fund", value: 15, color: "#815aff" },
+         { title: "Validation supply", value: 7.5, color: "#ff0c9c" }]
        });
      }
 

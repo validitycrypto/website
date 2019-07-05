@@ -31,7 +31,6 @@ class About extends Component {
       </div>
      </div>
      <Paper className="aboutModal">
-
      <p className="aboutHeader"> Background </p>
      <p>  Validity is a community-driven project that was actually born admist the disorientation of a scam, not one of great magnititude but one of great realisation.
           There will <b>never</b> be an <b>Initial Coin Offering</b> (ICO) for Validity due to the sole reason that how can one trust a entity entirely based on speculation.

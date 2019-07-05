@@ -3,6 +3,10 @@
   zoom: 1.0 ;
 }
 
+a {
+  color: yellow;
+}
+
 .css-1s6vx3l-control {
   border-color: #ff8300 !important;
   border-width: .25vw !important;
@@ -10,7 +14,6 @@
 
 .css-1s6vx3l-control:hover {
   border-color: #22ffa0 !important;
-
 }
 
 .sc-dnqmqq.kgEfEJ {
@@ -162,7 +165,7 @@ body,html {
   width: 1.75vw;
 }
 
-.linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover {
+.linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover, .facebook:hover {
   border-color: #22ffa0;
 }
 

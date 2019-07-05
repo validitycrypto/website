@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from "react";
 
-import { firebaseInstance } from "../utils/firebaseConfig"
-
 import FieldText from "@atlaskit/field-text";
 import Modal from "@atlaskit/modal-dialog"
+import { firebaseConfiguration } from "../utils/firebaseConfig"
+import firebase from "firebase"
 
 class Survey extends Component {
   constructor(props){
@@ -14,8 +14,8 @@ class Survey extends Component {
   }
 
   componentWillMount = async() => {
-    const firebaseDb = await firebaseInstance("survey");
-    this.setState({ firebaseDb });
+    const firebaseDb = firebase.initializeApp(firebaseConfiguration("survey"), "Survey")
+    this.setState({ firebaseDb: firebaseDb.firestore() });
   }
 
   embedKey = (_event) => {
@@ -41,6 +41,7 @@ class Survey extends Component {
   }
 
   render() {
+
     if(this.props.triggerState){
       return(
         <Modal actions = {[

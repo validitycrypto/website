@@ -1,5 +1,6 @@
 /* General Conifg */
 
+
 .socialModal {
   background-color: rgb(0, 0, 0, 0.75);
   z-index: 10000;
@@ -13,12 +14,23 @@
   top: 0;
 }
 
-  .socialButton {
-    margin-left: 2.5vw;
-    border: .75vw white solid;
+.socialButton {
+  margin-left: 2.5vw;
+  border: .75vw #ff8300 solid;
+  border-radius: .5vw;
+}
+
+  .socialButton:hover {
+    border-color: #22ffa0;
   }
 
+
 @media only screen and (max-width: 600px){
+
+  .css-1s6vx3l-control {
+    border-width: .75vw !important;
+    font-size: 5vw;
+   }
 
   .tokenData {
     top: 117.5vh;
@@ -53,19 +65,20 @@
 
   .paperButton {
     border-width: .75vw;
+    border-radius: .5vw;
   }
 
 
   .pageSelect {
     width: 45vw;
     margin-left: 5vw;
-    border: .75vw white solid;
     margin-right: 5vw;
   }
 
   .landingButton {
     position: relative;
-    border: .75vw white solid;
+    border: .75vw #ff8300 solid;
+    border-radius: .5vw;
     margin-left: 2.5vw;
     float: right;
     right: 0;
@@ -209,7 +222,7 @@
   }
 
   .traitPoint {
-  padding-bottom: 7.5vh;
+    padding-bottom: 7.5vh;
   }
 
   .stageOne{
@@ -231,7 +244,6 @@
     top: 47.5vh;
   }
 
-
   .stageFour {
     width: 67.5vw;
     top: 65vh;
@@ -245,7 +257,6 @@
   .stageText {
     left: 17.5vw;
   }
-
 
   .stageNumber {
     font-size: 7.5vw;
@@ -612,6 +623,11 @@
 
 @media only screen and (device-height: 812px) and (device-width: 375px) {
 
+  .css-1s6vx3l-control {
+    border-width: .75vw !important;
+    font-size: 5vw;
+   }
+
     .paperMenu {
       top: 7.5vh;
     }
@@ -643,6 +659,10 @@
 
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
 
+    .css-1s6vx3l-control {
+      border-width: .75vw !important;
+    }
+
     .menuBar {
       font-size: 3vw;
     }
@@ -658,12 +678,18 @@
 
     .paperButton {
       border-width: .75vw;
+      border-radius: .5vw;
     }
-
 
     .socialButton {
       margin-left: 2.5vw;
-      border: .75vw white solid;
+      border-radius: .5vw;
+      border: .75vw #ff8300 solid;
+    }
+
+    .socialButton:hover {
+      border-color: #22ffa0;
+
     }
 
     .socialModal {
@@ -695,7 +721,6 @@
     .pageSelect {
       position: relative;
       width: 50vw;
-      border: .75vw white solid;
       margin-left: 5vw;
       margin-right: 15vw;
       font-size: 4.5vw;
@@ -704,7 +729,8 @@
 
     .landingButton {
       position: relative;
-      border: .75vw white solid;
+      border: .75vw #ff8300 solid;
+      border-radius: .5vw;
       margin-left: 2.5vw;
       float: right;
       right: 0;
@@ -1269,7 +1295,12 @@
 
     .socialButton {
       margin-left: 2.5vw;
-      border: .75vw white solid;
+      border: .75vw #ff8300 solid;
+      border-radius: .5vw;
+    }
+
+    .socialButton:hover {
+      border-color: #22ffa0;
     }
 
     .socialModal {
@@ -1301,7 +1332,6 @@
     .pageSelect {
       position: relative;
       width: 50vw;
-      border: .5vw white solid;
       margin-left: 5vw;
       margin-right: 15vw;
       font-size: 4.5vw;
@@ -1310,7 +1340,8 @@
 
     .landingButton {
       position: relative;
-      border: .75vw white solid;
+      border: .75vw #ff8300 solid;
+      border-radius: .5vw;
       margin-left: 2.5vw;
       float: right;
       right: 0;
