@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import Page, { Grid, GridColumn } from "@atlaskit/page"
 
 import Paper from "@material-ui/core/Paper"
+import ReactGA from "react-ga";
 
 import { faLeaf } from"@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -17,6 +18,10 @@ class About extends Component {
       super(props)
       this.state = {
       }
+ }
+
+ componentWillMount = () => {
+   ReactGA.pageview('/About');
  }
 
  render() {

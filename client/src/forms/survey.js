@@ -4,6 +4,7 @@ import FieldText from "@atlaskit/field-text";
 import Modal from "@atlaskit/modal-dialog"
 import { firebaseConfiguration } from "../utils/firebaseConfig"
 import firebase from "firebase"
+import ReactGA from "react-ga";
 
 class Survey extends Component {
   constructor(props){
@@ -37,7 +38,20 @@ class Survey extends Component {
         this.props.triggerModal();
       }).catch((error) =>{
         console.error("Error adding document: ", error);
-      })
+      }); ReactGA.event({
+       category: 'Navigation',
+       action: 'Survey',
+       label: 'Submit'
+     });
+  }
+
+  refuseApplication = async() => {
+     await this.props.triggerModal();
+     ReactGA.event({
+       category: 'Navigation',
+      action: 'Survey',
+      label: 'Refuse'
+    });
   }
 
   render() {

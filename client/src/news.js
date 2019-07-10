@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from "react";
+import ReactGA from "react-ga";
 
 import { faBullhorn } from"@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -13,6 +14,10 @@ class News extends Component {
       super(props)
       this.state = {
       }
+ }
+
+ componentWillMount = () => {
+   ReactGA.pageview('/News');
  }
 
  render() {

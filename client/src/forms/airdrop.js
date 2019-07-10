@@ -5,6 +5,7 @@ import { faTelegramPlane, faDiscord, faTwitter, faFacebook } from "@fortawesome/
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { firebaseConfiguration } from "../utils/firebaseConfig"
 import firebase from "firebase"
+import ReactGA from "react-ga";
 
 import FieldText from "@atlaskit/field-text";
 import Modal from "@atlaskit/modal-dialog"
@@ -41,8 +42,21 @@ class Airdrop extends Component {
          this.props.triggerModal();
        }).catch((error) =>{
          console.error("Error adding document: ", error);
-       })
+       }); ReactGA.event({
+        category: 'Navigation',
+        action: 'Airdrop',
+        label: 'Submit'
+      });
    }
+
+  refuseApplication = async() => {
+     await this.props.triggerModal();
+     ReactGA.event({
+       category: 'Navigation',
+      action: 'Airdrop',
+      label: 'Refuse'
+    });
+  }
 
   render() {
     if(this.props.triggerState){
@@ -50,7 +64,7 @@ class Airdrop extends Component {
           <Modal className="modalForm" heading="VLDY Airdrop Application" appearance="warning" scrollBehaviour="outside"
             actions = {[
               { text: "Submit", onClick: this.submitApplication },
-              { text: "Refuse", onClick: this.props.triggerModal }
+              { text: "Refuse", onClick: this.refuseApplication }
             ]}>
               <div className="formHead">
                 <p className="formHighlight">AIRDROP TIER: 1; AIRDROP ROUND: 3</p>

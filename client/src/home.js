@@ -32,6 +32,10 @@ class Home extends Component {
       revealApplication = () => this.setState({ isApply: true });
       scrollToBottom = () => this.bottomRef.scrollIntoView(true);
 
+      componentWillMount = () => {
+        ReactGA.pageview('/Home');
+      }
+
       formData = () => {
         if(this.state.email !== undefined
            && this.state.telegram !== undefined
@@ -59,13 +63,7 @@ class Home extends Component {
       <PageThree/>
       <PageFour/>
       <PageFive/>
-      <PageSix
-        totalTransactions={this.props.totalTransactions}
-        tokenVelocity={this.props.tokenVelocity}
-        averageValue={this.props.averageValue}
-        weeklyVolume={this.props.weeklyVolume}
-        weeklyIndex={this.props.weeklyIndex}
-      />
+      <PageSix />
       <PageSeven/>
       <PageEight/>
       <PageNine/>

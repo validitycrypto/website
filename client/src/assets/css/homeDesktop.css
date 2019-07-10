@@ -8,7 +8,7 @@ a {
 }
 
 .css-1s6vx3l-control {
-  border-color: #ff8300 !important;
+  border-color: #bda8ff !important;
   border-width: .25vw !important;
 }
 
@@ -17,11 +17,11 @@ a {
 }
 
 .sc-dnqmqq.kgEfEJ {
-  background-color: #815aff !important;
+  background-color: #906eff !important;
 }
 
 .sc-iwsKbI.lkyGMR {
-  background-color: #815aff !important;
+  background-color: #906eff !important;
   color: white !important;
 }
 
@@ -109,11 +109,10 @@ body,html {
 
 .paperButton {
   position: absolute;
-  border: solid;
-  border-width: .25vw;
-  border-color: #ff8300;
   height: 6.75vh;
   width: 100%;
+  border: solid;
+  border-color: #bda8ff;
   text-align: center;
   position: relative;
   color: white;
@@ -121,7 +120,8 @@ body,html {
 }
 
 .paperButton:hover {
-  border-color: #22ffa0;
+  background-color:#22ffa0;
+  border-color: white;
 }
 
 .paperIcon {
@@ -148,7 +148,7 @@ body,html {
 .landingButton {
   position: absolute;
   border: solid;
-  border-color: #ff8300;
+  border-color: #bda8ff;
   border-radius: .5vw;
   margin-left: 5vw;
   float: right;
@@ -165,20 +165,29 @@ body,html {
   width: 1.75vw;
 }
 
-.linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover, .facebook:hover {
+.angelList:hover, .linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover, .facebook:hover {
   border-color: #22ffa0;
 }
 
-.linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+.angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
   position: relative;
   margin-left: .875vw;
   width: 2.675vw;
   border: solid;
-  border-color: #ff8300;
+  border-color: #bda8ff;
   display: inline-block;
   border-collapse: collapse;
   border-radius: 50%;
-  background-color: white;
+  padding: none;
+}
+
+.angelList {
+    background-color: white;
+    border-color: #bda8ff;
+}
+
+.linkedin {
+    border-color: #bda8ff !important;
 }
 
 .landingBranding {
@@ -203,7 +212,7 @@ body,html {
   display: block;
   font-size: 5vw;
   color: black;
-  top: -37.5vh;
+  top: -40vh;
 }
 
 .navigationPage {
@@ -459,7 +468,7 @@ body,html {
   position: absolute;
   color: #815aff;
   border: solid;
-  border-color: #815aff;
+  border-color: #bda8ff;
   font-size: 2vw;
   width: 3.5vw;
   height: 3.5vw;
@@ -473,7 +482,7 @@ body,html {
   position: absolute;
   color: #815aff;
   border: solid;
-  border-color: #815aff;
+  border-color: #bda8ff;
   font-size: 2vw;
   width: 3.5vw;
   height: 3.5vw;
@@ -487,7 +496,7 @@ body,html {
   position: absolute;
   color: #815aff;
   border: solid;
-  border-color: #815aff;
+  border-color: #bda8ff;
   border-width: .375vw;
   font-size: 5vw;
   width:  8.75vw;
