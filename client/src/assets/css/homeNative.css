@@ -24,8 +24,23 @@
     border-color: #22ffa0;
   }
 
-
 @media only screen and (max-width: 600px){
+
+  .tableCell {
+    font-size: 5vw !important;
+  }
+
+  .pageHeader {
+    font-size: 10vw;
+    top: -5vh;
+  }
+
+  .navigationPage {
+    position: relative;
+    top: -82.5vh;
+    margin: 0 auto;
+
+  }
 
   .css-1s6vx3l-control {
     border-width: .75vw !important;
@@ -427,7 +442,7 @@
   }
 
   .socialLink {
-   font-size: 10vw;
+   font-size: 8vw;
    padding-right: 5vw;
   }
 
@@ -615,6 +630,18 @@
 
       .ethereumWrapper {
         top: 75vh;
+      }
+
+      .formHead {
+        font-size: 3vw;
+      }
+
+      .formInput {
+        margin-bottom: 4vh;
+      }
+
+      .formBody {
+        overflow-y:auto;
       }
 
 }

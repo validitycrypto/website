@@ -18,11 +18,17 @@ a {
 
 .sc-dnqmqq.kgEfEJ {
   background-color: #906eff !important;
+
+}
+
+.sc-gzVnrw.jqmqgb {
+
 }
 
 .sc-iwsKbI.lkyGMR {
   background-color: #906eff !important;
   color: white !important;
+
 }
 
 .Button__StyledButton-sc-1o41kgk-0.eOYALB {
@@ -43,7 +49,6 @@ a {
   color: white;
 }
 
-
 body,html {
   font-family: apple-sf;
   overflow-x: hidden;
@@ -51,7 +56,6 @@ body,html {
 
 .pageComponent {
     position: relative;
-
 }
 
 .ui.card,

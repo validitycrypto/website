@@ -6,24 +6,18 @@
   width: 87.5vw;
   margin-top: 5vh;
   margin-left: 5vw;
-  height: 300vh;
+  height: 350vh;
   font-size: 1.325vw;
   margin-bottom: 5vh;
 }
 
-.aboutOne {
+.aboutOne, .aboutTwo, .aboutThree {
   position: relative;
+  border-radius: .5vw;
   width: 100%;
-}
+  margin-top: 2.5vw;
+  margin-bottom: 2.5vw;
 
-.aboutTwo {
-  position: relative;
-  width: 100%;
-}
-
-.aboutThree {
-  position: relative;
-  width: 100%;
 }
 
 .aboutHeader {
@@ -31,4 +25,21 @@
   padding-bottom: 2.5vh;
   font-size: 1.75vw;
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 600px){
+
+  .aboutHeader {
+    font-size: 7.5vw;
+  }
+
+  .aboutModal {
+    font-size: 5vw;
+    height: 412.5vh;
+  }
+
+  .aboutOne, .aboutTwo, .aboutThree {
+  }
+
 }
