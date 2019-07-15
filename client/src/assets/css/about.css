@@ -6,9 +6,8 @@
   width: 87.5vw;
   margin-top: 5vh;
   margin-left: 5vw;
-  height: 350vh;
+  height: auto;
   font-size: 1.325vw;
-  margin-bottom: 5vh;
 }
 
 .aboutOne, .aboutTwo, .aboutThree {
@@ -27,8 +26,26 @@
   font-weight: bold;
 }
 
+.aboutFooter {
+  position: absolute;
+  z-index: 9999999999;
+  margin-top: 12.5vh;
+  top: 1400%;
+  bottom: 0;
+  left: 0;
+  right: 5vw;
+
+}
+
 
 @media only screen and (max-width: 600px){
+
+
+  .aboutFooter {
+    top: 2512.5%;
+
+  }
+
 
   .aboutHeader {
     font-size: 7.5vw;
@@ -36,10 +53,38 @@
 
   .aboutModal {
     font-size: 5vw;
-    height: 412.5vh;
+    height: auto;
   }
 
-  .aboutOne, .aboutTwo, .aboutThree {
+}
+
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+
+
+  .aboutHeader {
+    font-size: 7.5vw;
   }
+
+  .aboutModal {
+    font-size: 5vw;
+    height: 550vh;
+  }
+
+
+}
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) {
+
+
+    .aboutHeader {
+      font-size: 7.5vw;
+    }
+
+    .aboutModal {
+      font-size: 5vw;
+      height: 550vh;
+    }
+
 
 }

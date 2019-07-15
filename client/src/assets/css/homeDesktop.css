@@ -12,23 +12,45 @@ a {
   border-width: .25vw !important;
 }
 
+.footerContact {
+  position: relative;
+  font-size: 1.375vw;
+}
+
 .css-1s6vx3l-control:hover {
   border-color: #22ffa0 !important;
 }
 
-.sc-dnqmqq.kgEfEJ {
-  background-color: #906eff !important;
+/*  Blanket + modal */
 
+.styled-knyj0u-0.bkyfAV {
 }
 
-.sc-gzVnrw.jqmqgb {
-
-}
+/*  Modal wrapper */
 
 .sc-iwsKbI.lkyGMR {
-  background-color: #906eff !important;
   color: white !important;
+}
 
+/*  Modal */
+
+.sc-dnqmqq.kgEfEJ {
+  background-color: #906eff !important;
+}
+
+/* Modal header */
+
+.sc-gqjmRU.cDaWMe.sc-gZMcBi.dApiWN  {
+  display: block;
+}
+
+/* Modal body */
+
+.sc-jzJRlG.cxjyBr{
+  -webkit-user-drag: element !important;
+  overflow-y: scroll !important;
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
 }
 
 .Button__StyledButton-sc-1o41kgk-0.eOYALB {
@@ -49,9 +71,15 @@ a {
   color: white;
 }
 
-body,html {
+html {
   font-family: apple-sf;
-  overflow-x: hidden;
+}
+
+body {
+}
+
+.pageFooter {
+  position: absolute;
 }
 
 .pageComponent {
@@ -106,7 +134,7 @@ body,html {
 .paperMenu {
   position: relative;
   width: 17.5vw;
-  height: 75vh;
+  height: 68.75vh;
   top: 7.5vh;
   margin: 2.5vw;
 }

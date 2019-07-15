@@ -1,6 +1,12 @@
 import React, { Component } from "react"
 import ReactGA from "react-ga";
 
+import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
+import { faLeaf, faBullhorn, faEnvelope } from"@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import Footer from "../components/footer"
+
 import Landing from "../pages/landing"
 import PageOne from "../pages/pageone"
 import PageTwo from "../pages/pagetwo"
@@ -68,6 +74,16 @@ class Home extends Component {
       <PageEight/>
       <PageNine/>
       <PageTen/>
+      <Footer className="pageFooter">
+        <div className="footerContact">
+        <p><FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;airdrop@vldy.org
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;team@vldy.org
+        </p>
+        <br></br>
+        <p><FontAwesomeIcon color="#bda8ff" icon={faTelegramPlane} size="lg"/>&nbsp;&nbsp;&nbsp;@ValiditySupport</p>
+        </div>
+      </Footer>
     </div>
     )
   }

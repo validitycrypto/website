@@ -4,9 +4,11 @@ import Page, { Grid, GridColumn } from "@atlaskit/page"
 import Paper from "@material-ui/core/Paper"
 import ReactGA from "react-ga";
 
-import { faLeaf } from"@fortawesome/free-solid-svg-icons"
+import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
+import { faLeaf, faEnvelope } from"@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import Footer from "../components/footer"
 import aboutOne from "../assets/images/ValidityAbout1.png"
 import aboutTwo from "../assets/images/ValidityAbout2.png"
 import aboutThree from "../assets/images/ValidityAbout3.png"
@@ -78,6 +80,16 @@ class About extends Component {
           into a overall score for integration into the Validity rating system.
      </p>
      </Paper>
+     <Footer className="aboutFooter">
+       <div className="footerContact">
+       <p><FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;airdrop@vldy.org
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;team@vldy.org
+       </p>
+       <br></br>
+       <p><FontAwesomeIcon color="#bda8ff" icon={faTelegramPlane} size="lg"/>&nbsp;&nbsp;&nbsp;@ValiditySupport</p>
+       </div>
+     </Footer>
      </GridColumn>
      </Page>
      </div>

@@ -26,6 +26,28 @@
 
 @media only screen and (max-width: 600px){
 
+  .pageFooter {
+    padding: 5vw;
+    margin-top: 12.5vh;
+    z-index: 9999999999;
+  }
+
+  .footerContact {
+    position: relative;
+    font-size: 3.5vw;
+  }
+
+
+  .pageNavigation {
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth ;
+
+  }
+
+  .Page__Wrapper-oj2x06-0.fwyqgM {
+  }
+
   .tableCell {
     font-size: 5vw !important;
   }
@@ -72,7 +94,7 @@
   .paperMenu {
     position: relative;
     width: 45vw;
-    height: 75vh;
+    height: 67.5vh;
     top: 10vh;
     margin: 5vw;
     font-size: 4.5vw;
@@ -183,12 +205,16 @@
     top: 3.75vh;
   }
 
+  .page1 {
+    height: 150vh;
+  }
+
   .page2, .page3, .page6 , .page7, .page8, .page9, .page10 {
-    height: 117.5vh;
+    height: 125vh;
   }
 
   .page4 {
-    height: 150vh;
+    height: 160vh;
   }
 
   .page5 {
@@ -228,7 +254,7 @@
   .world  {
     width: 85vw;
     left: 7.5vw;
-    top: 42.5vh;
+    top: 45vh;
   }
 
   .traits {
@@ -646,6 +672,83 @@
 
 }
 
+@media only screen and (device-height: 667px) and (device-width: 375px) {
+
+  .landingTitle {
+      top: -40vh;
+  }
+
+  .landingBranding {
+    top: -72.5vh;
+  }
+
+
+  .traitOne {
+    left: 0;
+    top: 10vh;
+  }
+
+  .traitTwo {
+    top: 27.5vh;
+  }
+
+  .traitThree {
+    top: 47.5vh;
+    left: 0;
+  }
+
+  .traitFour {
+    top: 102.5vh;
+    left: 0;
+  }
+
+  .traitFive {
+    top: 120vh;
+    left: 0;
+  }
+
+  .traitSix {
+    top: 137.5vh;
+    left: 0;
+  }
+
+  .daoGraphic {
+    right: 7.5vw;
+    top: 53.75vh;
+    left: 0;
+  }
+
+  .resourceOne{
+    top: 15vh;
+  }
+
+  .resourceTwo {
+    top: 75vh;
+    left: 17.5vw;
+  }
+
+  .resourceThree {
+    top: 130vh;
+    left: 17.5vw;
+  }
+
+  .resourceText {
+    width: 50vw;
+    font-size: 5vw;
+    top: 37.5vh;
+    right: 0;
+  }
+
+  .page7 {
+    height: 200vh;
+  }
+
+  .page8 {
+    height: 375vh;
+  }
+
+}
+
 /* iPhone X */
 
 @media only screen and (device-height: 812px) and (device-width: 375px) {
@@ -685,6 +788,12 @@
 /* iPad */
 
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
+
+
+    .pageHeader {
+      font-size: 10vw;
+      top: -5vh;
+    }
 
     .css-1s6vx3l-control {
       border-width: .75vw !important;
@@ -1301,6 +1410,20 @@
 }
 
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+
+
+      .css-1s6vx3l-control {
+        border-width: .75vw !important;
+      }
+
+      .css-1s6vx3l-control:hover {
+        border-color: #22ffa0 !important;
+      }
+
+    .pageHeader {
+      font-size: 10vw;
+      top: -5vh;
+    }
 
 
   .paperMenu {
