@@ -1,28 +1,30 @@
 /* General Conifg */
 
 
-.socialModal {
-  background-color: rgb(0, 0, 0, 0.75);
-  z-index: 10000;
-  height: 100vh;
-  width: 100vw;
-  color: white;
-  position: fixed;
-  font-size: 10vw;
-  left: 0;
-  right: 0;
-  top: 0;
-}
+  .socialModal {
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10000;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    position: fixed;
+    font-size: 10vw;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
 
-.socialButton {
-  margin-left: 2.5vw;
-  border: .75vw #906eff solid;
-  border-radius: .5vw;
-}
+  .socialButton {
+    margin-left: 2.5vw;
+    border: .75vw #906eff solid;
+    border-radius: .5vw;
+  }
 
   .socialButton:hover {
     border-color: #22ffa0;
   }
+
+  /* General config */
 
 @media only screen and (max-width: 600px){
 
@@ -37,15 +39,11 @@
     font-size: 3.5vw;
   }
 
-
   .pageNavigation {
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth ;
 
-  }
-
-  .Page__Wrapper-oj2x06-0.fwyqgM {
   }
 
   .tableCell {
@@ -66,6 +64,7 @@
 
   .css-1s6vx3l-control {
     border-width: .75vw !important;
+    border-color: #bda8ff !important;
     font-size: 5vw;
    }
 
@@ -84,20 +83,20 @@
   }
 
   .angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
-    margin-left: 12.5vw;
+    margin-left: 17.5vw;
     border-width: 2vw;
-    margin-bottom: 12.5vw;
-    width: 30vw;
+    margin-bottom: 7.5vw;
+    width: 25vw;
     top: 5vh;
   }
 
   .paperMenu {
     position: relative;
     width: 45vw;
-    height: 67.5vh;
+    height: 57.5vh;
     top: 10vh;
     margin: 5vw;
-    font-size: 4.5vw;
+    font-size: 3.75vw;
   }
 
   .paperButton {
@@ -105,6 +104,11 @@
     border-radius: .5vw;
   }
 
+  .paperText {
+    color: white;
+    margin-left: 1.25em;
+    font-size: 1.25em;
+  }
 
   .pageSelect {
     width: 45vw;
@@ -477,7 +481,6 @@
   }
 
   .blanketComponent{
-
     z-index: 1;
   }
 
@@ -672,16 +675,18 @@
 
 }
 
+/* iPhone 6/7 */
+
+
 @media only screen and (device-height: 667px) and (device-width: 375px) {
 
   .landingTitle {
-      top: -40vh;
+      top: -35vh;
   }
 
   .landingBranding {
-    top: -72.5vh;
+    top: -70vh;
   }
-
 
   .traitOne {
     left: 0;
@@ -739,13 +744,45 @@
     right: 0;
   }
 
+  .page5 {
+    height: 75vh;
+  }
+
+  .page6 {
+    height: 125vh;
+  }
+
   .page7 {
     height: 200vh;
   }
 
   .page8 {
-    height: 375vh;
+    height: 300vh;
   }
+
+  .tokenChart {
+    top: 7.5vh;
+  }
+
+  .tokenTwo{
+    top: 80vh;
+
+  }
+
+  .tokenThree{
+    top: 87.5vh;
+
+  }
+
+  .tokenFour{
+    top: 95vh;
+
+  }
+
+  .tokenFive {
+    top: 102.5vh;
+  }
+
 
 }
 

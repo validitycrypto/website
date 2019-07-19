@@ -1,0 +1,270 @@
+@media only screen and (min-width: 2000px) and (min-height: 1000px) {
+
+  .sc-dnqmqq.kgEfEJ {
+    margin-top: 25%;
+    width: 25vw;
+  }
+
+  .sc-iwsKbI.lkyGMR {
+    font-size: 2em !important;
+  }
+
+  .landingLogo {
+    width: 65vw;
+  }
+
+  .landingBranding {
+    top: -30vh;
+    right: 15vw;
+  }
+
+  .landingTitle {
+    top: -45vh;
+    font-size: 4vw;
+  }
+
+
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    padding-bottom: 2.5vw;
+  }
+
+  .angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+    border-width: .25vw;
+    width: 2.75vw;
+  }
+
+  .landingButton{
+    border-width: .175vw;
+    border-radius: .375vw;
+    font-size: .975vw;
+    right: 1%;
+  }
+
+  .pageSelect {
+    margin-right: 32.5vw;
+    font-size: 1.375vw;
+  }
+
+  .eth {
+    width: 1.25vw;
+  }
+
+  .paperButton {
+    border-width: .375vw;
+    height: 10vh;
+  }
+
+  .paperText {
+    font-size: 3.375em;
+    margin-left: 2.75em;
+  }
+
+  .page1-body {
+    font-size: 1.575vw;
+  }
+
+  .validatingGraphic {
+    top: 10vh;
+  }
+
+  .world {
+    width: 35vw;
+    right: 20vw;
+    top: 35vh;
+  }
+
+  .lines1 {
+    top: 30vh;
+  }
+
+  .pageBody {
+    font-size: 1.575vw;
+  }
+
+  .stageOne{
+    position: absolute;
+    text-align: left;
+    top: 7.5vw;
+  }
+
+  .stageTwo {
+    position: absolute;
+    text-align: left;
+    top: 12.5vw;
+  }
+
+  .stageThree {
+    position: absolute;
+    text-align: left;
+    top: 17.5vw;
+  }
+
+
+  .stageFour {
+    position: absolute;
+    text-align: left;
+    top: 22.5vw;
+  }
+
+  .stageFive {
+    position: absolute;
+    text-align: left;
+    top: 27.5vw;
+  }
+
+  .stageIcon {
+    border-width: .3vw;
+  }
+
+  .daoGraphic {
+    top: 7.5vh;
+  }
+
+  .traitThree {
+    top: 35vh;
+  }
+
+  .traitFour {
+    top: 35vh;
+  }
+
+  .traitFive {
+    top: 60vh;
+  }
+
+  .traitSix {
+    top: 60vh;
+  }
+
+  .desktopProduct{
+    width: 40vw;
+    left: 25vw;
+  }
+
+  .tokenChart {
+    top: -7.5vh;
+    width: 50vw;
+    left: 20vw;
+  }
+
+  .resourceText {
+    font-size: 2vw;
+    top: 22.5vh;
+  }
+
+  .ui.card,
+  .ui.cards>.card {
+    width: 17.5vw;
+    font-size: 1.1vw;
+  }
+
+  .teamPhoto {
+    width: 17.5vw;
+  }
+
+  .socialLink {
+   font-size: 1vw;
+ }
+
+ .resourceOne {
+   position: absolute;
+   left: 20vw;
+ }
+
+ .resourceTwo {
+   position: absolute;
+   left: 67.5vw;
+ }
+
+ .resourceThree {
+   top: 40vh;
+   left: 42.5vw;
+ }
+
+ .cardOne {
+   top: -2.5vh;
+   left: 2.5vw;
+ }
+
+ .cardTwo {
+   top: -71.75vh;
+   left: 37.5vw;
+ }
+
+ .cardThree {
+   top: -141.75vh;
+   left: 70vw;
+ }
+
+ .pageFooter {
+   margin-top: 12.5vh;
+   width: 100vw;
+ }
+
+ .footerContact {
+   height: 15vh;
+ }
+
+ .circleRoadmap {
+   width: 7.5vw;
+ }
+
+ .lineOne {
+   border-top: 15px dotted #815aff;
+   width: 35vw;
+ }
+
+ .lineTwo {
+   border-top: 15px dotted #815aff;
+   width: 35vw;
+ }
+
+ .lineThree {
+   border-top: 15px dotted #815aff;
+   width: 67.5vw;
+   transform: rotate(-12.5deg);
+ }
+
+ .lineFour{
+   border-top: 15px dotted #815aff;
+   width: 35vw;
+ }
+
+ .lineFive{
+   border-top: 15px dotted #815aff;
+   width: 35vw;
+ }
+
+ .roadmapTwo {
+   left: 42.5vw;
+ }
+
+ .roadmapThree {
+   left: 77.5vw;
+ }
+
+ .roadmapFive {
+   left: 42.5vw;
+ }
+
+ .roadmapSix {
+   left: 77.5vw;
+ }
+
+ .teamOnboarding {
+   border-width: 20px;
+ }
+
+
+ .desiredTraits {
+   border-width: 20px;
+   right: -10vw;
+ }
+
+ .ethereumWrapper {
+   left: 2.5vw;
+ }
+
+
+
+}
