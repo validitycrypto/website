@@ -374,9 +374,12 @@ td {
 
 }
 
-
 @media only screen and (min-width: 2000px) and (min-height: 1000px) {
   .newsFooter {
     height: 25vh !important;
+  }
+
+  .newsHeader {
+    right: 23.75vw;
   }
 }
