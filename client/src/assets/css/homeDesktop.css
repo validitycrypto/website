@@ -7,6 +7,16 @@ a {
   color: yellow;
 }
 
+
+html {
+  font-family: apple-sf;
+}
+
+body {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
 .css-1s6vx3l-control {
   border-color: #bda8ff !important;
   border-width: .25vw !important;
@@ -47,13 +57,7 @@ a {
 
 /* Modal body */
 
-.sc-jzJRlG.cxjyBr{
-  -webkit-overflow-scrolling: touch !important;
-  -webkit-user-drag: element !important;
-  -ms-touch-action: auto !important;
-  touch-action: auto !important;
-  overflow-y: scroll !important;
-}
+
 
 .Button__StyledButton-sc-1o41kgk-0.eOYALB {
     color: white !important;
@@ -73,18 +77,15 @@ a {
   color: white;
 }
 
-.formBase {
+.sc-dnqmqq.kgEfEJ {
+}
+
+.formBody {
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow-y: auto;
   height: auto;
-  overflow-y: auto;
-}
-
-html {
-  font-family: apple-sf;
-}
-
-body {
-  overflow: hidden;
-  overflow-y: auto;
+  width: auto;
 }
 
 .pageFooter {
@@ -423,32 +424,25 @@ body {
   top: 7.5vh;
 }
 
-.formHead {
-  margin: 2.5vw;
-  font-size: 1.375vw;
-  margin-bottom: 3vw;
-
-}
-
 .formBody {
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
 }
 
 .formInput {
-  margin-bottom: 2vw;
+  margin-top: 3.75vh;
   color: white;
 }
 
 .formLabel {
   position: relative;
-  top: -12.5vh;
+  top: -13.75vh;
 }
 
 .formHighlight {
   font-weight: bold;
   font-style: italic;
-  padding-bottom: 1vw;
+  padding-bottom: 1.75vh;
 }
 
 .stageOne{

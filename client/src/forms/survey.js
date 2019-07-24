@@ -31,6 +31,11 @@ class Survey extends Component {
   }
 
   submitApplication = async() => {
+    var targetComponent = document.getElementsByName("email")[0];
+    targetComponent.style.border = "";
+    if(!this.state.surveyMetadata[this.state.email]){
+      targetComponent.style.border = "5px solid #FFAB00";
+    } else {
       var inputData = Object.entries(this.state.surveyMetadata);
       await this.state.firebaseDb.collection(inputData[0][0])
       .add(inputData[0][1]).then((docRef) => {
@@ -43,6 +48,7 @@ class Survey extends Component {
        action: 'Survey',
        label: 'Submit'
      });
+    }
   }
 
   refuseApplication = async() => {
@@ -54,19 +60,28 @@ class Survey extends Component {
     });
   }
 
+  scrollForm = (event) => {
+    var currentState = document.getElementsByClassName("formBody")[0].style.transform;
+    var newValue = parseInt(currentState.replace(/\D/g,''));
+    if(currentState === "") newValue = -1 * 100;
+    else if(newValue > 1750) newValue = 0;
+    else newValue = -1 * (newValue + 150);
+    document.getElementsByClassName("formBody")[0].style.transform = `translateY(${newValue}px)`;
+  }
+
   render() {
 
     if(this.props.triggerState){
       return(
-        <Modal actions = {[
+        <Modal stackIndex="1" appearance="warning" heading="Validity Fraudelent Survey" shouldCloseOnOverlayClick
+        actions={[
           { text: "Submit", onClick: this.submitApplication },
-          { text: "Refuse", onClick: this.props.triggerModal }
-        ]} appearance="warning" heading="Validity Fraudelent Survey">
-        <div className="formHead">
-          <p className="formHighlight">TO BE COMPLIANT FOR COMPENSATION, ONE MUST ANSWER ALL QUESTIONS.</p>
-          <p className="formHighlight">Earn some VLDY tokens or sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</p>
-        </div>
+          { text: "Refuse", onClick: this.props.triggerModal },
+          { text: "Scroll", onClick: this.scrollForm }
+        ]}>
         <div className="formBody">
+          <p className="formHighlight">TO BE COMPLIANT FOR COMPENSATION, ONE MUST ANSWER ALL QUESTIONS.</p>
+          <p className="formHighlight">Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</p>
         <div className="formInput">
             <FieldText onChange={this.embedKey} required label="What is your email?" shouldFitContainer="true" name="email"/>
               <div className="formLabel">
@@ -225,7 +240,7 @@ class Survey extends Component {
               </div>
             </div>
           )}
-        </div>
+          </div>
         </Modal>
       );
     }

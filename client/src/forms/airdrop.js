@@ -10,11 +10,20 @@ import ReactGA from "react-ga";
 import FieldText from "@atlaskit/field-text";
 import Modal from "@atlaskit/modal-dialog"
 
+const airdropParameters = [
+  'discord',
+  'telegram',
+  'facebook',
+  'twitter',
+  'wallet'
+];
+
 class Airdrop extends Component {
   constructor(props){
       super(props)
       this.state = {
-        airdropMetadata: {}
+        airdropMetadata: {},
+        errorLog: []
       }
  }
 
@@ -34,7 +43,22 @@ class Airdrop extends Component {
      this.state.airdropMetadata[this.state.email][_event.target.name] = _event.target.value
    }
 
+   scrollForm = (event) => {
+     var currentState = document.getElementsByClassName("formBody")[0].style.transform;
+     var newValue = parseInt(currentState.replace(/\D/g,''));
+     if(currentState === "") newValue = -1 * 100;
+     else if(newValue > 750) newValue = 0;
+     else newValue = -1 * (newValue + 75);
+     document.getElementsByClassName("formBody")[0].style.transform = `translateY(${newValue}px)`;
+   }
+
    submitApplication = async() => {
+     var targetComponent = document.getElementsByName("email")[0];
+     targetComponent.style.border = "";
+     await this.errorConditioning(false);
+     if(!this.state.airdropMetadata[this.state.email]){
+       targetComponent.style.border = "5px solid #FFAB00";
+     } else if(await this.validateSubmission()){
        var inputData = Object.entries(this.state.airdropMetadata);
        await this.state.firebaseDb.collection(inputData[0][0])
        .add(inputData[0][1]).then((docRef) => {
@@ -46,8 +70,27 @@ class Airdrop extends Component {
         category: 'Navigation',
         action: 'Airdrop',
         label: 'Submit'
+      })} else await this.errorConditioning(true)
+  }
+
+    errorConditioning = async(_bool) => {
+      var errorState = _bool ? "5px solid #FFAB00" : "";
+      await this.state.errorLog.forEach((_value) => {
+          var targetComponent = document.getElementsByName(_value)[0];
+          targetComponent.style.border = errorState;
       });
-   }
+    }
+
+   validateSubmission = async() => {
+    await this.setState({ errorLog: [] })
+    if(!this.state.airdropMetadata[this.state.email]) return false
+    await airdropParameters.forEach((_value) => {
+       if(!this.state.airdropMetadata[this.state.email][_value]){
+         this.state.errorLog.push(_value);
+       }
+    }); if(this.state.errorLog.length === 0) return true;
+    else return false;
+  }
 
   refuseApplication = async() => {
      await this.props.triggerModal();
@@ -61,17 +104,16 @@ class Airdrop extends Component {
   render() {
     if(this.props.triggerState){
       return(
-          <Modal className="modalForm" heading="VLDY Airdrop Application" appearance="warning" scrollBehaviour="outside"
+          <Modal stackIndex="1" heading="VLDY Airdrop Application" appearance="warning" shouldCloseOnOverlayClick
             actions = {[
               { text: "Submit", onClick: this.submitApplication },
-              { text: "Refuse", onClick: this.refuseApplication }
+              { text: "Refuse", onClick: this.refuseApplication },
+              { text: "Scroll", onClick: this.scrollForm }
             ]}>
-              <div className="formHead">
+            <div className="formBody">
                 <p className="formHighlight">AIRDROP TIER: 1; AIRDROP ROUND: 3</p>
                 <p className="formHighlight">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>
                 <p className="formHighlight">ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</p>
-              </div>
-              <div className="formBody">
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="E-Mail" required onChange={this.embedKey} name="email"/>
                   <div className="formLabel">
@@ -99,7 +141,7 @@ class Airdrop extends Component {
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Facebook Username" required onChange={this.embedState} name="facebook"/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faFacebook} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked Validity's <a href="https://www.facebook.com/ValidityCrypto/">Facebook</a>
+                    <FontAwesomeIcon icon={faFacebook} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked Validity's <a href="https://www.facebook.com/ValidityCrypto/">Facebook</a>
                   </div>
                 </div>
                 <div className="formInput">
@@ -108,7 +150,7 @@ class Airdrop extends Component {
                     <FontAwesomeIcon  icon={faWallet} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Ethereum <a href="https://www.myetherwallet.com">wallet</a> address for the recieving the airdrop allocation
                   </div>
               </div>
-            </div>
+              </div>
          </Modal>
       )
     } else if(this.props.submitState){

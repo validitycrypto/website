@@ -27,6 +27,16 @@
   /* General config */
 
 @media only screen and (max-width: 600px){
+  .formHighlight {
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 2.5vh;
+  }
+
+
+  .formLabel {
+    top: -12.5vh;
+  }
 
   .pageFooter {
     padding: 5vw;
