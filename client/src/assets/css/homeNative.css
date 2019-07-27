@@ -27,6 +27,13 @@
   /* General config */
 
 @media only screen and (max-width: 600px){
+
+
+  .ui.card {
+    margin-left: 0;
+  }
+
+
   .formHighlight {
     font-weight: bold;
     font-style: italic;
@@ -458,21 +465,21 @@
 
   .cardOne {
     top: 7.5vh;
-    left: 5vw;
+    left: 3.75vw;
     right: 0;
 
   }
 
   .cardTwo {
     top: 15vh;
-    left: 5vw;
+    left: 3.75vw;
     right: 0;
 
   }
 
   .cardThree {
     top: 22.5vh;
-    left: 5vw;
+    left: 3.75vw;
     right: 0;
 
   }

@@ -34,11 +34,11 @@ class PageEight extends Component {
                   position: "Founder",
                   nationality: "Ireland 🇮🇪",
                   bio: "test",
-                  twitter: "a",
-                  telegram: "a",
-                  linkedin: "a",
-                  discord: "a",
-                  github: false
+                  twitter: "https://twitter.com/xgozzy",
+                  telegram: "https://t.me/xgozzy",
+                  linkedin: "https://www.linkedin.com/in/samuel-jj-gosling/",
+                  discord: "https://discordapp.com/users/359835946491052037/",
+                  github: "https://github.com/samgos"
                 }}/>
                 <TeamCard data={{
                   class: "cardTwo",

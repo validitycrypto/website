@@ -44,20 +44,10 @@ body {
 
 /*  Modal */
 
-.sc-dnqmqq.kgEfEJ {
+.sc-dnqmqq.kgEfEJ, .sc-gzVnrw.dXVoWw {
   background-color: #906eff !important;
+  color: white;
 }
-
-
-/* Modal header */
-
-.sc-gqjmRU.cDaWMe.sc-gZMcBi.dApiWN  {
-  display: block;
-}
-
-/* Modal body */
-
-
 
 .Button__StyledButton-sc-1o41kgk-0.eOYALB {
     color: white !important;
@@ -102,6 +92,12 @@ body {
   color: white;
   width: 20vw;
 }
+
+
+.ui.card {
+  margin-left: 7.5%;
+}
+
 
 @keyframes pulse {
   0% { opacity: 1; }
@@ -151,10 +147,11 @@ body {
 
 .paperButton {
   position: absolute;
-  height: 7.5vh;
-  width: 100%;
-  border: solid;
-  border-color: #bda8ff;
+  height: 7.5vh !important;
+  width: 100% !important;
+  border: solid !important;
+  border-color: #bda8ff !important;
+  display: block;
   text-align: center;
   position: relative;
   color: white;
@@ -163,7 +160,7 @@ body {
 
 .paperText {
   color: white;
-  margin-left: 2.75em;
+  margin-left: 3.25em;
   font-size: 1.125em;
 }
 
@@ -177,10 +174,12 @@ body {
 }
 
 .landingPage {
-  position: relative;
+  position: absolute;
   width: 100vw;
-  top: -100vh;
+  top: -125vh;
   z-index: -100;
+  clear: both;
+  display: block;
 }
 
 .pageSelect {
@@ -240,9 +239,12 @@ body {
 .landingBranding {
   position: absolute;
   margin: 0 auto;
+  display: block;
+  clear: both;
+  height: 100%;
   z-index: -25;
-  top: -22.5vh;
   right: 12.5vw;
+  top: 50%;
 }
 
 .landingLogo {
@@ -418,7 +420,8 @@ body {
 
 .teamBody {
   position: relative;
-  font-size: 1.25vw;
+  display: inline-block;
+  width: 80vw;
   left: 5vw;
   width: 80vw;
   top: 7.5vh;
@@ -813,23 +816,18 @@ body {
 }
 
 .cardOne {
-  position: absolute;
-  display: block;
-  left: 5vw;
+  float: left;
+  width: 33.33%;
 }
 
 .cardTwo {
-  position: absolute;
-  display: block;
-  left: 35vw;
-  top: -65vh;
+  float: left;
+  width: 33.33%;
 }
 
 .cardThree {
-  position: absolute;
-  display: block;
-  left: 65vw;
-  top: -130vh;
+  float: left;
+  width: 33.33%;
 }
 
 .ethereumLogo {
@@ -914,6 +912,10 @@ body {
 
 @media only screen and (min-width: 1000px) and (min-height: 750px) {
 
+  .landingPage {
+    top: -100vh;
+  }
+
   .landingBranding {
     top: -12.5vh;
   }
@@ -944,19 +946,6 @@ body {
     width: 22.5vw;
   }
 
-  .cardOne {
-    left: 2.5vw;
-  }
-
-  .cardTwo {
-    top: -60vh;
-    left: 32.5vw;
-  }
-
-  .cardThree {
-    top: -120vh;
-    left: 62.5vw;
-  }
 
   .teamPhoto {
     width: 22.5vw;
@@ -980,24 +969,30 @@ body {
 
 @media only screen and (min-width: 750px) and (max-height: 600px) {
 
-  .landingBranding{
-    top: -31.75vh;
+  .landingPage {
+    top: -112.5vh;
   }
 
   .landingTitle {
-    top: -47.5vh;
+    top: -32.5vh;
   }
 
-  .cardOne {
-    top: 0;
+  .lines1 {
+    top: 27.5vh;
   }
 
-  .cardTwo {
-    top: -74vh;
+
+}
+
+
+@media only screen and (min-width: 500px) and (max-height: 500px) {
+
+  .landingPage {
+    top: -112.5vh;
   }
 
-  .cardThree {
-    top: -148.25vh;
+  .landingTitle {
+    top: -37.5vh;
   }
 
   .lines1 {

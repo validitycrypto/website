@@ -14,7 +14,7 @@ class Landing extends Component {
     return(
       <div className="landingPage">
         <Page>
-          <Grid layout="compact">
+          <Grid layout="fluid">
             <GridColumn>
               <div className="landingBranding">
                 <img alt="landingLogo" className="landingLogo" src={vldy}/>

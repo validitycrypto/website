@@ -10,13 +10,20 @@ class Survey extends Component {
   constructor(props){
       super(props)
       this.state = {
-        surveyMetadata: {}
+        surveyMetadata: {},
+        formActions: [
+          { text: "Submit", onClick: this.submitApplication },
+          { text: "Refuse", onClick: this.props.triggerModal },
+        ]
       }
   }
 
   componentWillMount = async() => {
     const firebaseDb = firebase.initializeApp(firebaseConfiguration("survey"), "Survey")
     this.setState({ firebaseDb: firebaseDb.firestore() });
+    if(window.screen.width < 800){
+      await this.state.formActions.push({ text: "Scroll", onClick: this.scrollForm });
+    }
   }
 
   embedKey = (_event) => {
@@ -32,9 +39,11 @@ class Survey extends Component {
 
   submitApplication = async() => {
     var targetComponent = document.getElementsByName("email")[0];
+    targetComponent.style.background = "";
     targetComponent.style.border = "";
     if(!this.state.surveyMetadata[this.state.email]){
-      targetComponent.style.border = "5px solid #FFAB00";
+      targetComponent.style.background = "rgba(255, 171, 0, 0.5)";
+      targetComponent.style.border = "5px solid rgba(255, 171, 0, 0.25)";
     } else {
       var inputData = Object.entries(this.state.surveyMetadata);
       await this.state.firebaseDb.collection(inputData[0][0])
@@ -74,11 +83,7 @@ class Survey extends Component {
     if(this.props.triggerState){
       return(
         <Modal stackIndex="1" appearance="warning" heading="Validity Fraudelent Survey" shouldCloseOnOverlayClick
-        actions={[
-          { text: "Submit", onClick: this.submitApplication },
-          { text: "Refuse", onClick: this.props.triggerModal },
-          { text: "Scroll", onClick: this.scrollForm }
-        ]}>
+        actions={this.state.formActions}>
         <div className="formBody">
           <p className="formHighlight">TO BE COMPLIANT FOR COMPENSATION, ONE MUST ANSWER ALL QUESTIONS.</p>
           <p className="formHighlight">Earn some VLDY tokens for sharing some general statisistics about any amoral activities you have expierenced, to help us create a greater picture of the widespread problem at hand.</p>

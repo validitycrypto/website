@@ -5,12 +5,12 @@ ul {
 
 .newsFooter {
   position: absolute;
+  height: 17.5vh !important;
   z-index: 9999999999;
   margin-top: 12.5vh;
   width: 100vw;
   top: 1500%;
   bottom: 0;
-  height: auto;
   left: 0;
   right: 5vw;
 

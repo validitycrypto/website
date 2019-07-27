@@ -1,11 +1,19 @@
 @media only screen and (min-width: 2000px) and (min-height: 1000px) {
 
-  .sc-dnqmqq.kgEfEJ {
+  .Label__LabelInner-sc-17towfw-1.dKDRgr {
+    font-size: .75em !important;
+  }
+
+  .ui.card {
+    margin-left: 10%;
+  }
+
+  .sc-dnqmqq.kgEfEJ,  .sc-gzVnrw.dXVoWw {
     margin-top: 25%;
     width: 25vw;
   }
 
-  .sc-iwsKbI.lkyGMR {
+  .sc-iwsKbI.lkyGMRm, .sc-gzVnrw.dXVoWw  {
     font-size: 2em !important;
   }
 
@@ -14,12 +22,12 @@
   }
 
   .landingBranding {
-    top: -30vh;
+    top: -27.5vh;
     right: 15vw;
   }
 
   .landingTitle {
-    top: -45vh;
+    top: -40vh;
     font-size: 4vw;
   }
 
@@ -50,12 +58,12 @@
   }
 
   .paperButton {
-    border-width: .375vw;
+    border-width: .25vw !important;
     height: 10vh;
   }
 
   .paperText {
-    font-size: 3.375em;
+    font-size: 3em;
     margin-left: 2.75em;
   }
 
@@ -181,20 +189,9 @@
    left: 42.5vw;
  }
 
- .cardOne {
-   top: -2.5vh;
-   left: 2.5vw;
- }
-
- .cardTwo {
-   top: -71.75vh;
-   left: 37.5vw;
- }
-
- .cardThree {
-   top: -141.75vh;
-   left: 70vw;
- }
+ .formLabel {
+   top: -11vh;
+  }
 
  .pageFooter {
    margin-top: 12.5vh;

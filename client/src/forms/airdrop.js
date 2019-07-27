@@ -23,6 +23,10 @@ class Airdrop extends Component {
       super(props)
       this.state = {
         airdropMetadata: {},
+        formActions: [
+          { text: "Submit", onClick: this.submitApplication },
+          { text: "Refuse", onClick: this.refuseApplication },
+        ],
         errorLog: []
       }
  }
@@ -30,6 +34,9 @@ class Airdrop extends Component {
  componentWillMount = async() => {
    const firebaseDb = await firebase.initializeApp(firebaseConfiguration("airdrop"), "Airdrop");
    this.setState({ firebaseDb: firebaseDb.firestore() });
+   if(window.screen.width < 800){
+     await this.state.formActions.push({ text: "Scroll", onClick: this.scrollForm });
+   }
  }
 
   embedKey = (_event) => {
@@ -54,10 +61,12 @@ class Airdrop extends Component {
 
    submitApplication = async() => {
      var targetComponent = document.getElementsByName("email")[0];
+     targetComponent.style.background = "";
      targetComponent.style.border = "";
-     await this.errorConditioning(false);
+    await this.errorConditioning(false);
      if(!this.state.airdropMetadata[this.state.email]){
-       targetComponent.style.border = "5px solid #FFAB00";
+       targetComponent.style.background = "rgba(255, 171, 0, 0.5)";
+       targetComponent.style.border = "5px solid rgba(255, 171, 0, 0.25)";
      } else if(await this.validateSubmission()){
        var inputData = Object.entries(this.state.airdropMetadata);
        await this.state.firebaseDb.collection(inputData[0][0])
@@ -74,10 +83,12 @@ class Airdrop extends Component {
   }
 
     errorConditioning = async(_bool) => {
-      var errorState = _bool ? "5px solid #FFAB00" : "";
+      var backgroundState = _bool ? "rgba(255, 171, 0, 0.5)" : "";
+      var borderState = _bool ? "5px solid rgba(255, 171, 0, 0.25)" : "";
       await this.state.errorLog.forEach((_value) => {
           var targetComponent = document.getElementsByName(_value)[0];
-          targetComponent.style.border = errorState;
+          targetComponent.style.background = backgroundState;
+          targetComponent.style.border = borderState;
       });
     }
 
@@ -105,11 +116,7 @@ class Airdrop extends Component {
     if(this.props.triggerState){
       return(
           <Modal stackIndex="1" heading="VLDY Airdrop Application" appearance="warning" shouldCloseOnOverlayClick
-            actions = {[
-              { text: "Submit", onClick: this.submitApplication },
-              { text: "Refuse", onClick: this.refuseApplication },
-              { text: "Scroll", onClick: this.scrollForm }
-            ]}>
+            actions = {this.state.formActions}>
             <div className="formBody">
                 <p className="formHighlight">AIRDROP TIER: 1; AIRDROP ROUND: 3</p>
                 <p className="formHighlight">DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION.</p>

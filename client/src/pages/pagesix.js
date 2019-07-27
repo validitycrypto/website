@@ -27,7 +27,7 @@ class PageSix extends Component {
       }
    }
 
-   mobileOptimisation = async() => {
+   componentDidMount = async() => {
      if((window.screen.height === 1024 && window.screen.width === 768)
         || (window.screen.height === 1366 && window.screen.width === 1024)
         || (window.screen.width < 600 )){
@@ -45,6 +45,7 @@ class PageSix extends Component {
            segmentsStyle={{ transition: "stroke .3s" }}
            onMouseOver={this.onMouseOver}
            onMouseOut={this.onMouseOut}
+           onClick={this.onMouseOver}
            data={this.state.data}
            paddingAngle={5}
            lineWidth={25}
@@ -123,16 +124,6 @@ class PageSix extends Component {
                   <i>Ticker: <b>VLDY</b></i>
                   &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faShareAlt} color="#815aff" size="lg"/>
                 </p>
-              </div>
-              <div className="tokenData">
-              <p className="pagePoint"><i><FontAwesomeIcon icon={faChartArea} color="#815aff" size="lg"/>
-              &nbsp;&nbsp;&nbsp;Transactional volume (Weekly): <b>{this.props.weeklyVolume} VLDY</b></i></p>
-              <p className="pagePoint"><i><FontAwesomeIcon icon={faChartLine} color="#815aff" size="lg"/>
-              &nbsp;&nbsp;&nbsp;Transactional velocity (Weekly): <b>{this.props.tokenVelocity}</b></i></p>
-              <p className="pagePoint"><i><FontAwesomeIcon icon={faBalanceScale} color="#815aff" size="lg"/>
-              &nbsp;&nbsp;&nbsp;Total transactions (All-time): <b>{this.props.totalTransactions}</b></i></p>
-              <p className="pagePoint"><i><FontAwesomeIcon icon={faCalendar} color="#815aff" size="lg"/>
-             &nbsp;&nbsp;&nbsp; Volume Index: <b>{this.props.weeklyIndex}</b></i></p>
               </div>
             </GridColumn>
           </Grid>
