@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Page, { Grid, GridColumn } from "@atlaskit/page"
 
-import { faBook, faMugHot, faCrosshairs } from "@fortawesome/free-solid-svg-icons"
-import { faDiscord } from "@fortawesome/free-brands-svg-icons"
+import { faBookOpen, faMugHot, faCrosshairs, faRobot } from "@fortawesome/free-solid-svg-icons"
 
 class PageSeven extends Component {
   constructor(props){
@@ -21,7 +20,7 @@ class PageSeven extends Component {
           <GridColumn>
             <div className="pageBody">
               <div className="h5">
-                <FontAwesomeIcon icon={faBook} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Resources
+                <FontAwesomeIcon icon={faBookOpen} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Resources
               </div>
               <a className="resourceOne" href="https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133">
                 <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color="#815aff" size="sm"/></div>
@@ -36,9 +35,9 @@ class PageSeven extends Component {
                 </div>
               </a>
               <a className="resourceThree" href="https://github.com/validitycrypto/validity-hybrid-tipbot">
-                <div className="resourceIcon"><FontAwesomeIcon icon={faDiscord} color="#815aff" size="sm"/></div>
+                <div className="resourceIcon"><FontAwesomeIcon icon={faRobot} color="#815aff" size="sm"/></div>
                 <div className="resourceText" href="">
-                  Validity tipbot Readme
+                  Validity tipbot
                 </div>
               </a>
             </div>

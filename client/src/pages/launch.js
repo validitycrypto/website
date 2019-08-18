@@ -27,64 +27,57 @@ class Launch extends Component {
      </div>
      <img className="ethBranding" src={ethStreet}/>
      <p class="newsAuthor">
-     Saturday 5th of July 2019
+     Wednesday 14th of July 2019
      </p>
      <div className="newsIntro">
-     <p>First of all, thank you all for waiting patiently over the past year, I couldn't of asked for a more viable
-     and supportive community, I hope this see this continue and blossom even further in the upcoming months.
-     As from now, Validity official announcements will only be pushed here due to the fact that major article
-     sites like Medium have now turned to a subscriptional model for certain articles. We believe it is the
-     best course of action to allow full accesibility to the latest news and endevours within the Validity
-     eco-system for anyone who wishes with no finnancial constrainsts attached.</p>
+     <p>First of all, thank you all for waiting patiently over the past year, we couldn't have asked for a more viable
+     and supportive community, we hope this see this continue and blossom even further in the upcoming months.
+     As from now, Validity official announcements will only be pushed here because major article sites like Medium have now turned to a subscription model for certain articles. We believe it is the
+     best course of action to allow full accessibility to the latest news and endeavours within the Validity
+     eco-system for anyone who wishes with no financial constraints attached.</p>
      <br></br>
-     <p>So as of today, I am sad to say that Validity is no longer a resdient of the Ethergem network. VLDY tokens
-     distributed on this blockchain are no longer valid and are technically outdated. Validity is porting to
-     the Ethereum network for a countless number of reasons but the ultimate fact of the matter was the onboarding
-     process to incubating projects to build on EGEM was not sufficient enough. As this being a community-driven
-     and open source initiative, it is crucial that every situation is leveraged to it's maximum potential.
+     <p>So as of today, we are sad to say that Validity is no longer a resident of the Ethergem network. VLDY tokens distributed on this network are no longer valid and are technically outdated. Validity is porting to the Ethereum network for a countless number of reasons but the ultimate fact of the matter was the onboarding process to incubating projects to build on EGEM was not sufficient enough. As this being a community-driven
+     and open-source initiative, it is crucial that every situation is leveraged to its maximum potential.
      Regardless of what opinions and feelings that have been exerted because of this progression, we would like to
      take the time to thank the EGEM community and team for all they have done and wish them the best of luck
      for the future to come. That said, there is <b>zero affliation</b> between Validity and Ethergem as of today. To
-     re-enforce this statement. I am sad to say that our Stratigist Halmat, has taken it under his own authority to
-     step back from the Validity core team, in order to incentivize our non-bias ideology within our workforce with
+     re-enforce this statement. We are sad to say that our Strategist Halmat, has taken it under his own authority to
+     step back from the Validity core team, to incentivize our non-bias ideology within our workforce with
      external assets. We wish the best with his future with Ethergem. </p>
      <div className="newsBase">
-     <p> Onto the more impeading matters at had; our porting to Ethereum, the depiction of our future product, plans for
+     <p> Onto the more impeding matters at had; our porting to Ethereum, the depiction of our future product, plans for
      exchange listings, aspirations for funding opportunities, airdrop allocation reformation, community alignment and
      finally team onboarding.</p>
      <p className="newsSubject">Ethereum</p>
-     <p>I am happy to say that we are officially launched on Ethereum, a true where medium where Validity can leverage
-     the techological support of Solidity at the ground level and create an easily onborded incentive to developers
-     willing to help the cause. The ERC20d token contract has been reformed under certain a number of different elements:
+     <p>We are happy to say that we are officially launched on Ethereum, a true where medium where Validity can leverage
+     the technological support of Solidity at the ground level and create an easy incentive to developers
+     willing to help the cause. The ERC20d token contract has been reformed under certain some different elements:
      </p>
      <ul>
-     <li>ValidityID's have been completed reformatted to the bytes32 codex, each id is a form of soverity of the subjects
-          address and block.number conformed at the time of the genesis tranasction for that said subject.
+     <li>
+        ValidityID's have been completed reformatted to the bytes32 codex, each id is a form of sovereignty of the subjects
+        address and block.number confirmed at the time of the genesis transaction for that said subject.
       </li>
-     <li>Transactional volume implementation for users to leverage a verfiyable and pure source of asset actvity and
-        compute metrics like weekly transactional average amounts and token velocity. In turn this can be utilised to
-        validate any attempts of fake volume some exchanges may try to enhibit.
-     </li>
-     <li>Security audits executed in custom Mocha tests, Manitcore API and finally Mythril security analysis. A number
-         different attack vectors have been curated in order to ensure the least probability of faliure with the
+     <li>
+         Security audits executed in custom Mocha tests, Solium, and finally Mythril. A number
+         different attack vectors have been curated to ensure the least probability of failure with the
          contract.
       </li>
     </ul>
-  <p> With this new progression towards a potential medium of the adoption and incubation of Validity infastructure, we
-      have found more realistic short-term goals that incentize the finnancialess state of initiative and user accesibility
-      of the VLDY token and web3 application. We are now correlating our time to secure a number of different portals
+  <p> With this new progression towards a potential medium of the adoption and incubation of Validity infrastructure, we
+      have found more realistic short-term goals that incentivize the financial-less state of the initiative but also the user accessibility of the VLDY token and web3 application. We are now correlating our time to secure many different portals
       for access to cryptocurrency markets but ensuring that the exchanges have higher security but ultimately credibility.
       So below are three exchanges that we are going to make our initial priority to integrate the official
       Validity token for trading.</p>
       <ul>
       <li>
-        Kyber - A on-chain decentralised exchange and liqudity aggreator
+        <a href="https://kyber.network/" target="_blank"> Kyber </a> - A on-chain decentralised exchange and liqudity aggreator
        </li>
       <li>
-        Uniswap - A decentralised liquidity aggreator
+        <a href="https://uniswap.exchange/" target="_blank"> Uniswap </a> - A decentralised liquidity aggreator
       </li>
        <li>
-         IDEX - A hybrid decentralised exchange
+         <a href="https://idex.market/" target="_blank"> IDEX </a>- A hybrid decentralised exchange
         </li>
       </ul>
       <p>With the following accomplished we shall move onto target more credible market possibilities and portals of liquidity
@@ -95,7 +88,7 @@ class Launch extends Component {
       with myetherwallet for storage and metamask for transactional operatives.</p>
       <ul>
       <li>
-        <i>Address:</i> 0x..454fs
+        <i>Address:</i> <a href="https://etherscan.io/token/0x904da022abcf44eba68d4255914141298a7f7307" target="_blank"> 0x904da022abcf44eba68d4255914141298a7f7307 </a>
        </li>
       <li>
       <i>Decimals:</i> 18
@@ -105,7 +98,7 @@ class Launch extends Component {
         </li>
       </ul>
       <p className="newsSubject">Airdrops</p>
-      <p> Given that the previous structure for the token alloction was flawed I made it my initiatve to fix the aspects for
+      <p> Given that the previous structure for the token alloction was flawed we made it my initiatve to fix the aspects for
       a uniform distribution, the structure for incentivising users based on early entitlement was not wrong but was approached
       in a convoluted manner. Users should not get the ability to claim more just becuase they were around at a certain period of
       time, this does not incentivise then long term interacivity of token holders. Better to create a tiered system where rewards
@@ -166,45 +159,35 @@ class Launch extends Component {
           <Table.Row>
             <Table.Cell>1</Table.Cell>
             <Table.Cell>1</Table.Cell>
-            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;356</Table.Cell>
-            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5,300,000</Table.Cell>
+            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;375</Table.Cell>
+            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5,060,000</Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
             <Table.Cell>2</Table.Cell>
-            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;569</Table.Cell>
-            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3,500,000</Table.Cell>
+            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600</Table.Cell>
+            <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3,162,500</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
       <br></br><br></br>
       <p className="newsSubject">Funding</p>
-      <p>Although the project may not need external funding, it would be benefactory if it was applied, as it could be a catalyst
-      to the evolution of our final product and forming a legal stance in establishing a company alongisde the platform for a number of
-      different potential services and developments. Hiring external specialities to incubate the product and project alongside a number
-      of marketing movements would help wide spread awareness of the initiatve. Validity is open to reason with any private equity firms
-      given a certain state of parameters but for now the main orientation is to look for more mirco angel investments, like for example
-      grants. As seen on our new roadmap we will be aiming to create a grant on the gitcoin platform, users are free to donate at their
-      own free will to support the project. It is important to note that this is not a portal to invest. More details to be evolved in the
-      coming months of the state of this progresion. </p>
+      <p>Although the project may not need external funding, it would be a benefactor if it was achieved, as it could be a catalyst to the evolution of our final product and forming a legal stance in establishing a company alongside the platform for many
+      different potential services and developments. Hiring external specialities to incubate the product and project alongside a number of marketing movements would help widespread awareness of the initiative. Validity is open to reason with any private equity firms given a certain state of parameters but for now, the main orientation is to look for moreso angel investments, like for example grants. As seen on our new roadmap we will be aiming to create a grant on the gitcoin platform, users are free to donate at their own free will to support the project. It is important to note that this is not a portal to invest. More details to be evolved in the coming months of the state of this progression. </p>
       <p className="newsSubject">Team onboarding</p>
-      <p>In order to spread awarness about the many positions available for enrolement within the Validity core team, we have listed
-      Validity as a company on AngelList, we have added a number of different positions that go-indepth to some of the requirements of
-      each role. You can either enquire via the platform or reach us out personally at <b> team@validity.ae</b>  </p>
+      <p>In order to spread awareness about the many positions available for enrolment within the Validity core team, we have listed
+      Validity as a company on AngelList, we will be adding several different positions that will go-in-depth to some of the requirements of each role. You can either enquire via the platform when published or reach us out personally at <b> team@vldy.org</b>  </p>
       <p className="newsSubject">Community alignment</p>
-      <p>We've noticed alot of bots entering our discord community in particular, so we are going to orchestrate an initiatve to
-      implement human verfication for new arrivals within both our discord and telegram groups. The Validity tipbot has successfully been
-      ported Ethereum alongside our launch, users who won allocation of tokens as apart of our Discord giveaways can contact a member of
-      the team to redeem the swapped tokens. Below are some new implementations to the tipbot across both platforms: </p>
+      <p>We've noticed a lot of bots entering our discord community in particular, so we are going to orchestrate an initiative to implement human verification for new arrivals within both our discord and telegram groups. The Validity tipbot has successfully been ported Ethereum alongside our launch, users who won allocation of tokens as apart of our Discord giveaways can contact a member of the team to redeem the swapped tokens. Below are some new implementations to the tipbot across both platforms: </p>
       <ul>
       <li>
-        Weekly VLDY transactional volume command
-       </li>
-      <li>
-        Weekly VLDY token velocity command
+        MVP validation information command
       </li>
       <li>
-        Current MVP validation information command
+       Fee implementation
+      </li>
+      <li>
+       Custom approvals
       </li>
       </ul>
       <p> Onwards! </p>

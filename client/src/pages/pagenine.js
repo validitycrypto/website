@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { faCoffee, faCodeBranch, faFileMedicalAlt, faStarHalfAlt, faRocket, faStar } from "@fortawesome/free-solid-svg-icons"
+import { faCoffee, faCodeBranch, faFileMedicalAlt, faStarHalfAlt, faRocket, faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Page, { Grid, GridColumn } from "@atlaskit/page"
 import SectionMessage from "@atlaskit/section-message"
@@ -25,7 +25,7 @@ class PageNine extends Component {
               <GridColumn>
                 <div className="pageBody">
                   <div className="h5">
-                    <FontAwesomeIcon icon={faStar} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Roadmap
+                    <FontAwesomeIcon icon={faMapMarkedAlt} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Roadmap
                   </div>
                   <div className="roadmapOne"
                     onMouseOver={() => this.setState({ stageModal: 1})}
@@ -78,7 +78,7 @@ class PageNine extends Component {
                   {((this.state.stageModal === 4) || (window.screen.width < 600) || (window.screen.height === 1024 && window.screen.width === 768) || (window.screen.height === 1366 && window.screen.width === 1024 )) && (
                     <div className="modalFour">
                       <SectionMessage appearance="error">
-                        Find talent and partnerships
+                        Find talent & partnerships
                       </SectionMessage>
                     </div>
                   )}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { faLayerGroup, faTimes, faCheck } from "@fortawesome/free-solid-svg-icons"
+import { faSeedling, faTimes, faCheck } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Page, { Grid, GridColumn } from "@atlaskit/page"
 
@@ -24,12 +24,12 @@ class PageOne extends Component {
            <GridColumn>
            <div className="page1-body">
              <div className="h1">
-               <FontAwesomeIcon icon={faLayerGroup} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;What is Validity?
+               <FontAwesomeIcon icon={faSeedling} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;What is Validity?
              </div>
-             <p className="pagePoint">Cryptocurriencies are blockchain technology have been depicted in many different frames of light, with this, there is a huge lack of underlying acknowledgement of the technology within. </p>
-             <p className="pagePoint">The general sentiment of the capabilities of profit-making in this field distort the true integrity of these permissionless currencies and projects but more importantly the peoples aim behind them. </p>
-             <p className="pagePoint">In 2017, 81% of all ICO"s resulted in unfavourable situations for investors, some of which were caused by hacks and others were scams. </p>
-             <p className="pagePoint">Validity is a communally verifiable platform for investors to contribute their general perspectives regarding currencies, tokens and projects alike.  </p>
+             <p className="pagePoint">Validity is a self-governing cryptocurrency evaluation platform, to filter out the bad and outshine the good. Achieved by utilising on-chain governance, through peer review and voting. </p>
+             <p className="pagePoint">With a general lack of technical understanding of blockchain amongst users, alongside an unregulated landscape, paves a way for illicit activity to thrive. </p>
+             <p className="pagePoint">In 2017, 81% of all <b>Initial Coin Offerings (ICO)</b> resulted in unfavourable situations, either via scams or hacks. There is no current viable reference point for investors.</p>
+             <p className="pagePoint">Imagine a platform where one can verify the integrity of an investment decision but also share their perspectives and be rewarded for it. A portfolio tracker with quantified ratings and governed data allowing one to make safer investments. </p>
            </div>
            </GridColumn>
            <GridColumn>

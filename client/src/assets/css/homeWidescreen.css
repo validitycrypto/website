@@ -1,3 +1,136 @@
+@media only screen and (device-height: 1080px) and (device-width: 1920px) {
+
+
+  .sc-hSdWYo.jAdKfy {
+    padding: 42px;
+  }
+
+  .sc-hSdWYo.kROLMK {
+    padding: 42px;
+  }
+
+  .teamOnboarding {
+    border-width: 1.5vw;
+  }
+
+  .desiredTraits {
+    border-width: 1.5vw;
+  }
+
+    .sc-iwsKbI.lkyGMR  {
+      font-size: 1.5em;
+    }
+
+    .accordionComponent {
+      font-size: .875em !important;
+    }
+
+    .Label__LabelInner-sc-17towfw-1.dKDRgr {
+      font-size: 1em;
+    }
+
+  .angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+    border-width: .15vw;
+    width: 2.25vw;
+    border-radius: 65%;
+  }
+
+  .landingButton{
+    border-radius: .25vw;
+    right: 1.25%;
+  }
+
+  .landingPage {
+    top: -115vh;
+  }
+
+  .landingTitle {
+    top: -40vh;
+  }
+
+  .eth {
+    width: 2.25vw;
+  }
+
+  .paperText {
+    margin-left: 5em;
+    font-size: 1.5em;
+  }
+
+  .lines1 {
+    top: 25vh;
+  }
+
+  .desktopProduct{
+    width: 55vw;
+  }
+
+  .circleRoadmap {
+    width: 7.5vw;
+  }
+
+  .lineOne {
+    border-top: 15px dotted #815aff;
+    width: 35vw;
+  }
+
+  .lineTwo {
+    border-top: 15px dotted #815aff;
+    width: 35vw;
+  }
+
+  .lineThree {
+    border-top: 15px dotted #815aff;
+    width: 67.5vw;
+    transform: rotate(-12.5deg);
+  }
+
+  .lineFour{
+    border-top: 15px dotted #815aff;
+    width: 35vw;
+  }
+
+  .lineFive{
+    border-top: 15px dotted #815aff;
+    width: 35vw;
+  }
+
+  .roadmapTwo {
+    left: 42.5vw;
+  }
+
+  .roadmapThree {
+    left: 77.5vw;
+  }
+
+  .roadmapFive {
+    left: 42.5vw;
+  }
+
+  .roadmapSix {
+    left: 77.5vw;
+  }
+
+   .pageFooter {
+     margin-top: 12.5vh;
+     width: 100vw;
+   }
+
+   .formLabel {
+     top: -11vh;
+   }
+
+}
+
+@media only screen and (min-width: 1100px) and (width: 1920px) {
+
+  .landingPage {
+    top: -110vh;
+  }
+
+}
+
+
 @media only screen and (min-width: 2000px) and (min-height: 1000px) {
 
   .Label__LabelInner-sc-17towfw-1.dKDRgr {
@@ -54,12 +187,22 @@
   }
 
   .eth {
-    width: 1.25vw;
+    width: 2.25vw;
   }
 
   .paperButton {
     border-width: .25vw !important;
-    height: 10vh;
+    height: 10vh !important;
+  }
+
+  .paperButtonStart {
+    border-width: .25vw !important;
+    height: 10vh !important;
+  }
+
+  .paperButtonEnd {
+    border-width: .25vw !important;
+    height: 10vh !important;
   }
 
   .paperText {

@@ -1,6 +1,5 @@
 /* General Conifg */
 
-
   .socialModal {
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 10000;
@@ -28,11 +27,42 @@
 
 @media only screen and (max-width: 600px){
 
+  .sc-hSdWYo.jAdKfy {
+    padding: 20px;
+  }
+
+  .sc-hSdWYo.kROLMK {
+    padding: 20px;
+  }
+
+  .teamOnboarding {
+    border-width: 1vw;
+  }
+
+  .desiredTraits {
+    border-width: 1vw;
+  }
+
+  .cjMOOK{
+    left: 37.5px;
+    font-size: 1.125em;
+  }
+
+  .sc-iwsKbI.lkyGMR  {
+    font-size: 1.25em;
+  }
+
+  .Label__LabelInner-sc-17towfw-1.dKDRgr {
+    font-size: 1em;
+  }
+
+  .accordionComponent {
+    font-size: .875em !important;
+  }
 
   .ui.card {
     margin-left: 0;
   }
-
 
   .formHighlight {
     font-weight: bold;
@@ -46,20 +76,20 @@
   }
 
   .pageFooter {
-    padding: 5vw;
-    margin-top: 12.5vh;
-    z-index: 9999999999;
+    padding: 7.5vw;
+    margin-top: 30vh;
   }
 
   .footerContact {
     position: relative;
     font-size: 3.5vw;
+    height: 12.5vh;
   }
 
   .pageNavigation {
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth ;
+    scroll-behavior: smooth;
 
   }
 
@@ -74,7 +104,7 @@
 
   .navigationPage {
     position: relative;
-    top: -82.5vh;
+    top: -75vh;
     margin: 0 auto;
 
   }
@@ -95,7 +125,7 @@
   }
 
   .eth {
-    width: 5vw;
+    width: 8.75vw;
     left: -.5vw;
   }
 
@@ -110,7 +140,6 @@
   .paperMenu {
     position: relative;
     width: 45vw;
-    height: 57.5vh;
     top: 10vh;
     margin: 5vw;
     font-size: 3.75vw;
@@ -118,6 +147,19 @@
 
   .paperButton {
     border-width: .75vw;
+    height: 10vh !important;
+    border-radius: .5vw;
+  }
+
+  .paperButtonStart {
+    border-width: .75vw;
+    height: 10vh !important;
+    border-radius: .5vw;
+  }
+
+  .paperButtonEnd {
+    border-width: .75vw;
+    height: 10vh !important;
     border-radius: .5vw;
   }
 
@@ -419,6 +461,10 @@
     top: 97.5vh;
   }
 
+  .tokenSix {
+    top: 105vh;
+  }
+
   .modalToken {
     width: 67.5vw;
     top: 22.5vh;
@@ -692,13 +738,34 @@
 
 }
 
-/* iPhone 6/7 */
+/* iPhone5  */
 
+@media only screen and (device-height: 568px) and (device-width: 320px) {
+
+  .cjMOOK{
+    left: 25px;
+  }
+
+  .iKsZEo {
+    width: 92.5%;
+  }
+
+}
+
+/* iPhone 6/7 */
 
 @media only screen and (device-height: 667px) and (device-width: 375px) {
 
+  .desiredTraits {
+    top: 160vh;
+  }
+
+  .ethereumWrapper {
+    top: 82.5vh;
+  }
+
   .landingTitle {
-      top: -35vh;
+      top: -40vh;
   }
 
   .landingBranding {
@@ -774,7 +841,7 @@
   }
 
   .page8 {
-    height: 300vh;
+    height: 325vh;
   }
 
   .tokenChart {
@@ -800,6 +867,21 @@
     top: 102.5vh;
   }
 
+  .tokenSix {
+    top: 110vh;
+  }
+
+
+}
+
+
+/* iPhone 6/7+ */
+
+@media only screen and (device-height: 736px) and (device-width: 414px) {
+
+  .formLabel {
+    top: -10vh;
+  }
 
 }
 
@@ -817,7 +899,7 @@
     }
 
     .landingBranding {
-      top: -42.5vh;
+      top: -45vh;
     }
 
     .landingTitle {
@@ -837,12 +919,68 @@
       top: 120vh;
     }
 
+    .formLabel {
+      top: -10vh;
+    }
+
 }
 
 /* iPad */
 
 @media only screen and (device-width: 768px) and (device-height: 1024px) {
 
+  .sc-hSdWYo.jAdKfy {
+    padding: 42px;
+  }
+
+  .sc-hSdWYo.kROLMK {
+    padding: 42px;
+  }
+
+  .teamOnboarding {
+    border-width: 1.5vw;
+  }
+
+  .desiredTraits {
+    border-width: 1.5vw;
+  }
+
+    .sc-iwsKbI.lkyGMR  {
+      font-size: 1.5em;
+    }
+
+    .accordionComponent {
+      font-size: .875em !important;
+    }
+
+    .Label__LabelInner-sc-17towfw-1.dKDRgr {
+      font-size: 1em;
+    }
+
+    .iKsZEo {
+      width: 75vw;
+      padding: 24px;
+    }
+
+    .cjMOOK{
+      font-size: 1.5em;
+    }
+
+    .formLabel {
+      top: -10vh;
+    }
+
+    .iKsZEo {
+      width: 75vw;
+      padding: 24px;
+    }
+
+    .pageFooter {
+      top: 103.75%;
+      height: 20vh !important;
+      padding: 5vw;
+      font-size: 1.75em;
+    }
 
     .pageHeader {
       font-size: 10vw;
@@ -859,14 +997,28 @@
 
     .paperMenu {
       position: relative;
-      width: 25vw;
-      height: 75vh;
+      width: 37.5vw;
       top: 10vh;
       margin: 5vw;
       font-size: 3vw;
     }
 
+    .paperText {
+      margin-left: 2.5em;
+
+    }
+
     .paperButton {
+      border-width: .75vw;
+      border-radius: .5vw;
+    }
+
+    .paperButtonStart {
+      border-width: .75vw;
+      border-radius: .5vw;
+    }
+
+    .paperButtonEnd {
       border-width: .75vw;
       border-radius: .5vw;
     }
@@ -896,7 +1048,7 @@
     }
 
     .eth {
-      width: 5vw;
+      width: 7.5vw;
       left: -.5vw;
     }
 
@@ -1102,12 +1254,15 @@
       font-size: 7.5vw;
       width: 12.5vw;
       height: 12.5vw;
+      border-width: .75vw;
     }
 
     .stageIcon {
       font-size: 7.5vw;
       width: 12.5vw;
       height: 12.5vw;
+      border-width: .75vw;
+      padding-top: .75vh;
     }
 
     .stageAlpha {
@@ -1196,6 +1351,10 @@
       top: 112.5vh;
     }
 
+    .tokenSix {
+      top: 120vh;
+    }
+
     .tokenData{
       top: 100vh;
     }
@@ -1246,21 +1405,21 @@
 
     .cardOne {
       top: 7.5vh;
-      left: 5vw;
+      left: .75vw;
       right: 0;
 
     }
 
     .cardTwo {
       top: 15vh;
-      left: 5vw;
+      left: .75vw;
       right: 0;
 
     }
 
     .cardThree {
       top: 22.5vh;
-      left: 5vw;
+      left: .75vw;
       right: 0;
 
     }
@@ -1295,7 +1454,6 @@
       left: 17.5vw;
       top: 75vh;
     }
-
 
     .roadmapThree {
       position: absolute;
@@ -1446,7 +1604,7 @@
         font-size: 5.5vw;
         width: 82.5vw;
         padding: 5vw;
-        top: 177.5vh;
+        top: 192.5vh;
         left: 1.75vw;
         margin-bottom: 5vh;
       }
@@ -1454,7 +1612,7 @@
       .ethereumLogo  {
         width: 67.5vw;
         left: 10vw;
-        top: 10vh;
+        top: 22.5vh;
         }
 
         .ethereumWrapper {
@@ -1464,6 +1622,54 @@
 }
 
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
+
+  .sc-hSdWYo.jAdKfy {
+    padding: 42px;
+  }
+
+  .sc-hSdWYo.kROLMK {
+    padding: 42px;
+  }
+
+  .teamOnboarding {
+    border-width: 1.5vw;
+  }
+
+  .desiredTraits {
+    border-width: 1.5vw;
+  }
+
+  .sc-iwsKbI.lkyGMR  {
+    font-size: 1.5em;
+  }
+
+  .iKsZEo {
+    width: 75vw;
+    padding: 24px;
+  }
+
+  .Label__LabelInner-sc-17towfw-1.dKDRgr {
+    font-size: 1em;
+  }
+
+  .cjMOOK{
+    font-size: 1.5em;
+  }
+
+  .formLabel {
+    top: -10vh;
+  }
+
+  .accordionComponent {
+    font-size: .875em !important;
+  }
+
+      .pageFooter {
+        top: 103.75%;
+        height: 16.75vh !important;
+        padding: 5vw;
+        font-size: 1.75em;
+      }
 
 
       .css-1s6vx3l-control {
@@ -1480,18 +1686,30 @@
     }
 
 
-  .paperMenu {
-    position: relative;
-    width: 25vw;
-    height: 75vh;
-    top: 10vh;
-    margin: 5vw;
-    font-size: 3vw;
-  }
+    .paperMenu {
+      position: relative;
+      width: 37.5vw;
+      top: 10vh;
+      margin: 5vw;
+      font-size: 3vw;
+    }
+
+    .paperText {
+      margin-left: 2.5em;
+
+    }
 
   .paperButton {
      border-width: .75vw;
     }
+
+    .paperButtonStart {
+       border-width: .75vw;
+    }
+
+    .paperButtonEnd {
+       border-width: .75vw;
+      }
 
     .menuBar {
       font-size: 3vw;
@@ -1521,7 +1739,7 @@
     }
 
     .eth {
-      width: 5vw;
+      width: 7.5vw;
       left: -.5vw;
     }
 
@@ -1727,12 +1945,14 @@
       font-size: 7.5vw;
       width: 12.5vw;
       height: 12.5vw;
+      border-width: .75vw;
     }
 
     .stageIcon {
       font-size: 7.5vw;
       width: 12.5vw;
       height: 12.5vw;
+      border-width: .75vw;
     }
 
     .stageAlpha {
@@ -1821,6 +2041,10 @@
       top: 112.5vh;
     }
 
+    .tokenSix {
+      top: 120vh;
+    }
+
     .tokenData{
       top: 100vh;
     }
@@ -1871,21 +2095,21 @@
 
     .cardOne {
       top: 7.5vh;
-      left: 5vw;
+      left: 1.25vw;
       right: 0;
 
     }
 
     .cardTwo {
       top: 15vh;
-      left: 5vw;
+      left: 1.25vw;
       right: 0;
 
     }
 
     .cardThree {
       top: 22.5vh;
-      left: 5vw;
+      left: 1.25vw;
       right: 0;
 
     }
@@ -2071,7 +2295,7 @@
         font-size: 5.5vw;
         width: 82.5vw;
         padding: 5vw;
-        top: 177.5vh;
+        top: 192.5vh;
         left: 1.75vw;
         margin-bottom: 5vh;
       }
@@ -2079,11 +2303,36 @@
       .ethereumLogo  {
         width: 67.5vw;
         left: 10vw;
-        top: 10vh;
+        top: 22.5vh;
         }
 
         .ethereumWrapper {
           top: 75vh;
         }
+
+}
+
+/* Pixel 2*/
+
+@media only screen and (device-width: 411px) and (device-height: 731px) {
+
+  .formLabel{
+
+    top: -10vh;
+
+  }
+
+}
+
+
+/* Pixel 2 XL*/
+
+@media only screen and (device-width: 411px) and (device-height: 823px) {
+
+  .formLabel{
+
+    top: -10vh;
+
+  }
 
 }

@@ -5,11 +5,12 @@ ul {
 
 .newsFooter {
   position: absolute;
-  height: 17.5vh !important;
+  height: 21.75vh !important;
+  width: 100vw !important;
   z-index: 9999999999;
   margin-top: 12.5vh;
-  width: 100vw;
-  top: 1500%;
+  z-index: 9999;
+  top: 1475%;
   bottom: 0;
   left: 0;
   right: 5vw;
@@ -116,8 +117,11 @@ td {
 @media only screen and (max-width: 600px){
 
   .newsFooter {
-    top: 5825%;
+    top: 5775%;
+    height: 20vh !important;
+    padding: 5vw;
   }
+
 
   .newsModal {
     height: auto;
@@ -291,6 +295,12 @@ td {
 
 @media only screen and (device-width: 1024px) and (device-height: 1366px) {
 
+  .newsFooter {
+    height: 16.75vh !important;
+    padding: 5vw;
+    font-size: 1.75em;
+    top: 5750%;
+  }
 
   .newsModal {
     height: 1250vh;
@@ -373,6 +383,25 @@ td {
   }
 
 }
+
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) {
+
+  .newsModal {
+    height: auto;
+    padding-bottom: 3.75em;
+  }
+
+  .newsFooter {
+    top: 5750%;
+    height: 20vh !important;
+    padding: 5vw;
+    font-size: 1.75em;
+  }
+
+
+}
+
 
 @media only screen and (min-width: 2000px) and (min-height: 1000px) {
   .newsFooter {

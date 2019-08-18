@@ -27,7 +27,7 @@ class Survey extends Component {
   }
 
   embedKey = (_event) => {
-    if(_event.target.value.match("@") !== null && _event.target.value.match(".com") !== null ){
+    if(_event.target.value.match("@") !== null && _event.target.value.match(".") !== null ){
       this.state.surveyMetadata[_event.target.value] = {}
       this.setState({ email: _event.target.value });
     }
@@ -50,6 +50,7 @@ class Survey extends Component {
       .add(inputData[0][1]).then((docRef) => {
         console.log("Document written: ", docRef.id);
         this.props.triggerModal();
+        this.props.triggerSubmit();
       }).catch((error) =>{
         console.error("Error adding document: ", error);
       }); ReactGA.event({
@@ -248,10 +249,21 @@ class Survey extends Component {
           </div>
         </Modal>
       );
+    } else if(this.props.submitState){
+      return(
+        <Modal actions = {[{ text: "Dismiss", onClick: this.props.triggerSubmit }]} appearance="warning" heading="Submission Successful" width="500px">
+          You are now registered for the fraudulent survey. For any queries or validating submissions contact:
+          <br></br><br></br>
+          <a><b>team@vldy.org</b></a>
+          <br></br><br></br>
+          Thank you for participating and have a nice day!
+        </Modal>
+      )
+    } else {
+      return (
+        <Fragment/>
+      )
     }
-    return(
-      <Fragment/>
-    )
   }
 }
 

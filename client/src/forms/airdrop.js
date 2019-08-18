@@ -40,7 +40,7 @@ class Airdrop extends Component {
  }
 
   embedKey = (_event) => {
-     if(_event.target.value.match("@") !== null && _event.target.value.match(".com") !== null ){
+     if(_event.target.value.match("@") !== null && _event.target.value.match(".") !== null ){
        this.state.airdropMetadata[_event.target.value] = {}
        this.setState({ email: _event.target.value });
      }
@@ -73,6 +73,7 @@ class Airdrop extends Component {
        .add(inputData[0][1]).then((docRef) => {
          console.log("Document written: ", docRef.id);
          this.props.triggerModal();
+        this.props.triggerSubmit();
        }).catch((error) =>{
          console.error("Error adding document: ", error);
        }); ReactGA.event({
@@ -130,31 +131,31 @@ class Airdrop extends Component {
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Telegram Username" required onChange={this.embedState} name="telegram"/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTelegramPlane} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto">@ValidityCrypto</a>
+                    <FontAwesomeIcon  icon={faTelegramPlane} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Telegram account present in <a href="https://t.me/ValidityCrypto"><b>@ValidityCrypto</b></a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Discord Username" required onChange={this.embedState} name="discord"/>
                   <div className="formLabel" ref={r => {this.bottomRef = r;}}>
-                    <FontAwesomeIcon  icon={faDiscord} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your account present in the Validity <a href="https://discord.gg/s5rSvB2">Discord</a>
+                    <FontAwesomeIcon  icon={faDiscord} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your account present in the Validity <a href="https://discord.gg/s5rSvB2"><b>Discord</b></a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Twitter Username" required onChange={this.embedState} name="twitter"/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faTwitter} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto">@ValidityCrypto</a>
+                    <FontAwesomeIcon  icon={faTwitter} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your Twitter account that is following <a href="https://twitter.com/ValidityCrypto"><b>@ValidityCrypto</b></a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Facebook Username" required onChange={this.embedState} name="facebook"/>
                   <div className="formLabel">
-                    <FontAwesomeIcon icon={faFacebook} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked Validity's <a href="https://www.facebook.com/ValidityCrypto/">Facebook</a>
+                    <FontAwesomeIcon icon={faFacebook} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Your facebook account that has liked Validity's <a href="https://www.facebook.com/ValidityCrypto/"><b>Facebook</b></a>
                   </div>
                 </div>
                 <div className="formInput">
                   <FieldText shouldFitContainer="true" label="Ethereum Address" required onChange={this.embedState} name="wallet"/>
                   <div className="formLabel">
-                    <FontAwesomeIcon  icon={faWallet} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Ethereum <a href="https://www.myetherwallet.com">wallet</a> address for the recieving the airdrop allocation
+                    <FontAwesomeIcon  icon={faWallet} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;Ethereum <a href="https://www.myetherwallet.com"><b>wallet</b></a> address for the recieving the airdrop allocation
                   </div>
               </div>
               </div>
@@ -162,16 +163,19 @@ class Airdrop extends Component {
       )
     } else if(this.props.submitState){
       return(
-        <Modal actions = {[{ text: "Dismiss", onClick: () => this.props.triggerSubmit }]} appearance="warning" heading="Submission Successful" width="500px">
-          You are now registered for the VLDY airdrop.
-          <p className="warn"> For any queries or validating submissions contact airdrop@validity.ae </p>
+        <Modal actions = {[{ text: "Dismiss", onClick: this.props.triggerSubmit }]} appearance="warning" heading="Submission Successful" width="500px">
+          You are now registered for airdrop tier 1, round 3. For any queries or validating submissions contact:
+          <br></br><br></br>
+          <a><b>airdrop@vldy.org</b></a>
+          <br></br><br></br>
           Thank you for participating and have a nice day!
         </Modal>
       )
+    } else {
+      return (
+        <Fragment/>
+      )
     }
-    return(
-      <Fragment/>
-    )
   }
 }
 

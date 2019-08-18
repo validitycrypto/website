@@ -1,9 +1,9 @@
 # Validity Official Website  
-Created, designed and developed by @samgos (Founder)
+### Live at [vldy.org](https://vldy.org)
 
 #### Technology stack
 
-* atlaskit (*React.js*)
-* truffle-react-box (*react.js*)
-* material-ui(*node.js, react.js*)
-* semantic-ui (*React.js*)
+* [react-box](https://github.com/truffle-box/react-box)(**React**)
+* [Semantic UI](https://react.semantic-ui.com/)(**React**)
+* [Atlaskit](https://atlaskit.atlassian.com/)(**React**)
+* [Material UI](https://material-ui.com/)(**React**)

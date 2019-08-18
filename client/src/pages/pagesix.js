@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { faShareAlt, faFlask, faChartArea, faChartLine, faStarHalfAlt, faTag, faSitemap, faFileCode, faCalendar, faBalanceScale } from "@fortawesome/free-solid-svg-icons"
+import { faThumbtack, faFlask, faChartArea, faChartLine, faFeatherAlt, faCoins, faTag, faSitemap, faFileInvoice, faCalendar, faBalanceScale } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Page, { Grid, GridColumn } from "@atlaskit/page"
 
@@ -62,11 +62,11 @@ class PageSix extends Component {
            value: " "
          },
          data:
-         [{ title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
-         { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
-         { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
-         { title: "Team", value: 17.5, color: "#00bfff" },
-         { title: "Community fund", value: 15, color: "#815aff" },
+         [{ title: "Airdrop T1", value: 30, color: "#0cff6f" },
+         { title: "Airdrop T2", value: 20, color: "#0c23ff" },
+         { title: "Airdrop T3", value: 10, color: "#ff0c23" },
+         { title: "Team fund", value: 17.5, color: "#00bfff" },
+         { title: "Eco fund", value: 15, color: "#815aff" },
          { title: "Validation supply", value: 7.5, color: "#ff0c9c" }]
        });
      }
@@ -105,24 +105,30 @@ class PageSix extends Component {
                   </div>
                 )}
                 <p className="tokenOne">
-                  <FontAwesomeIcon icon={faFileCode} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
-                  <i>Address: <a href=""><b>0xafc2f2d803479a2af3a72022d54cc0901a0ec0d6</b></a></i>
+                  <FontAwesomeIcon icon={faFileInvoice} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
+                  Address: <a target="_blank" href="https://etherscan.io/token/0x904da022abcf44eba68d4255914141298a7f7307">
+                    <b>0x904da022abcf44eba68d4255914141298a7f7307</b><
+                  /a>
                 </p>
                 <p className="tokenTwo">
-                  <i>Supply: <b>50,600,000,000</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faStarHalfAlt} color="#815aff" size="lg"/>
+                  Supply: <b>50,600,000,000</b>
+                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faCoins} color="#815aff" size="lg"/>
                 </p>
                 <p className="tokenThree">
-                  <i>Network: <b>Ethereum</b></i>
+                  Network: <b>Ethereum</b>
                   &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color="#815aff" size="lg"/>
                 </p>
                 <p className="tokenFour">
-                  <i>Token: <b>ERC20d</b></i>
+                  Type: <b>ERC20d</b>
                   &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color="#815aff" size="lg"/>
                 </p>
                 <p className="tokenFive">
-                  <i>Ticker: <b>VLDY</b></i>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faShareAlt} color="#815aff" size="lg"/>
+                <FontAwesomeIcon icon={faFeatherAlt} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
+                  Ticker: <b>VLDY</b>
+                </p>
+                <p className="tokenSix">
+                <FontAwesomeIcon icon={faThumbtack} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
+                  Decimals: <b>18</b>
                 </p>
               </div>
             </GridColumn>

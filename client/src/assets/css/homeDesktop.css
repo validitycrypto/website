@@ -17,6 +17,30 @@ body {
   overflow-y: auto;
 }
 
+.etherSymbol {
+  position: absolute;
+  color: white;
+  font-size: 2.5em;
+  right: 13.75%;
+  top: 93.75%;
+}
+
+.loadingModal {
+  position: absolute;
+  width: 100%;
+  color: black;
+  left: 50%;
+  right: 50%;
+  top: -50vh;
+}
+
+.loadingText {
+  position: relative;
+  right: 1.75em;
+  top: 2.75em;
+  font-size: 2.25em;
+}
+
 .css-1s6vx3l-control {
   border-color: #bda8ff !important;
   border-width: .25vw !important;
@@ -24,7 +48,15 @@ body {
 
 .footerContact {
   position: relative;
-  font-size: 1.375vw;
+  font-size: 1.25em;
+  padding: .5vw;
+}
+
+.footerRights {
+  position: relative;
+  font-size: 1.25em;
+  float: right;
+  padding: .5vw;
 }
 
 .css-1s6vx3l-control:hover {
@@ -40,6 +72,10 @@ body {
 
 .sc-iwsKbI.lkyGMR {
   color: white !important;
+}
+
+.styledFlag-qhniyv-0.iKsZEo {
+  background-color: #906eff !important;
 }
 
 /*  Modal */
@@ -80,6 +116,8 @@ body {
 
 .pageFooter {
   position: absolute;
+  width: 100vw !important;
+  margin-top: 10vh;
 }
 
 .pageComponent {
@@ -117,6 +155,10 @@ body {
   top: 100vh;
 }
 
+.traitText {
+  margin-left: .75em;
+}
+
 .homepageMenu {
   position: fixed;
   z-index: 999;
@@ -140,7 +182,7 @@ body {
 .paperMenu {
   position: relative;
   width: 17.5vw;
-  height: 68.75vh;
+  height: auto;
   top: 7.5vh;
   margin: 2.5vw;
 }
@@ -150,7 +192,45 @@ body {
   height: 7.5vh !important;
   width: 100% !important;
   border: solid !important;
+  border-left-width: .5em !important;
+  border-right-width: .5em !important;
   border-color: #bda8ff !important;
+  border-bottom-width: .25em !important;
+  border-top-width: .25em !important;
+  display: block;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+
+.paperButtonStart {
+  position: absolute;
+  height: 7.5vh !important;
+  width: 100% !important;
+  border: solid !important;
+  border-left-width: .5em !important;
+  border-right-width: .5em !important;
+  border-color: #bda8ff !important;
+  border-bottom-width: .25em !important;
+  border-top-width: .5em !important;
+  display: block;
+  text-align: center;
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+
+.paperButtonEnd {
+  position: absolute;
+  height: 7.5vh !important;
+  width: 100% !important;
+  border: solid !important;
+  border-left-width: .5em !important;
+  border-right-width: .5em !important;
+  border-color: #bda8ff !important;
+  border-bottom-width: .5em !important;
+  border-top-width: .25em !important;
   display: block;
   text-align: center;
   position: relative;
@@ -169,6 +249,16 @@ body {
   border-color: white;
 }
 
+.paperButtonStart:hover {
+  background-color:#22ffa0;
+  border-color: white;
+}
+
+.paperButtonEnd:hover {
+  background-color:#22ffa0;
+  border-color: white;
+}
+
 .paperIcon {
   margin-right: .5em;
 }
@@ -176,7 +266,7 @@ body {
 .landingPage {
   position: absolute;
   width: 100vw;
-  top: -125vh;
+  top: -122.5vh;
   z-index: -100;
   clear: both;
   display: block;
@@ -196,9 +286,8 @@ body {
   border: solid;
   border-color: #bda8ff;
   border-radius: .5vw;
-  margin-left: 5vw;
   float: right;
-  right: 2.5%;
+  right: 1.875%;
 }
 
 .landingButton:hover {
@@ -208,7 +297,8 @@ body {
 .eth {
   position: relative;
   float: left;
-  width: 1.75vw;
+  width: 2.875vw;
+  left: -.5vw;
 }
 
 .angelList:hover, .linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover, .facebook:hover {
@@ -230,10 +320,6 @@ body {
 .angelList {
     background-color: white;
     border-color: #bda8ff;
-}
-
-.linkedin {
-    border-color: #bda8ff !important;
 }
 
 .landingBranding {
@@ -261,7 +347,7 @@ body {
   display: block;
   font-size: 5vw;
   color: black;
-  top: -40vh;
+  top: -38.75vh;
 }
 
 .navigationPage {
@@ -421,9 +507,8 @@ body {
 .teamBody {
   position: relative;
   display: inline-block;
-  width: 80vw;
+  width: 90%;
   left: 5vw;
-  width: 80vw;
   top: 7.5vh;
 }
 
@@ -803,10 +888,16 @@ body {
 
 .tokenFive {
   position: absolute;
-  text-align: right;
-  top: 60vh;
-  right: -5vw;
+  text-align: left;
+  top: 30vh;
 }
+
+.tokenSix {
+  position: absolute;
+  text-align: left;
+  top: 40vh;
+}
+
 
 .tokenData {
   position: absolute;
@@ -839,7 +930,7 @@ body {
 
 .teamOnboarding {
   border-style: solid;
-  border-width: 5px;
+  border-width: .5vw;
   -moz-border-image: -moz-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* FF 3.6+ */
   -webkit-border-image: -webkit-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Safari 5.1+, Chrome 10+ */
   -o-border-image: -o-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Opera 11.10 */
@@ -849,22 +940,23 @@ body {
   font-size: 1.75vw;
   width: 30vw;
   padding: 1.5vw;
-  top: 20vh;
+  top: 17.5vh;
 }
 
 .desiredTraits {
   border-style: solid;
-  border-width: 5px;
+  border-width: .5vw;
   -moz-border-image: -moz-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* FF 3.6+ */
   -webkit-border-image: -webkit-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Safari 5.1+, Chrome 10+ */
   -o-border-image: -o-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Opera 11.10 */
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
   position: absolute;
+  font-size: 1.75vw;
   right: -5vw;
   width: 30vw;
   padding: 1.5vw;
-  top: 20vh;
+  top: 17.5vh;
 }
 
 .desktopProduct {
@@ -878,6 +970,7 @@ body {
   position: absolute;
   font-size: 2.25vw;
   font-style: italic;
+  font-weight: bold;
   left: 20vw;
 }
 
@@ -912,6 +1005,14 @@ body {
 
 @media only screen and (min-width: 1000px) and (min-height: 750px) {
 
+  .pagePoint {
+    padding-bottom: 2.875vh;
+  }
+
+  .cardOne, .cardTwo, .cardThree {
+    left: -3.75vw;
+  }
+
   .landingPage {
     top: -100vh;
   }
@@ -927,7 +1028,7 @@ body {
 
   .page1-body {
     position: relative;
-    font-size: 1.875vw;
+    font-size: 1.8vw;
   }
 
   .validatingGraphic {

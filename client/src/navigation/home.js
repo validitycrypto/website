@@ -75,15 +75,29 @@ class Home extends Component {
       <PageNine/>
       <PageTen/>
       <Footer className="pageFooter">
-        <div className="footerContact">
-        <p><FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;airdrop@vldy.org
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;team@vldy.org
-        </p>
-        <br></br>
-        <p><FontAwesomeIcon color="#bda8ff" icon={faTelegramPlane} size="lg"/>&nbsp;&nbsp;&nbsp;@ValiditySupport</p>
-        </div>
-      </Footer>
+      <div className="footerContact">
+        <p>
+          <a style={{color: 'white'}} href="mailto:airdrop@vldy.org" target="_blank">
+            <FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>&nbsp;&nbsp;&nbsp;airdrop@vldy.org
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a style={{color: 'white'}} href="mailto:team@vldy.org" target="_blank">
+           <FontAwesomeIcon color="#bda8ff" icon={faEnvelope} size="lg"/>
+           &nbsp;&nbsp;&nbsp;team@vldy.org
+        </a>
+       </p>
+       <br></br>
+       <p>
+        <a style={{color: 'white'}} href="https://t.me/ValiditySupport" target="_blank">
+          <FontAwesomeIcon color="#bda8ff" icon={faTelegramPlane} size="lg"/>
+          &nbsp;&nbsp;&nbsp;@ValiditySupport
+        </a>
+       </p>
+      </div>
+      <div className="footerRights">
+        <p>© Validity 2019. All rights reserved.</p>
+      </div>
+     </Footer>
     </div>
     )
   }
