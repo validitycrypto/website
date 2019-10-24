@@ -8,10 +8,13 @@ import Page, { Grid, GridColumn } from "@atlaskit/page"
 
 import ERC20d from "../contracts/ERC20d.json";
 
-import TextField from "@atlaskit/field-text"
+import TextField from "@atlaskit/textfield"
+import { Loader } from 'react-loaders'
 import Button from "@atlaskit/button"
 
 import "../assets/css/register.css";
+
+const ZERO = "0x0000000000000000000000000000000000000000";
 
 class Register extends Component {
   constructor(props){
@@ -34,13 +37,23 @@ class Register extends Component {
    const tokenInstance = new metaMask.web3.eth.Contract(ERC20d.abi,
      tokenContract && tokenContract.address,
    ); tokenInstance.options.address = "0x904da022abcf44eba68d4255914141298a7f7307";
-   this.setState({
-     componentPhase: this.phaseTwo(),
+   await this.setState({
      network: metaMask.network,
      account: accounts[0],
      token: tokenInstance,
      web3: metaMask.web3,
+   }); await this.getId();
+   this.setState({
+     componentPhase: this.phaseTwo()
    });
+ }
+
+ getId = async() => {
+    const id = await this.state.token.methods.validityId(this.state.account).call();
+    const zk = await this.state.token.methods.validityId(ZERO).call();
+    this.setState({
+      id, zk
+    });
  }
 
  generateId = async() => {
@@ -53,7 +66,8 @@ class Register extends Component {
          action: 'conformIdentity', label: 'True' })
          this.setState({
            componentPhase: this.phaseThree()
-         }); resolve(receipt)
+         }); this.getId();
+         resolve(receipt);
        }
      }).on('error', (error) => {
        ReactGA.event({ category: 'Transactional',
@@ -62,11 +76,33 @@ class Register extends Component {
    )
  }
 
- dummmyId = () => {
-   this.setState({
-     componentPhase: this.phaseThree()
-   });
+ verifyTweet = async(_tweetId) => {
+   await fetch('http://localhost/tweet', {
+     body: JSON.stringify({ id: _tweetId }),
+     headers: {
+       'Content-Type': 'application/json',
+        'Accept': 'application/json'
+     },
+     mode: 'cors',
+     method: 'POST'
+   }).then(response => {
+     return response.json()
+   }).then(data =>
+     this.setState(data)
+   );
  }
+
+ parseTweet = async(event) => {
+   const tweetId = event.target.value.split('/')[5];
+   await this.verifyTweet(tweetId)
+
+   if(this.state.validityId === this.state.id){
+     this.setState({
+       componentPhase: this.phaseFour()
+     });
+   }
+ }
+
 
  phaseOne = () => {
   return (
@@ -79,15 +115,27 @@ class Register extends Component {
   )
 }
 
+
+ phaseFour = () => {
+  return (
+   <Fragment>
+    <div className="registrationTitle">Verified!</div>
+  </Fragment>
+  )
+}
+
 phaseTwo = () => {
- return (
-  <Fragment>
-   <div className="registrationTitle">Generate an ValidityID</div>
-   <Button className="web3Button" onClick={this.dummmyId}>
+  if(this.state.id === this.state.zk){
+  return (
+    <Fragment>
+    <div className="registrationTitle">Generate an ValidityID</div>
+    <Button className="web3Button" onClick={this.generateId}>
      &nbsp;Generate&nbsp;
-   </Button>
- </Fragment>
- )
+     </Button>
+   </Fragment>
+  )} else {
+    return this.phaseThree();
+  }
 }
 
 
@@ -95,11 +143,16 @@ phaseThree = () => {
  return (
   <Fragment>
    <div className="registrationTitle" color="#5aff9c">Verify your idenity</div>
-   <Button href="https://twitter.com/intent/tweet?text=I%20am%20verifying%200xffcc3443%20as%20my%20Identity%20for%20@ValidityCrypto%20($VLDY)"
-    className="web3Button"
-    target="_blank">
+   <div className="verificationState">
+    <Loader size="Large" color="#815aff" type="ball-triangle-path" active />
+   </div>
+   <TextField onChange={this.parseTweet} className="tweetInput" width="xlarge"/>
+   <a href={`https://twitter.com/intent/tweet?text=I%20am%20verifying%20${this.state.id}%20as%20my%20identity%20for%20@ValidityCrypto.%0A%0ALet%27s%20clean%20up%20%23crypto%20with%20$VLDY%20%E2%99%BB%EF%B8%8F%0Avldy.org`}
+   target="_blank">
+   <Button className="web3Button">
      &nbsp;Tweet&nbsp;
    </Button>
+   </a>
  </Fragment>
  )
 }
@@ -109,7 +162,9 @@ phaseThree = () => {
      <div className="navigationPage">
       <Page>
         <GridColumn layout="compact">
+          <div className="modalStack">
           {this.state.componentPhase}
+          </div>
         </GridColumn>
         </Page>
      </div>
