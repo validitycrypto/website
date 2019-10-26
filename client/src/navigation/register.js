@@ -13,26 +13,44 @@ import ERC20d from "../contracts/ERC20d.json";
 import TextField from "@atlaskit/textfield"
 import { Loader } from 'react-loaders'
 import Button from "@atlaskit/button"
+import Lottie from 'react-lottie';
 
 import "../assets/css/register.css";
+import * as animationData from "../utils/lottie.json";
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
 const ZERO = "0x0000000000000000000000000000000000000000";
 const TOKEN = "0x293b7712fb8e57e8637287f18b61945be78b8e27";
+const defaultOptions = {
+    animationData: animationData.default,
+    loop: false
+};
 
 class Register extends Component {
   constructor(props){
       super(props)
       this.state = {
+        verificationState: this.renderPending(),
+        firebaseDb: false
       }
  }
 
  componentWillMount = () => {
-   const firebaseDb = firebase.initializeApp(firebaseConfiguration("verify"), "Verify")
    ReactGA.pageview('/Register');
+   this.initialiseFirebase();
    this.setState({
-     firebaseDb: firebaseDb.firestore(),
      componentPhase: this.phaseOne()
    })
+ }
+
+ initialiseFirebase = () => {
+  if(!this.state.firebaseDb){
+   const firebaseDb = firebase.initializeApp(
+     firebaseConfiguration("verify"), "Verify"
+   ); this.setState({
+     firebaseDb: firebaseDb.firestore()
+    });
+  }
  }
 
  triggerWeb3 = async() => {
@@ -84,7 +102,7 @@ class Register extends Component {
        if(confirmationNumber === 1){
          ReactGA.event({ category: 'Transactional',
          action: 'conformIdentity', label: 'True' })
-         resolve(receipt);
+        resolve(receipt);
        }
      }).on('error', (error) => {
        ReactGA.event({ category: 'Transactional',
@@ -118,6 +136,9 @@ class Register extends Component {
    }); var txValidity = await this.generateId();
 
    if(txValidity !== false) {
+     this.setState({
+       componentPhase: this.renderConfirmed()
+     }); await delay(5000);
      await this.getId();
      this.setState({
        componentPhase: this.phaseThree()
@@ -147,11 +168,10 @@ class Register extends Component {
    var validity = await this.checkState(this.state.twitterUser);
 
    if(this.state.validityId === this.state.id && !validity){
-     await this.embedState(this.state.twitterUser);
-     await this.embedState(this.state.account);
-     this.setState({
-       componentPhase: this.phaseFour()
-     });
+   await this.setState({
+       componentPhase: this.renderConfirmed()
+    });
+
    } else if(validity){
      this.setState({
        componentPhase:
@@ -181,7 +201,6 @@ renderError = (_errorMessage) => {
   )
 }
 
-
  phaseFour = () => {
   return (
    <Fragment>
@@ -209,10 +228,31 @@ transactionPending = () => {
   <Fragment>
    <div className="pendingTitle" color="#5aff9c">Transaction pending...</div>
    <div className="verificationState">
-    <Loader size="Large" color="#ffa500" type="ball-triangle-path" active />
+    {this.renderPending()}
    </div>
  </Fragment>
  )
+}
+
+renderPending = () => {
+  return(
+    <Loader size="Large" color="#815aff" type="ball-triangle-path" active />
+  );
+}
+
+renderConfirmed = () => {
+  return(
+    <div className="lottieAnimation">
+      <Lottie
+        options={defaultOptions}
+        isStopped={false}
+        isPaused={false}
+        loop={false}
+        height={100}
+        width={100}
+        speed={0.5} />
+   </div>
+  );
 }
 
 
@@ -221,7 +261,7 @@ phaseThree = () => {
   <Fragment>
    <div className="registrationTitle" color="#5aff9c">Verify your idenity</div>
    <div className="verificationState">
-    <Loader size="Large" color="#815aff" type="ball-triangle-path" active />
+    {this.renderPending()}
    </div>
    <TextField onChange={this.parseTweet} className="tweetInput" width="xlarge"/>
    <a href={`https://twitter.com/intent/tweet?text=I%20am%20verifying%20${this.state.id}%20as%20my%20identity%20for%20@ValidityCrypto.%0A%0ALet%27s%20clean%20up%20%23crypto%20with%20$VLDY%20%E2%99%BB%EF%B8%8F%0Avldy.org`}
