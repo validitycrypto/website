@@ -101,8 +101,8 @@ class Register extends Component {
      result.forEach(item => {
         outputValue = item.data().validity;
       }); return outputValue;
-    }); if(stateStatus)return false;
-    else return true;
+    }); if(stateStatus) return true;
+    else return false;
   }
 
  embedState = async(_input) => {
@@ -142,17 +142,23 @@ class Register extends Component {
  }
 
  parseTweet = async(event) => {
-   var tweetId = event.target.value.split('/')[5];
-   var verifyState = await this.checkState(this.state.id);
-   await this.verifyTweet(tweetId)
+   var tweetIdentifier = event.target.value.split('/')[5];
+   await this.verifyTweet(tweetIdentifier);
+   var validity = await this.checkState(this.state.twitterUser);
 
-   if(this.state.validityId === this.state.id){
-     await this.embedState(this.state.validityId);
+   if(this.state.validityId === this.state.id && !validity){
+     await this.embedState(this.state.twitterUser);
      await this.embedState(this.state.account);
      this.setState({
        componentPhase: this.phaseFour()
      });
-   }
+   } else if(validity){
+     this.setState({
+       componentPhase:
+       this.renderError(
+         "User is already verified."
+       )});
+    }
  }
 
 
