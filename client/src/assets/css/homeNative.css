@@ -20,7 +20,7 @@
   }
 
   .socialButton:hover {
-    border-color: #22ffa0;
+    border-color: #33ffa8;
   }
 
   /* General config */
@@ -272,7 +272,7 @@
     height: 150vh;
   }
 
-  .page2, .page3, .page6 , .page7, .page8, .page9, .page10 {
+  .page2, .page3, .page6 , .page7, .page8, .page9, .page10, .page11 {
     height: 125vh;
   }
 
@@ -301,6 +301,10 @@
   }
 
   .page10 {
+    height: 100vh;
+  }
+
+  .page11 {
     height: 200vh;
   }
 
@@ -1030,7 +1034,7 @@
     }
 
     .socialButton:hover {
-      border-color: #22ffa0;
+      border-color: #33ffa8;
 
     }
 
@@ -1101,7 +1105,7 @@
       width: 75vw;
     }
 
-    .page2, .page3, .page6 , .page7, .page8, .page9, .page10 {
+    .page2, .page3, .page6 , .page7, .page8, .page9, .page10, .page11 {
       height: 125vh;
     }
 
@@ -1134,6 +1138,10 @@
     }
 
     .page10 {
+      height: 100vh;
+    }
+
+    .page11 {
       height: 200vh;
     }
 
@@ -1677,7 +1685,7 @@
       }
 
       .css-1s6vx3l-control:hover {
-        border-color: #22ffa0 !important;
+        border-color: #33ffa8 !important;
       }
 
     .pageHeader {
@@ -1722,7 +1730,7 @@
     }
 
     .socialButton:hover {
-      border-color: #22ffa0;
+      border-color: #33ffa8;
     }
 
     .socialModal {
@@ -1792,7 +1800,7 @@
       width: 75vw;
     }
 
-    .page2, .page3, .page6 , .page7, .page8, .page9, .page10 {
+    .page2, .page3, .page6 , .page7, .page8, .page9, .page10, .page11 {
       height: 125vh;
     }
 
@@ -1825,6 +1833,10 @@
     }
 
     .page10 {
+      height: 100vh;
+    }
+
+    .page11 {
       height: 200vh;
     }
 

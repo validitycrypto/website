@@ -3,10 +3,48 @@
   zoom: 1.0 ;
 }
 
+body .Button__StyledButton-sc-1o41kgk-0 {
+  color: white !important;
+}
+
 a {
   color: yellow;
 }
 
+.accordionComponent {
+  font-size: .875em !important;
+  left: 3vw;
+  right: 0;
+}
+
+.submissionVerification {
+  float: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.formCheckbox {
+  margin-left: 55%;
+}
+
+.componentOne {
+  width: 75%;
+}
+
+.componentTwo {
+  margin-left: 2.5vw;
+  width: 25%;
+  margin-top: 10%;
+}
+
+.emailInput {
+  display:flex;
+  flex-direction:row;
+  margin-left: 5vw;
+}
 
 html {
   font-family: apple-sf;
@@ -60,7 +98,7 @@ body {
 }
 
 .css-1s6vx3l-control:hover {
-  border-color: #22ffa0 !important;
+  border-color: #33ffa8 !important;
 }
 
 /*  Blanket + modal */
@@ -103,7 +141,16 @@ body {
   color: white;
 }
 
-.sc-dnqmqq.kgEfEJ {
+.css-fwdu5q-IconWrapper, .css-946tds-IconWrapper, .css-2a8xou, .css-1m21x9n, .css-1xvazbk {
+  color: #00d077 !important;
+}
+
+.hHWAHx, .jshSAn, .dRpQjM {
+  background: #00d077!important;
+}
+
+.dRpQjM {
+  background: #00d077!important;
 }
 
 .formBody {
@@ -245,17 +292,17 @@ body {
 }
 
 .paperButton:hover {
-  background-color:#22ffa0;
+  background-color: #33ffa8;
   border-color: white;
 }
 
 .paperButtonStart:hover {
-  background-color:#22ffa0;
+  background-color:#33ffa8;
   border-color: white;
 }
 
 .paperButtonEnd:hover {
-  background-color:#22ffa0;
+  background-color: #33ffa8;
   border-color: white;
 }
 
@@ -276,7 +323,7 @@ body {
   position: relative;
   width: 20vw;
   margin-left: 2.5vw;
-  border-color: #22ffa0;
+  border-color: #33ffa8;
   margin-right: 27.5vw;
   color: black;
 }
@@ -291,7 +338,7 @@ body {
 }
 
 .landingButton:hover {
-  border-color: #22ffa0;
+  border-color: #33ffa8;
 }
 
 .eth {
@@ -302,7 +349,7 @@ body {
 }
 
 .angelList:hover, .linkedin:hover, .discord:hover, .twitter:hover, .telegram:hover, .github:hover, .reddit:hover, .bct:hover, .facebook:hover {
-  border-color: #22ffa0;
+  border-color: #33ffa8;
 }
 
 .angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
@@ -352,9 +399,10 @@ body {
 
 .navigationPage {
   position: relative;
+  display: block;
   top: -75vh;
-  margin: 0 auto;
-
+  margin: 0;
+  padding: 0;
 }
 
 .pageHeader {
@@ -487,7 +535,7 @@ body {
   top: 15vh;
 }
 
-.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9, .page10 {
+.page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9, .page10, .page11 {
   position: relative;
   height: 91.125vh;
   width: 100vw;
@@ -1100,5 +1148,23 @@ body {
     top: 27.5vh;
   }
 
+
+}
+
+@media only screen and (min-width: 1000px) and (min-height: 1800px) {
+
+
+  .teamOnboarding {
+    border-width: 12.5px !important;
+  }
+
+  .desiredTraits {
+    border-width: 12.5px !important;
+    right: -10vw;
+  }
+
+  .tweetInput {
+    margin-left: 37.5vw !important;
+  }
 
 }

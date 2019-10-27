@@ -1,5 +1,5 @@
-@media only screen and (device-height: 1080px) and (device-width: 1920px) {
 
+@media only screen and (device-height: 1080px) and (device-width: 1920px) {
 
   .sc-hSdWYo.jAdKfy {
     padding: 42px;
@@ -9,12 +9,9 @@
     padding: 42px;
   }
 
-  .teamOnboarding {
-    border-width: 1.5vw;
-  }
-
-  .desiredTraits {
-    border-width: 1.5vw;
+  .blackt {
+    font-size: 25px;
+    margin: 5px;
   }
 
     .sc-iwsKbI.lkyGMR  {

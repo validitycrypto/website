@@ -7,6 +7,7 @@ import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faBullhorn } from"@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Page, { Grid, GridColumn } from "@atlaskit/page"
+import { Loader } from 'react-loaders'
 
 import ERC20d from "../contracts/ERC20d.json";
 
@@ -21,32 +22,52 @@ import "../assets/css/register.css";
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const ZERO = "0x0000000000000000000000000000000000000000";
-const TOKEN = "0x293b7712fb8e57e8637287f18b61945be78b8e27";
+const TOKEN = "0x904da022abcf44eba68d4255914141298a7f7307";
 
 class Register extends Component {
   constructor(props){
       super(props)
       this.state = {
-        firebaseDb: false
       }
  }
 
- componentWillMount = () => {
+ componentWillMount = async() => {
    ReactGA.pageview('/Register');
-   this.initialiseFirebase();
-   this.setState({
-     componentPhase: this.phaseOne()
-   })
+   await this.initialiseFirebase();
+
+   if(window.screen.height < 800 && window.screen.width < 950){
+     this.setState({ componentPhase: this.renderError("Not supported natively") });
+  } else {
+    if(!window.ethereum) this.setState({
+      componentPhase: this.renderError("No Web3 detected")
+    }); else this.setState({
+      componentPhase: this.phaseOne()
+    })
+  }
  }
 
- initialiseFirebase = () => {
-  if(!this.state.firebaseDb){
-   const firebaseDb = firebase.initializeApp(
+ initialiseFirebase = async() => {
+   const state = await this.firebaseValidity();
+
+   if(!state) {
+    const firebaseDb = firebase.initializeApp(
      firebaseConfiguration("verify"), "Verify"
    ); this.setState({
      firebaseDb: firebaseDb.firestore()
     });
+  } else {
+    this.setState({
+     firebaseDb: firebase.firestore()
+    });
   }
+ }
+
+ firebaseValidity = async() => {
+   var validity;
+   await firebase.apps.forEach((value, index) => {
+    if(value.name === "Verify") validity = true;
+    else if(index === firebase.apps.length-1) validity = false;
+  }); return validity
  }
 
  triggerWeb3 = async() => {
@@ -61,25 +82,25 @@ class Register extends Component {
      account: accounts[0],
      token: tokenInstance,
      web3: metaMask.web3,
-   }); await this.networkCheck(metaMask.network);
+   }); await this.networkCheck(metaMask);
  }
 
- networkCheck = async(_network) => {
-   if(_network !== 4){
-     this.setState({
-       componentPhase: this.renderError("Incorrect network")
-     })} else {
-      var stateValidity = await this.checkState(this.state.account);
+ networkCheck = async(_metamask) => {
+       if(_metamask.network !== 1){
+          this.setState({
+            componentPhase: this.renderError("Incorrect network")
+          })} else {
+            var stateValidity = await this.checkState(this.state.account);
 
-      if(stateValidity){ this.setState({
-         componentPhase: this.renderError("Already verified")
-      })} else if(!stateValidity) {
-        await this.getId();
-        this.setState({
-          componentPhase: this.phaseTwo()
-      });
-     }
-   }
+            if(stateValidity){ this.setState({
+              componentPhase: this.renderError("Already verified")
+            })} else if(!stateValidity) {
+              await this.getId();
+              this.setState({
+                componentPhase: this.phaseTwo()
+            });
+          }
+        }
  }
 
  getId = async() => {
@@ -143,7 +164,7 @@ class Register extends Component {
  }
 
  verifyTweet = async(_tweetId) => {
-   await fetch('http://localhost/tweet', {
+   await fetch('http://localhost:3000/tweet', {
      body: JSON.stringify({ id: _tweetId }),
      headers: {
        'Content-Type': 'application/json',
@@ -243,10 +264,10 @@ phaseThree = () => {
   <Fragment>
    <div className="registrationTitle" color="#5aff9c">Verify your idenity</div>
    <div className="verificationState">
-    <Pending />
+   <Loader size="Large" color="#815aff" type="ball-triangle-path" active />
    </div>
    <div class="tweetInput">
-    <TextField onChange={this.parseTweet} width="large"/>
+    <TextField placeholder="https://twitter.com/user/status/1138110945749985480" onChange={this.parseTweet} width="xlarge"/>
    </div>
    <a href={`https://twitter.com/intent/tweet?text=I%20am%20verifying%20${this.state.id}%20as%20my%20identity%20for%20@ValidityCrypto.%0A%0ALet%27s%20clean%20up%20%23crypto%20with%20$VLDY%20%E2%99%BB%EF%B8%8F%0Avldy.org`}
    target="_blank">
