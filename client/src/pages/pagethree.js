@@ -43,7 +43,7 @@ class PageThree extends Component {
                 <div className="stageNumber">4</div>
                 <div className="stageText">
                  Validators engage in a interactive voting process using Validity's unique UX, to express their outlook on the project via three options:
-                 <b style={{ color: "#0cff6d" }}> positive</b>, <b style={{ color: "#0cbbff" }}>neutral</b> or <b style={{ color: "#ff0c9e" }}>negative</b>.
+                 <b style={{ color: "#00d077" }}> positive</b>, <b style={{ color: "#0cbbff" }}>neutral</b> or <b style={{ color: "#ff0c25" }}>negative</b>.
                 </div>
               </div>
               <div className="stageFive">

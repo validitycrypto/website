@@ -154,11 +154,21 @@ body {
 }
 
 .formBody {
-  -webkit-overflow-scrolling: touch;
   position: relative;
-  overflow-y: auto;
+  margin-left: 20em;
+  margin-right: 20em;
+  padding: 5em;
   height: auto;
   width: auto;
+}
+
+.formBody a {
+  color: yellow;
+}
+
+.formBody h1, .formBody h5 {
+  color: white;
+  text-align: center;
 }
 
 .pageFooter {
@@ -183,6 +193,9 @@ body {
   margin-left: 7.5%;
 }
 
+.fUkahW {
+ background: rgba(256,256,256,0.675);
+}
 
 @keyframes pulse {
   0% { opacity: 1; }
@@ -377,7 +390,7 @@ body {
   height: 100%;
   z-index: -25;
   right: 12.5vw;
-  top: 50%;
+  top: -5vh;
 }
 
 .landingLogo {
@@ -394,12 +407,11 @@ body {
   display: block;
   font-size: 5vw;
   color: black;
-  top: -38.75vh;
+  top: -42.5vh;
 }
 
 .navigationPage {
   position: relative;
-  display: block;
   top: -75vh;
   margin: 0;
   padding: 0;
@@ -560,13 +572,12 @@ body {
   top: 7.5vh;
 }
 
-.formBody {
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
-}
 
 .formInput {
   margin-top: 3.75vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
   color: white;
 }
 
@@ -579,6 +590,7 @@ body {
   font-weight: bold;
   font-style: italic;
   padding-bottom: 1.75vh;
+  color: white;
 }
 
 .stageOne{
@@ -955,18 +967,10 @@ body {
 }
 
 .cardOne {
-  float: left;
-  width: 33.33%;
-}
-
-.cardTwo {
-  float: left;
-  width: 33.33%;
-}
-
-.cardThree {
-  float: left;
-  width: 33.33%;
+  float: center;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .ethereumLogo {
@@ -1057,7 +1061,7 @@ body {
     padding-bottom: 2.875vh;
   }
 
-  .cardOne, .cardTwo, .cardThree {
+  .cardOne {
     left: -3.75vw;
   }
 

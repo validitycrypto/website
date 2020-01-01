@@ -8,7 +8,7 @@ import PieChart from "react-minimal-pie-chart"
 import SectionMessage from "@atlaskit/section-message";
 
 const tokenData = [
-    { title: "Airdrop Tier 1", value: 30, color: "#0cff6f" },
+    { title: "Airdrop Tier 1", value: 30, color: "#00d076" },
     { title: "Airdrop Tier 2", value: 20, color: "#0c23ff" },
     { title: "Airdrop Tier 3", value: 10, color: "#ff0c23" },
     { title: "Team", value: 17.5, color: "#00bfff" },
@@ -62,7 +62,7 @@ class PageSix extends Component {
            value: " "
          },
          data:
-         [{ title: "Airdrop T1", value: 30, color: "#0cff6f" },
+         [{ title: "Airdrop T1", value: 30, color: "#00d076" },
          { title: "Airdrop T2", value: 20, color: "#0c23ff" },
          { title: "Airdrop T3", value: 10, color: "#ff0c23" },
          { title: "Team fund", value: 17.5, color: "#00bfff" },

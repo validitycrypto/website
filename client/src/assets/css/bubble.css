@@ -1,0 +1,76 @@
+.bubbleId {
+  position: relative;
+  font-size: 0.75vw;
+  height: 7.5vh;
+  top: 5vh;
+
+}
+
+.bubbleHash {
+  position: relative;
+  font-size: 0.75vw;
+}
+
+.bubbleIdenticon {
+  position: absolute;
+  right: 2vw;
+  top: 5vh;
+  width: 7.5vw;
+  float: right;
+}
+
+.accountIdenticon {
+  border: .3vw white solid;
+  background-color: white;
+  border-radius: 50%;
+  width: 75px;
+}
+
+.bubbleIdentity {
+  position: relative;
+  float: right;
+  text-align: right;
+  margin-right: 1vw;
+}
+
+.bubblePercent {
+  position: relative;
+  top: .75vh;
+  left: .125vw;
+}
+
+.bubbleChoice {
+  position: relative;
+  top: 1.25vh;
+}
+
+.bubbleTotal {
+  position: relative;
+  top: 1.75vh;
+  left: .125vw;
+}
+
+.bubbleWeight {
+  position: relative;
+  top: 2.25vh;
+}
+
+.bubbleBlock {
+  position: relative;
+  top: 2.75vh;
+}
+
+@media only screen and (min-width: 1750px) and (min-height: 1000px) {
+
+
+  .bubbleIdenticon {
+    right: -1vw;
+  }
+
+  .bubbleIdentity {
+    top: .5vh;
+
+  }
+
+
+}
