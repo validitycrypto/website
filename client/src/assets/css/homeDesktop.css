@@ -3,6 +3,10 @@
   zoom: 1.0 ;
 }
 
+.dKDRgr {
+  font-size: 14px;
+}
+
 body .Button__StyledButton-sc-1o41kgk-0 {
   color: white !important;
 }
@@ -46,6 +50,14 @@ a {
   margin-left: 5vw;
 }
 
+.fUkahW {
+  background: rgba(256,256,256,0);
+}
+
+.homeNavigation {
+  background: rgba(256,256,256,0.675);
+}
+
 html {
   font-family: apple-sf;
 }
@@ -79,7 +91,7 @@ body {
   font-size: 2.25em;
 }
 
-.css-1s6vx3l-control {
+.css-1s6vx3l-control, .Content-ve26fj-1 {
   border-color: #bda8ff !important;
   border-width: .25vw !important;
 }
@@ -97,7 +109,8 @@ body {
   padding: .5vw;
 }
 
-.css-1s6vx3l-control:hover {
+.css-1s6vx3l-control:hover, .css-1s6vx3l-control select,
+.Content-ve26fj-1:hover, Content-ve26fj-1 select  {
   border-color: #33ffa8 !important;
 }
 
@@ -118,7 +131,7 @@ body {
 
 /*  Modal */
 
-.sc-dnqmqq.kgEfEJ, .sc-gzVnrw.dXVoWw {
+.sc-dnqmqq.kgEfEJ, .sc-gzVnrw.dXVoWw, .fivwHw {
   background-color: #906eff !important;
   color: white;
 }
@@ -157,13 +170,21 @@ body {
   position: relative;
   margin-left: 20em;
   margin-right: 20em;
-  padding: 5em;
+  padding: 5em 10em;
   height: auto;
   width: auto;
 }
 
+.formHeader {
+  margin-bottom: 50px;
+}
+
 .formBody a {
   color: yellow;
+}
+
+.formBody a:hover {
+  color: cyan;
 }
 
 .formBody h1, .formBody h5 {
@@ -172,9 +193,9 @@ body {
 }
 
 .pageFooter {
-  position: absolute;
+  position: relative;
   width: 100vw !important;
-  margin-top: 10vh;
+  bottom: 0;
 }
 
 .pageComponent {
@@ -193,9 +214,6 @@ body {
   margin-left: 7.5%;
 }
 
-.fUkahW {
- background: rgba(256,256,256,0.675);
-}
 
 @keyframes pulse {
   0% { opacity: 1; }
@@ -341,6 +359,10 @@ body {
   color: black;
 }
 
+.selectOption {
+  color: black;
+}
+
 .landingButton {
   position: absolute;
   border: solid;
@@ -435,23 +457,19 @@ body {
 }
 
 .page1 {
-  position: relative;
   height: 91.125vh;
   width: 100vw;
 }
 
 .h1 {
+  padding: 1em;
   font-size: 3.75vw;
-  padding-bottom: 3.75vw;
-  margin-left: -2.5vw;
 }
 
 .page1-body {
-  position: relative;
   font-size: 1.75vw;
-  left: 5vw;
-  width: 40vw;
-  top: 7.5vh;
+  padding: 0em 2.5em;
+  width: 30em;
 }
 
 .pagePoint {
@@ -464,35 +482,45 @@ body {
 }
 
 .validatingGraphic {
-  position: relative;
   display: inline-block;
-  top: 15vh;
-  right: 5vw;
+  position: absolute;
+  top: 20%;
+  left: 55%;
 }
 
-.base1 {
+.base {
+  width: 30vw;
+}
+
+.baseWrapper {
   position: absolute;
   z-index: 1;
-  width: 30vw;
-  left: 7.5vw;
-  top: 5vh;
+  left: 20%;
 }
 
-.lines1 {
-  position: absolute;
+.linesWrapper {
+  position: relative;
+  clear: both;
   z-index: -1;
-  width: 17.5vw;
-  top: 23.75vh;
-  left: 13.25vw;
+  top: 21vh;
+  left: 53.75%;
 }
 
-.bcc {
+.lines {
+  width: 17.5vw;
+}
+
+.bccWrapper {
   animation: hover 2.5s ease-in-out infinite;
   position: absolute;
   z-index: 2;
+  clear: both;
+  top: 2.5vh;
+  left: 77.5%;
+}
+
+.bcc {
   width: 10vw;
-  left: 17.5vw;
-  top: 5vh;
 }
 
 .messages1 {
@@ -501,28 +529,29 @@ body {
 }
 
 .messages1edit {
-  position: relative;
-  left: 7.5vw;
-  top: 25vh;
+  position: absolute;
+  clear: both;
+  left: 20%;
+  top: 22.5vh;
 }
 
 .wrong {
   animation: hover 2.5s ease-in-out infinite;
-  position: absolute;
+  position: relative;
   color: red;
   font-size: 5vw;
-  left: 31.25vw;
-  top: 10vh;
+  left: 155%;
+  top: -25vh;
   z-index: 10;
 }
 
 .right {
   animation: hover 2.5s ease-in-out infinite;
-  position: absolute;
+  position: relative;
   color: #2affaa;
   font-size: 5vw;
-  left: 8.75vw;
-  top: 10vh;
+  left: 30%;
+  top: -35vh;
   z-index: 10;
 }
 
@@ -548,7 +577,6 @@ body {
 }
 
 .page1, .page2, .page3, .page4, .page5, .page6 , .page7, .page8, .page9, .page10, .page11 {
-  position: relative;
   height: 91.125vh;
   width: 100vw;
   padding-top: 5vw;
@@ -1070,21 +1098,16 @@ body {
   }
 
   .landingBranding {
-    top: -12.5vh;
+    top: -15vh;
   }
 
   .landingTitle {
-    top: -35vh;
+    top: -40vh;
     left: .75vw;
   }
 
   .page1-body {
-    position: relative;
     font-size: 1.8vw;
-  }
-
-  .validatingGraphic {
-    top: 17.5vh;
   }
 
   .desktopProduct {
@@ -1113,7 +1136,7 @@ body {
     top: -5vh;
   }
 
-  .lines1 {
+  .lines {
     top:20vh;
   }
 
@@ -1130,7 +1153,7 @@ body {
     top: -32.5vh;
   }
 
-  .lines1 {
+  .lines {
     top: 27.5vh;
   }
 
@@ -1148,7 +1171,7 @@ body {
     top: -37.5vh;
   }
 
-  .lines1 {
+  .lines {
     top: 27.5vh;
   }
 

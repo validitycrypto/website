@@ -38,17 +38,19 @@ class PageOne extends Component {
               </Grid>
               <Grid item>
               <div className="validatingGraphic">
-                <img alt="base1" className="base1" src={base}/>
-                <div className="lines1edit">
-                <img alt="lines1" className="lines1" src={lines}/>
-              </div>
+                <div className="baseWrapper">
+                  <img alt="base" className="base" src={base}/>
+                </div>
+                <div className="linesWrapper">
+                  <img alt="lines" className="lines" src={lines}/>
+                </div>
               <div className="wrong">
                 <FontAwesomeIcon icon={faTimes}/>
               </div>
               <div className="right">
                 <FontAwesomeIcon icon={faCheck}/>
               </div>
-              <div>
+              <div className="bccWrapper">
                 <img alt="bcc" className="bcc" src={bcc}/>
               </div>
               <div className="messages1edit">
