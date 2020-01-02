@@ -41,7 +41,7 @@ export default class Footer extends Component {
    </p>
   </div>
   <div className="footerRights">
-    <p>© Validity 2019. All rights reserved.</p>
+    <p>© Validity 2020. All rights reserved.</p>
   </div>
  </FooterBase>
   )

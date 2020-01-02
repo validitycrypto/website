@@ -11,7 +11,6 @@ import Confirmation from "../components/confirmation";
 import Input from '../components/input';
 
 import Paper from '@material-ui/core/Paper';
-import Modal from "@atlaskit/modal-dialog";
 import Button from '@atlaskit/button'
 
 const airdropParameters = [
@@ -52,15 +51,6 @@ class Airdrop extends Component {
 
    embedState = (_event) => {
      this.state.airdropMetadata[this.state.email][_event.target.name] = _event.target.value
-   }
-
-   scrollForm = (event) => {
-     var currentState = document.getElementsByClassName("formBody")[0].style.transform;
-     var newValue = parseInt(currentState.replace(/\D/g,''));
-     if(currentState === "") newValue = -1 * 100;
-     else if(newValue > 750) newValue = 0;
-     else newValue = -1 * (newValue + 75);
-     document.getElementsByClassName("formBody")[0].style.transform = `translateY(${newValue}px)`;
    }
 
    submitApplication = async() => {
@@ -136,10 +126,10 @@ class Airdrop extends Component {
         <div className="navigationPage">
           <Paper style={{ backgroundColor: "#906eff"}} className="formBody">
             <header div className="formHeader">
-              <h1> AIRDROP TIER: 1; AIRDROP ROUND: 3</h1>
+              <h1> AIRDROP TIER 1, ROUND 3</h1>
               <h5> DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION. ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</h5>
             </header>
-            <Input textComponent='Your email address' triggerFunction={this.embedState} icon={faEnvelope} name='email' label='E-Mail Adddress' />
+            <Input textComponent='Your email address' triggerFunction={this.embedKey} icon={faEnvelope} name='email' label='E-Mail Adddress' />
             <Input textComponent={AIRDROP_TELEGRAM} triggerFunction={this.embedState} icon={faTelegramPlane} name='telegram' label='Telegram Username' />
             <Input textComponent={AIRDROP_DISCORD} triggerFunction={this.embedState} icon={faDiscord} name='discord' label='Discord Username' />
             <Input textComponent={AIRDROP_TWITTER} triggerFunction={this.embedState} icon={faTwitter} name='twitter' label='Twitter Username' />
