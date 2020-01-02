@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styled from 'styled-components';
 
+import { PURPLE_PRIMARY } from '../constants/palette';
 import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
 import { faLeaf, faBullhorn, faEnvelope } from"@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -8,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const FooterBase = styled.footer`
   -webkit-box-shadow: -1px 0px 15px -3px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 0px 15px -3px rgba(0, 0, 0, 0.75);
-  background: rgba(129, 90, 255, 1);
+  background: ${PURPLE_PRIMARY};
   display: inline-block;
   color: white;
   height: auto;

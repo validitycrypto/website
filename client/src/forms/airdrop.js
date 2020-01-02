@@ -1,6 +1,8 @@
 import React, { Fragment, Component } from "react";
 
 import { AIRDROP_WALLET, AIRDROP_TWITTER, AIRDROP_FACEBOOK, AIRDROP_TELEGRAM, AIRDROP_DISCORD } from '../constants/forms';
+import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../constants/palette';
+
 import { faTelegramPlane, faDiscord, faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faWallet } from"@fortawesome/free-solid-svg-icons"
 import { firebaseConfiguration } from "../utils/firebaseConfig"
@@ -26,11 +28,6 @@ class Airdrop extends Component {
       super(props)
       this.state = {
         airdropMetadata: {},
-        formActions: [
-          { text: "Submit", onClick: this.submitApplication },
-          { text: "Refuse", onClick: this.refuseApplication },
-        ],
-        errorLog: []
       }
  }
 
@@ -55,7 +52,6 @@ class Airdrop extends Component {
 
    submitApplication = async() => {
      var targetComponent = document.getElementsByName("email")[0];
-     console.log(this.state.firebaseDb);
 
      targetComponent.style.background = "";
      targetComponent.style.border = "";
@@ -115,7 +111,7 @@ class Airdrop extends Component {
       if(submitState){
         return(
           <div className="navigationPage">
-            <div className="verifiedTitle" color="#5aff9c">Application successful</div>
+            <div color={GREEN_SECONDARY}>Application successful</div>
             <div className="confirmationState">
               <Confirmation />
             </div>
@@ -124,7 +120,7 @@ class Airdrop extends Component {
       } else {
         return(
         <div className="navigationPage">
-          <Paper style={{ backgroundColor: "#906eff"}} className="formBody">
+          <Paper style={{ backgroundColor: PURPLE_SECONDARY }} className="formBody">
             <header div className="formHeader">
               <h1> AIRDROP TIER 1, ROUND 3</h1>
               <h5> DISCLAIMER: ALL PARAMETERS MUST BE CORRECT TO BE COMPLIANT OF THE AIRDROP DISTRIBUTION. ANY INCORRECT INFORMATION WILL BE FOLLOWED UP AND IF NO SWIFT REPSONSE FROM THE APPLICANT THEY WILL BE EXCLUDED.</h5>

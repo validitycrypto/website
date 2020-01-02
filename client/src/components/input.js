@@ -14,6 +14,7 @@ export default class Input extends Component {
     return (
       <div className="formInput">
         <FieldText shouldFitContainer="true" label={label} required onChange={triggerFunction} name={name}/>
+
         {textComponent &&(<div className="formLabel">
           <FontAwesomeIcon icon={icon} color="#ffffff" size="lg"/>&nbsp;&nbsp;&nbsp;{textComponent}
         </div>)}
