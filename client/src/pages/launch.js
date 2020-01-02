@@ -44,7 +44,8 @@ class Launch extends Component {
      re-enforce this statement. We are sad to say that our Strategist Halmat, has taken it under his own authority to
      step back from the Validity core team, to incentivize our non-bias ideology within our workforce with
      external assets. We wish the best with his future with Ethergem. </p>
-     <div className="newsBase">
+     </div>
+     <br></br>
      <p> Onto the more impeding matters at had; our porting to Ethereum, the depiction of our future product, plans for
      exchange listings, aspirations for funding opportunities, airdrop allocation reformation, community alignment and
      finally team onboarding.</p>
@@ -191,8 +192,6 @@ class Launch extends Component {
       </li>
       </ul>
       <p> Onwards! </p>
-     </div>
-     </div>
      </Paper>
    )
   }

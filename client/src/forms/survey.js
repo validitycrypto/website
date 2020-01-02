@@ -1,18 +1,18 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment, Component } from 'react';
 
-import FieldText from "@atlaskit/field-text";
+import FieldText from '@atlaskit/field-text';
 import Paper from '@material-ui/core/Paper';
 
-import Confirmation from "../components/confirmation";
+import Confirmation from '../components/confirmation';
 import Option from '../components/option';
 import Input from '../components/input';
 
-import { PURPLE_SECONDARY, GREEN_SECONDARY} from '../constants/palette';
+import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../constants/palette';
 import { SURVEY_OPTIONS } from '../constants/forms';
 
-import { firebaseConfiguration } from "../utils/firebaseConfig"
-import firebase from "firebase"
-import ReactGA from "react-ga";
+import { firebaseConfiguration } from '../utils/firebaseConfig'
+import firebase from 'firebase'
+import ReactGA from 'react-ga';
 
 class Survey extends Component {
   constructor(props){
@@ -31,7 +31,7 @@ class Survey extends Component {
 
     if(!state) {
      const firebaseDb = firebase.initializeApp(
-      firebaseConfiguration("survey"), "Survey"
+      firebaseConfiguration('survey'), 'Survey'
     ); this.setState({
       firebaseDb: firebaseDb.firestore()
      });
@@ -45,7 +45,7 @@ class Survey extends Component {
   firebaseValidity = async() => {
     var validity;
     await firebase.apps.forEach((value, index) => {
-     if(value.name === "Survey") validity = true;
+     if(value.name === 'Survey') validity = true;
      else if(index === firebase.apps.length-1) validity = false;
    }); return validity
   }
@@ -66,21 +66,21 @@ class Survey extends Component {
   }
 
   submitApplication = async() => {
-    var targetComponent = document.getElementsByName("email")[0];
-    targetComponent.style.background = "";
-    targetComponent.style.border = "";
+    var targetComponent = document.getElementsByName('email')[0];
+    targetComponent.style.background = '';
+    targetComponent.style.border = '';
     if(!this.state.surveyMetadata[this.state.email]){
-      targetComponent.style.background = "rgba(255, 171, 0, 0.5)";
-      targetComponent.style.border = "5px solid rgba(255, 171, 0, 0.25)";
+      targetComponent.style.background = 'rgba(255, 171, 0, 0.5)';
+      targetComponent.style.border = '5px solid rgba(255, 171, 0, 0.25)';
     } else {
       var inputData = Object.entries(this.state.surveyMetadata);
       await this.state.firebaseDb.collection(inputData[0][0])
       .add(inputData[0][1]).then((docRef) => {
-        console.log("Document written: ", docRef.id);
+        console.log('Document written: ', docRef.id);
         this.props.triggerModal();
         this.props.triggerSubmit();
       }).catch((error) =>{
-        console.error("Error adding document: ", error);
+        console.error('Error adding document: ', error);
       }); ReactGA.event({
        category: 'Navigation',
        action: 'Survey',
@@ -89,33 +89,23 @@ class Survey extends Component {
     }
   }
 
-  refuseApplication = async() => {
-     await this.props.triggerModal();
-     ReactGA.event({
-       category: 'Navigation',
-      action: 'Survey',
-      label: 'Refuse'
-    });
-  }
-
-
   render() {
     const { submitState, triggerSubmit } = this.props;
 
       if(submitState){
         return(
-          <div className="navigationPage">
+          <div className='navigationPage'>
             <div color={GREEN_SECONDARY}>Application successful</div>
-            <div className="confirmationState">
+            <div className='confirmationState'>
               <Confirmation />
             </div>
          </div>
        );
       } else {
         return(
-          <div className="navigationPage">
-            <Paper style={{ backgroundColor: PURPLE_SECONDARY }} className="formBody">
-            <header className="formHeader">
+          <div className='navigationPage'>
+            <Paper style={{ backgroundColor: PURPLE_SECONDARY }} className='formBody'>
+            <header className='formHeader'>
               <h1> Validity Survey </h1>
               <h5>TO BE COMPLIANT FOR COMPENSATION, ONE MUST ANSWER ALL QUESTIONS.</h5>
               <h5>Earn VLDY tokens for providing expierences from investing in cryptoassets.</h5>

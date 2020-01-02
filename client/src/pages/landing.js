@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import Page, { Grid, GridColumn } from "@atlaskit/page";
+import Page  from "@atlaskit/page";
 import vldy from "../assets/images/vldy.png"
+import Grid from '@material-ui/core/Grid';
 
 class Landing extends Component {
   constructor(props){
@@ -14,13 +15,19 @@ class Landing extends Component {
     return(
       <div className="landingPage">
         <Page>
-          <Grid layout="fluid">
-            <GridColumn>
+          <Grid container direction="row" alignItems='center' justify="center">
+            <Grid item>
               <div className="landingBranding">
-                <img alt="landingLogo" className="landingLogo" src={vldy}/>
-                <p className="landingTitle">Validity</p>
+                <Grid container direction="column">
+                  <Grid item>
+                    <img alt="landingLogo" className="landingLogo" src={vldy}/>
+                  </Grid>
+                  <Grid>
+                    <p className="landingTitle">Validity</p>
+                  </Grid>
+                </Grid>
               </div>
-            </GridColumn>
+            </Grid>
           </Grid>
         </Page>
       </div>
