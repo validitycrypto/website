@@ -15,18 +15,12 @@ class Landing extends Component {
     return(
       <div className="landingPage">
         <Page>
-          <Grid container direction="row" alignItems='center' justify="center">
+          <Grid container direction="column" justify='space-between' alignItems='center'>
             <Grid item>
-              <div className="landingBranding">
-                <Grid container direction="column">
-                  <Grid item>
-                    <img alt="landingLogo" className="landingLogo" src={vldy}/>
-                  </Grid>
-                  <Grid>
-                    <p className="landingTitle">Validity</p>
-                  </Grid>
-                </Grid>
-              </div>
+              <img alt="landingLogo" className="landingLogo" src={vldy}/>
+            </Grid>
+            <Grid item>
+              <label className="landingTitle">Validity</label>
             </Grid>
           </Grid>
         </Page>
