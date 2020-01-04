@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 import { faThumbtack, faFlask, faChartArea, faChartLine, faFeatherAlt, faCoins, faTag, faSitemap, faFileInvoice, faCalendar, faBalanceScale } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Page, { Grid, GridColumn } from "@atlaskit/page"
+import Grid from '@material-ui/core/Grid';
+import Page from "@atlaskit/page"
 
 import PieChart from "react-minimal-pie-chart"
 import SectionMessage from "@atlaskit/section-message";
+import Spline from "../components/spline";
 
 const tokenData = [
     { title: "Airdrop Tier 1", value: 30, color: "#00d076" },
@@ -88,53 +90,64 @@ class PageSix extends Component {
     return(
       <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
         <Page>
-          <Grid layout="compact">
-            <GridColumn>
-            <div className="pageBody">
-              <div className="h4">
-                <FontAwesomeIcon icon={faFlask} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
-              </div>
-              <div className="tokenChart">
-                  {this.state.chartComponent}
-              </div>
-                {this.state.metaData.value !== false && (
-                  <div className="modalToken">
-                    <SectionMessage appearance="change">
-                      <p>{this.state.metaData.title}: {this.state.metaData.value}%</p>
-                    </SectionMessage>
-                  </div>
-                )}
-                <p className="tokenOne">
-                  <FontAwesomeIcon icon={faFileInvoice} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
-                  Address: <a target="_blank" href="https://etherscan.io/token/0x904da022abcf44eba68d4255914141298a7f7307">
-                    <b>0x904da022abcf44eba68d4255914141298a7f7307</b><
-                  /a>
-                </p>
-                <p className="tokenTwo">
-                  Supply: <b>50,600,000,000</b>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faCoins} color="#815aff" size="lg"/>
-                </p>
-                <p className="tokenThree">
-                  Network: <b>Ethereum</b>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color="#815aff" size="lg"/>
-                </p>
-                <p className="tokenFour">
-                  Type: <b>ERC20d</b>
-                  &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faTag} color="#815aff" size="lg"/>
-                </p>
-                <p className="tokenFive">
-                <FontAwesomeIcon icon={faFeatherAlt} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
-                  Ticker: <b>VLDY</b>
-                </p>
-                <p className="tokenSix">
-                <FontAwesomeIcon icon={faThumbtack} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
-                  Decimals: <b>18</b>
-                </p>
-              </div>
-            </GridColumn>
+        <Grid container direction="column" justify='stretch'>
+
+          <Grid item>
+            <div className="h4">
+              <FontAwesomeIcon icon={faFlask} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
+            </div>
           </Grid>
-        </Page>
-      </div>
+
+          <Grid item container direction='row' justify='space-between'>
+
+            <Grid item>
+              <div className="metricLeft">
+                <FontAwesomeIcon icon={faFileInvoice} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
+                <b>Address:</b> <a target="_blank" href="https://etherscan.io/token/0x904da022abcf44eba68d4255914141298a7f7307">
+                0x904da022abcf44eba68d4255914141298a7f7307</a>
+              </div>
+              <div className="metricLeft">
+                <FontAwesomeIcon icon={faCoins} color="#815aff" size="lg"/> &nbsp;&nbsp;&nbsp;
+                <b>Supply:</b> 50,600,000,000
+              </div>
+               <div className='marketStatistics'>
+                <b> <span className="emojiIcon">🦄</span>&nbsp;&nbsp;&nbsp;Liquidity Reserves </b>
+              </div>
+           </Grid>
+
+            <Grid item>
+              <div className="metricRight">
+                <b>Network:</b> Ethereum
+                &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faSitemap} color="#815aff" size="lg"/>
+              </div>
+              <div className="metricRight">
+                <b>Symbol:</b> VLDY
+                &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faFeatherAlt} color="#815aff" size="lg"/>
+              </div>
+              <div className="metricRight">
+                <b>Decimals:</b> 18
+                &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faThumbtack} color="#815aff" size="lg"/>
+              </div>
+            </Grid>
+
+          </Grid>
+
+          <Grid item>
+            <div className="tokenChart">
+              <label className="metaTitle">
+                {this.state.metaData.title}
+                <span class="metaValue">
+                  {this.state.metaData.value}%
+                </span>
+              </label>
+              {this.state.chartComponent}
+            </div>
+            <Spline />
+          </Grid>
+
+        </Grid>
+      </Page>
+    </div>
     )
   }
 }

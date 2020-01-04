@@ -230,7 +230,7 @@
     width: 72.5vw;
   }
 
-  .lines1 {
+  .lines {
     width: 42.5vw;
     left: 20vw;
     top: 20vh;
@@ -1171,7 +1171,7 @@
       width: 70vw;
     }
 
-    .lines1 {
+    .lines {
       width: 40vw;
       left: 20vw;
       top: 22.5vh;
@@ -1866,7 +1866,7 @@
       width: 70vw;
     }
 
-    .lines1 {
+    .lines {
       width: 40vw;
       left: 20vw;
       top: 22.5vh;

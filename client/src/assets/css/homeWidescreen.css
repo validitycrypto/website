@@ -41,10 +41,6 @@
     top: -115vh;
   }
 
-  .landingTitle {
-    top: -40vh;
-  }
-
   .eth {
     width: 2.25vw;
   }
@@ -54,7 +50,7 @@
     font-size: 1.5em;
   }
 
-  .lines1 {
+  .lines {
     top: 25vh;
   }
 
@@ -148,24 +144,14 @@
   }
 
   .landingLogo {
-    width: 65vw;
-  }
-
-  .landingBranding {
-    top: -27.5vh;
-    right: 15vw;
+    width: 32.5vw;
+    padding: 12.5em;
   }
 
   .landingTitle {
-    top: -40vh;
     font-size: 4vw;
   }
-
-
-  .h1, .h2, .h3, .h4, .h5, .h6 {
-    padding-bottom: 2.5vw;
-  }
-
+  
   .angelList, .linkedin, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
     border-width: .25vw;
     width: 2.75vw;
@@ -221,7 +207,7 @@
     top: 35vh;
   }
 
-  .lines1 {
+  .lines {
     top: 30vh;
   }
 

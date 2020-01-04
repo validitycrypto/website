@@ -11,6 +11,11 @@ body .Button__StyledButton-sc-1o41kgk-0 {
   color: white !important;
 }
 
+.chartWrapper {
+  padding-left: 2em;
+  width: 25em;
+}
+
 a {
   color: yellow;
 }
@@ -48,6 +53,37 @@ a {
   display:flex;
   flex-direction:row;
   margin-left: 5vw;
+}
+
+.metricLeft {
+  padding-left: 2em;
+  padding-bottom: 1.25em;
+}
+
+.metricRight {
+  padding-right: 3.75em;
+  padding-bottom: 1.25em;
+  text-align: right;
+}
+
+.traitLeftAlt {
+  padding-bottom: 4em;
+  padding-left: 2em;
+}
+
+.traitRightAlt {
+  padding-bottom: 4em;
+  padding-right: 5em;
+}
+
+.traitLeft {
+  padding-left: 3.75em;
+  padding-bottom: 4em;
+}
+
+.traitRight {
+  padding-right: 6.25em;
+  padding-bottom: 4em;
 }
 
 .fUkahW {
@@ -344,10 +380,9 @@ body {
 .landingPage {
   position: absolute;
   width: 100vw;
+  padding: .75em;
   top: -87.5vh;
   z-index: -100;
-  clear: both;
-  display: block;
 }
 
 .pageSelect {
@@ -463,25 +498,29 @@ body {
   font-size: 3.75vw;
 }
 
-.page1-body {
+.pagePoint {
   font-size: 1.75vw;
-  padding: 0em 2.5em;
-  width: 30em;
+  padding: .75em 2.5em;
+  padding-top: 0em;
+  width: 50%;
 }
 
-.pagePoint {
-  padding-bottom: 2.5vh;
+.codecommunal {
+  font-size: 1.75vw;
+  padding-left: 2em;
+  padding-bottom: 2.5em;
+  width: 95%;
 }
 
 .traitPoint {
-  padding-bottom: 5vh;
-
+  padding: .675em 2.25em;
+  font-size: 2.75vw;
 }
 
 .validatingGraphic {
   display: inline-block;
   position: absolute;
-  top: 20%;
+  top: 22.5%;
   left: 55%;
 }
 
@@ -552,13 +591,16 @@ body {
   z-index: 10;
 }
 
-.worldWrapper {
-
+.world {
+  display: inline-block;
+  width: 42.5vw;
 }
 
-.world {
+.worldWrapper {
   animation: pulse 1s infinite;
-  width: 50vw;
+  position: absolute;
+  left: 45%;
+  top: 45%;
 }
 
  .h2, .h3, .h4, .h5, .h6 {
@@ -575,25 +617,9 @@ body {
   width: 100vw;
   padding-top: 5vw;
   margin-bottom: 5vw;
+  font-size: 1.75vw;
   z-index: 0;
 }
-
-.pageBody {
-  position: relative;
-  font-size: 1.75vw;
-  left: 5vw;
-  width: 80vw;
-  top: 7.5vh;
-}
-
-.teamBody {
-  position: relative;
-  display: inline-block;
-  width: 90%;
-  left: 5vw;
-  top: 7.5vh;
-}
-
 
 .formInput {
   margin-top: 3.75vh;
@@ -615,40 +641,15 @@ body {
   color: white;
 }
 
-.stageOne{
-  position: absolute;
-  text-align: left;
-  top: 7.5vw;
-}
-
-.stageTwo {
-  position: absolute;
-  text-align: left;
-  top: 15vw;
-}
-
-.stageThree {
-  position: absolute;
-  text-align: left;
-  top: 22.5vw;
-}
-
-
-.stageFour {
-  position: absolute;
-  text-align: left;
-  top: 30vw;
-}
-
-.stageFive {
-  position: absolute;
-  text-align: left;
-  top: 37.5vw;
-}
-
 .stageText {
   position: relative;
+  width: 90%;
   left: 5vw;
+}
+
+.stageComponent {
+  padding: .75em 2em;
+  position: relative;
 }
 
 .resourceText {
@@ -718,54 +719,10 @@ body {
 }
 
 .daoGraphic {
-  float: right;
-  position: relative;
-  top: 13.75vh;
-  right: 22.5vw;
-  width: 30vw;
-}
-
-.traitOne{
   position: absolute;
-  text-align: left;
-  top: 15vh;
-  left: 2.5vw;
-}
-
-.traitTwo {
-  position: absolute;
-  text-align: left;
-  right: -1.5vw;
-  top: 15vh;
-
-}
-
-.traitThree {
-  position: absolute;
-  text-align: left;
-  top: 37.5vh;
-}
-
-.traitFour {
-  position: absolute;
-  text-align: left;
-  float: right;
-  top: 37.5vh;
-  right: -1.5vw;
-}
-
-.traitFive {
-  position: absolute;
-  text-align: left;
-  top: 65vh;
-  left: 2.5vw;
-}
-
-.traitSix {
-  position: absolute;
-  text-align: left;
-  top: 65vh;
-  right: -1.5vw;
+  width: 28.75vw;
+  top: 33.5%;
+  left: 36.5%;
 }
 
 .roadmapOne {
@@ -928,64 +885,52 @@ body {
 
 .tokenChart {
   position: absolute;
+  display: inline-block;
   width: 65vw;
-  left: 12.5vw;
-  right: 0;
-  top: -10vh;
+  top: -6.75vh;
+  left: 30%;
+}
+
+.emojiIcon {
+  font-size: 2.25vw;
+}
+
+.marketStatistics {
+  padding: 2em 2em;
+}
+
+.marketMetric {
+  padding-bottom: 1.25em;
 }
 
 .modalToken {
-  position: absolute;
-  width: 25vw;
-  top: 10vh;
-  left: 60vw;
+  position: relative;
+  max-width: 25em;
+  padding-left: 10em;
+  top: -.25em;
 }
 
-.tokenOne{
+.metaTitle {
   position: absolute;
-  text-align: left;
+  background: #815aff;
+  border-radius: 3.375em;
+  padding: 2.5em .5em;
+  text-align: center;
+  color: white;
+  width: 6.75em;
+  height: 6.75em;
+  top: 50%;
+  left: 75%;
 }
 
-.tokenTwo {
+.metaValue {
   position: absolute;
-  text-align: right;
-  top: 30vh;
-  right: -5vw;
-}
-
-.tokenThree {
-  position: absolute;
-  text-align: right;
-  top: 40vh;
-  right: -5vw;
-}
-
-
-.tokenFour {
-  position: absolute;
-  text-align: right;
-  top: 50vh;
-  right: -5vw;
-}
-
-.tokenFive {
-  position: absolute;
-  text-align: left;
-  top: 30vh;
-}
-
-.tokenSix {
-  position: absolute;
-  text-align: left;
-  top: 40vh;
-}
-
-
-.tokenData {
-  position: absolute;
-  font-size: 1.2vw;
-  top: 35vh;
-  left: 6.25vw;
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 1.875em;
+  background: #33ffa8;
+  padding: 1.25em .5em;
+  border: solid .25rem white;
 }
 
 .cardOne {
@@ -1034,14 +979,11 @@ body {
 }
 
 .desktopProduct {
-  position: absolute;
   width: 50vw;
-  left: 17.5vw;
-  top: 22.5vh;
+  padding: 1em;
 }
 
 .productTagline {
-  position: absolute;
   font-size: 2.25vw;
   font-style: italic;
   font-weight: bold;
@@ -1097,7 +1039,6 @@ body {
 
   .desktopProduct {
     width: 60vw;
-    left: 15vw;
   }
 
   .ui.card,
