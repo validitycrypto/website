@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
+import { faParachuteBox } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Page, { Grid, GridColumn } from "@atlaskit/page"
-
-import { faBookOpen, faMugHot, faCrosshairs, faRobot } from "@fortawesome/free-solid-svg-icons"
+import { Table } from 'semantic-ui-react'
+import Grid from '@material-ui/core/Grid';
+import Page from "@atlaskit/page"
 
 class PageSeven extends Component {
   constructor(props){
@@ -16,33 +17,84 @@ class PageSeven extends Component {
     return(
       <div className="page7">
         <Page>
-        <Grid layout="compact">
-          <GridColumn>
-            <div className="pageBody">
-              <div className="h5">
-                <FontAwesomeIcon icon={faBookOpen} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Resources
+          <Grid container direction="column" justify='space-around'>
+            <Grid item>
+              <div className="h4">
+                <FontAwesomeIcon icon={faParachuteBox} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Airdrops
               </div>
-              <a className="resourceOne" href="https://medium.com/@samuel.jj.gosling/what-is-communal-validation-and-why-does-it-matter-8634dcba2133">
-                <div className="resourceIcon"><FontAwesomeIcon icon={faMugHot} color="#815aff" size="sm"/></div>
-                <div className="resourceText" >
-                What is Communal Validation & why does it matter?
-                </div>
-              </a>
-              <a className="resourceTwo" href="https://medium.com/coinmonks/cryptocurrency-and-blockchain-red-flags-e0ba71885136">
-                <div className="resourceIcon" href=""><FontAwesomeIcon icon={faCrosshairs} color="#815aff" size="sm"/></div>
-                <div className="resourceText" >
-                Cryptocurrency & Blockchain red flags
-                </div>
-              </a>
-              <a className="resourceThree" href="https://github.com/validitycrypto/validity-hybrid-tipbot">
-                <div className="resourceIcon"><FontAwesomeIcon icon={faRobot} color="#815aff" size="sm"/></div>
-                <div className="resourceText" href="">
-                  Validity tipbot
-                </div>
-              </a>
-            </div>
-          </GridColumn>
-         </Grid>
+            </Grid>
+            <Grid item>
+              <div className="pageHeader">
+                Validity believes the optimal approach to a uniform distribution is the deliverance of assets with zero monetary incentive,
+                which is why 60% of the supply is distributed via airdrops. Only applicants that comply by the airdrop terms and conditions are
+                viable for compensation. You can apply for our airdrop <a>here</a>.
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="tableWrapper">
+                <label> Round Allocation </label>
+                <Table celled inverted selectable>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Tier</Table.HeaderCell>
+                      <Table.HeaderCell>Rounds</Table.HeaderCell>
+                      <Table.HeaderCell>Supply (%)</Table.HeaderCell>
+                      <Table.HeaderCell>Allocation (VLDY)</Table.HeaderCell>
+                   </Table.Row>
+                   </Table.Header>
+                   <Table.Body>
+                    <Table.Row>
+                      <Table.Cell>1</Table.Cell>
+                      <Table.Cell>8</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;3.75%</Table.Cell>
+                      <Table.Cell>1,897,500,000</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>2</Table.Cell>
+                      <Table.Cell>10</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;2%</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;1,265,000,000</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>3</Table.Cell>
+                      <Table.Cell>10</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;1%</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;506,000,000</Table.Cell>
+                    </Table.Row>
+                 </Table.Body>
+                </Table>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="tableWrapper">
+                <label> Concluded Rounds </label>
+                <Table celled inverted selectable>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Tier</Table.HeaderCell>
+                      <Table.HeaderCell>Round</Table.HeaderCell>
+                      <Table.HeaderCell>Participants</Table.HeaderCell>
+                      <Table.HeaderCell>Allocation (VLDY)</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    <Table.Row>
+                      <Table.Cell>1</Table.Cell>
+                      <Table.Cell>1</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;375</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5,060,000</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>1</Table.Cell>
+                      <Table.Cell>2</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;600</Table.Cell>
+                      <Table.Cell>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3,162,500</Table.Cell>
+                    </Table.Row>
+                  </Table.Body>
+                </Table>
+              </div>
+            </Grid>
+          </Grid>
         </Page>
       </div>
     )

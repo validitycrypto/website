@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-import { faThumbtack, faFlask, faChartArea, faChartLine, faFeatherAlt, faCoins, faTag, faSitemap, faFileInvoice, faCalendar, faBalanceScale } from "@fortawesome/free-solid-svg-icons"
+import { faThumbtack, faFlask, faFeatherAlt, faCoins, faSitemap, faFileInvoice } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Grid from '@material-ui/core/Grid';
 import Page from "@atlaskit/page"
 
 import PieChart from "react-minimal-pie-chart"
-import SectionMessage from "@atlaskit/section-message";
 import Spline from "../components/spline";
 
 const tokenData = [
@@ -22,7 +21,7 @@ class PageSix extends Component {
   constructor(props){
       super(props)
       this.state = {
-        metaData: { title: "Pick a chart value", value: false },
+        metaData: { title: "Pick a value", value: false },
         items: [{ key: [0, 1, 2, 3]}],
         chartComponent: <div/>,
         data: tokenData,
@@ -34,7 +33,7 @@ class PageSix extends Component {
         || (window.screen.height === 1366 && window.screen.width === 1024)
         || (window.screen.width < 600 )){
        await this.setState({
-         metaData: { title: "Pick a chart value", value: true },
+         metaData: { title: "Pick a value", value: true },
          chartComponent: this.renderChart(),
        })
      }
@@ -60,7 +59,7 @@ class PageSix extends Component {
      onMouseOut = (e, d, i) => {
        this.setState({
          metaData: {
-           title: "Pick a chart value",
+           title: "Pick a value",
            value: " "
          },
          data:
@@ -91,15 +90,12 @@ class PageSix extends Component {
       <div className="page6" onMouseOver={() => this.setState({ chartComponent: this.renderChart() })}>
         <Page>
         <Grid container direction="column" justify='stretch'>
-
           <Grid item>
             <div className="h4">
               <FontAwesomeIcon icon={faFlask} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Tokeneconomics
             </div>
           </Grid>
-
           <Grid item container direction='row' justify='space-between'>
-
             <Grid item>
               <div className="metricLeft">
                 <FontAwesomeIcon icon={faFileInvoice} color="#815aff" size="lg"/>&nbsp;&nbsp;&nbsp;
@@ -114,7 +110,6 @@ class PageSix extends Component {
                 <b> <span className="emojiIcon">🦄</span>&nbsp;&nbsp;&nbsp;Liquidity Reserves </b>
               </div>
            </Grid>
-
             <Grid item>
               <div className="metricRight">
                 <b>Network:</b> Ethereum
@@ -129,9 +124,7 @@ class PageSix extends Component {
                 &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faThumbtack} color="#815aff" size="lg"/>
               </div>
             </Grid>
-
           </Grid>
-
           <Grid item>
             <div className="tokenChart">
               <label className="metaTitle">
@@ -144,7 +137,6 @@ class PageSix extends Component {
             </div>
             <Spline />
           </Grid>
-
         </Grid>
       </Page>
     </div>

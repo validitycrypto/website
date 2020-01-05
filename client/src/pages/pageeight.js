@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 import { faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Page, { Grid, GridColumn } from "@atlaskit/page"
+import Grid from '@material-ui/core/Grid';
+import Page from "@atlaskit/page"
 
 import TeamCard from "../components/teamcard"
 
@@ -19,12 +20,14 @@ class PageEight extends Component {
     return(
       <div className="page8">
         <Page>
-          <Grid layout="compact">
-            <GridColumn>
-              <div className="teamBody">
-                <div className="h4">
-                  <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Team
-                </div>
+          <Grid container direction="column" justify='space-around'>
+            <Grid item>
+              <div className="h4">
+                <FontAwesomeIcon icon={faUsers} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;Team
+              </div>
+            </Grid>
+            <Grid item container justify='center' alignItems='center'>
+              <Grid item>
                 <TeamCard data={{
                   class: "cardOne",
                   name: "Samuel JJ Gosling",
@@ -37,8 +40,8 @@ class PageEight extends Component {
                   discord: "https://discordapp.com/users/359835946491052037/",
                   github: "https://github.com/samgos"
                 }}/>
-              </div>
-            </GridColumn>
+              </Grid>
+            </Grid>
           </Grid>
         </Page>
       </div>
