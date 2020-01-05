@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { faGavel, faSnowboarding, faPaintBrush, faMale, faFemale } from "@fortawesome/free-solid-svg-icons"
 import { faReact, faEthereum, faPython } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Page, { Grid, GridColumn } from "@atlaskit/page"
+import Grid from '@material-ui/core/Grid';
+import Page from "@atlaskit/page"
 
 import outlineEth from "../assets/images/ethoutline.png"
 
@@ -20,15 +21,17 @@ class PageEleven extends Component {
     return(
     <div className="page11">
       <Page>
-        <Grid layout="compact">
-          <GridColumn>
-            <div className="pageBody">
-              <div className="h3">
-                <FontAwesomeIcon icon={faFemale} color="#815aff" size="xs"/>&nbsp;
-                <FontAwesomeIcon icon={faMale} color="#815aff" size="xs"/>&nbsp;&nbsp;&nbsp;Get involved
-             </div>
-             <div className="ethereumWrapper"><img alt="ethereumLogo" className="ethereumLogo" src={outlineEth}/></div>
-             <Paper className="teamOnboarding">
+        <Grid container direction="column" justify='strech'>
+          <Grid item>
+            <div className="h3">
+              <FontAwesomeIcon icon={faFemale} color="#815aff" size="xs"/>&nbsp;
+              <FontAwesomeIcon icon={faMale} color="#815aff" size="xs"/>&nbsp;&nbsp;&nbsp;Get involved
+            </div>
+          </Grid>
+          <Grid item container direction='row' justify='stretch' alignItems='center'>
+            <Grid>
+             <div className="modalLeft">
+              <Paper className="teamOnboarding">
                <p>Do you think you have what it takes to join our team?</p>
                <br></br>
                <p> We are looking for innovational and committed people to help make Validity a reality. The onboarding process for one to become appicable requires a face to face interview with our founder. </p>
@@ -36,8 +39,15 @@ class PageEleven extends Component {
                <p> If you are interested please send your resume and a short bio to:</p>
                <br></br>
                <p><a href="mailto:team@vldy.org"><b>team@vldy.org</b></a></p>
-             </Paper>
-             <Paper className="desiredTraits">
+              </Paper>
+             </div>
+            </Grid>
+            <Grid item>
+              <div className="ethereumWrapper"><img alt="ethereumLogo" className="ethereumLogo" src={outlineEth}/></div>
+            </Grid>
+            <Grid item>
+             <div className="modalRight">
+               <Paper className="desiredTraits">
                <p><b><i>We are looking people with specialisation in...</i></b></p>
                <br></br><p><FontAwesomeIcon icon={faPython} color="#815aff" size="1x"/><span className="traitText">Machine learning</span></p>
                <br></br><p><FontAwesomeIcon icon={faSnowboarding} color="#815aff" size="1x"/><span className="traitText">Growth hacking</span></p>
@@ -45,9 +55,10 @@ class PageEleven extends Component {
                <br></br><p><FontAwesomeIcon icon={faReact} color="#815aff" size="1x"/><span className="traitText">React.js</span></p>
                <br></br><p>&nbsp;<FontAwesomeIcon icon={faEthereum} color="#815aff" size="1x"/><span className="traitText">Solidity</span></p>
                <br></br><p><FontAwesomeIcon icon={faGavel} color="#815aff" size="1x"/><span className="traitText">Law</span></p>
-             </Paper>
-           </div>
-         </GridColumn>
+              </Paper>
+             </div>
+            </Grid>
+          </Grid>
         </Grid>
       </Page>
      </div>

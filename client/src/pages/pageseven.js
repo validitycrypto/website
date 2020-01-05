@@ -26,8 +26,8 @@ class PageSeven extends Component {
             <Grid item>
               <div className="pageHeader">
                 Validity believes the optimal approach to a uniform distribution is the deliverance of assets with zero monetary incentive,
-                which is why 60% of the supply is distributed via airdrops. Only applicants that comply by the airdrop terms and conditions are
-                viable for compensation. You can apply for our airdrop <a>here</a>.
+                which is why 60% of the supply is distributed via airdrops. Only applicants that comply by the airdrop <a>terms and conditions</a>
+                &nbsp;are viable for compensation. You can apply for our airdrop <a>here</a>.
               </div>
             </Grid>
             <Grid item>

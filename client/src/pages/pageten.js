@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Page, { Grid, GridColumn } from "@atlaskit/page"
+import Grid from '@material-ui/core/Grid';
+import Page from "@atlaskit/page"
 
 import { faBookOpen } from "@fortawesome/free-solid-svg-icons"
 
@@ -18,15 +19,17 @@ class PageTen extends Component {
     return(
       <div className="page10">
         <Page>
-        <Grid layout="compact">
-          <GridColumn>
-            <div className="pageBody">
+          <Grid container direction="column" justify='strech'>
+            <Grid item>
               <div className="h5">
                 <FontAwesomeIcon icon={faBookOpen} color="#815aff" size="sm"/>&nbsp;&nbsp;&nbsp;FAQ
               </div>
-              <Accordion />
-            </div>
-          </GridColumn>
+            </Grid>
+            <Grid item>
+              <div className="accordionWrapper">
+                <Accordion />
+              </div>
+            </Grid>
          </Grid>
         </Page>
       </div>

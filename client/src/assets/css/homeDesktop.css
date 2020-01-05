@@ -7,6 +7,15 @@
   font-size: 14px;
 }
 
+.fUkahW a {
+  color: #815aff;
+  z-index: 100;
+}
+
+.fUkahW a:hover {
+  color: yellow;
+}
+
 body .Button__StyledButton-sc-1o41kgk-0 {
   color: white !important;
 }
@@ -32,8 +41,10 @@ a {
 
 .accordionComponent {
   font-size: .875em !important;
-  left: 3vw;
-  right: 0;
+}
+
+.accordionWrapper {
+  padding: 2.5em;
 }
 
 .submissionVerification {
@@ -249,6 +260,7 @@ body {
 .pageComponent {
     position: relative;
 }
+
 
 .ui.card,
 .ui.cards>.card {
@@ -737,35 +749,35 @@ body {
 
 .roadmapOne {
   position: absolute;
-  left: 5vw;
+  left: 5em;
 }
 
 .roadmapTwo {
-  position: absolute;
-  left: 37.5vw;
+  position: relative;
+  padding-right: 5.875em;
 }
 
 .roadmapThree {
   position: absolute;
-  left: 70vw;
+  left: 82.5%;
 }
 
 .roadmapFour {
   position: absolute;
-  left: 5vw;
-  top: 50vh;
+  left: 5em;
+  top: 75%;
 }
 
 .roadmapFive {
-  position: absolute;
-  left: 37.5vw;
-  top: 50vh;
+  position: relative;
+  top: 42.5vh;
+  right: 2.95em;
 }
 
 .roadmapSix {
   position: absolute;
-  left: 70vw;
-  top: 50vh;
+  left: 82.5%;
+  top: 75%;
 }
 
 .logoOne {
@@ -800,96 +812,97 @@ body {
 .lineOne {
   position: absolute;
   border-top: 5px dotted #815aff;
-  left: 12.5vw;
-  width: 27.5vw;
-  top: 27.5vh;
+  width: 22.5em;
   z-index: -1;
+  left: 10%;
+  top: 40%;
 }
 
 .lineTwo {
   position: absolute;
   border-top: 5px dotted #815aff;
-  left: 45vw;
-  width: 27.5vw;
-  top: 27.5vh;
+  width: 22.5em;
   z-index: -1;
+  top: 40%;
+  left: 50%;
 }
 
 .lineThree {
   position: absolute;
   border-top: 5px dotted #815aff;
-  left: 12.5vw;
-  width: 65vw;
-  top: 45vh;
-  z-index: -1;
   transform: rotate(-15deg);
+  width: 41.25em;
+  z-index: -1;
+  top: 67.5%;
+  left: 15%;
 }
 
 .lineFour{
   position: absolute;
   border-top: 5px dotted #815aff;
-  left: 12.5vw;
-  width: 27.5vw;
-  top: 65vh;
+  width: 22.5em;
   z-index: -1;
+  left: 12.5%;
+  top: 93.75%;
 }
 
 
 .lineFive{
   position: absolute;
   border-top: 5px dotted #815aff;
-  left: 45vw;
-  width: 27.5vw;
-  top: 65vh;
+  width: 22.5em;
+  top: 93.75%;
   z-index: -1;
+  left: 50%;
 }
 
 
 .circleRoadmap {
   position: absolute;
+  width: 4.5em;
   top: 7.5vh;
 }
 
 .modalOne {
   position: absolute;
-  width: 20vw;
-  top: 35vh;
-  left: .5vw;
+  width: 10em;
+  left: 3.875%;
+  top: 50%;
 }
 
 .modalTwo {
   position: absolute;
-  width: 20vw;
-  left: 31.75vw;
-  top: .5vh;
+  width: 10em;
+  left: 41.25%;
+  top: 50%;
 }
 
 .modalThree {
   position: absolute;
-  width: 20vw;
-  left: 65vw;
-  top: .5vh;
+  width: 10em;
+  left: 77.5%;
+  top: 50%;
 }
 
 .modalFour {
   position: absolute;
-  width: 20vw;
-  top: 37.5vh;
-  left: .5vw;
+  width: 10em;
+  left: 3.875%;
+  top: 57.5%;
 }
 
 .modalFive {
   position: absolute;
-  width: 20vw;
-  left: 31.75vw;
-  top: 71.5vh;
+  width: 10em;
+  left: 41.25%;
+  top: 57.5%;
 }
 
 .modalSix {
   position: absolute;
-  width: 20vw;
-  left: 65vw;
-  top: 71.5vh;
+  width: 10em;
+  left: 77.5%;
+  top: 57.5%;
 }
 
 
@@ -968,11 +981,29 @@ body {
   -o-border-image: -o-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Opera 11.10 */
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
-  position: absolute;
   font-size: 1.75vw;
-  width: 30vw;
-  padding: 1.5vw;
-  top: 17.5vh;
+  width: 17.5em;
+  padding: 1em;
+}
+
+.modalLeft {
+  position: absolute;
+  padding: 0em .5em 0em .5em;
+  display: inline-block;
+  left: 5%;
+  top: 25%;
+}
+
+.modalRight {
+  position: absolute;
+  padding: 0em .5em 0em .5em;
+  display: inline-block;
+  left: 62.5%;
+  top: 25%;
+}
+
+.float-right {
+  left: 75%;
 }
 
 .desiredTraits {
@@ -983,12 +1014,9 @@ body {
   -o-border-image: -o-linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%); /* Opera 11.10 */
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
-  position: absolute;
   font-size: 1.75vw;
-  right: -5vw;
-  width: 30vw;
-  padding: 1.5vw;
-  top: 17.5vh;
+  width: 17.5em;
+  padding: 1em;
 }
 
 .desktopProduct {
@@ -1025,8 +1053,8 @@ body {
 }
 
 .ethereumWrapper {
-  position: absolute;
-  top: 15vh;
+  position: relative;
+  left: 3.75em;
 }
 
 
