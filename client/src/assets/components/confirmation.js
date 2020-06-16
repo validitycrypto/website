@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Lottie from 'react-lottie';
 
-import * as animation from "../assets/animations/confirmation.json";
+import * as animation from "../animations/confirmation.json";
 
 const defaultOptions = {
     animationData: animation.default,

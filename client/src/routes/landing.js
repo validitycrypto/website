@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Page  from "@atlaskit/page";
 import vldy from "../assets/images/vldy.png"
 import Grid from '@material-ui/core/Grid';
-import Social from "../components/social"
+import Social from "../assets/components/social"
 
 class Landing extends Component {
   constructor(props){

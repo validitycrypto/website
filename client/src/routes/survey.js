@@ -9,12 +9,12 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from "@atlaskit/button";
 
-import Confirmation from '../components/confirmation';
-import Option from '../components/option';
-import Input from '../components/input';
+import Confirmation from '../assets/components/confirmation';
+import Option from '../assets/components/option';
+import Input from '../assets/components/input';
 
-import { SURVEY_OPTIONS, GENDER_OPTIONS, PROJECT_OPTIONS, CALENDER_OPTIONS, CURRENCY_OPTIONS } from '../constants/forms';
-import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../constants/palette';
+import { SURVEY_OPTIONS, GENDER_OPTIONS, PROJECT_OPTIONS, CALENDER_OPTIONS, CURRENCY_OPTIONS } from '../assets/constants/forms';
+import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../assets/constants/palette';
 
 import { firebaseConfiguration } from '../utils/firebaseConfig'
 import firebase from 'firebase'

@@ -1,8 +1,8 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AIRDROP_WALLET, AIRDROP_TWITTER, AIRDROP_FACEBOOK, AIRDROP_TELEGRAM, AIRDROP_DISCORD } from '../constants/forms';
-import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../constants/palette';
+import { AIRDROP_WALLET, AIRDROP_TWITTER, AIRDROP_FACEBOOK, AIRDROP_TELEGRAM, AIRDROP_DISCORD } from '../assets/constants/forms';
+import { PURPLE_SECONDARY, GREEN_SECONDARY } from '../assets/constants/palette';
 
 import { faTelegramPlane, faDiscord, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faAngleDoubleLeft, faEnvelope, faWallet } from'@fortawesome/free-solid-svg-icons'
@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import firebase from 'firebase'
 import ReactGA from 'react-ga';
 
-import Confirmation from '../components/confirmation';
-import Input from '../components/input';
+import Confirmation from '../assets/components/confirmation';
+import Input from '../assets/components/input';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';

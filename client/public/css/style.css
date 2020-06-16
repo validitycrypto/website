@@ -15,12 +15,8 @@ html {
 }
 
 
-
 #root {
-
-height: 100%;
-width: 100%;
-
+  width: 100%;
 }
 /**
  * Remove default margin.

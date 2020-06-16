@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react'
 
-import angellist from '../assets/images/angellist.png'
-import telegram from '../assets/images/telegram.png'
-import facebook from '../assets/images/facebook.png'
-import linkedin from '../assets/images/linkedin.png'
-import twitter from '../assets/images/twitter.png'
-import discord from '../assets/images/discord.png'
-import github from '../assets/images/github.png'
-import reddit from '../assets/images/reddit.png'
-import bct from '../assets/images/bct.png'
+import angellist from '../images/angellist.png'
+import telegram from '../images/telegram.png'
+import facebook from '../images/facebook.png'
+import linkedin from '../images/linkedin.png'
+import twitter from '../images/twitter.png'
+import discord from '../images/discord.png'
+import github from '../images/github.png'
+import reddit from '../images/reddit.png'
+import bct from '../images/bct.png'
 
 export default class Social extends Component {
   constructor(props) {
