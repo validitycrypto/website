@@ -1,0 +1,145 @@
+
+@media only screen and (max-width: 675px){
+
+  .linkedin, .angelList, .reddit {
+    display: none;
+  }
+
+  .navigationButton {
+    font-size: 3em;
+  }
+
+  .formBody {
+    font-size: 1.25em;
+  }
+
+.linkedin, .angelList, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+    width: 3.75em;
+    margin-left: 2em;
+  }
+
+  .discord {
+    margin-left: 0em;
+  }
+
+  .noticeHrefs {
+    margin-left: 0em;
+  }
+
+  .noticeHrefs li {
+    display: block;
+    font-size: 1.75em;
+    border: solid 5px #e9e8e8;
+    border-radius: 7.5px;
+    margin-bottom: .5em;
+    padding: 0em;
+  }
+
+  .noticeHrefs li a {
+    display: inline-block;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    padding-right: 0em;
+    padding-left: 0em;
+    text-align: center;
+    width: 100%;
+
+  }
+
+  .landingBranding {
+    margin-top: 0%;
+  }
+
+  .landingPage {
+    padding: 0em;
+    top: -87.5vh;
+  }
+
+  .socialHrefs {
+    margin-left: 0em;
+  }
+
+  .noticeHrefs {
+    padding-left: 0em;
+
+  }
+
+  .landingLogo {
+    width: 7.5em;
+    padding: 2.25em;
+    padding-left: 0em;
+  }
+
+  .landingTitle {
+    font-size: 7.5vw;
+    top: 3.75px;
+  }
+
+  .formBody {
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    padding: 5em 2.5em 5em 2.5em;
+  }
+
+  .navigationButton {
+    top: -10vh;
+    left: 5%;
+  }
+
+}
+
+
+/* iPhone5  */
+
+@media only screen and (device-height: 568px) and (device-width: 320px) {
+
+  .landingBranding {
+    margin-top: -8.75%;
+  }
+
+  .socialHrefs {
+    margin-top: -1em;
+  }
+
+  .linkedin, .angelList, .reddit, .github, .discord,  .telegram, .facebook, .twitter , .bct {
+    width: 3.25em;
+    margin-left: 2em;
+  }
+
+  .facebook  {
+    display: none;
+  }
+
+  .landingPage {
+    padding: 1em;
+    top: -97.5vh;
+  }
+
+}
+
+/* iPhone 6/7 */
+
+@media only screen and (device-height: 667px) and (device-width: 375px) { }
+
+/* iPhone 6/7+ */
+
+@media only screen and (device-height: 736px) and (device-width: 414px) { }
+
+/* iPhone X */
+
+@media only screen and (device-height: 812px) and (device-width: 375px) { }
+
+/* iPad */
+
+@media only screen and (device-width: 768px) and (device-height: 1024px) { }
+
+@media only screen and (device-width: 1024px) and (device-height: 1366px) { }
+
+/* Pixel 2*/
+
+@media only screen and (device-width: 411px) and (device-height: 731px) { }
+
+
+/* Pixel 2 XL*/
+
+@media only screen and (device-width: 411px) and (device-height: 823px) { }
